@@ -1,7 +1,7 @@
 {
-  "version": "4.0",
+  "version": "4.1",
   "updated": "2026-10-24",
-  "note": "面向 Windows/macOS 的 AI 客户端与命令行工具下载中心。分 6 个分组：桌面端 / Agents / IDE / CLI Code / 运行环境 / 开发环境。启动器按本机 x64 / ARM64 / x86 自动选包；同一软件的多套格式写在 variants 里（format: msi/setup/store/portable/zip，按此优先级自动挑默认）。mac 数组是 macOS 包，放在 安装包/<dir>/mac/ 下，Windows 启动器不读它。GitHub 条目优先解析 latest Release，urls 是备用直链。注意：部分工具（Codex CLI / OpenClaw / Aider / iFlow CLI / Gemini CLI 的 Windows 版）只有 npm 或 pip 安装方式，没有二进制包，已在其 tip 字段注明。",
+  "note": "面向 Windows/macOS 的 AI 客户端与命令行工具下载中心。分 8 个分组：桌面端 / Agents / IDE / CLI Code / 本地运行 / 实用工具 / 运行环境 / 开发环境。启动器按本机 x64 / ARM64 / x86 自动选包；同一软件的多套格式写在 variants 里（format: msi/setup/store/portable/zip，按此优先级自动挑默认）。mac 数组是 macOS 包，放在 安装包/<dir>/mac/ 下，Windows 启动器不读它。GitHub 条目优先解析 latest Release，urls 是备用直链。注意：部分工具（Codex CLI / OpenClaw / Aider / iFlow CLI / Gemini CLI 的 Windows 版）只有 npm 或 pip 安装方式，没有二进制包，已在其 tip 字段注明。",
   "apps": [
     {
       "id": "workbuddy",
@@ -751,6 +751,61 @@
       "tip": "官方只有 x64，没有 Windows ARM64 版。免安装版是 .7z，需要 7-Zip 解压；不想装 7-Zip 就用安装版"
     },
     {
+      "id": "zcode",
+      "name": "ZCode 桌面版",
+      "vendor": "Z.ai（智谱）",
+      "group": "桌面端",
+      "audience": "用 GLM 做编程和 Agent 工作流、想要官方桌面工作台的用户",
+      "recommend": true,
+      "reason": "GLM 官方 Harness，Windows x64 / ARM64 都有原生包，国内 CDN 直连快",
+      "desc": "Z.ai 官方 AI 编程工作台",
+      "dir": "ZCode",
+      "arch": "both",
+      "variants": [
+        {
+          "arch": "x64",
+          "format": "setup",
+          "file": "ZCode-3.16.3-win-x64.exe",
+          "size": "181.9 MB",
+          "urls": [
+            "https://cdn-zcode.z.ai/zcode/electron/releases/3.16.3/windows-x64/ZCode-3.16.3-win-x64.exe"
+          ]
+        },
+        {
+          "arch": "arm64",
+          "format": "setup",
+          "file": "ZCode-3.16.3-win-arm64.exe",
+          "size": "180.9 MB",
+          "urls": [
+            "https://cdn-zcode.z.ai/zcode/electron/releases/3.16.3/windows-arm64/ZCode-3.16.3-win-arm64.exe"
+          ]
+        }
+      ],
+      "mac": [
+        {
+          "arch": "arm64",
+          "format": "dmg",
+          "file": "ZCode-3.16.3-mac-arm64.dmg",
+          "size": "260.0 MB",
+          "urls": [
+            "https://cdn-zcode.z.ai/zcode/electron/releases/3.16.3/macos-arm64/ZCode-3.16.3-mac-arm64.dmg"
+          ]
+        },
+        {
+          "arch": "x64",
+          "format": "dmg",
+          "file": "ZCode-3.16.3-mac-x64.dmg",
+          "size": "273.6 MB",
+          "urls": [
+            "https://cdn-zcode.z.ai/zcode/electron/releases/3.16.3/macos-x64/ZCode-3.16.3-mac-x64.dmg"
+          ]
+        }
+      ],
+      "page": "https://zcode.z.ai/cn",
+      "needProxy": false,
+      "tip": "GLM-5.3 官方桌面 Harness。直链带版本号，新版发布后旧链接失效时从官网重新下载；开源仓库在 github.com/zai-org/ZCode"
+    },
+    {
       "id": "python",
       "name": "Python 3.13.10",
       "vendor": "Python 软件基金会",
@@ -988,6 +1043,23 @@
       "install": "web"
     },
     {
+      "id": "qoder",
+      "name": "Qoder",
+      "vendor": "阿里",
+      "group": "IDE",
+      "audience": "想要 Quest 自主代理模式的 AI IDE 用户",
+      "recommend": true,
+      "reason": "阿里出品的 agentic 编程平台，Quest 模式可托管完整开发任务，有免费额度",
+      "desc": "AI IDE（agentic 编程平台）",
+      "dir": "Qoder",
+      "arch": "both",
+      "variants": [],
+      "mac": [],
+      "page": "https://qoder.com/en/download",
+      "tip": "官网自动识别系统给对应安装包（Windows 10+ / macOS 12+ / Linux）。桌面产品线在整合：QoderWork 已宣布 2027-09 停止运营并向 Qoder Desktop 迁移，下载页以最新指引为准",
+      "install": "web"
+    },
+    {
       "id": "claude-code",
       "name": "Claude Code",
       "vendor": "Anthropic",
@@ -998,6 +1070,7 @@
       "desc": "Anthropic 官方命令行编程助手",
       "dir": "Claude Code",
       "arch": "both",
+      "github": "anthropics/claude-code",
       "variants": [
         {
           "arch": "x64",
@@ -1052,6 +1125,7 @@
       "desc": "Google 官方命令行 AI 助手",
       "dir": "Gemini CLI",
       "arch": "both",
+      "github": "google-gemini/gemini-cli",
       "variants": [],
       "mac": [
         {
@@ -1087,6 +1161,8 @@
       "desc": "通义千问命令行编程工具",
       "dir": "Qwen Code",
       "arch": "x64",
+      "github": "QwenLM/qwen-code",
+      "versionCheck": "skip",
       "variants": [
         {
           "arch": "x64",
@@ -1119,7 +1195,7 @@
         }
       ],
       "page": "https://github.com/QwenLM/qwen-code",
-      "tip": "国内直连可下载。需要通义千问 API Key 或 DashScope 账号"
+      "tip": "国内直连可下载。需要通义千问 API Key 或 DashScope 账号。该仓库 releases/latest 指向 sdk 子包 tag，不代表应用最新版，版本检测已跳过"
     },
     {
       "id": "kimi-cli",
@@ -1132,6 +1208,7 @@
       "desc": "Kimi 命令行编程工具",
       "dir": "Kimi CLI",
       "arch": "both",
+      "github": "MoonshotAI/kimi-cli",
       "variants": [
         {
           "arch": "x64",
@@ -1186,6 +1263,7 @@
       "desc": "终端 AI agent 工具箱",
       "dir": "Pi",
       "arch": "both",
+      "github": "earendil-works/pi",
       "variants": [
         {
           "arch": "x64",
@@ -1308,6 +1386,7 @@
       "desc": "开源 AI Agent（桌面 + CLI）",
       "dir": "Goose",
       "arch": "x64",
+      "github": "aaif-goose/goose",
       "variants": [
         {
           "arch": "x64",
@@ -1353,6 +1432,7 @@
       "desc": "开源 AI 软件工程 Agent",
       "dir": "OpenHands",
       "arch": "x64",
+      "github": "OpenHands/OpenHands",
       "variants": [
         {
           "arch": "x64",
@@ -1379,6 +1459,7 @@
       "desc": "AI 编码 Agent（独立桌面版）",
       "dir": "Cline",
       "arch": "x64",
+      "github": "cline/cline",
       "variants": [
         {
           "arch": "x64",
@@ -1405,6 +1486,7 @@
       "desc": "Grok Build 的桌面封装（非官方）",
       "dir": "Grox",
       "arch": "x64",
+      "github": "dandandujie/Grox",
       "variants": [
         {
           "arch": "x64",
@@ -1419,6 +1501,128 @@
       "mac": [],
       "page": "https://github.com/dandandujie/Grox",
       "tip": "⚠️ 非 xAI 官方出品，是社区封装。官方 Grok Build 目前只有网页和手机 App"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "vendor": "Ollama",
+      "group": "本地运行",
+      "audience": "想在自己电脑上本地跑开源模型（Qwen / DeepSeek / Llama 等）的用户",
+      "recommend": true,
+      "reason": "本地跑开源模型的事实标准，一行命令拉模型，Windows / macOS 官方安装包",
+      "desc": "本地大模型运行器（一键跑开源模型）",
+      "dir": "Ollama",
+      "arch": "both",
+      "github": "ollama/ollama",
+      "variants": [
+        {
+          "arch": "x64",
+          "format": "setup",
+          "file": "OllamaSetup.exe",
+          "size": "1584.6 MB",
+          "urls": [
+            "https://github.com/ollama/ollama/releases/latest/download/OllamaSetup.exe"
+          ]
+        },
+        {
+          "arch": "arm64",
+          "format": "zip",
+          "file": "ollama-windows-arm64.zip",
+          "size": "203.4 MB",
+          "urls": [
+            "https://github.com/ollama/ollama/releases/latest/download/ollama-windows-arm64.zip"
+          ]
+        }
+      ],
+      "mac": [
+        {
+          "arch": "any",
+          "format": "dmg",
+          "file": "Ollama.dmg",
+          "size": "210.8 MB",
+          "urls": [
+            "https://github.com/ollama/ollama/releases/latest/download/Ollama.dmg"
+          ]
+        }
+      ],
+      "page": "https://ollama.com/download",
+      "needProxy": false,
+      "tip": "安装包 1.5 GB 是因为内置了完整运行引擎，属正常大小。装完命令行 ollama run qwen3 即可拉模型。Release 里有官方 sha256sum.txt 可校验。Windows ARM64 没有安装器，用 zip 解压版"
+    },
+    {
+      "id": "lm-studio",
+      "name": "LM Studio",
+      "vendor": "Element Labs",
+      "group": "本地运行",
+      "audience": "想要图形界面本地跑模型、不想敲命令行的用户",
+      "recommend": true,
+      "reason": "本地模型 GUI 的事实标准，下载 / 对话 / OpenAI 兼容接口一条龙",
+      "desc": "本地大模型 GUI 运行器",
+      "dir": "LM Studio",
+      "arch": "both",
+      "variants": [],
+      "mac": [],
+      "page": "https://lmstudio.ai/download",
+      "tip": "官网按系统给安装包，Windows x64 / ARM64、macOS Apple / Intel 都有。对硬件有要求：8 GB 内存起步，跑大模型看显存",
+      "install": "web"
+    },
+    {
+      "id": "motrix",
+      "name": "Motrix",
+      "vendor": "agalwood（开源）",
+      "group": "实用工具",
+      "audience": "GitHub / 直链下载慢，想要多线程加速下载的用户",
+      "recommend": true,
+      "reason": "开源多线程下载器（aria2 内核），支持 BT / 磁力，配合镜像前缀下载 GitHub 直链能跑满带宽",
+      "desc": "全能多线程下载器（aria2 内核）",
+      "dir": "Motrix",
+      "arch": "both",
+      "github": "agalwood/Motrix",
+      "variants": [
+        {
+          "arch": "x64",
+          "format": "setup",
+          "file": "Motrix-Setup-2.0.0.exe",
+          "size": "127.5 MB",
+          "assetPattern": "^Motrix-Setup-[\\d\\.]+\\.exe$",
+          "urls": [
+            "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-Setup-2.0.0.exe"
+          ]
+        },
+        {
+          "arch": "arm64",
+          "format": "setup",
+          "file": "Motrix-Setup-2.0.0-arm64.exe",
+          "size": "121.8 MB",
+          "assetPattern": "^Motrix-Setup-[\\d\\.]+-arm64\\.exe$",
+          "urls": [
+            "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-Setup-2.0.0-arm64.exe"
+          ]
+        }
+      ],
+      "mac": [
+        {
+          "arch": "arm64",
+          "format": "dmg",
+          "file": "Motrix-2.0.0-arm64.dmg",
+          "size": "130.5 MB",
+          "urls": [
+            "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-2.0.0-arm64.dmg"
+          ]
+        },
+        {
+          "arch": "x64",
+          "format": "dmg",
+          "file": "Motrix-2.0.0-x64.dmg",
+          "size": "137.6 MB",
+          "urls": [
+            "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-2.0.0-x64.dmg"
+          ]
+        }
+      ],
+      "page": "https://motrix.app",
+      "needProxy": false,
+      "tip": "下载 GitHub 直链时，把链接里的 github.com 换成 gh-proxy.com/https://github.com 再添加任务，多线程能大幅提速。界面可切中文"
     }
   ]
 }

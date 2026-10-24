@@ -259,6 +259,11 @@ $InstallKeywords = @{
     "openhands"        = @("OpenHands")
     "cline"            = @("Cline")
     "grox"             = @("Grox")
+    "zcode"            = @("ZCode")
+    "qoder"            = @("Qoder")
+    "ollama"           = @("Ollama")
+    "lm-studio"        = @("LM Studio")
+    "motrix"           = @("Motrix")
 }
 
 # =============================================================
@@ -275,47 +280,52 @@ if (Test-Path $JsonPath) {
 }
 
 if (-not $Apps) {
-    # 内置兜底：只有架构能力，没有下载链接。与 sources.json v4 同步（38 项），
+    # 内置兜底：只有架构能力，没有下载链接。与 sources.json v4.1 同步（43 项），
     # 改 sources.json 记得同步这张表，否则 sources.json 丢失时报告会按旧清单给建议
     $Apps = @(
-        @{ id="workbuddy"; group="桌面端"; name="WorkBuddy（腾讯）"; desc="全场景 AI 办公工作台"; variants=@(@{arch="x64"; format="setup"; size="420.7 MB"}) },
-        @{ id="claude"; group="桌面端"; name="Claude Desktop"; desc="Claude 官方桌面客户端"; variants=@(@{arch="x64"; format="setup"; size="157.6 MB"}) },
-        @{ id="codex"; group="桌面端"; name="ChatGPT 桌面端（含 Codex）"; desc="ChatGPT 桌面端，内置 Codex 面板"; variants=@(@{arch="x64"; format="store"; size="0.8 MB"}, @{arch="arm64"; format="store"; size="0.8 MB"}) },
-        @{ id="opencode"; group="桌面端"; name="OpenCode Desktop"; desc="开源 AI 编程 Agent"; variants=@(@{arch="x64"; format="setup"; size="120.5 MB"}, @{arch="x64"; format="zip"; size="78.0 MB"}, @{arch="arm64"; format="setup"; size="113.4 MB"}, @{arch="arm64"; format="zip"; size="72.3 MB"}) },
-        @{ id="dsh"; group="桌面端"; name="DeepSeek Harness 桌面版"; desc="DeepSeek 智能体桌面平台"; variants=@(@{arch="x64"; format="setup"; size="314.8 MB"}) },
-        @{ id="cherry"; group="桌面端"; name="Cherry Studio"; desc="国产多模型聚合客户端"; variants=@(@{arch="x64"; format="setup"; size="296.4 MB"}, @{arch="x64"; format="portable"; size="296.1 MB"}, @{arch="arm64"; format="setup"; size="275.2 MB"}, @{arch="arm64"; format="portable"; size="274.8 MB"}) },
-        @{ id="lobehub"; group="桌面端"; name="LobeHub 桌面版"; desc="开源 AI 助手聚合客户端"; variants=@(@{arch="x64"; format="setup"; size="145.5 MB"}) },
-        @{ id="ccswitch"; group="Agents"; name="CC Switch"; desc="多 Agent 配置、升级与管理工具"; variants=@(@{arch="x64"; format="msi"; size="16.7 MB"}, @{arch="x64"; format="zip"; size="16.7 MB"}, @{arch="arm64"; format="msi"; size="16.0 MB"}, @{arch="arm64"; format="zip"; size="15.8 MB"}) },
-        @{ id="opencowork"; group="Agents"; name="Open Cowork"; desc="图形化 AI Agent 工作台"; variants=@(@{arch="x64"; format="setup"; size="123.1 MB"}) },
-        @{ id="runjam"; group="Agents"; name="RunJam"; desc="多 Agent 图形化编程工作台"; variants=@(@{arch="x64"; format="setup"; size="107.3 MB"}) },
-        @{ id="ccgui"; group="Agents"; name="Desktop CC GUI"; desc="多引擎 Agent 图形化运行器"; variants=@(@{arch="x64"; format="setup"; size="15.0 MB"}) },
-        @{ id="hermes"; group="桌面端"; name="Hermes Agent 桌面版"; desc="NousResearch 官方 Agent 桌面客户端"; variants=@(@{arch="x64"; format="setup"; size="7.6 MB"}) },
-        @{ id="webview2-online"; group="运行环境"; name="WebView2 运行时（在线版）"; desc="网页渲染内核，1.8 MB 引导器（安装时要联网）"; variants=@(@{arch="x64"; format="setup"; size="1.8 MB"}); runtimeCheck="webview2" },
-        @{ id="webview2-offline"; group="运行环境"; name="WebView2 运行时（离线包）"; desc="完整离线安装包，装的时候不需要联网"; variants=@(@{arch="x64"; format="setup"; size="204.9 MB"}); runtimeCheck="webview2" },
-        @{ id="vcredist"; group="运行环境"; name="VC++ 运行库 2015-2022（x64）"; desc="微软 Visual C++ 运行库，多数桌面软件的底层依赖"; variants=@(@{arch="x64"; format="setup"; size="24.4 MB"}); runtimeCheck="vcredist" },
-        @{ id="watt"; group="桌面端"; name="Watt Toolkit（瓦特工具箱）"; desc="Steam / GitHub 加速工具箱（原名 Steam++）"; variants=@(@{arch="x64"; format="setup"; size="92.3 MB"}, @{arch="x64"; format="zip"; size="90.3 MB"}) },
-        @{ id="python"; group="开发环境"; name="Python 3.13.10"; desc="Python 官方解释器（含 pip）"; variants=@(@{arch="x64"; format="setup"; size="27.4 MB"}, @{arch="arm64"; format="setup"; size="26.8 MB"}); kind="env" },
-        @{ id="nodejs"; group="开发环境"; name="Node.js 24.22.1 LTS"; desc="Node.js 长期支持版（含 npm）"; variants=@(@{arch="x64"; format="msi"; size="31.8 MB"}, @{arch="arm64"; format="msi"; size="28.4 MB"}); kind="env" },
-        @{ id="git"; group="开发环境"; name="Git for Windows 2.56.0.3"; desc="Git 版本控制（含 Git Bash）"; variants=@(@{arch="x64"; format="setup"; size="63.7 MB"}, @{arch="arm64"; format="setup"; size="61.4 MB"}); kind="env" },
-        @{ id="7zip"; group="开发环境"; name="7-Zip 25.01"; desc="开源压缩工具，支持 .7z / .zip / .rar 等"; variants=@(@{arch="x64"; format="setup"; size="1.6 MB"}, @{arch="arm64"; format="setup"; size="1.5 MB"}); kind="env" },
-        @{ id="cursor"; group="IDE"; name="Cursor"; desc="AI 原生代码编辑器"; variants=@(); install="web" },
-        @{ id="trae"; group="IDE"; name="Trae（国际版）"; desc="AI IDE（国际版，英文界面）"; variants=@(); install="web" },
-        @{ id="trae-cn"; group="IDE"; name="Trae CN（国内版）"; desc="AI IDE（国内版，中文界面）"; variants=@(); install="web" },
-        @{ id="windsurf"; group="IDE"; name="Windsurf"; desc="AI IDE（原 Codeium）"; variants=@(); install="web" },
-        @{ id="vscode"; group="IDE"; name="Visual Studio Code"; desc="微软官方代码编辑器"; variants=@(); install="web" },
-        @{ id="claude-code"; group="CLI Code"; name="Claude Code"; desc="Anthropic 官方命令行编程助手"; variants=@(@{arch="x64"; format="zip"; size="127.6 MB"}, @{arch="arm64"; format="zip"; size="122.2 MB"}) },
-        @{ id="gemini-cli"; group="CLI Code"; name="Gemini CLI"; desc="Google 官方命令行 AI 助手"; variants=@() },
-        @{ id="qwen-code"; group="CLI Code"; name="Qwen Code"; desc="通义千问命令行编程工具"; variants=@(@{arch="x64"; format="zip"; size="69.3 MB"}) },
-        @{ id="kimi-cli"; group="CLI Code"; name="Kimi CLI"; desc="Kimi 命令行编程工具"; variants=@(@{arch="x64"; format="zip"; size="68.7 MB"}, @{arch="arm64"; format="zip"; size="64.6 MB"}) },
-        @{ id="pi"; group="CLI Code"; name="Pi"; desc="终端 AI agent 工具箱"; variants=@(@{arch="x64"; format="zip"; size="43 MB"}, @{arch="arm64"; format="zip"; size="41.7 MB"}) },
-        @{ id="codex-cli"; group="CLI Code"; name="Codex CLI"; desc="OpenAI 官方命令行编程助手"; variants=@(); install="npm" },
-        @{ id="openclaw"; group="CLI Code"; name="OpenClaw"; desc="开源个人 AI Agent"; variants=@(); install="npm" },
-        @{ id="aider"; group="CLI Code"; name="Aider"; desc="终端 AI 结对编程"; variants=@(); install="pip" },
-        @{ id="iflow-cli"; group="CLI Code"; name="iFlow CLI"; desc="心流命令行智能体"; variants=@(); install="npm" },
-        @{ id="goose"; group="Agents"; name="Goose"; desc="开源 AI Agent（桌面 + CLI）"; variants=@(@{arch="x64"; format="setup"; size="131.3 MB"}) },
-        @{ id="openhands"; group="Agents"; name="OpenHands"; desc="开源 AI 软件工程 Agent"; variants=@(@{arch="x64"; format="setup"; size="135.4 MB"}) },
-        @{ id="cline"; group="Agents"; name="Cline（桌面版）"; desc="AI 编码 Agent（独立桌面版）"; variants=@(@{arch="x64"; format="setup"; size="115.8 MB"}) },
+        @{ id="workbuddy"; group="桌面端"; name="WorkBuddy（腾讯）"; desc="全场景 AI 办公工作台"; variants=@(@{arch="x64"; format="setup"; size="420.7 MB"}) }
+        @{ id="claude"; group="桌面端"; name="Claude Desktop"; desc="Claude 官方桌面客户端"; variants=@(@{arch="x64"; format="setup"; size="157.6 MB"}) }
+        @{ id="codex"; group="桌面端"; name="ChatGPT 桌面端（含 Codex）"; desc="ChatGPT 桌面端，内置 Codex 面板"; variants=@(@{arch="x64"; format="store"; size="0.8 MB"}, @{arch="arm64"; format="store"; size="0.8 MB"}) }
+        @{ id="opencode"; group="桌面端"; name="OpenCode Desktop"; desc="开源 AI 编程 Agent"; variants=@(@{arch="x64"; format="setup"; size="120.5 MB"}, @{arch="x64"; format="zip"; size="78.0 MB"}, @{arch="arm64"; format="setup"; size="113.4 MB"}, @{arch="arm64"; format="zip"; size="72.3 MB"}) }
+        @{ id="dsh"; group="桌面端"; name="DeepSeek Harness 桌面版"; desc="DeepSeek 智能体桌面平台"; variants=@(@{arch="x64"; format="setup"; size="314.8 MB"}) }
+        @{ id="cherry"; group="桌面端"; name="Cherry Studio"; desc="国产多模型聚合客户端"; variants=@(@{arch="x64"; format="setup"; size="296.4 MB"}, @{arch="x64"; format="portable"; size="296.1 MB"}, @{arch="arm64"; format="setup"; size="275.2 MB"}, @{arch="arm64"; format="portable"; size="274.8 MB"}) }
+        @{ id="lobehub"; group="桌面端"; name="LobeHub 桌面版"; desc="开源 AI 助手聚合客户端"; variants=@(@{arch="x64"; format="setup"; size="145.5 MB"}) }
+        @{ id="ccswitch"; group="Agents"; name="CC Switch"; desc="多 Agent 配置、升级与管理工具"; variants=@(@{arch="x64"; format="msi"; size="16.7 MB"}, @{arch="x64"; format="zip"; size="16.7 MB"}, @{arch="arm64"; format="msi"; size="16.0 MB"}, @{arch="arm64"; format="zip"; size="15.8 MB"}) }
+        @{ id="opencowork"; group="Agents"; name="Open Cowork"; desc="图形化 AI Agent 工作台"; variants=@(@{arch="x64"; format="setup"; size="123.1 MB"}) }
+        @{ id="runjam"; group="Agents"; name="RunJam"; desc="多 Agent 图形化编程工作台"; variants=@(@{arch="x64"; format="setup"; size="107.3 MB"}) }
+        @{ id="ccgui"; group="Agents"; name="Desktop CC GUI"; desc="多引擎 Agent 图形化运行器"; variants=@(@{arch="x64"; format="setup"; size="15.0 MB"}) }
+        @{ id="hermes"; group="桌面端"; name="Hermes Agent 桌面版"; desc="NousResearch 官方 Agent 桌面客户端"; variants=@(@{arch="x64"; format="setup"; size="7.6 MB"}) }
+        @{ id="webview2-online"; group="运行环境"; name="WebView2 运行时（在线版）"; desc="网页渲染内核，1.8 MB 引导器（安装时要联网）"; variants=@(@{arch="x64"; format="setup"; size="1.8 MB"}); runtimeCheck="webview2" }
+        @{ id="webview2-offline"; group="运行环境"; name="WebView2 运行时（离线包）"; desc="完整离线安装包，装的时候不需要联网"; variants=@(@{arch="x64"; format="setup"; size="204.9 MB"}); runtimeCheck="webview2" }
+        @{ id="vcredist"; group="运行环境"; name="VC++ 运行库 2015-2022（x64）"; desc="微软 Visual C++ 运行库，多数桌面软件的底层依赖"; variants=@(@{arch="x64"; format="setup"; size="24.4 MB"}); runtimeCheck="vcredist" }
+        @{ id="watt"; group="桌面端"; name="Watt Toolkit（瓦特工具箱）"; desc="Steam / GitHub 加速工具箱（原名 Steam++）"; variants=@(@{arch="x64"; format="setup"; size="92.3 MB"}, @{arch="x64"; format="zip"; size="90.3 MB"}) }
+        @{ id="zcode"; group="桌面端"; name="ZCode 桌面版"; desc="Z.ai 官方 AI 编程工作台"; variants=@(@{arch="x64"; format="setup"; size="181.9 MB"}, @{arch="arm64"; format="setup"; size="180.9 MB"}) }
+        @{ id="python"; group="开发环境"; name="Python 3.13.10"; desc="Python 官方解释器（含 pip）"; variants=@(@{arch="x64"; format="setup"; size="27.4 MB"}, @{arch="arm64"; format="setup"; size="26.8 MB"}); kind="env" }
+        @{ id="nodejs"; group="开发环境"; name="Node.js 24.22.1 LTS"; desc="Node.js 长期支持版（含 npm）"; variants=@(@{arch="x64"; format="msi"; size="31.8 MB"}, @{arch="arm64"; format="msi"; size="28.4 MB"}); kind="env" }
+        @{ id="git"; group="开发环境"; name="Git for Windows 2.56.0.3"; desc="Git 版本控制（含 Git Bash）"; variants=@(@{arch="x64"; format="setup"; size="63.7 MB"}, @{arch="arm64"; format="setup"; size="61.4 MB"}); kind="env" }
+        @{ id="7zip"; group="开发环境"; name="7-Zip 25.01"; desc="开源压缩工具，支持 .7z / .zip / .rar 等"; variants=@(@{arch="x64"; format="setup"; size="1.6 MB"}, @{arch="arm64"; format="setup"; size="1.5 MB"}); kind="env" }
+        @{ id="cursor"; group="IDE"; name="Cursor"; desc="AI 原生代码编辑器"; variants=@(); install="web" }
+        @{ id="trae"; group="IDE"; name="Trae（国际版）"; desc="AI IDE（国际版，英文界面）"; variants=@(); install="web" }
+        @{ id="trae-cn"; group="IDE"; name="Trae CN（国内版）"; desc="AI IDE（国内版，中文界面）"; variants=@(); install="web" }
+        @{ id="windsurf"; group="IDE"; name="Windsurf"; desc="AI IDE（原 Codeium）"; variants=@(); install="web" }
+        @{ id="vscode"; group="IDE"; name="Visual Studio Code"; desc="微软官方代码编辑器"; variants=@(); install="web" }
+        @{ id="qoder"; group="IDE"; name="Qoder"; desc="AI IDE（agentic 编程平台）"; variants=@(); install="web" }
+        @{ id="claude-code"; group="CLI Code"; name="Claude Code"; desc="Anthropic 官方命令行编程助手"; variants=@(@{arch="x64"; format="zip"; size="127.6 MB"}, @{arch="arm64"; format="zip"; size="122.2 MB"}) }
+        @{ id="gemini-cli"; group="CLI Code"; name="Gemini CLI"; desc="Google 官方命令行 AI 助手"; variants=@() }
+        @{ id="qwen-code"; group="CLI Code"; name="Qwen Code"; desc="通义千问命令行编程工具"; variants=@(@{arch="x64"; format="zip"; size="69.3 MB"}) }
+        @{ id="kimi-cli"; group="CLI Code"; name="Kimi CLI"; desc="Kimi 命令行编程工具"; variants=@(@{arch="x64"; format="zip"; size="68.7 MB"}, @{arch="arm64"; format="zip"; size="64.6 MB"}) }
+        @{ id="pi"; group="CLI Code"; name="Pi"; desc="终端 AI agent 工具箱"; variants=@(@{arch="x64"; format="zip"; size="43 MB"}, @{arch="arm64"; format="zip"; size="41.7 MB"}) }
+        @{ id="codex-cli"; group="CLI Code"; name="Codex CLI"; desc="OpenAI 官方命令行编程助手"; variants=@(); install="npm" }
+        @{ id="openclaw"; group="CLI Code"; name="OpenClaw"; desc="开源个人 AI Agent"; variants=@(); install="npm" }
+        @{ id="aider"; group="CLI Code"; name="Aider"; desc="终端 AI 结对编程"; variants=@(); install="pip" }
+        @{ id="iflow-cli"; group="CLI Code"; name="iFlow CLI"; desc="心流命令行智能体"; variants=@(); install="npm" }
+        @{ id="goose"; group="Agents"; name="Goose"; desc="开源 AI Agent（桌面 + CLI）"; variants=@(@{arch="x64"; format="setup"; size="131.3 MB"}) }
+        @{ id="openhands"; group="Agents"; name="OpenHands"; desc="开源 AI 软件工程 Agent"; variants=@(@{arch="x64"; format="setup"; size="135.4 MB"}) }
+        @{ id="cline"; group="Agents"; name="Cline（桌面版）"; desc="AI 编码 Agent（独立桌面版）"; variants=@(@{arch="x64"; format="setup"; size="115.8 MB"}) }
         @{ id="grox"; group="Agents"; name="Grox（Grok Build 社区桌面版）"; desc="Grok Build 的桌面封装（非官方）"; variants=@(@{arch="x64"; format="setup"; size="6.3 MB"}) }
+        @{ id="ollama"; group="本地运行"; name="Ollama"; desc="本地大模型运行器（一键跑开源模型）"; variants=@(@{arch="x64"; format="setup"; size="1584.6 MB"}, @{arch="arm64"; format="zip"; size="203.4 MB"}) }
+        @{ id="lm-studio"; group="本地运行"; name="LM Studio"; desc="本地大模型 GUI 运行器"; variants=@() }
+        @{ id="motrix"; group="实用工具"; name="Motrix"; desc="全能多线程下载器（aria2 内核）"; variants=@(@{arch="x64"; format="setup"; size="127.5 MB"}, @{arch="arm64"; format="setup"; size="121.8 MB"}) }
     )
 }
 
