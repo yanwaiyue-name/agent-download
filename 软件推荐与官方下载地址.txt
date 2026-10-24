@@ -2,7 +2,8 @@
   AI 桌面下载中心 · 推荐软件与官方下载地址
 ========================================
 
-更新时间：2026-10-23
+更新时间：2026-10-24    清单版本 v4.1    共 43 项 / 8 个分组
+本文件由 scripts/gen-docs.ps1 从 sources.json 自动生成，请勿手工编辑。
 
 这个包自带离线安装包（在「安装包」文件夹里），也支持联网补下。
 使用方法：
@@ -11,80 +12,240 @@
   3. 同一软件有多种格式时，按提示选一种（回车 = 默认格式）
   4. 自动下载失败时，可从本文件的“官网”或“当前直链”手动下载
 
-【先看推荐】
+【全部软件一览】
 
-基础桌面客户端
+桌面端
 
-  WorkBuddy（腾讯）
+  WorkBuddy（腾讯） ⭐推荐
     适合：办公、写作和日常 AI 协作用户
-    用途：腾讯桌面 AI 工作台，适合中文办公场景。
-    格式：Windows 安装版（x64）；另有 macOS dmg。
+    用途：腾讯桌面 AI 工作台，适合希望直接用中文办公工具的用户
+    格式：Windows——x64：安装版；macOS——dmg（arm64）。
 
-  Claude Desktop
+  Claude Desktop ⭐推荐
     适合：需要 Claude 桌面聊天、文档和文件协作的用户
-    用途：Claude 官方桌面客户端。
-    格式：Windows 安装版（x64）；另有 macOS 的 arm64 / x64 两个 dmg。
+    用途：Claude 官方桌面客户端，适合使用 Claude 账号的日常用户
+    格式：Windows——x64：安装版；macOS——dmg（arm64、x64）。
+    注意：官方源在国内直连不稳，可能需要代理。
 
-  ChatGPT 桌面端（含 Codex）
+  ChatGPT 桌面端（含 Codex） ⭐推荐
     适合：使用 ChatGPT，并希望在应用内使用 Codex 的用户
-    用途：Windows 的 Codex 入口在 ChatGPT 桌面应用中。
-    格式：Windows 只有「商店版」引导器，安装完整应用仍需要联网。
+    用途：Windows 上的 Codex 入口在 ChatGPT 桌面应用中，适合已有 ChatGPT 账号的用户
+    格式：Windows——x64：商店版、arm64：商店版；macOS——通用 dmg。
 
-  OpenCode Desktop
+  OpenCode Desktop ⭐推荐
     适合：希望使用开源 AI 编程 Agent 的开发者
-    用途：开源 AI 编程 Agent。
-    格式：安装版 + 免安装压缩包，x64 与 ARM64 都有原生包。
-
-  Cherry Studio
-    适合：想在一个客户端接入多个模型和 API 的用户
-    用途：国产多模型聚合客户端。
-    格式：安装版 + 免安装单文件，x64 与 ARM64 都有。
+    用途：提供 Windows x64 和 ARM64 原生桌面版，还额外提供免安装压缩包
+    格式：Windows——x64：安装版、压缩包、arm64：安装版、压缩包；macOS——dmg（arm64、x64）。
 
   DeepSeek Harness 桌面版
-    适合：想体验 DeepSeek Agent 工作流的开发者
-    用途：社区打包的桌面平台；当前只有 Windows x64。
-    格式：Windows 安装版（x64）；另有 macOS 通用 dmg。
+    适合：想使用 DeepSeek Agent 工作流的开发者
+    用途：桌面版来自社区打包项目，适合愿意尝试 DeepSeek Agent 工作流的用户
+    格式：Windows——x64：安装版；macOS——通用 dmg。
+
+  Cherry Studio ⭐推荐
+    适合：想在一个客户端接入多个模型和 API 的用户
+    用途：国产多模型聚合客户端，安装版和免安装版都有，适合管理不同模型服务和 API
+    格式：Windows——x64：安装版、免安装、arm64：安装版、免安装；macOS——dmg（arm64、x64）。
 
   LobeHub 桌面版
     适合：想使用开源 AI 助手聚合界面的用户
-    用途：开源 AI 助手客户端；当前只有 Windows x64 安装版。
+    用途：开源 AI 助手聚合客户端，适合愿意自行配置模型服务的用户
+    格式：Windows——x64：安装版；macOS——dmg（arm64、x64）。
 
-  Hermes Agent 桌面版
+  Hermes Agent 桌面版 ⭐推荐
     适合：想用 NousResearch 官方 Agent 桌面客户端的用户
-    用途：官方 Agent 桌面客户端，图形界面直接可用。
-    格式：Windows 安装版（x64）+ macOS dmg。
-    注意：Hermes 现在有桌面版了，不再是纯命令行工具。
-          安装包是官方引导器，首次启动会联网拉运行时。
-          命令行版仍然可用（见文末）。
+    用途：官方已提供 Windows / macOS 桌面安装包，图形界面直接可用，不再只能命令行
+    格式：Windows——x64：安装版；macOS——dmg（arm64）。
+    注意：官方源在国内直连不稳，可能需要代理。
 
-Agent 管理与工作台
-
-  CC Switch
-    适合：同时使用 Claude Code、Codex、OpenCode 等多个 Agent 的开发者
-    用途：图形化管理多个 Agent 的安装、更新、Provider、MCP、Skills 和配置。
-    格式：MSI 安装包 + 免安装 zip，x64 与 ARM64 都有。
-
-  Open Cowork
-    适合：希望通过图形界面使用 AI Agent、文件处理和 MCP 的普通用户
-    用途：图形化 AI Agent 工作台，支持 Skills、MCP、文件处理和多模型。
-    格式：Windows 安装版（x64）；ARM64 Windows 会用系统模拟运行。
-
-  RunJam
-    适合：同时使用 Claude Code、Codex 和 Gemini 的编程用户
-    用途：一个窗口管理 Agent、项目、会话、编辑器和终端，并支持一键安装 Agent。
-    格式：Windows 安装版（x64）；另有 macOS 的 arm64 / x64 dmg。
-
-  Desktop CC GUI
-    适合：想在一个图形界面运行多个 AI 编程引擎的开发者
-    用途：统一使用 Claude Code、Codex、OpenCode、DeepSeek Harness 等 Agent。
-    格式：Windows 安装版（x64）；另有 macOS 的 arm64 / x64 dmg。
-
-  Watt Toolkit（瓦特工具箱，原名 Steam++）
+  Watt Toolkit（瓦特工具箱）
     适合：需要 Steam 社区/商店加速、GitHub 加速、本地令牌等工具的用户
-    用途：开源网络加速与实用工具集，Steam 社区打不开、GitHub 拉不动时很好用。
-    格式：Windows 安装版 + 免安装 7z（都只有 x64，官方没有 ARM64 版）；
-          另有 macOS 通用 dmg。
-    注意：免安装版是 .7z，解压需要 7-Zip；不想装 7-Zip 就用安装版。
+    用途：开源网络加速与实用工具集，原名 Steam++
+    格式：Windows——x64：安装版、压缩包；macOS——通用 dmg。
+
+  ZCode 桌面版 ⭐推荐
+    适合：用 GLM 做编程和 Agent 工作流、想要官方桌面工作台的用户
+    用途：GLM 官方 Harness，Windows x64 / ARM64 都有原生包，国内 CDN 直连快
+    格式：Windows——x64：安装版、arm64：安装版；macOS——dmg（arm64、x64）。
+
+Agents
+
+  CC Switch ⭐推荐
+    适合：同时使用 Claude Code、Codex、OpenCode 等多个 Agent 的开发者
+    用途：图形化管理多个 Agent 的安装、更新、Provider、MCP、Skills 和配置，MSI 和免安装 zip 都有
+    格式：Windows——x64：MSI、压缩包、arm64：MSI、压缩包；macOS——通用 dmg。
+
+  Open Cowork ⭐推荐
+    适合：希望通过图形界面使用 AI Agent、文件处理和 MCP 的普通用户
+    用途：面向普通用户的图形化 AI Agent 工作台，支持 Skills、MCP、文件处理和多模型
+    格式：Windows——x64：安装版；macOS——dmg（arm64）。
+
+  RunJam ⭐推荐
+    适合：同时使用 Claude Code、Codex 和 Gemini 的编程用户
+    用途：一个窗口统一管理 Agent、项目、会话、编辑器和终端，并支持一键安装 Agent
+    格式：Windows——x64：安装版；macOS——dmg（arm64、x64）。
+
+  Desktop CC GUI ⭐推荐
+    适合：想在一个图形界面运行多个 AI 编程引擎的开发者
+    用途：多引擎桌面运行器，可统一使用 Claude Code、Codex、OpenCode、DSH 等 Agent
+    格式：Windows——x64：安装版；macOS——dmg（arm64、x64）。
+
+  Goose ⭐推荐
+    适合：需要桌面 + CLI 双形态的用户
+    用途：Block 出品，桌面端和 CLI 都成熟，支持多模型
+    格式：Windows——x64：安装版；macOS——dmg（arm64、x64）。
+
+  OpenHands ⭐推荐
+    适合：想要完整 Agent 工作台的用户
+    用途：原 OpenDevin，9 万星，桌面版可本地跑
+    格式：Windows——x64：安装版。
+
+  Cline（桌面版） ⭐推荐
+    适合：不想装在 VS Code 里的用户
+    用途：7 万星，原本是 VS Code 扩展，现已有独立桌面版
+    格式：Windows——x64：安装版。
+
+  Grox（Grok Build 社区桌面版）
+    适合：想用 Grok 桌面端的用户
+    用途：Grok Build 官方只有 Web/移动端，这是社区做的桌面壳
+    格式：Windows——x64：安装版。
+
+运行环境
+
+  WebView2 运行时（在线版）
+    适合：CC Switch 等应用白屏、双击没反应时先装这个
+    用途：Tauri 框架应用的网页渲染内核
+    格式：Windows——x64：安装版。
+
+  WebView2 运行时（离线包）
+    适合：客户电脑不能上网、又确实缺 WebView2 时用
+    用途：WebView2 离线独立安装包
+    格式：Windows——x64：安装版。
+
+  VC++ 运行库 2015-2022（x64）
+    适合：报错「缺少 VCRUNTIME140.dll / MSVCP140.dll」时装这个
+    用途：微软 Visual C++ 运行库，大量桌面软件的底层依赖
+    格式：Windows——x64：安装版。
+
+开发环境
+
+  Python 3.13.10
+    适合：要跑 AI 命令行工具、写脚本或做数据处理的人
+    用途：大量 AI CLI 工具和脚本依赖 Python
+    格式：Windows——x64：安装版、arm64：安装版。
+
+  Node.js 24.22.1 LTS
+    适合：要装 Claude Code、opencode CLI 等 Node 版命令行工具的人
+    用途：绝大多数 AI 编程 CLI 工具都通过 npm 分发
+    格式：Windows——x64：MSI、arm64：MSI。
+
+  Git for Windows 2.56.0.3
+    适合：要克隆仓库、用 GitHub 或跑依赖 git 的工具的人
+    用途：很多 AI 工具和开源项目要求先有 git
+    格式：Windows——x64：安装版、arm64：安装版。
+
+  7-Zip 25.01
+    适合：要解压 .7z 文件的人（Watt Toolkit 免安装版就是 .7z）
+    用途：Windows 自带解压不认 .7z，装它才能解
+    格式：Windows——x64：安装版、arm64：安装版。
+
+IDE
+
+  Cursor ⭐推荐
+    适合：想要 AI 原生 IDE 的开发者
+    用途：AI IDE 的开创者，Tab 补全和 Composer 体验最成熟
+    格式：无 Windows 直链安装包，官方发布方式为「官网下载」。
+
+  Trae（国际版）
+    适合：想免费用 Claude/GPT 的开发者
+    用途：字节跳动出品，内置模型免费额度较大
+    格式：无 Windows 直链安装包，官方发布方式为「官网下载」。
+
+  Trae CN（国内版） ⭐推荐
+    适合：国内网络环境下的开发者
+    用途：国内直连，不需要代理，支持国内手机号登录
+    格式：无 Windows 直链安装包，官方发布方式为「官网下载」。
+
+  Windsurf
+    适合：偏好 Agent 式编码的开发者
+    用途：Cascade 代理模式，擅长跨文件重构
+    格式：无 Windows 直链安装包，官方发布方式为「官网下载」。
+
+  Visual Studio Code
+    适合：需要装 AI 扩展的用户
+    用途：绝大多数 AI 编程扩展（Cline / Roo Code / Continue）的运行基础
+    格式：无 Windows 直链安装包，官方发布方式为「官网下载」。
+
+  Qoder ⭐推荐
+    适合：想要 Quest 自主代理模式的 AI IDE 用户
+    用途：阿里出品的 agentic 编程平台，Quest 模式可托管完整开发任务，有免费额度
+    格式：无 Windows 直链安装包，官方发布方式为「官网下载」。
+
+CLI Code
+
+  Claude Code ⭐推荐
+    适合：用 Claude 做终端编程的用户
+    用途：Anthropic 官方 CLI，可直接读写代码库并执行命令
+    格式：Windows——x64：压缩包、arm64：压缩包；macOS——dmg（arm64、x64）。
+
+  Gemini CLI ⭐推荐
+    适合：用 Gemini 免费额度的开发者
+    用途：Google 官方，免费额度较大（每日请求数高）
+    格式：macOS——dmg（arm64、x64）。
+
+  Qwen Code ⭐推荐
+    适合：国内网络 + 想要中文 CLI 的用户
+    用途：阿里官方，国内可直连，有原生 Windows 二进制
+    格式：Windows——x64：压缩包；macOS——dmg（arm64、x64）。
+
+  Kimi CLI ⭐推荐
+    适合：用 Kimi 长上下文的用户
+    用途：月之暗面官方，支持超长上下文，有原生 Windows 二进制
+    格式：Windows——x64：压缩包、arm64：压缩包；macOS——dmg（arm64、x64）。
+
+  Pi ⭐推荐
+    适合：想要轻量终端 Agent 的开发者
+    用途：统一 LLM API + TUI + coding agent，有原生 Windows 二进制
+    格式：Windows——x64：压缩包、arm64：压缩包；macOS——dmg（arm64、x64）。
+
+  Codex CLI
+    适合：用 OpenAI 模型的终端用户
+    用途：OpenAI 官方 CLI，走 npm 安装
+    格式：无 Windows 直链安装包，官方发布方式为「npm 安装」。
+
+  OpenClaw ⭐推荐
+    适合：想要全功能开源 Agent 的用户
+    用途：开源 Agent 里星标最高，可自托管
+    格式：无 Windows 直链安装包，官方发布方式为「npm 安装」。
+
+  Aider
+    适合：偏爱 Python 生态的开发者
+    用途：老牌终端结对编程工具，支持多家模型
+    格式：无 Windows 直链安装包，官方发布方式为「pip 安装」。
+
+  iFlow CLI
+    适合：国内用户，想要免费额度
+    用途：国内团队出品，嵌入终端的编码助理
+    格式：无 Windows 直链安装包，官方发布方式为「npm 安装」。
+
+本地运行
+
+  Ollama ⭐推荐
+    适合：想在自己电脑上本地跑开源模型（Qwen / DeepSeek / Llama 等）的用户
+    用途：本地跑开源模型的事实标准，一行命令拉模型，Windows / macOS 官方安装包
+    格式：Windows——x64：安装版、arm64：压缩包；macOS——通用 dmg。
+
+  LM Studio ⭐推荐
+    适合：想要图形界面本地跑模型、不想敲命令行的用户
+    用途：本地模型 GUI 的事实标准，下载 / 对话 / OpenAI 兼容接口一条龙
+    格式：无 Windows 直链安装包，官方发布方式为「官网下载」。
+
+实用工具
+
+  Motrix ⭐推荐
+    适合：GitHub / 直链下载慢，想要多线程加速下载的用户
+    用途：开源多线程下载器（aria2 内核），支持 BT / 磁力，配合镜像前缀下载 GitHub 直链能跑满带宽
+    格式：Windows——x64：安装版、arm64：安装版；macOS——dmg（arm64、x64）。
 
 【格式怎么选】
 
@@ -98,152 +259,390 @@ Agent 管理与工作台
 
 【官方下载页和当前直链】
 
+
 1. WorkBuddy（腾讯）
-   官网：https://www.workbuddy.cn
-   Windows x64：
-   https://download.codebuddy.cn/workbuddy/saas/win32-x64-user/WorkBuddy-win32-x64-user-5.8.3.41334564-db0e9b51.exe
-   macOS arm64：
-   https://download.codebuddy.cn/workbuddy/saas/darwin-arm64/WorkBuddy-darwin-arm64-5.8.3.41334564-db0e9b51.dmg
+  官网：https://www.workbuddy.cn
+  Windows x64 安装版（420.7 MB）：
+    https://download.codebuddy.cn/workbuddy/saas/win32-x64-user/WorkBuddy-win32-x64-user-5.8.3.41334564-db0e9b51.exe
+  macOS arm64 dmg（349.9 MB）：
+    https://download.codebuddy.cn/workbuddy/saas/darwin-arm64/WorkBuddy-darwin-arm64-5.8.3.41334564-db0e9b51.dmg
+  注意：Windows 只有 x64 一个安装版，ARM 机器靠系统模拟运行。直链带版本哈希，失效时从官网重新下载
 
 2. Claude Desktop
-   官网：https://claude.ai/download
-   Windows x64：
-   https://downloads.claude.ai/claude-science/latest/windows-x64.exe
-   macOS arm64 / x64：
-   https://downloads.claude.ai/claude-science/latest/mac-arm64.dmg
-   https://downloads.claude.ai/claude-science/latest/mac-x64.dmg
+  官网：https://claude.ai/download
+  Windows x64 安装版（157.6 MB）：
+    https://downloads.claude.ai/claude-science/latest/windows-x64.exe
+  macOS arm64 dmg（72.5 MB）：
+    https://downloads.claude.ai/claude-science/latest/mac-arm64.dmg
+  macOS x64 dmg（76.4 MB）：
+    https://downloads.claude.ai/claude-science/latest/mac-x64.dmg
+  注意：官方只发 Windows x64，ARM 机器靠模拟。路径里的 claude-science 是官方发布通道名
 
 3. ChatGPT 桌面端（含 Codex）
-   官网：https://chatgpt.com/download
-   Windows 安装引导器：
-   https://get.microsoft.com/installer/download/9PLM9XGG6VKS
-   macOS：
-   https://persistent.oaistatic.com/sidekick/public/ChatGPT.dmg
-   注意：Windows 那个文件约 0.8 MB，启动后仍需微软商店联网下载完整应用。
+  官网：https://chatgpt.com/download
+  Windows x64 商店版（0.8 MB）：
+    https://get.microsoft.com/installer/download/9PLM9XGG6VKS
+  Windows arm64 商店版（0.8 MB）：
+    https://get.microsoft.com/installer/download/9PLM9XGG6VKS
+  macOS 通用 dmg（74.9 MB）：
+    https://persistent.oaistatic.com/sidekick/public/ChatGPT.dmg
+  注意：这只是微软商店引导器（0.8 MB）；启动后商店会按架构下载完整 ChatGPT 应用，仍需要联网
 
 4. OpenCode Desktop
-   官网：https://opencode.ai/download
-   官方 Release：https://github.com/anomalyco/opencode/releases
-   Windows x64 安装版：
-   https://github.com/anomalyco/opencode/releases/latest/download/opencode-desktop-win-x64.exe
-   Windows ARM64 安装版：
-   https://github.com/anomalyco/opencode/releases/latest/download/opencode-desktop-win-arm64.exe
-   Windows x64 免安装压缩包：
-   https://github.com/anomalyco/opencode/releases/latest/download/opencode-windows-x64.zip
-   Windows ARM64 免安装压缩包：
-   https://github.com/anomalyco/opencode/releases/latest/download/opencode-windows-arm64.zip
+  官网：https://opencode.ai/download
+  官方 Release：https://github.com/anomalyco/opencode/releases
+  Windows x64 安装版（120.5 MB）：
+    https://github.com/anomalyco/opencode/releases/latest/download/opencode-desktop-win-x64.exe
+  Windows x64 压缩包（78.0 MB）：
+    https://github.com/anomalyco/opencode/releases/latest/download/opencode-windows-x64.zip
+  Windows arm64 安装版（113.4 MB）：
+    https://github.com/anomalyco/opencode/releases/latest/download/opencode-desktop-win-arm64.exe
+  Windows arm64 压缩包（72.3 MB）：
+    https://github.com/anomalyco/opencode/releases/latest/download/opencode-windows-arm64.zip
+  macOS arm64 dmg（144.5 MB）：
+    https://github.com/anomalyco/opencode/releases/latest/download/opencode-desktop-mac-arm64.dmg
+  macOS x64 dmg（149.2 MB）：
+    https://github.com/anomalyco/opencode/releases/latest/download/opencode-desktop-mac-x64.dmg
+  注意：x64 与 ARM64 都有原生包，另有 zip 免安装版；GitHub 下载失败时可打开官方下载页
 
 5. DeepSeek Harness 桌面版
-   官方 Release（社区桌面版）：
-   https://github.com/anywhere-labs/deepseek-harness-desktop/releases
-   Windows x64：
-   https://github.com/anywhere-labs/deepseek-harness-desktop/releases/latest/download/DSH-Desktop-2.0.18-x64-Setup.exe
-   校验清单（官方）：
-   https://github.com/anywhere-labs/deepseek-harness-desktop/releases/latest/download/SHA256SUMS.txt
-   注意：DeepSeek Harness 官方仓库主要提供源码；本桌面版来自社区项目。
+  官网：https://github.com/anywhere-labs/dsh-desktop/releases
+  官方 Release：https://github.com/anywhere-labs/dsh-desktop/releases
+  Windows x64 安装版（314.8 MB）：
+    https://github.com/anywhere-labs/dsh-desktop/releases/latest/download/DSH-Desktop-2.0.18-x64-Setup.exe
+  macOS 通用 dmg（679.6 MB）：
+    https://github.com/anywhere-labs/dsh-desktop/releases/latest/download/DSH.Desktop-2.0.18-universal.dmg
+  注意：官方仓库只发源码；桌面版来自社区仓库，Windows 只有 x64。同目录的 SHA256SUMS.txt 是官方校验清单
 
 6. Cherry Studio
-   官网：https://www.cherry-ai.com
-   官方 Release：https://github.com/CherryHQ/cherry-studio/releases
-   Windows x64 安装版 / 免安装：
-   https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-setup.exe
-   https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-portable.exe
-   Windows ARM64 安装版 / 免安装：
-   https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-setup.exe
-   https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-portable.exe
+  官网：https://www.cherry-ai.com
+  官方 Release：https://github.com/CherryHQ/cherry-studio/releases
+  Windows x64 安装版（296.4 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-setup.exe
+  Windows x64 免安装（296.1 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-portable.exe
+  Windows arm64 安装版（275.2 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-setup.exe
+  Windows arm64 免安装（274.8 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-portable.exe
+  macOS arm64 dmg（300.1 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-mac-arm64.dmg
+  macOS x64 dmg（322.6 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-mac-x64.dmg
+  注意：x64 与 ARM64 都有原生包，安装版和免安装版各一份；GitHub 下载失败时可打开官网
 
 7. LobeHub 桌面版
-   官方 Release：https://github.com/lobehub/lobe-chat/releases
-   Windows x64：
-   https://github.com/lobehub/lobe-chat/releases/latest/download/LobeHub-2.2.20-setup.exe
+  官网：https://github.com/lobehub/lobehub/releases
+  官方 Release：https://github.com/lobehub/lobehub/releases
+  Windows x64 安装版（145.5 MB）：
+    https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.2.20-setup.exe
+  macOS arm64 dmg（157.1 MB）：
+    https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.2.20-arm64.dmg
+  macOS x64 dmg（161.7 MB）：
+    https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.2.20-x64.dmg
+  注意：Windows 只提供 x64 安装版
 
 8. CC Switch
-   官网：https://ccswitch.io
-   官方 Release：https://github.com/farion1231/cc-switch/releases
-   Windows x64 MSI / 免安装 zip：
-   https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows.msi
-   https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows-Portable.zip
-   Windows ARM64 MSI / 免安装 zip：
-   https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows-arm64.msi
-   https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows-arm64-Portable.zip
+  官网：https://ccswitch.io
+  官方 Release：https://github.com/farion1231/cc-switch/releases
+  Windows x64 MSI（16.8 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows.msi
+  Windows x64 压缩包（16.8 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-Portable.zip
+  Windows arm64 MSI（16.2 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-arm64.msi
+  Windows arm64 压缩包（16.0 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-arm64-Portable.zip
+  macOS 通用 dmg（34.2 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-macOS.dmg
+  注意：推荐给要统一管理多个 AI 编程 Agent 的用户；提供 x64 与 ARM64 的 MSI 和免安装 zip
 
 9. Open Cowork
-   官方 Release：https://github.com/OpenCoworkAI/open-cowork/releases
-   Windows x64：
-   https://github.com/OpenCoworkAI/open-cowork/releases/download/v3.3.1/Open.Cowork-3.3.1-win-x64.exe
+  官网：https://github.com/OpenCoworkAI/open-cowork/releases
+  官方 Release：https://github.com/OpenCoworkAI/open-cowork/releases
+  Windows x64 安装版（123.1 MB）：
+    https://github.com/OpenCoworkAI/open-cowork/releases/download/v3.3.1/Open.Cowork-3.3.1-win-x64.exe
+  macOS arm64 dmg（156.2 MB）：
+    https://github.com/OpenCoworkAI/open-cowork/releases/download/v3.3.1/Open.Cowork-3.3.1-mac-arm64.dmg
+  注意：Windows 只有 x64 原生包；ARM64 Windows 将以 x64 模拟方式运行
 
 10. RunJam
-    官网：https://www.runjam.app
-    官方 Release：https://github.com/peintune/runjam/releases
-    Windows x64：
-    https://github.com/peintune/runjam/releases/download/v1.0.101/RunJam_1.0.101_x64-setup.exe
+ 官网：https://www.runjam.app
+ 官方 Release：https://github.com/peintune/runjam/releases
+ Windows x64 安装版（107.3 MB）：
+   https://github.com/peintune/runjam/releases/download/v1.0.101/RunJam_1.0.101_x64-setup.exe
+ macOS arm64 dmg（259.3 MB）：
+   https://github.com/peintune/runjam/releases/download/v1.0.101/RunJam_1.0.101_aarch64.dmg
+ macOS x64 dmg（276.3 MB）：
+   https://github.com/peintune/runjam/releases/download/v1.0.101/RunJam_1.0.101_x64.dmg
+ 注意：Windows 只有 x64 原生包；适合需要在图形界面中同时使用多个编程 Agent 的用户
 
 11. Desktop CC GUI
-    官方 Release：https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases
-    Windows x64：
-    https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/CC.GUI_1.1.6_x64-setup.exe
+ 官网：https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases
+ 官方 Release：https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases
+ Windows x64 安装版（15.0 MB）：
+   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/CC.GUI_1.1.6_x64-setup.exe
+ macOS arm64 dmg（19.0 MB）：
+   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/ccgui_1.1.6_aarch64.dmg
+ macOS x64 dmg（19.1 MB）：
+   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/ccgui_1.1.6_x86_64.dmg
+ 注意：Windows 只有 x64 原生包；适合已有多个 Agent CLI、希望统一运行和查看会话的用户
 
-12. Hermes Agent（桌面版 + 命令行）
-    官网（含桌面版下载按钮）：https://hermes-agent.nousresearch.com/
-    官方项目页：https://github.com/NousResearch/hermes-agent
-    Windows 桌面版：
-    https://hermes-assets.nousresearch.com/Hermes-Setup.exe
-    macOS 桌面版：
-    https://hermes-assets.nousresearch.com/Hermes-Setup.dmg
-    命令行版（可选，想用终端的人自己装）：
-    Windows：irm https://hermes-agent.nousresearch.com/install.ps1 | iex
-    macOS / Linux：curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+12. Hermes Agent 桌面版
+ 官网：https://hermes-agent.nousresearch.com/
+ 官方 Release：https://github.com/NousResearch/hermes-agent/releases
+ Windows x64 安装版（7.6 MB）：
+   https://hermes-assets.nousresearch.com/Hermes-Setup.exe?build=dc0fe3e476a0
+ macOS arm64 dmg（6.4 MB）：
+   https://hermes-assets.nousresearch.com/Hermes-Setup.dmg?build=dc0fe3e476a0
+ 注意：桌面版安装包是引导器，首次启动会联网拉取运行时；想要纯命令行仍可用 irm https://hermes-agent.nousresearch.com/install.ps1 | iex
 
-13. Watt Toolkit（瓦特工具箱，原名 Steam++）
-    官网：https://steampp.net/
-    官方 Release：https://github.com/BeyondDimension/SteamTools/releases
-    Windows x64 安装版：
-    https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam%2B%2B_v3.1.0_win_x64.exe
-    Windows x64 免安装 7z：
-    https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam%2B%2B_v3.1.0_win_x64.7z
-    macOS 通用 dmg：
-    https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam%2B%2B_v3.1.0_macos.dmg
-    注意：仓库名叫 SteamTools，程序叫 Steam++.exe，产品名才叫 Watt Toolkit，
-          三个名字对不上，搜 "WattToolkit" 会找不到。官方只有 x64，没有 Windows ARM64 版。
-          想找历史版本（3.0.0-rc.x）在同一个 releases 页面往下翻。
+13. WebView2 运行时（在线版）
+ 官网：https://developer.microsoft.com/microsoft-edge/webview2/
+ Windows x64 安装版（1.8 MB）：
+   https://go.microsoft.com/fwlink/p/?LinkId=2124703
+ 注意：Windows 11 已自带，Windows 10 一般随 Edge 预装，正常情况不用装。客户电脑能上网时用这个就够
 
-【开发环境下载地址】
+14. WebView2 运行时（离线包）
+ 官网：https://developer.microsoft.com/microsoft-edge/webview2/
+ Windows x64 安装版（204.9 MB）：
+   https://go.microsoft.com/fwlink/p/?LinkId=2124701
+ 注意：只有「客户电脑缺 WebView2 且完全离线」才需要。能上网就用上面那个 1.8 MB 的在线版
 
-  这 4 个不是软件，是「要用命令行工具才装」的运行环境。
-  桌面软件不需要它们，具体什么时候装看「使用说明.txt」的【开发环境】一节。
+15. VC++ 运行库 2015-2022（x64）
+ 官网：https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist
+ Windows x64 安装版（24.4 MB）：
+   https://aka.ms/vs/17/release/vc_redist.x64.exe
+ 注意：装完软件启动报「计算机中丢失 VCRUNTIME140.dll」就是缺它。装上一般不用管
 
-  Python 3.13.10（含 pip）
-    官方：https://www.python.org/downloads/windows/
-    国内镜像（快）：
-    https://mirrors.huaweicloud.com/python/3.13.10/python-3.13.10-amd64.exe
-    官方直链（慢，国内实测 11 KB/s）：
-    https://www.python.org/ftp/python/3.13.10/python-3.13.10-amd64.exe
-    注意：安装时务必勾选「Add python.exe to PATH」
+16. Watt Toolkit（瓦特工具箱）
+ 官网：https://steampp.net/
+ 官方 Release：https://github.com/BeyondDimension/SteamTools/releases
+ Windows x64 安装版（92.3 MB）：
+   https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam%2B%2B_v3.1.0_win_x64.exe
+ Windows x64 压缩包（90.3 MB）：
+   https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam%2B%2B_v3.1.0_win_x64.7z
+ macOS 通用 dmg（220.0 MB）：
+   https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam%2B%2B_v3.1.0_macos.dmg
+ 注意：官方只有 x64，没有 Windows ARM64 版。免安装版是 .7z，需要 7-Zip 解压；不想装 7-Zip 就用安装版
 
-  Node.js 24.22.1 LTS（含 npm）
-    官方：https://nodejs.org/zh-cn/download
-    国内镜像（快）：
-    https://registry.npmmirror.com/-/binary/node/v24.22.1/node-v24.22.1-x64.msi
-    官方直链：
-    https://nodejs.org/dist/v24.22.1/node-v24.22.1-x64.msi
+17. ZCode 桌面版
+ 官网：https://zcode.z.ai/cn
+ Windows x64 安装版（181.9 MB）：
+   https://cdn-zcode.z.ai/zcode/electron/releases/3.16.3/windows-x64/ZCode-3.16.3-win-x64.exe
+ Windows arm64 安装版（180.9 MB）：
+   https://cdn-zcode.z.ai/zcode/electron/releases/3.16.3/windows-arm64/ZCode-3.16.3-win-arm64.exe
+ macOS arm64 dmg（260.0 MB）：
+   https://cdn-zcode.z.ai/zcode/electron/releases/3.16.3/macos-arm64/ZCode-3.16.3-mac-arm64.dmg
+ macOS x64 dmg（273.6 MB）：
+   https://cdn-zcode.z.ai/zcode/electron/releases/3.16.3/macos-x64/ZCode-3.16.3-mac-x64.dmg
+ 注意：GLM-5.3 官方桌面 Harness。直链带版本号，新版发布后旧链接失效时从官网重新下载；开源仓库在 github.com/zai-org/ZCode
 
-  Git for Windows 2.56.0.3
-    官方：https://git-scm.com/download/win
-    官方 Release：https://github.com/git-for-windows/git/releases
-    Windows x64：
-    https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.3/Git-2.56.0.3-64-bit.exe
-    注意：tag 是 v2.56.0.windows.3，文件名却是 Git-2.56.0.3-64-bit.exe，两者不一样
+18. Python 3.13.10
+ 官网：https://www.python.org/downloads/windows/
+ Windows x64 安装版（27.4 MB）：
+   https://mirrors.huaweicloud.com/python/3.13.10/python-3.13.10-amd64.exe
+   https://www.python.org/ftp/python/3.13.10/python-3.13.10-amd64.exe
+ Windows arm64 安装版（26.8 MB）：
+   https://mirrors.huaweicloud.com/python/3.13.10/python-3.13.10-arm64.exe
+   https://www.python.org/ftp/python/3.13.10/python-3.13.10-arm64.exe
+ 注意：安装时务必勾选最下面的「Add python.exe to PATH」，否则命令行敲 python 会找不到。3.13 是兼容性最稳的版本；想用 3.14 见下载总表里的链接
 
-  7-Zip 25.01
-    官方：https://www.7-zip.org/
-    直链（会跳转到 GitHub）：
-    https://www.7-zip.org/a/7z2501-x64.exe
+19. Node.js 24.22.1 LTS
+ 官网：https://nodejs.org/zh-cn/download
+ Windows x64 MSI（31.8 MB）：
+   https://registry.npmmirror.com/-/binary/node/v24.22.1/node-v24.22.1-x64.msi
+   https://nodejs.org/dist/v24.22.1/node-v24.22.1-x64.msi
+ Windows arm64 MSI（28.4 MB）：
+   https://registry.npmmirror.com/-/binary/node/v24.22.1/node-v24.22.1-arm64.msi
+   https://nodejs.org/dist/v24.22.1/node-v24.22.1-arm64.msi
+ 注意：MSI 安装会自动加进 PATH，装完重开一个窗口才生效。装完可以敲 node -v 验证
 
-  需要但本包没收的（本清单软件用不上）：
-    Java   https://adoptium.net
-    Go     https://go.dev/dl/
-    Rust   https://rustup.rs
-    .NET   https://dot.net
+20. Git for Windows 2.56.0.3
+ 官网：https://git-scm.com/download/win
+ Windows x64 安装版（63.7 MB）：
+   https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.3/Git-2.56.0.3-64-bit.exe
+ Windows arm64 安装版（61.4 MB）：
+   https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.3/Git-2.56.0.3-arm64.exe
+ 注意：一路默认下一步即可。安装时「Adjusting your PATH」建议保持默认的中间选项，这样命令行里能直接用 git
+
+21. 7-Zip 25.01
+ 官网：https://www.7-zip.org/
+ Windows x64 安装版（1.6 MB）：
+   https://github.com/ip7z/7zip/releases/download/25.01/7z2501-x64.exe
+ Windows arm64 安装版（1.5 MB）：
+   https://github.com/ip7z/7zip/releases/download/25.01/7z2501-arm64.exe
+ 注意：装完右键菜单会多出「7-Zip」，也可以直接双击 .7z 打开。本包里的 Watt Toolkit 免安装版就需要它
+
+22. Cursor
+ 官网：https://cursor.com/downloads
+ 无直链安装包，安装方式：官网下载（见官网指引）。
+ 注意：官网自动识别系统给对应安装包；Windows ARM 版需在下载页切换
+
+23. Trae（国际版）
+ 官网：https://www.trae.ai/download
+ 无直链安装包，安装方式：官网下载（见官网指引）。
+ 注意：国际版需外网，账号与国内版不互通
+
+24. Trae CN（国内版）
+ 官网：https://www.trae.cn/download
+ 无直链安装包，安装方式：官网下载（见官网指引）。
+ 注意：国内网络可直接下载和登录，推荐国内用户选这个而不是国际版
+
+25. Windsurf
+ 官网：https://windsurf.com/download
+ 无直链安装包，安装方式：官网下载（见官网指引）。
+ 注意：需注册账号；免费额度有限
+
+26. Visual Studio Code
+ 官网：https://code.visualstudio.com/download
+ 无直链安装包，安装方式：官网下载（见官网指引）。
+ 注意：装完可在扩展市场搜 Cline、Roo Code、Continue 等 AI 扩展
+
+27. Qoder
+ 官网：https://qoder.com/en/download
+ 无直链安装包，安装方式：官网下载（见官网指引）。
+ 注意：官网自动识别系统给对应安装包（Windows 10+ / macOS 12+ / Linux）。桌面产品线在整合：QoderWork 已宣布 2027-09 停止运营并向 Qoder Desktop 迁移，下载页以最新指引为准
+
+28. Claude Code
+ 官网：https://github.com/anthropics/claude-code/releases
+ 官方 Release：https://github.com/anthropics/claude-code/releases
+ Windows x64 压缩包（127.6 MB）：
+   https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-win32-x64.zip
+ Windows arm64 压缩包（122.2 MB）：
+   https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-win32-arm64.zip
+ macOS arm64 dmg（114.3 MB）：
+   https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-darwin-arm64.tar.gz
+ macOS x64 dmg（119.9 MB）：
+   https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-darwin-x64.tar.gz
+ 注意：解压后把可执行文件放进 PATH；需要 Anthropic 账号或 API Key
+
+29. Gemini CLI
+ 官网：https://github.com/google-gemini/gemini-cli
+ 官方 Release：https://github.com/google-gemini/gemini-cli/releases
+ macOS arm64 dmg（34.9 MB）：
+   https://github.com/google-gemini/gemini-cli/releases/download/v0.65.0/gemini-darwin-arm64-unsigned.zip
+ macOS x64 dmg（36.3 MB）：
+   https://github.com/google-gemini/gemini-cli/releases/download/v0.65.0/gemini-darwin-x64-unsigned.zip
+ 注意：⚠️ 官方只发 macOS 二进制，Windows 必须用 npm 装：npm install -g @google/gemini-cli
+
+30. Qwen Code
+ 官网：https://github.com/QwenLM/qwen-code
+ 官方 Release：https://github.com/QwenLM/qwen-code/releases
+ Windows x64 压缩包（69.3 MB）：
+   https://github.com/QwenLM/qwen-code/releases/download/v0.26.0/qwen-code-win-x64.zip
+ macOS arm64 dmg（80.1 MB）：
+   https://github.com/QwenLM/qwen-code/releases/download/v0.26.0/qwen-code-darwin-arm64.tar.gz
+ macOS x64 dmg（81.4 MB）：
+   https://github.com/QwenLM/qwen-code/releases/download/v0.26.0/qwen-code-darwin-x64.tar.gz
+ 注意：国内直连可下载。需要通义千问 API Key 或 DashScope 账号。该仓库 releases/latest 指向 sdk 子包 tag，不代表应用最新版，版本检测已跳过
+
+31. Kimi CLI
+ 官网：https://github.com/MoonshotAI/kimi-cli/releases
+ 官方 Release：https://github.com/MoonshotAI/kimi-cli/releases
+ Windows x64 压缩包（68.7 MB）：
+   https://github.com/MoonshotAI/kimi-cli/releases/download/1.52.0/kimi-1.52.0-x86_64-pc-windows-msvc.zip
+ Windows arm64 压缩包（64.6 MB）：
+   https://github.com/MoonshotAI/kimi-cli/releases/download/1.52.0/kimi-1.52.0-aarch64-pc-windows-msvc.zip
+ macOS arm64 dmg（64.9 MB）：
+   https://github.com/MoonshotAI/kimi-cli/releases/download/1.52.0/kimi-1.52.0-aarch64-apple-darwin.tar.gz
+ macOS x64 dmg（66.7 MB）：
+   https://github.com/MoonshotAI/kimi-cli/releases/download/1.52.0/kimi-1.52.0-x86_64-apple-darwin.tar.gz
+ 注意：解压后加进 PATH。需要 Moonshot API Key
+
+32. Pi
+ 官网：https://github.com/earendil-works/pi
+ 官方 Release：https://github.com/earendil-works/pi/releases
+ Windows x64 压缩包（43 MB）：
+   https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-windows-x64.zip
+ Windows arm64 压缩包（41.7 MB）：
+   https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-windows-arm64.zip
+ macOS arm64 dmg（29.7 MB）：
+   https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-darwin-arm64.tar.gz
+ macOS x64 dmg（32 MB）：
+   https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-darwin-x64.tar.gz
+ 注意：支持多家模型提供商，需配置对应 API Key
+
+33. Codex CLI
+ 官网：https://github.com/openai/codex
+ 无直链安装包，安装方式：npm 安装（见官网指引）。
+ 注意：⚠️ 官方 Release 里没有面向用户的安装包（318 个 assets 全是内部构建产物）。正确装法：npm install -g @openai/codex
+
+34. OpenClaw
+ 官网：https://github.com/openclaw/openclaw
+ 无直链安装包，安装方式：npm 安装（见官网指引）。
+ 注意：⚠️ Release 只有证据文件，没有安装包。装法：npm install -g openclaw（或 npx openclaw）
+
+35. Aider
+ 官网：https://aider.chat/docs/install.html
+ 无直链安装包，安装方式：pip 安装（见官网指引）。
+ 注意：⚠️ 无二进制发布，走 Python：pip install aider-chat（需先装 Python）
+
+36. iFlow CLI
+ 官网：https://github.com/iflow-ai/iflow-cli
+ 无直链安装包，安装方式：npm 安装（见官网指引）。
+ 注意：⚠️ 无二进制发布，走 npm：npm install -g @iflow-ai/iflow-cli
+
+37. Goose
+ 官网：https://github.com/aaif-goose/goose/releases
+ 官方 Release：https://github.com/aaif-goose/goose/releases
+ Windows x64 安装版（131.3 MB）：
+   https://github.com/aaif-goose/goose/releases/download/v1.56.0/Goose-win32-x64-setup.exe
+ macOS arm64 dmg（174.3 MB）：
+   https://github.com/aaif-goose/goose/releases/download/v1.56.0/Goose-darwin-arm64.zip
+ macOS x64 dmg（183.7 MB）：
+   https://github.com/aaif-goose/goose/releases/download/v1.56.0/Goose-darwin-x64.zip
+ 注意：另有 CUDA 加速版（377 MB），需要 GPU 时再选
+
+38. OpenHands
+ 官网：https://github.com/OpenHands/OpenHands/releases
+ 官方 Release：https://github.com/OpenHands/OpenHands/releases
+ Windows x64 安装版（135.4 MB）：
+   https://github.com/OpenHands/OpenHands/releases/download/v1.33.0/OpenHands-Agent-Canvas-Setup-1.33.0.exe
+ 注意：桌面版叫 Agent Canvas；也可用 Docker 部署服务端
+
+39. Cline（桌面版）
+ 官网：https://github.com/cline/cline/releases
+ 官方 Release：https://github.com/cline/cline/releases
+ Windows x64 安装版（115.8 MB）：
+   https://github.com/cline/cline/releases/download/desktop-v0.0.48/Cline_0.0.48_x64-setup.exe
+ 注意：若已用 VS Code，直接在扩展市场搜 Cline 更轻
+
+40. Grox（Grok Build 社区桌面版）
+ 官网：https://github.com/dandandujie/Grox
+ 官方 Release：https://github.com/dandandujie/Grox/releases
+ Windows x64 安装版（6.3 MB）：
+   https://github.com/dandandujie/Grox/releases/download/v0.3.5/Grox_0.3.5_x64-setup.exe
+ 注意：⚠️ 非 xAI 官方出品，是社区封装。官方 Grok Build 目前只有网页和手机 App
+
+41. Ollama
+ 官网：https://ollama.com/download
+ 官方 Release：https://github.com/ollama/ollama/releases
+ Windows x64 安装版（1584.6 MB）：
+   https://github.com/ollama/ollama/releases/latest/download/OllamaSetup.exe
+ Windows arm64 压缩包（203.4 MB）：
+   https://github.com/ollama/ollama/releases/latest/download/ollama-windows-arm64.zip
+ macOS 通用 dmg（210.8 MB）：
+   https://github.com/ollama/ollama/releases/latest/download/Ollama.dmg
+ 注意：安装包 1.5 GB 是因为内置了完整运行引擎，属正常大小。装完命令行 ollama run qwen3 即可拉模型。Release 里有官方 sha256sum.txt 可校验。Windows ARM64 没有安装器，用 zip 解压版
+
+42. LM Studio
+ 官网：https://lmstudio.ai/download
+ 无直链安装包，安装方式：官网下载（见官网指引）。
+ 注意：官网按系统给安装包，Windows x64 / ARM64、macOS Apple / Intel 都有。对硬件有要求：8 GB 内存起步，跑大模型看显存
+
+43. Motrix
+ 官网：https://motrix.app
+ 官方 Release：https://github.com/agalwood/Motrix/releases
+ Windows x64 安装版（127.5 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-Setup-2.0.0.exe
+ Windows arm64 安装版（121.8 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-Setup-2.0.0-arm64.exe
+ macOS arm64 dmg（130.5 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-2.0.0-arm64.dmg
+ macOS x64 dmg（137.6 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-2.0.0-x64.dmg
+ 注意：下载 GitHub 直链时，把链接里的 github.com 换成 gh-proxy.com/https://github.com 再添加任务，多线程能大幅提速。界面可切中文
 
 【按 Windows 架构选择】
 
