@@ -222,14 +222,20 @@ function Get-LocalInstaller($app, $variant) {
     return $null
 }
 
+# ---------- GitHub 加速镜像（来自 sources.json 顶层 mirrors，空串 = 直连）----------
+# 镜像站会死：改 sources.json 即可，不用动脚本
+$script:Mirrors = @("https://gh-proxy.com/", "https://ghfast.top/", "", "https://gh.llkk.cc/")
+if ($cfg.mirrors) { $script:Mirrors = @($cfg.mirrors) }
+
 # ---------- GitHub 最新 release 资产解析 ----------
 function Resolve-GitHubAsset($repo, $pattern) {
     if (-not $repo) { return $null }
-    $apis = @(
-        ("https://gh-proxy.com/https://api.github.com/repos/" + $repo + "/releases/latest"),
-        ("https://api.github.com/repos/" + $repo + "/releases/latest"),
-        ("https://ghfast.top/https://api.github.com/repos/" + $repo + "/releases/latest")
-    )
+    # API 请求按镜像前缀逐个试（直连兜底放最后）
+    $apis = @()
+    foreach ($m in $script:Mirrors) {
+        if ($m) { $apis += ($m + "https://api.github.com/repos/" + $repo + "/releases/latest") }
+    }
+    $apis += ("https://api.github.com/repos/" + $repo + "/releases/latest")
     foreach ($api in $apis) {
         try {
             $r = Invoke-RestMethod -Uri $api -TimeoutSec 20 -Headers @{ "User-Agent" = "agent-installer" }
@@ -432,7 +438,7 @@ function Get-Installer($app, $variant, [switch]$Batch) {
     # 3) 逐个尝试（GitHub 链接自动加加速前缀）
     # 加速站优先、直连兜底（与 补全安装包.ps1 的顺序保持一致）：
     # 国内直连 GitHub 基本不通，把直连放第一只会让买家白等一轮超时
-    $mirrors = @("https://gh-proxy.com/", "https://ghfast.top/", "", "https://gh.llkk.cc/")
+    $mirrors = $script:Mirrors
 
     # 下载到该应用自己的子目录，不跟别的应用混在一起
     $destDir = $DlDir
