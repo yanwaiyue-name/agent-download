@@ -1,6 +1,7 @@
 {
   "version": "4.1",
   "updated": "2026-10-24",
+  "mirrors": ["https://gh-proxy.com/", "https://ghfast.top/", "", "https://gh.llkk.cc/"],
   "note": "面向 Windows/macOS 的 AI 客户端与命令行工具下载中心。分 8 个分组：桌面端 / Agents / IDE / CLI Code / 本地运行 / 实用工具 / 运行环境 / 开发环境。启动器按本机 x64 / ARM64 / x86 自动选包；同一软件的多套格式写在 variants 里（format: msi/setup/store/portable/zip，按此优先级自动挑默认）。mac 数组是 macOS 包，放在 安装包/<dir>/mac/ 下，Windows 启动器不读它。GitHub 条目优先解析 latest Release，urls 是备用直链。注意：部分工具（Codex CLI / OpenClaw / Aider / iFlow CLI / Gemini CLI 的 Windows 版）只有 npm 或 pip 安装方式，没有二进制包，已在其 tip 字段注明。",
   "apps": [
     {
@@ -391,41 +392,41 @@
         {
           "arch": "x64",
           "format": "msi",
-          "file": "CC-Switch-v4.0.18-Windows.msi",
-          "size": "16.7 MB",
+          "file": "CC-Switch-v4.0.19-Windows.msi",
+          "size": "16.8 MB",
           "assetPattern": "-Windows\\.msi$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows.msi"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows.msi"
           ]
         },
         {
           "arch": "x64",
           "format": "zip",
-          "file": "CC-Switch-v4.0.18-Windows-Portable.zip",
-          "size": "16.7 MB",
+          "file": "CC-Switch-v4.0.19-Windows-Portable.zip",
+          "size": "16.8 MB",
           "assetPattern": "-Windows-Portable\\.zip$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows-Portable.zip"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-Portable.zip"
           ]
         },
         {
           "arch": "arm64",
           "format": "msi",
-          "file": "CC-Switch-v4.0.18-Windows-arm64.msi",
-          "size": "16.0 MB",
+          "file": "CC-Switch-v4.0.19-Windows-arm64.msi",
+          "size": "16.2 MB",
           "assetPattern": "Windows-arm64\\.msi$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows-arm64.msi"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-arm64.msi"
           ]
         },
         {
           "arch": "arm64",
           "format": "zip",
-          "file": "CC-Switch-v4.0.18-Windows-arm64-Portable.zip",
-          "size": "15.8 MB",
+          "file": "CC-Switch-v4.0.19-Windows-arm64-Portable.zip",
+          "size": "16.0 MB",
           "assetPattern": "Windows-arm64-Portable\\.zip$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows-arm64-Portable.zip"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-arm64-Portable.zip"
           ]
         }
       ],
@@ -433,10 +434,10 @@
         {
           "arch": "any",
           "format": "dmg",
-          "file": "CC-Switch-v4.0.18-macOS.dmg",
-          "size": "34.0 MB",
+          "file": "CC-Switch-v4.0.19-macOS.dmg",
+          "size": "34.2 MB",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-macOS.dmg"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-macOS.dmg"
           ]
         }
       ],

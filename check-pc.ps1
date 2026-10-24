@@ -290,7 +290,7 @@ if (-not $Apps) {
         @{ id="dsh"; group="桌面端"; name="DeepSeek Harness 桌面版"; desc="DeepSeek 智能体桌面平台"; variants=@(@{arch="x64"; format="setup"; size="314.8 MB"}) }
         @{ id="cherry"; group="桌面端"; name="Cherry Studio"; desc="国产多模型聚合客户端"; variants=@(@{arch="x64"; format="setup"; size="296.4 MB"}, @{arch="x64"; format="portable"; size="296.1 MB"}, @{arch="arm64"; format="setup"; size="275.2 MB"}, @{arch="arm64"; format="portable"; size="274.8 MB"}) }
         @{ id="lobehub"; group="桌面端"; name="LobeHub 桌面版"; desc="开源 AI 助手聚合客户端"; variants=@(@{arch="x64"; format="setup"; size="145.5 MB"}) }
-        @{ id="ccswitch"; group="Agents"; name="CC Switch"; desc="多 Agent 配置、升级与管理工具"; variants=@(@{arch="x64"; format="msi"; size="16.7 MB"}, @{arch="x64"; format="zip"; size="16.7 MB"}, @{arch="arm64"; format="msi"; size="16.0 MB"}, @{arch="arm64"; format="zip"; size="15.8 MB"}) }
+        @{ id="ccswitch"; group="Agents"; name="CC Switch"; desc="多 Agent 配置、升级与管理工具"; variants=@(@{arch="x64"; format="msi"; size="16.8 MB"}, @{arch="x64"; format="zip"; size="16.8 MB"}, @{arch="arm64"; format="msi"; size="16.2 MB"}, @{arch="arm64"; format="zip"; size="16.0 MB"}) }
         @{ id="opencowork"; group="Agents"; name="Open Cowork"; desc="图形化 AI Agent 工作台"; variants=@(@{arch="x64"; format="setup"; size="123.1 MB"}) }
         @{ id="runjam"; group="Agents"; name="RunJam"; desc="多 Agent 图形化编程工作台"; variants=@(@{arch="x64"; format="setup"; size="107.3 MB"}) }
         @{ id="ccgui"; group="Agents"; name="Desktop CC GUI"; desc="多引擎 Agent 图形化运行器"; variants=@(@{arch="x64"; format="setup"; size="15.0 MB"}) }
@@ -438,7 +438,7 @@ if ($mem -gt 0 -and $mem -lt 8) { $memNote = "   <- 偏小，跑大模型客户�
 Out-Line ("【内存】  " + $mem + " GB" + $memNote)
 
 $diskNote = ""
-if ($freeC -gt 0 -and $freeC -lt 5) { $diskNote = "   <- 空间不足，装完这些约需 1.5 GB" }
+if ($freeC -gt 0 -and $freeC -lt 5) { $diskNote = "   <- 空间偏小，装完全部清单约需数 GB（精确数字见下方结论）" }
 Out-Line ("【硬盘】  C 盘剩余 " + $freeC + " GB" + $diskNote)
 Out-Line ""
 
@@ -686,3 +686,4 @@ if (-not $NoPause -and -not $Quiet) {
     Write-Host "  按任意键关闭..." -ForegroundColor DarkGray
     try { $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") } catch { Start-Sleep -Seconds 5 }
 }
+
