@@ -4,7 +4,7 @@
 
 <h1 align="center">📦 AI 客户端下载中心</h1>
 
-<p align="center"><strong>Version 1.0</strong></p>
+<p align="center"><strong>Version 4.0</strong></p>
 
 <p align="center">
   <em>一站式整理主流 AI 桌面客户端的官方下载地址，按电脑架构告诉您该装哪个版本。<br>
@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-20%20apps-2ea44f" alt="20 apps">
+  <img src="https://img.shields.io/badge/software-38%20apps-2ea44f" alt="20 apps">
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
 
 ## 这是什么
 
-国内装 AI 桌面客户端，通常卡在三件事：
+国内装 AI 客户端和命令行工具，通常卡在三件事：
 
 1. **不知道去哪下** —— 搜索结果前几页全是"高速下载器"，装完一堆捆绑
 2. **不知道下哪个版本** —— 同一款软件有 x64 / ARM64、安装版 / 免安装 / MSI，选错就白费
@@ -52,49 +52,78 @@
 
 ## ⚡ 30 秒速查：您该装哪个
 
-### 基础桌面客户端
+共 **38** 项，分 **6** 个分组。⭐ = 推荐。
 
-| 软件 | Intel / AMD 电脑 | 骁龙 / 麒麟电脑 | macOS | 官方地址 |
+> **重要**：标注 `npm` / `pip` 的工具**没有可双击的安装包**，必须用命令行安装。这是它们官方的发布方式，不是缺文件。
+
+### 桌面端（9）
+
+| 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
 |---|---|---|---|---|
-| **WorkBuddy（腾讯）** | ✅ 安装版 | ⚠️ 模拟运行 | ✅ Apple Silicon | [官方页](https://www.workbuddy.cn) |
-| **Claude Desktop** | ✅ 安装版 | ⚠️ 模拟运行 | ✅ Apple / Intel | [官方页](https://claude.ai/download) |
-| **ChatGPT 桌面端（含 Codex）** | ✅ 商店引导器 | ✅ 原生 ARM64 | ✅ Apple / Intel | [官方页](https://chatgpt.com/download) |
-| **OpenCode Desktop** | ✅ 安装版 / 免安装 | ✅ 原生 ARM64 | ✅ Apple / Intel | [官方页](https://opencode.ai/download) |
-| **DeepSeek Harness 桌面版** | ✅ 安装版 | ⚠️ 模拟运行 | ✅ Apple / Intel | [官方页](https://github.com/anywhere-labs/deepseek-harness-desktop/releases) |
-| **Cherry Studio** | ✅ 安装版 / 免安装 | ✅ 原生 ARM64 | ✅ Apple / Intel | [官方页](https://www.cherry-ai.com) |
-| **LobeHub 桌面版** | ✅ 安装版 | ⚠️ 模拟运行 | ✅ Apple / Intel | [官方页](https://github.com/lobehub/lobe-chat/releases) |
-| **Hermes Agent 桌面版** | ✅ 安装版 | ⚠️ 模拟运行 | ✅ Apple Silicon | [官方页](https://hermes-agent.nousresearch.com/) |
-| **Watt Toolkit（瓦特工具箱）** | ✅ 安装版 / 免安装 | ⚠️ 模拟运行 | ✅ Apple / Intel | [官方页](https://steampp.net/) |
+| **WorkBuddy（腾讯）** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple | [官方页](https://www.workbuddy.cn) |
+| **Claude Desktop** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://claude.ai/download) |
+| **ChatGPT 桌面端（含 Codex）** ⭐ | ✅ 商店 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://chatgpt.com/download) |
+| **OpenCode Desktop** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://opencode.ai/download) |
+| **DeepSeek Harness 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/anywhere-labs/deepseek-harness-desktop/releases) |
+| **Cherry Studio** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://www.cherry-ai.com) |
+| **LobeHub 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/lobehub/lobe-chat/releases) |
+| **Hermes Agent 桌面版** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple | [官方页](https://hermes-agent.nousresearch.com/) |
+| **Watt Toolkit（瓦特工具箱）** | ✅ 安装版/免安装 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://steampp.net/) |
 
-### Agent 管理与工作台
+### Agents（8）
 
-| 软件 | Intel / AMD 电脑 | 骁龙 / 麒麟电脑 | macOS | 官方地址 |
+| 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
 |---|---|---|---|---|
-| **CC Switch** | ✅ 安装版 / 免安装 | ✅ 原生 ARM64 | ✅ Apple / Intel | [官方页](https://ccswitch.io) |
-| **Open Cowork** | ✅ 安装版 | ⚠️ 模拟运行 | ✅ Apple Silicon | [官方页](https://github.com/OpenCoworkAI/open-cowork/releases) |
-| **RunJam** | ✅ 安装版 | ⚠️ 模拟运行 | ✅ Apple / Intel | [官方页](https://www.runjam.app) |
-| **Desktop CC GUI** | ✅ 安装版 | ⚠️ 模拟运行 | ✅ Apple / Intel | [官方页](https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases) |
+| **CC Switch** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://ccswitch.io) |
+| **Open Cowork** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple | [官方页](https://github.com/OpenCoworkAI/open-cowork/releases) |
+| **RunJam** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://www.runjam.app) |
+| **Desktop CC GUI** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases) |
+| **Goose** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/aaif-goose/goose/releases) |
+| **OpenHands** ⭐ | ✅ 安装版 | ⚠️ 模拟 | — | [官方页](https://github.com/OpenHands/OpenHands/releases) |
+| **Cline（桌面版）** ⭐ | ✅ 安装版 | ⚠️ 模拟 | — | [官方页](https://github.com/cline/cline/releases) |
+| **Grox（Grok Build 社区桌面版）** | ✅ 安装版 | ⚠️ 模拟 | — | [官方页](https://github.com/dandandujie/Grox) |
 
-### 运行环境
+### IDE（5）
+
+| 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
+|---|---|---|---|---|
+| **Cursor** ⭐ | 官网下载 | 官网下载 | 官网 | [官方页](https://cursor.com/downloads) |
+| **Trae（国际版）** | 官网下载 | 官网下载 | 官网 | [官方页](https://www.trae.ai/download) |
+| **Trae CN（国内版）** ⭐ | 官网下载 | 官网下载 | 官网 | [官方页](https://www.trae.cn/download) |
+| **Windsurf** | 官网下载 | 官网下载 | 官网 | [官方页](https://windsurf.com/download) |
+| **Visual Studio Code** | 官网下载 | 官网下载 | 官网 | [官方页](https://code.visualstudio.com/download) |
+
+### CLI Code（9）
+
+| 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
+|---|---|---|---|---|
+| **Claude Code** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://github.com/anthropics/claude-code/releases) |
+| **Gemini CLI** ⭐ | 官网下载 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/google-gemini/gemini-cli) |
+| **Qwen Code** ⭐ | ✅ 安装版/免安装 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/QwenLM/qwen-code) |
+| **Kimi CLI** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://github.com/MoonshotAI/kimi-cli/releases) |
+| **Pi** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://github.com/earendil-works/pi) |
+| **Codex CLI** | `npm` | `npm` | `npm` | [官方页](https://github.com/openai/codex) |
+| **OpenClaw** ⭐ | `npm` | `npm` | `npm` | [官方页](https://github.com/openclaw/openclaw) |
+| **Aider** | `pip` | `pip` | `pip` | [官方页](https://aider.chat/docs/install.html) |
+| **iFlow CLI** | `npm` | `npm` | `npm` | [官方页](https://github.com/iflow-ai/iflow-cli) |
+
+### 运行环境（3）
 
 | 名称 | 说明 | 官方地址 |
 |---|---|---|
-| **WebView2 运行时（在线版）** | 网页渲染内核，1.8 MB 引导器，安装时需联网 | [官方页](https://developer.microsoft.com/microsoft-edge/webview2/) |
-| **WebView2 运行时（离线包）** | 完整离线安装包，安装时不需要联网 | [官方页](https://developer.microsoft.com/microsoft-edge/webview2/) |
-| **VC++ 运行库 2015-2022** | 微软 Visual C++ 运行库，多数桌面软件的底层依赖 | [官方页](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist) |
+| **WebView2 运行时（在线版）** | 网页渲染内核，1.8 MB 引导器（安装时要联网） | [官方页](https://developer.microsoft.com/microsoft-edge/webview2/) |
+| **WebView2 运行时（离线包）** | 完整离线安装包，装的时候不需要联网 | [官方页](https://developer.microsoft.com/microsoft-edge/webview2/) |
+| **VC++ 运行库 2015-2022（x64）** | 微软 Visual C++ 运行库，多数桌面软件的底层依赖 | [官方页](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist) |
 
-> **装完打不开、窗口一片白？** 十有八九是缺上面这两个运行库，不是软件本身的问题。Windows 11 基本自带，Windows 10 装机版常缺。
-
-### 开发环境
+### 开发环境（4）
 
 | 名称 | 说明 | 官方地址 |
 |---|---|---|
 | **Python 3.13.10** | Python 官方解释器（含 pip） | [官方页](https://www.python.org/downloads/windows/) |
 | **Node.js 24.22.1 LTS** | Node.js 长期支持版（含 npm） | [官方页](https://nodejs.org/zh-cn/download) |
 | **Git for Windows 2.56.0.3** | Git 版本控制（含 Git Bash） | [官方页](https://git-scm.com/download/win) |
-| **7-Zip 25.01** | 开源压缩工具，支持 .7z / .zip / .rar | [官方页](https://www.7-zip.org/) |
+| **7-Zip 25.01** | 开源压缩工具，支持 .7z / .zip / .rar 等 | [官方页](https://www.7-zip.org/) |
 
-> 上面那些 AI 桌面客户端**不需要** Python / Node.js，它们自带运行时。只有要用命令行版（如 Claude Code、opencode CLI）时才装 Node.js。
 
 ---
 

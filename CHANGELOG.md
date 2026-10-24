@@ -2,6 +2,51 @@
 
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [4.0.0] - 2026-10-24
+
+分组重构、项目从 20 扩到 38。
+
+### 新增分组
+- **IDE**：Cursor、Trae（国际版）、Trae CN（国内版）、Windsurf、VS Code
+- **CLI Code**：Claude Code、Gemini CLI、Qwen Code、Kimi CLI、Pi、Codex CLI、OpenClaw、Aider、iFlow CLI
+
+### 新增项目（18 个）
+| 名称 | 分组 | 星 | 安装方式 |
+|---|---|---|---|
+| Cursor | IDE | 3.3 万 | 官网 |
+| Trae / Trae CN | IDE | — | 官网（CN 版国内直连） |
+| Windsurf | IDE | — | 官网 |
+| VS Code | IDE | — | 官网 |
+| Claude Code | CLI | — | 原生 zip（win32 x64/arm64） |
+| Gemini CLI | CLI | 10.7 万 | macOS zip / **Windows 走 npm** |
+| Qwen Code | CLI | 2.9 万 | 原生 zip（win x64） |
+| Kimi CLI | CLI | 1.1 万 | 原生 zip（win x64/arm64） |
+| Pi | CLI | 11.7 万 | 原生 zip（win x64/arm64） |
+| Codex CLI | CLI | — | **npm**（官方 318 个 assets 无用户包） |
+| OpenClaw | CLI | 39.3 万 | **npm**（Release 只有证据文件） |
+| Aider | CLI | 5.0 万 | **pip** |
+| iFlow CLI | CLI | 5077 | **npm** |
+| Goose | Agents | 5.5 万 | 安装版 exe |
+| OpenHands | Agents | 9.1 万 | 安装版 exe |
+| Cline（桌面版） | Agents | 7.0 万 | 安装版 exe |
+| Grox | Agents | 81 | 安装版 exe（社区版，非官方） |
+
+### 变更
+- 分组从 4 类改为 6 类：桌面端 / Agents / IDE / CLI Code / 运行环境 / 开发环境
+- 新增 `install` 字段：标记 `web` / `npm` / `pip`，明确无二进制包的安装方式
+- 校验脚本区分「缺失」与「本就走包管理器」，不再误报警告
+- 离线清单页支持新分组、npm/pip 徽章、分组计数
+
+### 未收录（附理由）
+| 项目 | 理由 |
+|---|---|
+| Coffee CLI | 找不到官方仓库与官网，来源不明 |
+| NanoBot | `Aisht669/nanobot` 0 星，2026-04 后未更新 |
+| 自动交易类（FinGPT / TradingAgents / AI-Trader） | Python 库，非桌面软件 |
+| VS Code 扩展类（Roo Code / Continue / kilocode） | 走扩展市场，无独立安装包 |
+
+---
+
 ## [1.0.0] - 2026-10-24
 
 首个公开版本。

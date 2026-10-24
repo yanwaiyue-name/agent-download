@@ -51,7 +51,16 @@ foreach ($a in @($cfg.apps)) {
     $vs = @($a.variants)
     $ms = @($a.mac)
     if ($vs.Count -eq 0 -and $ms.Count -eq 0) {
-        Warn ($a.id + ' has no variants and no mac entries')
+        # 合法情况：走官网下载或包管理器安装（npm / pip）的项目本来就没有直链二进制
+        # 判定依据：必须提供 page 字段，且 install 或 tip 说明安装方式
+        $isWebOrPm = ($a.install -eq 'web' -or $a.install -eq 'npm' -or $a.install -eq 'pip')
+        if ($isWebOrPm -and $a.page) {
+            Ok ($a.id + ' -> ' + $a.install + ' install (no binary, by design)')
+        } elseif (-not $a.page) {
+            Bad ($a.id + ': no variants AND no page link')
+        } else {
+            Warn ($a.id + ': no variants, install type not declared (add "install": "web|npm|pip")')
+        }
     }
 }
 if ($errors.Count -eq 0) { Ok 'all app fields present' }
