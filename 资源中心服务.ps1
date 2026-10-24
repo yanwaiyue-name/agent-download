@@ -33,10 +33,12 @@ trap {
     exit 1
 }
 
-$Root    = Split-Path -Parent $MyInvocation.MyCommand.Path
-$Html    = Join-Path $Root '资源中心.html'
-$SrcPath = Join-Path $Root 'sources.json'
-$PkgRoot = Join-Path $Root '安装包'
+$Root      = Split-Path -Parent $MyInvocation.MyCommand.Path
+$Html      = Join-Path $Root '资源中心.html'
+$SrcPath   = Join-Path $Root 'sources.json'
+# 两个目录都进索引：安装包/ 放预置离线包，下载/ 是启动器联网下载的缓存——
+# 以前只扫 安装包/，用命令行启动器下载过的包在网页里仍显示「去官网」
+$ScanRoots = @((Join-Path $Root '安装包'), (Join-Path $Root '下载'))
 
 function Say($msg, $color = 'Gray') { Write-Host $msg -ForegroundColor $color }
 
@@ -61,8 +63,9 @@ function Find-FreePort {
 }
 
 # 检测是否已有实例在跑，避免重复双击开出多个服务
+# 范围必须与 Find-FreePort 一致（18080-18139），否则绑到高位端口的实例查重不到
 function Find-Existing {
-    param([int]$Start = 18080, [int]$End = 18090)
+    param([int]$Start = 18080, [int]$End = 18139)
     for ($p = $Start; $p -le $End; $p++) {
         try {
             $req = [System.Net.WebRequest]::Create('http://127.0.0.1:' + $p + '/api/apps')
@@ -98,11 +101,13 @@ if ($Port -le 0) {
 # ---------- 文件索引（只扫一次） ----------
 function Build-FileIndex {
     $idx = @{}
-    if (-not (Test-Path $PkgRoot)) { return $idx }
-    foreach ($f in @(Get-ChildItem -Path $PkgRoot -Recurse -File -ErrorAction SilentlyContinue)) {
-        $k = $f.Name.ToLowerInvariant()
-        if (-not $idx.ContainsKey($k)) {
-            $idx[$k] = [pscustomobject]@{ Path = $f.FullName; Size = $f.Length }
+    foreach ($rootDir in $ScanRoots) {
+        if (-not (Test-Path $rootDir)) { continue }
+        foreach ($f in @(Get-ChildItem -Path $rootDir -Recurse -File -ErrorAction SilentlyContinue)) {
+            $k = $f.Name.ToLowerInvariant()
+            if (-not $idx.ContainsKey($k)) {
+                $idx[$k] = [pscustomobject]@{ Path = $f.FullName; Size = $f.Length }
+            }
         }
     }
     return $idx
@@ -172,7 +177,7 @@ function Build-AppData {
         })
     }
 
-    return [pscustomobject]@{ groups = @($order); apps = @($apps) }
+    return [pscustomobject]@{ version = [string]$src.version; groups = @($order); apps = @($apps) }
 }
 
 # ---------- 文档 ----------

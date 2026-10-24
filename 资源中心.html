@@ -195,6 +195,7 @@ main{position:relative;z-index:2;flex:1;overflow-y:auto;padding:0 0 48px;min-wid
 }
 .tag.ok{background:rgba(52,211,153,.09);border-color:rgba(52,211,153,.24);color:#6EE7B7}
 .tag.no{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.22);color:#FCD34D}
+.tag.pm{background:rgba(163,113,247,.09);border-color:rgba(163,113,247,.26);color:#C4B0F8}
 .dl{
   padding:7px 14px;border-radius:9px;border:none;cursor:pointer;font:inherit;
   font-size:12.5px;font-weight:600;color:#fff;flex:none;white-space:nowrap;
@@ -320,7 +321,7 @@ main{position:relative;z-index:2;flex:1;overflow-y:auto;padding:0 0 48px;min-wid
     </div>
     <div>
       <h1>AI 桌面下载中心</h1>
-      <p>离线安装包 · v3.0</p>
+      <p id="ver">离线安装包</p>
     </div>
   </div>
   <div class="nav" id="nav"></div>
@@ -396,13 +397,34 @@ const ICON = {
   python:['#3776AB','#2B5C88','Py'],
   nodejs:['#339933','#256B25','JS'],
   git:['#F05032','#BE3A1E','G'],
-  '7zip':['#4A5568','#2D3748','7z']
+  '7zip':['#4A5568','#2D3748','7z'],
+  'claude-code':['#D97757','#A84A2C','CC'],
+  'gemini-cli':['#4285F4','#3367D6','Gm'],
+  'qwen-code':['#615CED','#4B45B8','Qw'],
+  'kimi-cli':['#1F2937','#111827','Ki'],
+  pi:['#0EA5E9','#0369A1','Pi'],
+  'codex-cli':['#10A37F','#0A7A5F','Cx'],
+  openclaw:['#F59E0B','#B45309','OC'],
+  aider:['#FF9E2C','#D97706','Ai'],
+  'iflow-cli':['#00C6A7','#00997F','iF'],
+  cursor:['#1F2937','#374151','Cu'],
+  trae:['#E11D48','#9F1239','Tr'],
+  'trae-cn':['#DC2626','#991B1B','Tr'],
+  windsurf:['#27B07C','#169462','Ws'],
+  vscode:['#007ACC','#005A9E','VS'],
+  goose:['#FACC15','#CA9A04','Go'],
+  openhands:['#FF6B35','#E04E1A','OH'],
+  cline:['#8B5CF6','#6D28D9','Cl'],
+  grox:['#64748B','#475569','Gx']
 };
 const FMT = {setup:'安装版', msi:'MSI', store:'商店版', portable:'免安装', zip:'压缩包', dmg:'DMG'};
-const GROUP_ORDER = ['基础桌面客户端','Agent 管理与工作台','运行环境','开发环境'];
+const INSTALL_LABEL = {web:'官网下载', npm:'npm 安装', pip:'pip 安装'};
+const GROUP_ORDER = ['桌面端','Agents','IDE','CLI Code','运行环境','开发环境'];
 const GROUP_COLOR = {
-  '基础桌面客户端':'#4D7CFE',
-  'Agent 管理与工作台':'#8B5CF6',
+  '桌面端':'#4D7CFE',
+  'Agents':'#8B5CF6',
+  'IDE':'#F472B6',
+  'CLI Code':'#FBBF24',
   '运行环境':'#22D3EE',
   '开发环境':'#34D399'
 };
@@ -429,8 +451,7 @@ function pickVariant(app, arch){
 }
 
 function download(app, v, btn){
-  if (!v) return;
-  if (v.local) {
+  if (v && v.local) {
     // 用隐藏 a 标签触发，避免 location.href 在个别浏览器里导航掉当前页
     const url = '/dl?id=' + encodeURIComponent(app.id) + '&i=' + v.idx;
     const a = document.createElement('a');
@@ -440,14 +461,17 @@ function download(app, v, btn){
     document.body.appendChild(a);
     a.click();
     setTimeout(() => a.remove(), 0);
-    if (btn) {
-      const old = btn.textContent;
-      btn.textContent = '已开始';
-      btn.disabled = true;
-      setTimeout(() => { btn.textContent = old; btn.disabled = false; }, 2200);
-    }
   } else if (app.page) {
+    // 本地没有包（或根本没有直链包，如官网/npm/pip 安装的应用）→ 打开官方页面
     window.open(app.page, '_blank');
+  } else {
+    return;
+  }
+  if (btn) {
+    const old = btn.textContent;
+    btn.textContent = '已开始';
+    btn.disabled = true;
+    setTimeout(() => { btn.textContent = old; btn.disabled = false; }, 2200);
   }
 }
 
@@ -516,12 +540,17 @@ function cardHTML(app){
     if (v.local) tags.push('<span class="tag ok">已就位</span>');
     else tags.push('<span class="tag no">官方下载</span>');
     if (app.needProxy) tags.push('<span class="tag no">需代理</span>');
+  } else if (app.install) {
+    // web / npm / pip 安装的应用：官方本来就不发（或不在 Release 发）直链包
+    tags.push('<span class="tag pm">' + esc(INSTALL_LABEL[app.install] || app.install) + '</span>');
   } else {
     tags.push('<span class="tag no">无 ' + S.arch + ' 包</span>');
   }
   const btn = v
     ? '<button class="dl' + (v.local ? '' : ' ghost') + '">' + (v.local ? '下载' : '去官网') + '</button>'
-    : '<button class="dl ghost" disabled>不可用</button>';
+    : (app.install && app.page
+        ? '<button class="dl ghost">去官网</button>'
+        : '<button class="dl ghost" disabled>不可用</button>');
   return '<article class="card" data-id="' + esc(app.id) + '" style="--glow:' + ic[0] + '22">' +
     '<div class="card-top">' + iconHTML(app) +
       '<div class="meta"><h3>' + esc(app.name) + '</h3><p>' + esc(app.vendor) + ' · ' + esc(app.group) + '</p></div>' +
@@ -589,7 +618,11 @@ function openDetail(id){
     (app.audience ? '<div class="kv"><b>适合谁</b><span>' + esc(app.audience) + '</span></div>' : '') +
     (app.reason ? '<div class="kv"><b>推荐理由</b><span>' + esc(app.reason) + '</span></div>' : '') +
     (app.page ? '<div class="kv" style="align-items:center"><b>官方页面</b><span style="color:#8FB0FF;word-break:break-all">' + esc(app.page) + '</span><button class="copy" data-copy="' + esc(app.page) + '">复制</button></div>' : '') +
-    '<h4>Windows 安装包（' + vs.length + ' 个）</h4>' + (files || '<div class="tipbox">无 Windows 安装包</div>') +
+    '<h4>Windows 安装包（' + vs.length + ' 个）</h4>' + (files ||
+      (app.install
+        ? '<div class="tipbox">官方不提供可直下的 Windows 安装包，安装方式：<b>' + esc(INSTALL_LABEL[app.install] || app.install) + '</b>' +
+          (app.install === 'npm' ? '（需先装 Node.js，见「开发环境」分组）' : app.install === 'pip' ? '（需先装 Python，见「开发环境」分组）' : '') + '</div>'
+        : '<div class="tipbox">无 Windows 安装包</div>')) +
     macBlock + tip +
     '<div style="display:flex;gap:9px;margin-top:18px">' +
       '<button class="dl ghost" style="flex:1" id="closeB">关闭</button>' +
@@ -713,6 +746,9 @@ document.addEventListener('keydown', e => {
     const d = await r.json();
     S.apps = d.apps || [];
     S.groups = (d.groups && d.groups.length ? d.groups : GROUP_ORDER).filter(g => S.apps.some(a => a.group === g));
+    // 版本号跟随 sources.json，不再硬编码在页面里
+    const verEl = document.getElementById('ver');
+    if (verEl && d.version) verEl.textContent = '离线安装包 · v' + d.version;
 
     // 支持用 URL 参数预置筛选状态，方便把「某个分类 / 某个架构」的链接直接发给别人
     const p = new URLSearchParams(location.search);
