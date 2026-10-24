@@ -1,10 +1,12 @@
-﻿#Requires -Version 5.1
+﻿#Requires -Version 7.0
 <#
     sources.json 里的直链健康检查
+    注意：必须用 pwsh（PowerShell 7+）运行，并发用了 ForEach-Object -Parallel，
+    Windows PowerShell 5.1 没有这个参数，会直接报错。
     用法：
-      powershell -ExecutionPolicy Bypass -File .\scripts\check-links.ps1
-      powershell -ExecutionPolicy Bypass -File .\scripts\check-links.ps1 -Concurrency 8
-      powershell -ExecutionPolicy Bypass -File .\scripts\check-links.ps1 -Proxy http://127.0.0.1:7897
+      pwsh -ExecutionPolicy Bypass -File .\scripts\check-links.ps1
+      pwsh -ExecutionPolicy Bypass -File .\scripts\check-links.ps1 -Concurrency 8
+      pwsh -ExecutionPolicy Bypass -File .\scripts\check-links.ps1 -Proxy http://127.0.0.1:7897
 
     行为：
       - 对每个 variant / mac 的第一个 url 发 HEAD（失败退回 GET Range 0-0）
