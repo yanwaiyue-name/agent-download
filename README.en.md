@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-38%20apps-2ea44f" alt="20 apps">
+  <img src="https://img.shields.io/badge/software-38%20apps-2ea44f" alt="38 apps">
 </p>
 
 <p align="center">
@@ -52,9 +52,9 @@ This repo does three things: **curates official links**, **tells you which build
 | Claude Desktop ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://claude.ai/download) |
 | ChatGPT Desktop (incl. Codex) ⭐ | ✅ Store stub | ✅ native | ✅ Apple/Intel | [link](https://chatgpt.com/download) |
 | OpenCode Desktop ⭐ | ✅ installer/portable | ✅ native | ✅ Apple/Intel | [link](https://opencode.ai/download) |
-| DeepSeek Harness Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/anywhere-labs/deepseek-harness-desktop/releases) |
+| DeepSeek Harness Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/anywhere-labs/dsh-desktop/releases) |
 | Cherry Studio ⭐ | ✅ installer/portable | ✅ native | ✅ Apple/Intel | [link](https://www.cherry-ai.com) |
-| LobeHub Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/lobehub/lobe-chat/releases) |
+| LobeHub Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/lobehub/lobehub/releases) |
 | Hermes Agent Desktop ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple Silicon | [link](https://hermes-agent.nousresearch.com/) |
 | Watt Toolkit | ✅ installer/portable | ⚠️ emulated | ✅ Apple/Intel | [link](https://steampp.net/) |
 

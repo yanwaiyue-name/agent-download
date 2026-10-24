@@ -1,28 +1,28 @@
 # 维护说明（给你自己看，不要随包发给使用者）
 
-> 当前版本 **v3.0**（2026-10-23）。相对 v2.2 的三处大改：
-> 1. **Hermes 有桌面版了** —— 官方现在提供 Windows `.exe` 和 macOS `.dmg`，不再只有 CLI。
-> 2. **同一软件支持多种格式** —— 安装版 / MSI / 免安装 / 压缩包 / 商店版，启动器让使用者自己选。
-> 3. **安装包已全部下好** —— 12 个软件的 Windows 全格式包都在 `安装包/` 里，macOS 包在 `安装包/<应用>/mac/`。
+> 当前版本 **v4.0**（2026-10-24）。相对 v3.0 的主要变化：
+> 1. **项目 20 → 38** —— 新增 IDE、CLI Code 两个分组（Cursor / Trae / VS Code、Claude Code / Qwen Code / Kimi CLI 等）。
+> 2. **分组 4 → 6** —— 桌面端 / Agents / IDE / CLI Code / 运行环境 / 开发环境。
+> 3. **新增 `install` 字段** —— `web` / `npm` / `pip` 标记官方无直链包的应用，校验与界面不再误报为「缺文件」。
 
 ## 一、目录结构
 
 ```
-desktop-agent-installer/
+agent-download/
 ├── 双击启动.bat        ← 使用者点这个下载/安装（内容纯 ASCII，不要加中文进去）
 ├── 双击检测.bat        ← 使用者点这个查本机架构和可装版本
+├── 打开资源中心.bat    ← 使用者点这个开图形界面（UTF-8 无 BOM，chcp 65001 必须在中文出现之前）
 ├── launcher.ps1        ← 安装主逻辑（UTF-8 带 BOM，改完必须保持 BOM）
 ├── check-pc.ps1        ← 系统检测逻辑（同上，文件名保持 ASCII）
+├── 资源中心服务.ps1    ← 本地 HTTP 服务（仅 127.0.0.1）
+├── 资源中心.html       ← 图形界面目录页
+├── 清单.html           ← 离线单文件清单页（内嵌数据快照，改 sources.json 后要同步）
 ├── sources.json        ← 应用清单、格式、官方下载源（唯一数据源）
 ├── 使用说明.txt        ← 给使用者看的操作说明
 ├── 软件推荐与官方下载地址.txt ← 给使用者看的推荐表和官网直链
-├── 打包.ps1            ← 【给你用】生成 买家版/ 并压成 ZIP，不删任何现有文件
-├── gen-dirs.ps1        ← 【给你用】按 sources.json 重建安装包子目录 + 放这里.txt
-├── 补全安装包.ps1      ← 【给你用】按 sources.json 把每种格式都下全（含 -Mac）
-├── 维护说明.md         ← 本文件
-├── 下载地址总表.md     ← 【核心】官方直链 + 镜像 + 校验方法（不发货）
+├── docs/               ← MAINTAINER.md（本文件）/ DOWNLOAD-LINKS.md（直链总表）/ SECURITY.md / CONTRIBUTING.md
+├── scripts/            ← 更新.ps1 / verify.ps1 / check-links.ps1 / 打包.ps1 / gen-dirs.ps1 / 补全安装包.ps1 / 清理.ps1
 ├── 买家版/             ← 交付产物（自动生成，可直接发给使用者）
-├── AI桌面下载中心_买家版_v*.zip ← 交付产物（自动生成）
 ├── 安装包/             ← 离线安装包（真实文件）
 │   ├── <应用>/*.exe|*.msi|*.zip        ← Windows 全格式
 │   └── <应用>/mac/*.dmg                ← macOS 包（默认不进发布包）
