@@ -2,6 +2,8 @@
 
 > 当前版本 **v4.1**（2026-10-24）。v4.0 → v4.1：新增「本地运行」（Ollama / LM Studio）与「实用工具」（Motrix）两个分组，新增 ZCode 桌面版与 Qoder，新增版本过期检测 CI（`scripts/check-versions.ps1`，落后自动开 issue）。
 >
+> **改完 sources.json 之后要同步的派生物**：`清单.html` 内嵌数据、`软件推荐与官方下载地址.txt`（跑 `scripts/gen-docs.ps1` 重新生成，不要手编）、`check-pc.ps1` 兜底表。GitHub 加速镜像改在 sources.json 顶层 `mirrors` 字段，launcher 和补全脚本都读它。
+>
 > v4.0（相对 v3.0）的主要变化：
 > 1. **项目 20 → 38** —— 新增 IDE、CLI Code 两个分组（Cursor / Trae / VS Code、Claude Code / Qwen Code / Kimi CLI 等）。
 > 2. **分组 4 → 6** —— 桌面端 / Agents / IDE / CLI Code / 运行环境 / 开发环境。

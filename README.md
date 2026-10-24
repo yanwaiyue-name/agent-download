@@ -313,6 +313,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\更新.ps1 -Message "更新 C
 
 [MIT](LICENSE) —— 脚本和清单部分可自由使用、修改、分发。
 
+---
+
+<p align="center"><em>如果这个清单帮你少踩了坑，点个 ⭐ Star，让后来的人也能找到它。</em></p>
+
 ## 相关项目
 
 - [dsh-purge](https://github.com/yanwaiyue-name/dsh-purge) —— DeepSeek Harness 红队插件
