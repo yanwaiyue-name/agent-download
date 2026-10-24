@@ -4,7 +4,7 @@
 
 <h1 align="center">📦 AI Client Download Center</h1>
 
-<p align="center"><strong>Version 1.0</strong></p>
+<p align="center"><strong>Version 4.0</strong></p>
 
 <p align="center">
   <em>Curated official download links for mainstream AI desktop clients,<br>
@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-20%20apps-2ea44f" alt="20 apps">
+  <img src="https://img.shields.io/badge/software-38%20apps-2ea44f" alt="20 apps">
 </p>
 
 <p align="center">
@@ -40,23 +40,64 @@ This repo does three things: **curates official links**, **tells you which build
 
 ## ⚡ 30-second lookup
 
-| Software | Intel / AMD | Snapdragon / Kirin | macOS |
-|---|---|---|---|
-| WorkBuddy (Tencent) | ✅ installer | ⚠️ emulated | ✅ Apple Silicon |
-| Claude Desktop | ✅ installer | ⚠️ emulated | ✅ Apple / Intel |
-| ChatGPT Desktop (incl. Codex) | ✅ Store stub | ✅ native ARM64 | ✅ Apple / Intel |
-| OpenCode Desktop | ✅ installer / portable | ✅ native ARM64 | ✅ Apple / Intel |
-| DeepSeek Harness Desktop | ✅ installer | ⚠️ emulated | ✅ Apple / Intel |
-| Cherry Studio | ✅ installer / portable | ✅ native ARM64 | ✅ Apple / Intel |
-| LobeHub Desktop | ✅ installer | ⚠️ emulated | ✅ Apple / Intel |
-| Hermes Agent Desktop | ✅ installer | ⚠️ emulated | ✅ Apple Silicon |
-| Watt Toolkit | ✅ installer / portable | ⚠️ emulated | ✅ Apple / Intel |
-| CC Switch | ✅ installer / portable | ✅ native ARM64 | ✅ Apple / Intel |
-| Open Cowork | ✅ installer | ⚠️ emulated | ✅ Apple Silicon |
-| RunJam | ✅ installer | ⚠️ emulated | ✅ Apple / Intel |
-| Desktop CC GUI | ✅ installer | ⚠️ emulated | ✅ Apple / Intel |
+**38 entries in 6 groups.** ⭐ = recommended.
 
-Official links for every app live in [`sources.json`](sources.json) and in the Chinese README.
+> Important: entries marked `npm` / `pip` have **no downloadable installer** — that is how the vendor ships them, not a missing file.
+
+### Desktop clients (9)
+
+| Software | Intel/AMD | Snapdragon/Kirin | macOS | Official |
+|---|---|---|---|---|
+| WorkBuddy (Tencent) ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple Silicon | [link](https://www.workbuddy.cn) |
+| Claude Desktop ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://claude.ai/download) |
+| ChatGPT Desktop (incl. Codex) ⭐ | ✅ Store stub | ✅ native | ✅ Apple/Intel | [link](https://chatgpt.com/download) |
+| OpenCode Desktop ⭐ | ✅ installer/portable | ✅ native | ✅ Apple/Intel | [link](https://opencode.ai/download) |
+| DeepSeek Harness Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/anywhere-labs/deepseek-harness-desktop/releases) |
+| Cherry Studio ⭐ | ✅ installer/portable | ✅ native | ✅ Apple/Intel | [link](https://www.cherry-ai.com) |
+| LobeHub Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/lobehub/lobe-chat/releases) |
+| Hermes Agent Desktop ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple Silicon | [link](https://hermes-agent.nousresearch.com/) |
+| Watt Toolkit | ✅ installer/portable | ⚠️ emulated | ✅ Apple/Intel | [link](https://steampp.net/) |
+
+### Agents (8)
+
+| Software | Intel/AMD | Snapdragon/Kirin | macOS | Official |
+|---|---|---|---|---|
+| CC Switch ⭐ | ✅ installer/portable | ✅ native | ✅ Apple/Intel | [link](https://ccswitch.io) |
+| Open Cowork ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple Silicon | [link](https://github.com/OpenCoworkAI/open-cowork/releases) |
+| RunJam ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://www.runjam.app) |
+| Desktop CC GUI ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases) |
+| Goose ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/aaif-goose/goose/releases) |
+| OpenHands ⭐ | ✅ installer | ⚠️ emulated | — | [link](https://github.com/OpenHands/OpenHands/releases) |
+| Cline (desktop) ⭐ | ✅ installer | ⚠️ emulated | — | [link](https://github.com/cline/cline/releases) |
+| Grox (community) | ✅ installer | ⚠️ emulated | — | [link](https://github.com/dandandujie/Grox) |
+
+### IDE (5)
+
+| Software | Install | Notes |
+|---|---|---|
+| Cursor | official site | AI-native editor |
+| Trae (global) | official site | ByteDance, needs proxy in CN |
+| **Trae CN** ⭐ | official site | **ByteDance China build — direct access in CN** |
+| Windsurf | official site | Codeium, Cascade agent |
+| VS Code | official site | base for Cline / Roo Code / Continue extensions |
+
+### CLI Code (9)
+
+| Tool | Install | Windows binary |
+|---|---|---|
+| Claude Code ⭐ | zip | ✅ win32 x64 / arm64 |
+| Qwen Code ⭐ | zip | ✅ win x64 |
+| Kimi CLI ⭐ | zip | ✅ win x64 / arm64 |
+| Pi ⭐ | zip | ✅ win x64 / arm64 |
+| **Gemini CLI** ⭐ | **npm** | ❌ macOS only |
+| **Codex CLI** | **npm** | ❌ no user-facing builds |
+| **OpenClaw** ⭐ | **npm** | ❌ release has manifests only |
+| Aider | pip | ❌ Python package |
+| iFlow CLI | npm | ❌ no binary |
+
+### Runtime (3) / Dev toolchain (4)
+
+WebView2 online + offline, VC++ redist; Python 3.13.10, Node.js 24.22.1 LTS, Git 2.56.0.3, 7-Zip 25.01.
 
 ---
 

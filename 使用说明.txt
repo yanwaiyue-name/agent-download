@@ -12,7 +12,7 @@
 
   浏览器会自动打开一个软件目录页面，里面有：
     · 每款软件的卡片、图标、简介、大小和「已就位」标记
-    · 左侧按分类筛选：基础桌面客户端 / Agent 管理与工作台 / 运行环境 / 开发环境
+    · 左侧按分类筛选：桌面端 / Agents / IDE / CLI Code / 运行环境 / 开发环境
     · 顶部搜索框，输入软件名、厂商或关键词就能找到
     · x64 / ARM64 切换，自动对应到正确架构的安装包
     · 点「下载」直接保存，浏览器自带进度条，支持暂停和续传
@@ -48,11 +48,13 @@
 【下载和安装】
 
   1. 双击「双击启动.bat」
-  2. 列表分为四类：
-       基础桌面客户端：聊天、办公、多模型客户端（含 Hermes Agent、Watt Toolkit）
-       Agent 管理与工作台：CC Switch、Open Cowork、RunJam、Desktop CC GUI
-       运行环境：WebView2、VC++ 运行库（桌面软件缺库打不开时装）
-       开发环境：Python、Node.js、Git、7-Zip（要用命令行工具才装）
+  2. 列表分为六类：
+  桌面端：聊天、办公、多模型客户端（含 Hermes Agent、Watt Toolkit）
+  Agents：Agent 工作台与管理器（CC Switch、Open Cowork、Goose、OpenHands、Cline、Grox 等）
+  IDE：Cursor、Trae（国际版）、Trae CN（国内版）、Windsurf、VS Code
+  CLI Code：Claude Code、Gemini CLI、Qwen Code、Kimi CLI、Pi、Codex CLI、OpenClaw、Aider、iFlow CLI
+  运行环境：WebView2、VC++ 运行库（桌面软件缺库打不开时装）
+  开发环境：Python、Node.js、Git、7-Zip（要用命令行工具才装）
   3. 输入软件前面的序号，按回车
   4. 如果这个软件有多种格式，会列出来让你选：
        安装版    双击装到系统里，装完开始菜单有图标（推荐）
@@ -62,12 +64,19 @@
        .7z 包    也是压缩包，但 Windows 自带功能解不开，需要装 7-Zip
                  没装 7-Zip 时启动器会提示，这时直接改用同软件的安装版最省事
        商店版    微软商店引导器，双击后要联网拉完整应用（ChatGPT 属于这种）
+      npm 安装  官方没发安装包，用命令行装（如 npm install -g @openai/codex）
+      pip 安装  同上，Python 包（如 pip install aider-chat）
+      官网下载  只有官网页面，需要自己进去选版本和架构
      直接回车 = 用默认格式（一般就是安装版 / MSI）
   5. 软件显示「已就绪」时，说明本地已有安装包，会直接问你要不要现在装
   6. 软件显示「需下载」时，会先下载到「下载」文件夹，再问你要不要装
   7. 输入 A 会下载所有可下载软件的默认格式。文件较多、体积较大，建议按需要逐个选。
   8. 输入 V 会按「校验清单.txt」核对本地安装包是否完好。
      从网盘、QQ 传过来的大文件偶尔会被截断，装到一半才报错；
+
+  注意：部分工具的状态显示「npm 安装」或「pip 安装」，表示官方没有提供
+  安装包，必须用命令行装（例如 npm install -g @openai/codex）。
+  「官网下载」表示该软件只有官网下载，没有直链，需要点开官网自己选版本。
      先校验一遍能提前发现，不用等装失败。
   9. 输入 Q 退出。
 

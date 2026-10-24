@@ -1,5 +1,5 @@
 ﻿# =============================================================
-#  AI 桌面客户端 安装器  v3.0
+#  AI 客户端与命令行工具 安装器  v4.0
 #  用法：双击「双击启动.bat」，或在 PowerShell 里跑本文件
 #  维护：编辑 sources.json 即可增删应用与下载源
 #  说明：启动时自动检测本机架构（x64 / ARM64 / x86），
@@ -632,7 +632,12 @@ function Show-Table {
             }
 
             if ($picks.Count -eq 0) {
-                if (@($a.variants).Count -eq 0 -and -not $a.file) { $st = "无桌面版" } else { $st = "装不了" }
+                # install 字段优先：web / npm / pip 是「官方就该这样装」，不是缺文件
+                if ($a.install -eq "npm")     { $st = "npm 安装" }
+                elseif ($a.install -eq "pip") { $st = "pip 安装" }
+                elseif ($a.install -eq "web") { $st = "官网下载" }
+                elseif (@($a.variants).Count -eq 0 -and -not $a.file) { $st = "无桌面版" }
+                else { $st = "装不了" }
             } elseif ($ready -gt 0) {
                 $st = "已就绪"
             } else {
@@ -781,7 +786,7 @@ function Show-RuntimeHint {
 Clear-Host
 Write-Host ""
 Write-Host "  ==============================================================" -ForegroundColor Magenta
-Write-Host "            AI 桌面客户端 安装器  v" -ForegroundColor Magenta -NoNewline
+Write-Host "            AI 客户端与命令行工具 安装器  v" -ForegroundColor Magenta -NoNewline
 Write-Host $cfg.version -ForegroundColor Magenta
 Write-Host "  ==============================================================" -ForegroundColor Magenta
 Show-ArchInfo
