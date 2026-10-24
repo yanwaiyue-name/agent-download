@@ -68,7 +68,7 @@ $results = $targets | ForEach-Object -ThrottleLimit $Concurrency -Parallel {
         $req.Method = 'HEAD'
         $req.Timeout = $using:TimeoutSec * 1000
         $req.AllowAutoRedirect = $true
-        $req.UserAgent = 'ai-client-download-center/1.0'
+        $req.UserAgent = 'agent-download/1.0'
         $resp = $req.GetResponse()
         $code = [int]$resp.StatusCode
         $resp.Close()

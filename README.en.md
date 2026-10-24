@@ -12,8 +12,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/yanwaiyue-name/ai-client-download-center/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/ai-client-download-center?logo=github&label=Stars" alt="Stars"></a>
-  <a href="https://github.com/yanwaiyue-name/ai-client-download-center/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
+  <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
+  <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
   <img src="https://img.shields.io/badge/software-20%20apps-2ea44f" alt="20 apps">
 </p>
@@ -86,7 +86,7 @@ On Windows, just run `双击检测.bat` — it prints the recommended build and 
 ## 📁 Layout
 
 ```
-ai-client-download-center/
+agent-download/
 ├── README.md / README.en.md
 ├── 双击启动.bat          CLI installer (main entry)
 ├── 双击检测.bat          hardware detection

@@ -12,8 +12,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/yanwaiyue-name/ai-client-download-center/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/ai-client-download-center?logo=github&label=Stars" alt="Stars"></a>
-  <a href="https://github.com/yanwaiyue-name/ai-client-download-center/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
+  <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
+  <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
   <img src="https://img.shields.io/badge/software-20%20apps-2ea44f" alt="20 apps">
 </p>
@@ -28,7 +28,7 @@
 
 | 你是 | 点这里 | 说明 |
 | --- | --- | --- |
-| **只想看看有哪些软件** | [清单.html](清单.html) · [在线查看](https://github.com/yanwaiyue-name/ai-client-download-center/blob/master/清单.html) | 单文件网页，下载后双击即开，**不联网也能用** |
+| **只想看看有哪些软件** | [清单.html](清单.html) · [在线查看](https://github.com/yanwaiyue-name/agent-download/blob/master/清单.html) | 单文件网页，下载后双击即开，**不联网也能用** |
 | **想让它自动下载安装** | 下载仓库 → 双击 `打开资源中心.bat` | 本地图形界面，按你的架构自动选包 |
 | **完全没网** | 见下面「方式三：纯离线」 | 提前备好安装包，过去直接装 |
 
@@ -158,7 +158,7 @@
 ## 📁 仓库结构
 
 ```
-ai-client-download-center/
+agent-download/
 ├── README.md                    本文件
 ├── README.en.md                 英文版
 ├── 双击启动.bat                 命令行安装器（小白入口）

@@ -100,7 +100,7 @@ $remoteUrl = git remote get-url origin 2>$null
 if ($remoteUrl -notmatch ':443/') {
     Say ('  WARNING: origin is ' + $remoteUrl) Yellow
     Say '  It does not use :443, so a global insteadOf rule may rewrite it to a mirror (read-only).' Yellow
-    Say '  Fix with: git remote set-url origin https://github.com:443/yanwaiyue-name/ai-client-download-center.git' Yellow
+    Say '  Fix with: git remote set-url origin https://github.com:443/yanwaiyue-name/agent-download.git' Yellow
 }
 
 git push origin master
