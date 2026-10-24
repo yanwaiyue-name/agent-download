@@ -11,7 +11,8 @@ on:
 
 jobs:
   verify:
-    runs-on: windows-latest
+    # 校验 + 链接检查都是纯文本/HTTP 操作，ubuntu 跑得更快
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
