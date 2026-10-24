@@ -1,7 +1,7 @@
 {
   "version": "4.0",
   "updated": "2026-10-24",
-  "note": "面向 Windows/macOS 的 AI 客户端与命令行工具下载中心。分 8 个分组：桌面端 / Agents / IDE / CLI Code / 自动交易 / 游戏 / 运行环境 / 开发环境。启动器按本机 x64 / ARM64 / x86 自动选包；同一软件的多套格式写在 variants 里（format: msi/setup/store/portable/zip，按此优先级自动挑默认）。mac 数组是 macOS 包，放在 安装包/<dir>/mac/ 下，Windows 启动器不读它。GitHub 条目优先解析 latest Release，urls 是备用直链。注意：部分工具（Codex CLI / OpenClaw / Aider / iFlow CLI / Gemini CLI 的 Windows 版）只有 npm 或 pip 安装方式，没有二进制包，已在其 tip 字段注明。",
+  "note": "面向 Windows/macOS 的 AI 客户端与命令行工具下载中心。分 6 个分组：桌面端 / Agents / IDE / CLI Code / 运行环境 / 开发环境。启动器按本机 x64 / ARM64 / x86 自动选包；同一软件的多套格式写在 variants 里（format: msi/setup/store/portable/zip，按此优先级自动挑默认）。mac 数组是 macOS 包，放在 安装包/<dir>/mac/ 下，Windows 启动器不读它。GitHub 条目优先解析 latest Release，urls 是备用直链。注意：部分工具（Codex CLI / OpenClaw / Aider / iFlow CLI / Gemini CLI 的 Windows 版）只有 npm 或 pip 安装方式，没有二进制包，已在其 tip 字段注明。",
   "apps": [
     {
       "id": "workbuddy",
@@ -221,7 +221,7 @@
       "desc": "DeepSeek 智能体桌面平台",
       "dir": "DeepSeek Harness",
       "arch": "x64",
-      "github": "anywhere-labs/deepseek-harness-desktop",
+      "github": "anywhere-labs/dsh-desktop",
       "variants": [
         {
           "arch": "x64",
@@ -230,7 +230,7 @@
           "size": "314.8 MB",
           "assetPattern": "x64-Setup\\.exe$",
           "urls": [
-            "https://github.com/anywhere-labs/deepseek-harness-desktop/releases/latest/download/DSH-Desktop-2.0.18-x64-Setup.exe"
+            "https://github.com/anywhere-labs/dsh-desktop/releases/latest/download/DSH-Desktop-2.0.18-x64-Setup.exe"
           ]
         }
       ],
@@ -241,11 +241,11 @@
           "file": "DSH.Desktop-2.0.18-universal.dmg",
           "size": "679.6 MB",
           "urls": [
-            "https://github.com/anywhere-labs/deepseek-harness-desktop/releases/latest/download/DSH.Desktop-2.0.18-universal.dmg"
+            "https://github.com/anywhere-labs/dsh-desktop/releases/latest/download/DSH.Desktop-2.0.18-universal.dmg"
           ]
         }
       ],
-      "page": "https://github.com/anywhere-labs/deepseek-harness-desktop/releases",
+      "page": "https://github.com/anywhere-labs/dsh-desktop/releases",
       "needProxy": false,
       "tip": "官方仓库只发源码；桌面版来自社区仓库，Windows 只有 x64。同目录的 SHA256SUMS.txt 是官方校验清单"
     },
@@ -338,7 +338,7 @@
       "desc": "开源 AI 助手聚合客户端",
       "dir": "LobeHub",
       "arch": "x64",
-      "github": "lobehub/lobe-chat",
+      "github": "lobehub/lobehub",
       "variants": [
         {
           "arch": "x64",
@@ -347,7 +347,7 @@
           "size": "145.5 MB",
           "assetPattern": "-setup\\.exe$",
           "urls": [
-            "https://github.com/lobehub/lobe-chat/releases/latest/download/LobeHub-2.2.20-setup.exe"
+            "https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.2.20-setup.exe"
           ]
         }
       ],
@@ -358,7 +358,7 @@
           "file": "LobeHub-2.2.20-arm64.dmg",
           "size": "157.1 MB",
           "urls": [
-            "https://github.com/lobehub/lobe-chat/releases/latest/download/LobeHub-2.2.20-arm64.dmg"
+            "https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.2.20-arm64.dmg"
           ]
         },
         {
@@ -367,11 +367,11 @@
           "file": "LobeHub-2.2.20-x64.dmg",
           "size": "161.7 MB",
           "urls": [
-            "https://github.com/lobehub/lobe-chat/releases/latest/download/LobeHub-2.2.20-x64.dmg"
+            "https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.2.20-x64.dmg"
           ]
         }
       ],
-      "page": "https://github.com/lobehub/lobe-chat/releases",
+      "page": "https://github.com/lobehub/lobehub/releases",
       "needProxy": false,
       "tip": "Windows 只提供 x64 安装版"
     },

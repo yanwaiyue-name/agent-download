@@ -139,6 +139,22 @@ foreach ($a in @($cfg.apps)) {
 }
 Ok ('file entries = ' + $seen.Count)
 
+# app id 唯一性：Web 服务的 /dl 路由和启动器缓存都按 id 索引，重复 id 会静默错乱
+Head '[5.5/6] app id uniqueness'
+$idSeen = @{}
+$idDup = 0
+foreach ($a in @($cfg.apps)) {
+    $id = [string]$a.id
+    if (-not $id) { continue }
+    if ($idSeen.ContainsKey($id)) {
+        Bad ('duplicate app id: ' + $id)
+        $idDup++
+    } else {
+        $idSeen[$id] = $true
+    }
+}
+if ($idDup -eq 0) { Ok ($idSeen.Count.ToString() + ' app ids all unique') }
+
 if (-not $SkipSyntax) {
     Head '[6/6] PowerShell syntax and BOM'
     $psFiles = @(Get-ChildItem -Path $Root -Recurse -Filter '*.ps1' -File -ErrorAction SilentlyContinue)
