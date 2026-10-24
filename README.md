@@ -207,6 +207,33 @@ ai-client-download-center/
 
 然后跑 `scripts/gen-dirs.ps1 -Force` 建好文件夹。详细字段说明见 [docs/MAINTAINER.md](docs/MAINTAINER.md)。
 
+---
+
+## 🔄 改完怎么发布
+
+不要手动 `git add` + `commit` + `push`，用一条命令：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\更新.ps1 -Message "更新 Claude 到 v2.x"
+```
+
+它按顺序做四件事，任何一步失败就停下，不会把坏数据推上去：
+
+| 步骤 | 做什么 |
+| --- | --- |
+| 1 | 校验 `sources.json` 与所有脚本（`verify.ps1`），出错立即中止 |
+| 2 | `git add -A` |
+| 3 | `git commit`（用你给的 -Message） |
+| 4 | `git push`（自动走代理与 `:443` 地址，绕开镜像改写） |
+
+改了 `sources.json` 想顺便重建目录结构，加 `-Regen`：
+
+```powershell
+.\scripts\更新.ps1 -Message "新增 XX 软件" -Regen
+```
+
+只想在本地提交、暂不推送，加 `-Push:$false`。
+
 ⚠️ 不要给不存在的架构/格式编 variant —— 官方没发 portable 就别写，写上去只会让使用者 404。
 
 ---
