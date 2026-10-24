@@ -1,0 +1,46 @@
+# ===== 安装包本体：一律不入库（体积过大，且属第三方分发物）=====
+安装包/
+下载/
+买家版/
+买家版_macOS/
+买家版*_旧_*/
+
+# 任意位置的安装程序
+*.exe
+*.msi
+*.dmg
+*.pkg
+*.app
+*.zip
+*.7z
+*.rar
+*.msix
+*.msixbundle
+
+# 但允许仓库里已有的源码压缩包以外的一切被上面误伤——这里不用 ! 白名单，
+# 因为本仓库本来就不需要任何压缩包。
+
+# ===== 运行产物 =====
+日志.txt
+下载日志.txt
+本机检测报告.txt
+校验清单.txt
+_scratch/
+_preview/
+dist/
+stale_*/
+
+# ===== 编辑器与系统 =====
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ===== 临时 =====
+*.tmp
+*.log
+*.bak
+*.orig
+~$*

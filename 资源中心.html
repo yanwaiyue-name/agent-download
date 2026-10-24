@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 桌面下载中心</title>
+<style>
+:root{
+  --bg:#070910; --panel:rgba(255,255,255,.038); --panel-hi:rgba(255,255,255,.068);
+  --line:rgba(255,255,255,.075); --line-hi:rgba(255,255,255,.17);
+  --tx:#E9EDF6; --tx2:#98A2B8; --tx3:#6B7488;
+  --accent:#4D7CFE; --accent2:#8B5CF6;
+  --ok:#34D399; --warn:#FBBF24;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--tx); display:flex; overflow:hidden;
+  font:14px/1.55 -apple-system,"Segoe UI Variable Display","Segoe UI","Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(900px 520px at 12% -8%, rgba(77,124,254,.20), transparent 62%),
+    radial-gradient(760px 480px at 92% 4%, rgba(139,92,246,.16), transparent 60%),
+    radial-gradient(680px 420px at 62% 108%, rgba(244,114,182,.09), transparent 62%);
+}
+body::after{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.4;
+  background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(1000px 700px at 50% 0%,#000 20%,transparent 78%);
+  mask-image:radial-gradient(1000px 700px at 50% 0%,#000 20%,transparent 78%);
+}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:9px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.22);background-clip:content-box}
+
+/* ================= 侧边栏 ================= */
+.sidebar{
+  position:relative; z-index:2; width:250px; flex:none;
+  display:flex; flex-direction:column; padding:20px 14px 14px;
+  border-right:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.006));
+  backdrop-filter:blur(14px);
+}
+.brand{display:flex;align-items:center;gap:11px;padding:0 8px 18px}
+.logo{
+  width:38px;height:38px;border-radius:11px;flex:none;
+  background:linear-gradient(140deg,#4D7CFE,#8B5CF6 58%,#F472B6);
+  display:grid;place-items:center;box-shadow:0 8px 22px -8px rgba(99,102,241,.95);
+}
+.logo svg{width:20px;height:20px}
+.brand h1{font-size:14.5px;font-weight:650;letter-spacing:.2px}
+.brand p{font-size:11px;color:var(--tx3);margin-top:1px;letter-spacing:.4px}
+
+.nav{display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto;min-height:0}
+.nav-label{font-size:10.5px;color:var(--tx3);font-weight:650;letter-spacing:.9px;padding:10px 10px 6px}
+.nav-item{
+  display:flex;align-items:center;gap:9px;padding:8.5px 10px;border-radius:10px;
+  cursor:pointer;color:var(--tx2);font-size:13px;font-weight:500;
+  border:1px solid transparent;transition:.16s;position:relative;user-select:none;
+}
+.nav-item:hover{background:var(--panel-hi);color:var(--tx)}
+.nav-item.on{
+  background:linear-gradient(90deg,rgba(77,124,254,.19),rgba(139,92,246,.06));
+  border-color:rgba(77,124,254,.32); color:#fff;
+}
+.nav-item.on::before{
+  content:"";position:absolute;left:-14px;top:50%;transform:translateY(-50%);
+  width:3px;height:17px;border-radius:0 3px 3px 0;background:linear-gradient(180deg,#4D7CFE,#8B5CF6);
+}
+.nav-item .dot{width:6px;height:6px;border-radius:50%;flex:none;background:currentColor;opacity:.5}
+.nav-item .cnt{margin-left:auto;font-size:11px;color:var(--tx3);font-variant-numeric:tabular-nums}
+.nav-item.on .cnt{color:#9DB4FF}
+
+.side-foot{border-top:1px solid var(--line);padding-top:10px;margin-top:10px;display:flex;flex-direction:column;gap:2px}
+.side-btn{
+  display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:9px;
+  color:var(--tx2);font-size:12.5px;cursor:pointer;border:1px solid transparent;
+  background:none;text-align:left;font-family:inherit;transition:.16s;width:100%;
+}
+.side-btn:hover{background:var(--panel-hi);color:var(--tx)}
+.side-btn svg{width:14px;height:14px;opacity:.65;flex:none}
+
+/* ================= 主区 ================= */
+main{position:relative;z-index:2;flex:1;overflow-y:auto;padding:0 0 48px;min-width:0}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+
+.hero{padding:34px 0 22px;position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;right:-60px;top:-70px;width:320px;height:320px;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(139,92,246,.20),transparent 66%);
+  filter:blur(6px);
+}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:550;letter-spacing:.3px;
+  padding:4.5px 10px;border-radius:999px;
+  background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.28);color:#6EE7B7;
+}
+.pill i{width:5px;height:5px;border-radius:50%;background:#34D399;box-shadow:0 0 8px #34D399;display:block}
+.hero h2{
+  font-size:29px;font-weight:680;letter-spacing:-.6px;margin:13px 0 8px;line-height:1.25;
+  background:linear-gradient(100deg,#fff 22%,#B9C6FF 62%,#D8B4FE);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{color:var(--tx2);font-size:13.5px;max-width:640px}
+.hero .stats{display:flex;gap:26px;margin-top:20px;flex-wrap:wrap}
+.stat b{display:block;font-size:20px;font-weight:660;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.stat span{font-size:11.5px;color:var(--tx3);letter-spacing:.3px}
+
+/* 工具栏 */
+.toolbar{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:13px 14px;border-radius:14px;
+  background:var(--panel);border:1px solid var(--line);
+  position:sticky;top:0;z-index:6;backdrop-filter:blur(18px);
+  box-shadow:0 12px 30px -20px #000;
+}
+.search{position:relative;flex:1;min-width:200px;max-width:420px}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--tx3)}
+.search input{
+  width:100%;padding:9px 12px 9px 34px;border-radius:10px;
+  background:rgba(0,0,0,.28);border:1px solid var(--line);color:var(--tx);
+  font:inherit;font-size:13px;outline:none;transition:.16s;
+}
+.search input::placeholder{color:var(--tx3)}
+.search input:focus{border-color:rgba(77,124,254,.55);background:rgba(0,0,0,.4);box-shadow:0 0 0 3px rgba(77,124,254,.12)}
+.seg{display:flex;background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:10px;padding:2.5px;gap:2px}
+.seg button{
+  padding:6px 13px;border-radius:8px;border:none;background:none;color:var(--tx2);
+  font:inherit;font-size:12.5px;font-weight:550;cursor:pointer;transition:.16s;white-space:nowrap;
+}
+.seg button:hover{color:var(--tx)}
+.seg button.on{background:linear-gradient(140deg,rgba(77,124,254,.9),rgba(139,92,246,.85));color:#fff;box-shadow:0 4px 14px -6px rgba(77,124,254,.9)}
+.chk{
+  display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--tx2);
+  cursor:pointer;user-select:none;padding:6px 4px;
+}
+.chk input{appearance:none;width:15px;height:15px;border-radius:5px;border:1px solid var(--line-hi);background:rgba(0,0,0,.3);cursor:pointer;position:relative;transition:.15s}
+.chk input:checked{background:linear-gradient(140deg,#4D7CFE,#8B5CF6);border-color:transparent}
+.chk input:checked::after{content:"";position:absolute;left:4.5px;top:1.5px;width:4px;height:8px;border:solid #fff;border-width:0 1.8px 1.8px 0;transform:rotate(42deg)}
+
+/* 分组标题 */
+.sec-head{display:flex;align-items:center;gap:10px;margin:30px 0 13px}
+.sec-head h3{font-size:14.5px;font-weight:620;letter-spacing:.1px}
+.sec-head .bar{width:3px;height:15px;border-radius:2px;background:linear-gradient(180deg,#4D7CFE,#8B5CF6)}
+.sec-head .n{font-size:11.5px;color:var(--tx3);font-variant-numeric:tabular-nums}
+.sec-head .line{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+
+/* ================= 卡片 ================= */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:13px}
+.card{
+  position:relative;display:flex;flex-direction:column;gap:11px;
+  padding:15px;border-radius:16px;background:var(--panel);
+  border:1px solid var(--line);transition:.2s cubic-bezier(.4,0,.2,1);
+  overflow:hidden;cursor:pointer;
+}
+.card::before{
+  content:"";position:absolute;inset:0;border-radius:16px;pointer-events:none;opacity:0;transition:.25s;
+  background:radial-gradient(420px 160px at 20% 0%,var(--glow,rgba(77,124,254,.16)),transparent 70%);
+}
+.card:hover{border-color:var(--line-hi);background:var(--panel-hi);transform:translateY(-2px);box-shadow:0 18px 40px -26px #000}
+.card:hover::before{opacity:1}
+.card-top{display:flex;align-items:flex-start;gap:11px;position:relative}
+.ico{
+  width:44px;height:44px;border-radius:12.5px;flex:none;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--c1),var(--c2));color:#fff;
+  font-weight:700;font-size:16px;letter-spacing:-.5px;
+  box-shadow:0 7px 20px -8px var(--c1);
+}
+.ico.sm{font-size:12.5px;letter-spacing:-.2px}
+.meta{flex:1;min-width:0;padding-top:1px}
+.meta h3{font-size:13.8px;font-weight:620;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta p{font-size:11.5px;color:var(--tx3);margin-top:2.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{
+  font-size:10px;font-weight:600;letter-spacing:.3px;padding:2.5px 7px;border-radius:6px;flex:none;
+  background:linear-gradient(140deg,rgba(251,191,36,.18),rgba(245,158,11,.12));
+  border:1px solid rgba(251,191,36,.32);color:#FCD34D;
+}
+.desc{
+  font-size:12.5px;color:var(--tx2);line-height:1.5;min-height:37px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.card-foot{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:2px}
+.tags{display:flex;gap:5px;flex-wrap:wrap;flex:1;min-width:0}
+.tag{
+  font-size:10.5px;padding:2.5px 7px;border-radius:6px;white-space:nowrap;
+  background:rgba(255,255,255,.055);border:1px solid var(--line);color:var(--tx2);
+  font-variant-numeric:tabular-nums;
+}
+.tag.ok{background:rgba(52,211,153,.09);border-color:rgba(52,211,153,.24);color:#6EE7B7}
+.tag.no{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.22);color:#FCD34D}
+.dl{
+  padding:7px 14px;border-radius:9px;border:none;cursor:pointer;font:inherit;
+  font-size:12.5px;font-weight:600;color:#fff;flex:none;white-space:nowrap;
+  background:linear-gradient(140deg,#4D7CFE,#7C5CFC);
+  box-shadow:0 6px 16px -8px rgba(77,124,254,.95);transition:.16s;
+}
+.dl:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.dl:active{transform:translateY(0)}
+.dl.ghost{background:rgba(255,255,255,.07);box-shadow:none;border:1px solid var(--line-hi);color:var(--tx)}
+.dl.ghost:hover{background:rgba(255,255,255,.12)}
+
+.empty{text-align:center;padding:80px 20px;color:var(--tx3)}
+.empty b{display:block;font-size:15px;color:var(--tx2);margin-bottom:6px}
+
+/* 符号类图标（✳ ⚡ 等）字号更大才看得清 */
+.ico.sym{font-size:19px}
+
+/* 骨架屏 */
+.skel{
+  height:152px;border-radius:16px;border:1px solid var(--line);
+  background:linear-gradient(100deg,rgba(255,255,255,.028) 30%,rgba(255,255,255,.062) 50%,rgba(255,255,255,.028) 70%);
+  background-size:220% 100%;animation:shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer{0%{background-position:180% 0}100%{background-position:-80% 0}}
+
+/* 排序下拉 */
+.sortsel{
+  appearance:none;padding:8px 30px 8px 12px;border-radius:10px;cursor:pointer;
+  background:rgba(0,0,0,.28) url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2398A2B8' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;
+  border:1px solid var(--line);color:var(--tx2);font:inherit;font-size:12.5px;outline:none;transition:.16s;
+}
+.sortsel:hover{border-color:var(--line-hi);color:var(--tx)}
+.sortsel:focus{border-color:rgba(77,124,254,.55);box-shadow:0 0 0 3px rgba(77,124,254,.12)}
+.sortsel option{background:#12161F;color:var(--tx)}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:26px;bottom:26px;width:42px;height:42px;border-radius:12px;z-index:20;
+  border:1px solid var(--line-hi);background:rgba(20,25,36,.86);backdrop-filter:blur(10px);
+  color:var(--tx2);cursor:pointer;display:grid;place-items:center;
+  opacity:0;pointer-events:none;transform:translateY(10px);transition:.22s;
+  box-shadow:0 12px 30px -14px #000;
+}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}
+.to-top:hover{background:rgba(30,38,54,.95);color:#fff;border-color:rgba(255,255,255,.26)}
+.to-top svg{width:17px;height:17px}
+
+/* 详情里的复制按钮 */
+.copy{
+  padding:5px 10px;border-radius:7px;border:1px solid var(--line-hi);
+  background:rgba(255,255,255,.06);color:var(--tx2);cursor:pointer;
+  font:inherit;font-size:11.5px;flex:none;transition:.16s;
+}
+.copy:hover{background:rgba(255,255,255,.13);color:#fff}
+.copy.done{background:rgba(52,211,153,.16);border-color:rgba(52,211,153,.4);color:#6EE7B7}
+
+/* 下载按钮忙碌态 */
+.dl:disabled{opacity:.65;cursor:default;transform:none;filter:none}
+
+/* ================= 弹窗 ================= */
+.modal{
+  position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:28px;
+  background:rgba(4,6,12,.72);backdrop-filter:blur(9px);
+}
+.modal.on{display:flex}
+.sheet{
+  width:100%;max-width:660px;max-height:86vh;overflow-y:auto;
+  background:linear-gradient(170deg,#12161F,#0C1017);
+  border:1px solid var(--line-hi);border-radius:20px;
+  box-shadow:0 40px 90px -40px #000;padding:24px;
+  animation:pop .22s cubic-bezier(.2,.9,.3,1.1);
+}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.sheet-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.sheet-head .ico{width:52px;height:52px;border-radius:14px;font-size:19px}
+.sheet-head h3{font-size:18px;font-weight:650;letter-spacing:-.2px}
+.sheet-head .sub{font-size:12.5px;color:var(--tx3);margin-top:3px}
+.x{
+  margin-left:auto;width:30px;height:30px;border-radius:9px;border:1px solid var(--line);
+  background:rgba(255,255,255,.05);color:var(--tx2);cursor:pointer;font-size:16px;
+  display:grid;place-items:center;flex:none;transition:.16s;line-height:1;
+}
+.x:hover{background:rgba(255,255,255,.12);color:#fff}
+.kv{display:flex;gap:10px;font-size:13px;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.06)}
+.kv b{flex:none;width:74px;color:var(--tx3);font-weight:500;font-size:12.5px}
+.kv span{color:var(--tx2);flex:1}
+.sheet h4{font-size:12px;color:var(--tx3);font-weight:600;letter-spacing:.7px;margin:18px 0 9px}
+.file-row{
+  display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:11px;
+  background:rgba(255,255,255,.035);border:1px solid var(--line);margin-bottom:7px;
+}
+.file-row .fname{font-size:12.5px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--tx)}
+.file-row .fmeta{font-size:11px;color:var(--tx3);flex:none;font-variant-numeric:tabular-nums}
+.tipbox{
+  margin-top:14px;padding:11px 13px;border-radius:11px;font-size:12.5px;line-height:1.6;
+  background:rgba(77,124,254,.08);border:1px solid rgba(77,124,254,.22);color:#B6C6F5;
+}
+.tipbox.warn{background:rgba(251,191,36,.07);border-color:rgba(251,191,36,.24);color:#F3D9A0}
+.doc{font-size:13px;line-height:1.75;color:var(--tx2);white-space:pre-wrap;word-break:break-word;font-family:inherit}
+.doc::-webkit-scrollbar{width:8px}
+
+@media(max-width:900px){
+  body{flex-direction:column;overflow:auto}
+  .sidebar{width:100%;flex-direction:row;align-items:center;padding:10px 14px;overflow-x:auto;border-right:none;border-bottom:1px solid var(--line)}
+  .brand{padding:0 14px 0 0}
+  .nav{flex-direction:row;flex:none;gap:4px}
+  .nav-label{display:none}
+  .side-foot{border-top:none;border-left:1px solid var(--line);margin:0 0 0 10px;padding:0 0 0 10px;flex-direction:row}
+  main{overflow:visible}
+  .wrap{padding:0 18px}
+  .hero h2{font-size:23px}
+}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2.6 20.5 7v10L12 21.4 3.5 17V7z"/><path d="M12 12.4 20.5 7M12 12.4v9M12 12.4 3.5 7"/>
+      </svg>
+    </div>
+    <div>
+      <h1>AI 桌面下载中心</h1>
+      <p>离线安装包 · v3.0</p>
+    </div>
+  </div>
+  <div class="nav" id="nav"></div>
+  <div class="side-foot">
+    <button class="side-btn" data-doc="usage">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 18.5z"/></svg>
+      使用说明
+    </button>
+    <button class="side-btn" data-doc="links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.5-1.5"/></svg>
+      官方下载地址
+    </button>
+  </div>
+</aside>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <span class="pill"><i></i>安装包已全部就位，可离线安装</span>
+      <h2>AI 软件，一次配齐</h2>
+      <p>桌面客户端、Agent 工作台、运行环境与开发环境，全部安装包都在本地。点卡片看详情，点下载直接装。</p>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <div class="toolbar">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="搜索软件名称、厂商或关键词…（按 / 快速定位）" autocomplete="off">
+      </div>
+      <div class="seg" id="archSeg">
+        <button data-arch="x64" class="on">x64</button>
+        <button data-arch="arm64">ARM64</button>
+      </div>
+      <select id="sort" class="sortsel" title="排序方式">
+        <option value="rec">推荐优先</option>
+        <option value="name">按名称</option>
+        <option value="size">按大小</option>
+      </select>
+      <label class="chk"><input type="checkbox" id="recOnly">只看推荐</label>
+    </div>
+
+    <div id="list"></div>
+    <div class="empty" id="empty" style="display:none"><b>没有匹配的软件</b>换个关键词，或点左侧「全部软件」重来</div>
+  </div>
+</main>
+
+<button class="to-top" id="toTop" title="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+
+<div class="modal" id="modal">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<script>
+const ICON = {
+  workbuddy:['#2E7CF6','#1B5FD9','W'],
+  claude:['#D97757','#A84A2C','✳'],
+  codex:['#10A37F','#0A7A5F','◎'],
+  opencode:['#5B6472','#2B3240','</>'],
+  dsh:['#4D6BFE','#3A52C9','D'],
+  cherry:['#E4393C','#B01E20','C'],
+  lobehub:['#7C5CE7','#5B3FD1','L'],
+  ccswitch:['#00B4A6','#008074','⇄'],
+  opencowork:['#FF7A45','#E05A20','O'],
+  runjam:['#B14AED','#8B2FC9','R'],
+  ccgui:['#3B82F6','#1D4ED8','G'],
+  hermes:['#A8811A','#7A5C08','H'],
+  watt:['#5B6BF0','#3F4ED8','⚡'],
+  'webview2-online':['#0078D4','#005A9E','W'],
+  'webview2-offline':['#0078D4','#005A9E','W'],
+  vcredist:['#7B2FBE','#5B1F94','VC'],
+  python:['#3776AB','#2B5C88','Py'],
+  nodejs:['#339933','#256B25','JS'],
+  git:['#F05032','#BE3A1E','G'],
+  '7zip':['#4A5568','#2D3748','7z']
+};
+const FMT = {setup:'安装版', msi:'MSI', store:'商店版', portable:'免安装', zip:'压缩包', dmg:'DMG'};
+const GROUP_ORDER = ['基础桌面客户端','Agent 管理与工作台','运行环境','开发环境'];
+const GROUP_COLOR = {
+  '基础桌面客户端':'#4D7CFE',
+  'Agent 管理与工作台':'#8B5CF6',
+  '运行环境':'#22D3EE',
+  '开发环境':'#34D399'
+};
+
+const S = { apps:[], groups:[], group:'all', q:'', arch:'x64', rec:false, sort:'rec' };
+
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function iconHTML(app, cls){
+  const ic = ICON[app.id] || ['#4D7CFE','#8B5CF6', (app.name||'?')[0]];
+  // 字母数字用 16px，符号（✳ ⚡ ⇄ 等）用 19px 才看得清
+  const isSym = !/^[A-Za-z0-9]/.test(ic[2]);
+  const sizeCls = ic[2].length > 1 ? ' sm' : (isSym ? ' sym' : '');
+  return '<div class="ico' + sizeCls + (cls ? ' ' + cls : '') + '" style="--c1:' + ic[0] + ';--c2:' + ic[1] + '">' + esc(ic[2]) + '</div>';
+}
+
+function pickVariant(app, arch){
+  const vs = app.variants || [];
+  let v = vs.find(x => x.arch === arch);
+  if (!v) v = vs.find(x => x.arch === 'any');
+  if (!v) v = vs.find(x => x.arch === 'x64');
+  if (!v) v = vs[0];
+  return v || null;
+}
+
+function download(app, v, btn){
+  if (!v) return;
+  if (v.local) {
+    // 用隐藏 a 标签触发，避免 location.href 在个别浏览器里导航掉当前页
+    const url = '/dl?id=' + encodeURIComponent(app.id) + '&i=' + v.idx;
+    const a = document.createElement('a');
+    a.href = url;
+    if (v.file) a.download = v.file;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => a.remove(), 0);
+    if (btn) {
+      const old = btn.textContent;
+      btn.textContent = '已开始';
+      btn.disabled = true;
+      setTimeout(() => { btn.textContent = old; btn.disabled = false; }, 2200);
+    }
+  } else if (app.page) {
+    window.open(app.page, '_blank');
+  }
+}
+
+/* ---------- 渲染侧栏 ---------- */
+function renderNav(){
+  const total = S.apps.length;
+  let h = '<div class="nav-label">分类</div>';
+  h += navItem('all', '全部软件', total);
+  S.groups.forEach(g => {
+    const n = S.apps.filter(a => a.group === g).length;
+    h += navItem(g, g, n);
+  });
+  document.getElementById('nav').innerHTML = h;
+}
+function navItem(key, label, n){
+  const c = GROUP_COLOR[label];
+  const dot = c ? '<span class="dot" style="background:' + c + ';opacity:1"></span>'
+                : '<span class="dot"></span>';
+  return '<div class="nav-item' + (S.group === key ? ' on' : '') + '" data-g="' + esc(key) + '">' +
+    dot + '<span>' + esc(label) + '</span><span class="cnt">' + n + '</span></div>';
+}
+
+/* ---------- 渲染统计 ---------- */
+function renderStats(){
+  const apps = S.apps.length;
+  const files = S.apps.reduce((s,a) => s + (a.variants||[]).filter(v=>v.local).length, 0);
+  const bytes = S.apps.reduce((s,a) => s + (a.variants||[]).reduce((t,v)=>t+(v.local?v.localSize:0),0), 0);
+  const gb = (bytes/1073741824).toFixed(1);
+  document.getElementById('stats').innerHTML =
+    '<div class="stat"><b>' + apps + '</b><span>款软件</span></div>' +
+    '<div class="stat"><b>' + files + '</b><span>个本地安装包</span></div>' +
+    '<div class="stat"><b>' + gb + ' GB</b><span>离线可用</span></div>' +
+    '<div class="stat"><b>' + S.groups.length + '</b><span>个分类</span></div>';
+}
+
+/* ---------- 渲染列表 ---------- */
+function sizeOf(a){
+  const v = pickVariant(a, S.arch);
+  return (v && v.localSize) ? v.localSize : 0;
+}
+
+function filtered(){
+  const q = S.q.trim().toLowerCase();
+  const rows = S.apps.filter(a => {
+    if (S.group !== 'all' && a.group !== S.group) return false;
+    if (S.rec && !a.recommend) return false;
+    if (!q) return true;
+    return (a.name + ' ' + a.vendor + ' ' + a.desc + ' ' + a.group + ' ' + (a.reason||'')).toLowerCase().includes(q);
+  });
+  if (S.sort === 'name') {
+    rows.sort((a, b) => String(a.name).localeCompare(String(b.name), 'zh-Hans-CN'));
+  } else if (S.sort === 'size') {
+    rows.sort((a, b) => sizeOf(b) - sizeOf(a));
+  } else {
+    rows.sort((a, b) => (b.recommend ? 1 : 0) - (a.recommend ? 1 : 0));
+  }
+  return rows;
+}
+
+function cardHTML(app){
+  const v = pickVariant(app, S.arch);
+  const ic = ICON[app.id] || ['#4D7CFE','#8B5CF6'];
+  const tags = [];
+  if (v) {
+    tags.push('<span class="tag">' + (FMT[v.format] || v.format) + ' · ' + esc(v.size) + '</span>');
+    if (v.local) tags.push('<span class="tag ok">已就位</span>');
+    else tags.push('<span class="tag no">官方下载</span>');
+    if (app.needProxy) tags.push('<span class="tag no">需代理</span>');
+  } else {
+    tags.push('<span class="tag no">无 ' + S.arch + ' 包</span>');
+  }
+  const btn = v
+    ? '<button class="dl' + (v.local ? '' : ' ghost') + '">' + (v.local ? '下载' : '去官网') + '</button>'
+    : '<button class="dl ghost" disabled>不可用</button>';
+  return '<article class="card" data-id="' + esc(app.id) + '" style="--glow:' + ic[0] + '22">' +
+    '<div class="card-top">' + iconHTML(app) +
+      '<div class="meta"><h3>' + esc(app.name) + '</h3><p>' + esc(app.vendor) + ' · ' + esc(app.group) + '</p></div>' +
+      (app.recommend ? '<span class="badge">推荐</span>' : '') +
+    '</div>' +
+    '<p class="desc">' + esc(app.desc) + '</p>' +
+    '<div class="card-foot"><div class="tags">' + tags.join('') + '</div>' + btn + '</div>' +
+  '</article>';
+}
+
+function renderList(){
+  const rows = filtered();
+  const box = document.getElementById('list');
+  document.getElementById('empty').style.display = rows.length ? 'none' : 'block';
+  if (!rows.length) { box.innerHTML = ''; return; }
+
+  // 单分类 / 搜索结果：平铺；全部分类：按分组分段
+  const useSections = (S.group === 'all' && !S.q.trim());
+  if (!useSections) {
+    box.innerHTML = '<div class="grid" style="margin-top:18px">' + rows.map(cardHTML).join('') + '</div>';
+    return;
+  }
+  let h = '';
+  GROUP_ORDER.forEach(g => {
+    const items = rows.filter(a => a.group === g);
+    if (!items.length) return;
+    h += '<div class="sec-head"><span class="bar"></span><h3>' + esc(g) + '</h3><span class="n">' + items.length + '</span><span class="line"></span></div>';
+    h += '<div class="grid">' + items.map(cardHTML).join('') + '</div>';
+  });
+  box.innerHTML = h;
+}
+
+/* ---------- 详情弹窗 ---------- */
+function openDetail(id){
+  const app = S.apps.find(a => a.id === id);
+  if (!app) return;
+  const vs = (app.variants || []);
+  let files = vs.map(v =>
+    '<div class="file-row">' +
+      '<div class="fname">' + esc(v.file) + '</div>' +
+      '<div class="fmeta">' + (FMT[v.format]||v.format) + ' · ' + esc(v.arch) + ' · ' + esc(v.size) + '</div>' +
+      (v.local
+        ? '<button class="dl" data-dl="' + esc(app.id) + '" data-i="' + v.idx + '">下载</button>'
+        : '<button class="dl ghost" data-page="' + esc(app.page||'') + '">官网</button>') +
+    '</div>').join('');
+
+  const macs = (app.mac || []);
+  let macBlock = '';
+  if (macs.length) {
+    macBlock = '<h4>macOS 版本</h4>' + macs.map(m =>
+      '<div class="file-row"><div class="fname">' + esc(m.file) + '</div>' +
+      '<div class="fmeta">DMG · ' + esc(m.arch) + ' · ' + esc(m.size) + '</div>' +
+      '<span class="tag no" style="flex:none">需在 Mac 上装</span></div>').join('');
+  }
+
+  const tip = app.tip ? '<div class="tipbox' + (app.needProxy ? ' warn' : '') + '">' +
+    (app.needProxy ? '<b>下载可能需要代理。</b> ' : '') + esc(app.tip) + '</div>' : '';
+
+  document.getElementById('sheet').innerHTML =
+    '<div class="sheet-head">' + iconHTML(app) +
+      '<div><h3>' + esc(app.name) + '</h3><div class="sub">' + esc(app.vendor) + ' · ' + esc(app.group) + '</div></div>' +
+      '<button class="x" id="closeX">✕</button>' +
+    '</div>' +
+    '<div class="kv"><b>能做什么</b><span>' + esc(app.desc) + '</span></div>' +
+    (app.audience ? '<div class="kv"><b>适合谁</b><span>' + esc(app.audience) + '</span></div>' : '') +
+    (app.reason ? '<div class="kv"><b>推荐理由</b><span>' + esc(app.reason) + '</span></div>' : '') +
+    (app.page ? '<div class="kv" style="align-items:center"><b>官方页面</b><span style="color:#8FB0FF;word-break:break-all">' + esc(app.page) + '</span><button class="copy" data-copy="' + esc(app.page) + '">复制</button></div>' : '') +
+    '<h4>Windows 安装包（' + vs.length + ' 个）</h4>' + (files || '<div class="tipbox">无 Windows 安装包</div>') +
+    macBlock + tip +
+    '<div style="display:flex;gap:9px;margin-top:18px">' +
+      '<button class="dl ghost" style="flex:1" id="closeB">关闭</button>' +
+    '</div>';
+
+  document.getElementById('modal').classList.add('on');
+  document.getElementById('closeX').onclick = closeDetail;
+  document.getElementById('closeB').onclick = closeDetail;
+  document.querySelectorAll('#sheet [data-dl]').forEach(b => {
+    b.onclick = () => {
+      const a = S.apps.find(x => x.id === b.dataset.dl);
+      const v = a && a.variants[+b.dataset.i];
+      if (v) download(a, v, b);
+    };
+  });
+  document.querySelectorAll('#sheet [data-page]').forEach(b => {
+    b.onclick = () => { if (b.dataset.page) window.open(b.dataset.page, '_blank'); };
+  });
+  document.querySelectorAll('#sheet [data-copy]').forEach(b => {
+    b.onclick = async () => {
+      const txt = b.dataset.copy || '';
+      let ok = false;
+      try { await navigator.clipboard.writeText(txt); ok = true; } catch (e) {
+        // file:// 或无安全上下文时降级
+        const ta = document.createElement('textarea');
+        ta.value = txt;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { ok = document.execCommand('copy'); } catch (e2) { ok = false; }
+        ta.remove();
+      }
+      b.textContent = ok ? '已复制' : '复制失败';
+      b.classList.add('done');
+      setTimeout(() => { b.textContent = '复制'; b.classList.remove('done'); }, 1600);
+    };
+  });
+}
+function closeDetail(){ document.getElementById('modal').classList.remove('on'); }
+
+/* ---------- 文档弹窗 ---------- */
+async function openDoc(kind){
+  const title = kind === 'usage' ? '使用说明' : '官方下载地址';
+  document.getElementById('sheet').innerHTML =
+    '<div class="sheet-head"><div style="flex:1"><h3>' + title + '</h3>' +
+    '<div class="sub">' + (kind==='usage' ? '怎么装、怎么排错' : '安装包丢失或需要最新版时的官方入口') + '</div></div>' +
+    '<button class="x" id="closeX">✕</button></div>' +
+    '<div class="doc" id="docBody" style="max-height:58vh;overflow-y:auto">加载中…</div>';
+  document.getElementById('modal').classList.add('on');
+  document.getElementById('closeX').onclick = closeDetail;
+  try {
+    const r = await fetch('/doc?k=' + kind);
+    document.getElementById('docBody').textContent = await r.text();
+  } catch(e) {
+    document.getElementById('docBody').textContent = '读取失败。请确认是通过「打开资源中心.bat」启动的。';
+  }
+}
+
+/* ---------- 事件 ---------- */
+document.getElementById('nav').addEventListener('click', e => {
+  const it = e.target.closest('.nav-item');
+  if (!it) return;
+  S.group = it.dataset.g;
+  renderNav(); renderList();
+});
+document.getElementById('q').addEventListener('input', e => {
+  S.q = e.target.value; renderList();
+});
+document.getElementById('archSeg').addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  S.arch = b.dataset.arch;
+  [...document.querySelectorAll('#archSeg button')].forEach(x => x.classList.toggle('on', x === b));
+  renderList();
+});
+document.getElementById('recOnly').addEventListener('change', e => {
+  S.rec = e.target.checked; renderList();
+});
+document.getElementById('list').addEventListener('click', e => {
+  const btn = e.target.closest('.dl');
+  const card = e.target.closest('.card');
+  if (!card) return;
+  const app = S.apps.find(a => a.id === card.dataset.id);
+  if (!app) return;
+  if (btn && !btn.disabled) { e.stopPropagation(); download(app, pickVariant(app, S.arch), btn); return; }
+  openDetail(app.id);
+});
+document.getElementById('sort').addEventListener('change', e => {
+  S.sort = e.target.value;
+  renderList();
+});
+
+// 回到顶部（滚动容器是 main，不是 window）
+const mainEl = document.querySelector('main');
+const toTop = document.getElementById('toTop');
+mainEl.addEventListener('scroll', () => {
+  toTop.classList.toggle('show', mainEl.scrollTop > 420);
+}, { passive: true });
+toTop.addEventListener('click', () => mainEl.scrollTo({ top: 0, behavior: 'smooth' }));
+document.querySelectorAll('[data-doc]').forEach(b => b.onclick = () => openDoc(b.dataset.doc));
+document.getElementById('modal').addEventListener('click', e => {
+  if (e.target.id === 'modal') closeDetail();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeDetail();
+  if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+    e.preventDefault(); document.getElementById('q').focus();
+  }
+});
+
+/* ---------- 启动 ---------- */
+(async function boot(){
+  // 先铺骨架屏，避免白屏等待
+  document.getElementById('list').innerHTML =
+    '<div class="grid" style="margin-top:18px">' + '<div class="skel"></div>'.repeat(8) + '</div>';
+
+  try {
+    const r = await fetch('/api/apps');
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    S.apps = d.apps || [];
+    S.groups = (d.groups && d.groups.length ? d.groups : GROUP_ORDER).filter(g => S.apps.some(a => a.group === g));
+
+    // 支持用 URL 参数预置筛选状态，方便把「某个分类 / 某个架构」的链接直接发给别人
+    const p = new URLSearchParams(location.search);
+    if (p.get('q')) { S.q = p.get('q'); document.getElementById('q').value = S.q; }
+    if (p.get('g')) { S.group = p.get('g'); }
+    if (p.get('rec') === '1') { S.rec = true; document.getElementById('recOnly').checked = true; }
+    if (p.get('sort')) { S.sort = p.get('sort'); document.getElementById('sort').value = S.sort; }
+    if (p.get('arch') === 'arm64') {
+      S.arch = 'arm64';
+      document.querySelectorAll('#archSeg button').forEach(b => b.classList.toggle('on', b.dataset.arch === 'arm64'));
+    }
+
+    renderNav(); renderStats(); renderList();
+
+    // 有包缺失时，把顶部状态条改成警示
+    const total = S.apps.reduce((s,a) => s + (a.variants||[]).length, 0);
+    const have = S.apps.reduce((s,a) => s + (a.variants||[]).filter(v => v.local).length, 0);
+    if (total > 0 && have < total) {
+      const pill = document.querySelector('.pill');
+      pill.innerHTML = '<i style="background:#FBBF24;box-shadow:0 0 8px #FBBF24"></i>' +
+        (total - have) + ' 个安装包不在本地，需联网下载';
+      pill.style.background = 'rgba(251,191,36,.10)';
+      pill.style.borderColor = 'rgba(251,191,36,.28)';
+      pill.style.color = '#FCD34D';
+    }
+
+    // 支持 http://127.0.0.1:端口/#detail=软件id 直接打开详情
+    const m = location.hash.match(/^#detail=(.+)$/);
+    if (m) openDetail(decodeURIComponent(m[1]));
+  } catch(err) {
+    document.getElementById('list').innerHTML =
+      '<div class="empty" style="display:block;margin-top:40px">' +
+      '<b>没有连上本地服务</b>' +
+      '这个页面需要通过「打开资源中心.bat」启动。<br>' +
+      '直接双击 html 文件打不开，因为浏览器不允许本地网页读取安装包列表。<br><br>' +
+      '<span style="font-size:12px;color:#6B7488">错误：' + esc(err.message) + '</span></div>';
+  }
+})();
+</script>
+</body>
+</html>

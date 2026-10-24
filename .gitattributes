@@ -1,0 +1,33 @@
+# 行尾与编码策略
+# 原则：仓库内一律存 LF，检出时按平台恢复；绝不改动字节内容（BOM 保留）
+* text=auto eol=lf
+
+# PowerShell 脚本：UTF-8 with BOM 是硬要求（PowerShell 5.1 否则按 ANSI 解析中文会报错）
+# 这里显式声明 eol=crlf：Windows 检出为 CRLF，与作者本地一致
+*.ps1 text eol=crlf
+*.psm1 text eol=crlf
+
+# 批处理
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# 文档：LF 便于 diff
+*.md text eol=lf
+*.txt text eol=crlf
+
+# 数据
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# 图片与二进制：不做任何转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.exe binary
+*.msi binary
+*.dmg binary
+*.zip binary
+*.7z binary

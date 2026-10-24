@@ -1,0 +1,262 @@
+========================================
+  AI 桌面下载中心 · 推荐软件与官方下载地址
+========================================
+
+更新时间：2026-10-23
+
+这个包自带离线安装包（在「安装包」文件夹里），也支持联网补下。
+使用方法：
+  1. 不确定电脑架构时，先双击「双击检测.bat」
+  2. 双击「双击启动.bat」，按编号下载或启动安装
+  3. 同一软件有多种格式时，按提示选一种（回车 = 默认格式）
+  4. 自动下载失败时，可从本文件的“官网”或“当前直链”手动下载
+
+【先看推荐】
+
+基础桌面客户端
+
+  WorkBuddy（腾讯）
+    适合：办公、写作和日常 AI 协作用户
+    用途：腾讯桌面 AI 工作台，适合中文办公场景。
+    格式：Windows 安装版（x64）；另有 macOS dmg。
+
+  Claude Desktop
+    适合：需要 Claude 桌面聊天、文档和文件协作的用户
+    用途：Claude 官方桌面客户端。
+    格式：Windows 安装版（x64）；另有 macOS 的 arm64 / x64 两个 dmg。
+
+  ChatGPT 桌面端（含 Codex）
+    适合：使用 ChatGPT，并希望在应用内使用 Codex 的用户
+    用途：Windows 的 Codex 入口在 ChatGPT 桌面应用中。
+    格式：Windows 只有「商店版」引导器，安装完整应用仍需要联网。
+
+  OpenCode Desktop
+    适合：希望使用开源 AI 编程 Agent 的开发者
+    用途：开源 AI 编程 Agent。
+    格式：安装版 + 免安装压缩包，x64 与 ARM64 都有原生包。
+
+  Cherry Studio
+    适合：想在一个客户端接入多个模型和 API 的用户
+    用途：国产多模型聚合客户端。
+    格式：安装版 + 免安装单文件，x64 与 ARM64 都有。
+
+  DeepSeek Harness 桌面版
+    适合：想体验 DeepSeek Agent 工作流的开发者
+    用途：社区打包的桌面平台；当前只有 Windows x64。
+    格式：Windows 安装版（x64）；另有 macOS 通用 dmg。
+
+  LobeHub 桌面版
+    适合：想使用开源 AI 助手聚合界面的用户
+    用途：开源 AI 助手客户端；当前只有 Windows x64 安装版。
+
+  Hermes Agent 桌面版
+    适合：想用 NousResearch 官方 Agent 桌面客户端的用户
+    用途：官方 Agent 桌面客户端，图形界面直接可用。
+    格式：Windows 安装版（x64）+ macOS dmg。
+    注意：Hermes 现在有桌面版了，不再是纯命令行工具。
+          安装包是官方引导器，首次启动会联网拉运行时。
+          命令行版仍然可用（见文末）。
+
+Agent 管理与工作台
+
+  CC Switch
+    适合：同时使用 Claude Code、Codex、OpenCode 等多个 Agent 的开发者
+    用途：图形化管理多个 Agent 的安装、更新、Provider、MCP、Skills 和配置。
+    格式：MSI 安装包 + 免安装 zip，x64 与 ARM64 都有。
+
+  Open Cowork
+    适合：希望通过图形界面使用 AI Agent、文件处理和 MCP 的普通用户
+    用途：图形化 AI Agent 工作台，支持 Skills、MCP、文件处理和多模型。
+    格式：Windows 安装版（x64）；ARM64 Windows 会用系统模拟运行。
+
+  RunJam
+    适合：同时使用 Claude Code、Codex 和 Gemini 的编程用户
+    用途：一个窗口管理 Agent、项目、会话、编辑器和终端，并支持一键安装 Agent。
+    格式：Windows 安装版（x64）；另有 macOS 的 arm64 / x64 dmg。
+
+  Desktop CC GUI
+    适合：想在一个图形界面运行多个 AI 编程引擎的开发者
+    用途：统一使用 Claude Code、Codex、OpenCode、DeepSeek Harness 等 Agent。
+    格式：Windows 安装版（x64）；另有 macOS 的 arm64 / x64 dmg。
+
+  Watt Toolkit（瓦特工具箱，原名 Steam++）
+    适合：需要 Steam 社区/商店加速、GitHub 加速、本地令牌等工具的用户
+    用途：开源网络加速与实用工具集，Steam 社区打不开、GitHub 拉不动时很好用。
+    格式：Windows 安装版 + 免安装 7z（都只有 x64，官方没有 ARM64 版）；
+          另有 macOS 通用 dmg。
+    注意：免安装版是 .7z，解压需要 7-Zip；不想装 7-Zip 就用安装版。
+
+【格式怎么选】
+
+  安装版    双击装到系统里，装完开始菜单有图标。绝大多数人选这个。
+  MSI       系统级安装包，适合公司电脑批量部署 / 域环境推送。
+  免安装    单个 exe，双击就能用，不写注册表，拷到 U 盘就能带走。
+  压缩包    解压后双击里面的 exe，不用安装（zip 直接右键解压；7z 需要装 7-Zip）。
+  商店版    微软商店引导器，双击后要联网拉完整应用（目前只有 ChatGPT 这样）。
+
+  同一软件选哪种都能用，功能一样，差别只在“装进系统”还是“绿色免安装”。
+
+【官方下载页和当前直链】
+
+1. WorkBuddy（腾讯）
+   官网：https://www.workbuddy.cn
+   Windows x64：
+   https://download.codebuddy.cn/workbuddy/saas/win32-x64-user/WorkBuddy-win32-x64-user-5.8.3.41334564-db0e9b51.exe
+   macOS arm64：
+   https://download.codebuddy.cn/workbuddy/saas/darwin-arm64/WorkBuddy-darwin-arm64-5.8.3.41334564-db0e9b51.dmg
+
+2. Claude Desktop
+   官网：https://claude.ai/download
+   Windows x64：
+   https://downloads.claude.ai/claude-science/latest/windows-x64.exe
+   macOS arm64 / x64：
+   https://downloads.claude.ai/claude-science/latest/mac-arm64.dmg
+   https://downloads.claude.ai/claude-science/latest/mac-x64.dmg
+
+3. ChatGPT 桌面端（含 Codex）
+   官网：https://chatgpt.com/download
+   Windows 安装引导器：
+   https://get.microsoft.com/installer/download/9PLM9XGG6VKS
+   macOS：
+   https://persistent.oaistatic.com/sidekick/public/ChatGPT.dmg
+   注意：Windows 那个文件约 0.8 MB，启动后仍需微软商店联网下载完整应用。
+
+4. OpenCode Desktop
+   官网：https://opencode.ai/download
+   官方 Release：https://github.com/anomalyco/opencode/releases
+   Windows x64 安装版：
+   https://github.com/anomalyco/opencode/releases/latest/download/opencode-desktop-win-x64.exe
+   Windows ARM64 安装版：
+   https://github.com/anomalyco/opencode/releases/latest/download/opencode-desktop-win-arm64.exe
+   Windows x64 免安装压缩包：
+   https://github.com/anomalyco/opencode/releases/latest/download/opencode-windows-x64.zip
+   Windows ARM64 免安装压缩包：
+   https://github.com/anomalyco/opencode/releases/latest/download/opencode-windows-arm64.zip
+
+5. DeepSeek Harness 桌面版
+   官方 Release（社区桌面版）：
+   https://github.com/anywhere-labs/deepseek-harness-desktop/releases
+   Windows x64：
+   https://github.com/anywhere-labs/deepseek-harness-desktop/releases/latest/download/DSH-Desktop-2.0.18-x64-Setup.exe
+   校验清单（官方）：
+   https://github.com/anywhere-labs/deepseek-harness-desktop/releases/latest/download/SHA256SUMS.txt
+   注意：DeepSeek Harness 官方仓库主要提供源码；本桌面版来自社区项目。
+
+6. Cherry Studio
+   官网：https://www.cherry-ai.com
+   官方 Release：https://github.com/CherryHQ/cherry-studio/releases
+   Windows x64 安装版 / 免安装：
+   https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-setup.exe
+   https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-portable.exe
+   Windows ARM64 安装版 / 免安装：
+   https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-setup.exe
+   https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-portable.exe
+
+7. LobeHub 桌面版
+   官方 Release：https://github.com/lobehub/lobe-chat/releases
+   Windows x64：
+   https://github.com/lobehub/lobe-chat/releases/latest/download/LobeHub-2.2.20-setup.exe
+
+8. CC Switch
+   官网：https://ccswitch.io
+   官方 Release：https://github.com/farion1231/cc-switch/releases
+   Windows x64 MSI / 免安装 zip：
+   https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows.msi
+   https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows-Portable.zip
+   Windows ARM64 MSI / 免安装 zip：
+   https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows-arm64.msi
+   https://github.com/farion1231/cc-switch/releases/download/v4.0.18/CC-Switch-v4.0.18-Windows-arm64-Portable.zip
+
+9. Open Cowork
+   官方 Release：https://github.com/OpenCoworkAI/open-cowork/releases
+   Windows x64：
+   https://github.com/OpenCoworkAI/open-cowork/releases/download/v3.3.1/Open.Cowork-3.3.1-win-x64.exe
+
+10. RunJam
+    官网：https://www.runjam.app
+    官方 Release：https://github.com/peintune/runjam/releases
+    Windows x64：
+    https://github.com/peintune/runjam/releases/download/v1.0.101/RunJam_1.0.101_x64-setup.exe
+
+11. Desktop CC GUI
+    官方 Release：https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases
+    Windows x64：
+    https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/CC.GUI_1.1.6_x64-setup.exe
+
+12. Hermes Agent（桌面版 + 命令行）
+    官网（含桌面版下载按钮）：https://hermes-agent.nousresearch.com/
+    官方项目页：https://github.com/NousResearch/hermes-agent
+    Windows 桌面版：
+    https://hermes-assets.nousresearch.com/Hermes-Setup.exe
+    macOS 桌面版：
+    https://hermes-assets.nousresearch.com/Hermes-Setup.dmg
+    命令行版（可选，想用终端的人自己装）：
+    Windows：irm https://hermes-agent.nousresearch.com/install.ps1 | iex
+    macOS / Linux：curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+
+13. Watt Toolkit（瓦特工具箱，原名 Steam++）
+    官网：https://steampp.net/
+    官方 Release：https://github.com/BeyondDimension/SteamTools/releases
+    Windows x64 安装版：
+    https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam%2B%2B_v3.1.0_win_x64.exe
+    Windows x64 免安装 7z：
+    https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam%2B%2B_v3.1.0_win_x64.7z
+    macOS 通用 dmg：
+    https://github.com/BeyondDimension/SteamTools/releases/download/3.1.0/Steam%2B%2B_v3.1.0_macos.dmg
+    注意：仓库名叫 SteamTools，程序叫 Steam++.exe，产品名才叫 Watt Toolkit，
+          三个名字对不上，搜 "WattToolkit" 会找不到。官方只有 x64，没有 Windows ARM64 版。
+          想找历史版本（3.0.0-rc.x）在同一个 releases 页面往下翻。
+
+【开发环境下载地址】
+
+  这 4 个不是软件，是「要用命令行工具才装」的运行环境。
+  桌面软件不需要它们，具体什么时候装看「使用说明.txt」的【开发环境】一节。
+
+  Python 3.13.10（含 pip）
+    官方：https://www.python.org/downloads/windows/
+    国内镜像（快）：
+    https://mirrors.huaweicloud.com/python/3.13.10/python-3.13.10-amd64.exe
+    官方直链（慢，国内实测 11 KB/s）：
+    https://www.python.org/ftp/python/3.13.10/python-3.13.10-amd64.exe
+    注意：安装时务必勾选「Add python.exe to PATH」
+
+  Node.js 24.22.1 LTS（含 npm）
+    官方：https://nodejs.org/zh-cn/download
+    国内镜像（快）：
+    https://registry.npmmirror.com/-/binary/node/v24.22.1/node-v24.22.1-x64.msi
+    官方直链：
+    https://nodejs.org/dist/v24.22.1/node-v24.22.1-x64.msi
+
+  Git for Windows 2.56.0.3
+    官方：https://git-scm.com/download/win
+    官方 Release：https://github.com/git-for-windows/git/releases
+    Windows x64：
+    https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.3/Git-2.56.0.3-64-bit.exe
+    注意：tag 是 v2.56.0.windows.3，文件名却是 Git-2.56.0.3-64-bit.exe，两者不一样
+
+  7-Zip 25.01
+    官方：https://www.7-zip.org/
+    直链（会跳转到 GitHub）：
+    https://www.7-zip.org/a/7z2501-x64.exe
+
+  需要但本包没收的（本清单软件用不上）：
+    Java   https://adoptium.net
+    Go     https://go.dev/dl/
+    Rust   https://rustup.rs
+    .NET   https://dot.net
+
+【按 Windows 架构选择】
+
+  Intel / AMD 普通电脑：选择 x64
+  骁龙 / 麒麟等 Windows ARM 电脑：优先选 ARM64；没有 ARM64 的软件可使用 x64 模拟运行
+  32 位 Windows（x86）：本清单中的桌面软件均无适配版本
+
+【下载后】
+
+启动器下载的文件会放在「下载」文件夹，可以重复安装或留作备份。
+如果这个包里带有「安装包」文件夹，里面的文件已经是放好的，
+启动器会优先使用本地文件，显示「已就绪」后点一下就能装，不用联网。
+「安装包\<软件名>\mac\」里的 dmg 是给 Mac 用的，Windows 上用不到。
+
+请从以上官网或官方 Release 页面确认软件来源。Windows 对未签名安装包可能显示提示；
+请先核对下载页面、文件名和发布者，再决定是否继续安装。
