@@ -1,0 +1,49 @@
+name: Version freshness check
+
+on:
+  schedule:
+    # 每周一 04:00 UTC（北京时间 12:00），排在 link-check（03:00）之后
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sources.json'
+
+jobs:
+  version-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check pinned versions against upstream
+        shell: pwsh
+        id: versions
+        # 有落后版本不应让 job 变红（报告照常上传），用 outcome 触发下面的 issue
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./scripts/check-versions.ps1
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: version-report
+          path: version-report.txt
+          if-no-files-found: ignore
+
+      - name: Open issue when versions drifted
+        if: steps.versions.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = 'The version freshness check found pinned versions behind upstream releases.\n\n';
+            try { body += '\`\`\`\n' + fs.readFileSync('version-report.txt', 'utf8').slice(0, 60000) + '\n\`\`\`'; } catch (e) {}
+            body += '\n\nUpdate the affected entries in \`sources.json\` (file names, urls, sizes) and close this issue.';
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'New upstream versions available (' + new Date().toISOString().slice(0, 10) + ')',
+              body
+            });
