@@ -39,8 +39,10 @@ if (-not (Test-Path $JsonPath)) {
 $cfg  = [System.IO.File]::ReadAllText($JsonPath, [System.Text.Encoding]::UTF8) | ConvertFrom-Json
 $Apps = @($cfg.apps)
 
-# GitHub 加速前缀，按顺序试；非 GitHub 直链不加前缀
+# GitHub 加速前缀，按顺序试；非 GitHub 直链不加前缀。
+# 优先读 sources.json 顶层 mirrors（空串 = 直连），镜像站挂了改 JSON 即可
 $Mirrors = @("https://gh-proxy.com/", "https://ghfast.top/", "", "https://gh.llkk.cc/")
+if ($cfg.mirrors) { $Mirrors = @($cfg.mirrors) }
 
 # ---------- 代理自动探测 ----------
 # 国内直连 GitHub / downloads.claude.ai 基本不通，必须走本机代理。
