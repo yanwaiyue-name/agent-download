@@ -4,7 +4,7 @@
 
 <h1 align="center">📦 AI 客户端下载中心</h1>
 
-<p align="center"><strong>Version 4.0</strong></p>
+<p align="center"><strong>Version 4.1</strong></p>
 
 <p align="center">
   <em>一站式整理主流 AI 桌面客户端的官方下载地址，按电脑架构告诉您该装哪个版本。<br>
@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-38%20apps-2ea44f" alt="38 apps">
+  <img src="https://img.shields.io/badge/software-43%20apps-2ea44f" alt="43 apps">
 </p>
 
 <p align="center">
@@ -52,11 +52,11 @@
 
 ## ⚡ 30 秒速查：您该装哪个
 
-共 **38** 项，分 **6** 个分组。⭐ = 推荐。
+共 **43** 项，分 **8** 个分组。⭐ = 推荐。
 
 > **重要**：标注 `npm` / `pip` 的工具**没有可双击的安装包**，必须用命令行安装。这是它们官方的发布方式，不是缺文件。
 
-### 桌面端（9）
+### 桌面端（10）
 
 | 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
 |---|---|---|---|---|
@@ -69,6 +69,7 @@
 | **LobeHub 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/lobehub/lobehub/releases) |
 | **Hermes Agent 桌面版** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple | [官方页](https://hermes-agent.nousresearch.com/) |
 | **Watt Toolkit（瓦特工具箱）** | ✅ 安装版/免安装 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://steampp.net/) |
+| **ZCode 桌面版** ⭐ | ✅ 安装版 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://zcode.z.ai/cn) |
 
 ### Agents（8）
 
@@ -83,7 +84,7 @@
 | **Cline（桌面版）** ⭐ | ✅ 安装版 | ⚠️ 模拟 | — | [官方页](https://github.com/cline/cline/releases) |
 | **Grox（Grok Build 社区桌面版）** | ✅ 安装版 | ⚠️ 模拟 | — | [官方页](https://github.com/dandandujie/Grox) |
 
-### IDE（5）
+### IDE（6）
 
 | 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
 |---|---|---|---|---|
@@ -92,6 +93,7 @@
 | **Trae CN（国内版）** ⭐ | 官网下载 | 官网下载 | 官网 | [官方页](https://www.trae.cn/download) |
 | **Windsurf** | 官网下载 | 官网下载 | 官网 | [官方页](https://windsurf.com/download) |
 | **Visual Studio Code** | 官网下载 | 官网下载 | 官网 | [官方页](https://code.visualstudio.com/download) |
+| **Qoder** ⭐ | 官网下载 | 官网下载 | 官网 | [官方页](https://qoder.com/en/download) |
 
 ### CLI Code（9）
 
@@ -123,6 +125,23 @@
 | **Node.js 24.22.1 LTS** | Node.js 长期支持版（含 npm） | [官方页](https://nodejs.org/zh-cn/download) |
 | **Git for Windows 2.56.0.3** | Git 版本控制（含 Git Bash） | [官方页](https://git-scm.com/download/win) |
 | **7-Zip 25.01** | 开源压缩工具，支持 .7z / .zip / .rar 等 | [官方页](https://www.7-zip.org/) |
+
+### 本地运行（2）
+
+在自己电脑上跑开源模型（Qwen / DeepSeek / Llama 等），不走云端 API。
+
+| 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
+|---|---|---|---|---|
+| **Ollama** ⭐ | ✅ 安装版（1.5 GB） | ✅ zip | ✅ Apple/Intel | [官方页](https://ollama.com/download) |
+| **LM Studio** ⭐ | 官网下载 | 官网下载 | 官网 | [官方页](https://lmstudio.ai/download) |
+
+### 实用工具（1）
+
+不是 AI 软件，但能让上面的东西下载得更快。
+
+| 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
+|---|---|---|---|---|
+| **Motrix** ⭐ | ✅ 安装版 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://motrix.app) |
 
 
 ---

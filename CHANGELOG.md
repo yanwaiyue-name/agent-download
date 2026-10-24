@@ -2,6 +2,31 @@
 
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [4.1.0] - 2026-10-24
+
+新增 5 个应用、2 个分组，新增版本过期检测 CI。
+
+### 新增分组
+- **本地运行**：Ollama、LM Studio —— 在自己电脑上跑开源模型，不走云端 API
+- **实用工具**：Motrix —— 开源多线程下载器（aria2 内核），配合镜像前缀加速 GitHub 直链
+
+### 新增项目（5 个）
+| 名称 | 分组 | 安装方式 |
+|---|---|---|
+| ZCode 桌面版 | 桌面端 | 原生 exe（win x64 / arm64，Z.ai CDN 国内直连） |
+| Qoder | IDE | 官网（阿里 agentic 编程平台，Quest 模式） |
+| Ollama | 本地运行 | 官方安装包（1.5 GB 内置运行引擎；ARM64 Windows 走 zip 解压版） |
+| LM Studio | 本地运行 | 官网 |
+| Motrix | 实用工具 | 原生 exe（win x64 / arm64） |
+
+### 新增
+- `scripts/check-versions.ps1` + 每周 CI（`version-check.yml`）：对比钉住版本与上游 latest Release，落后自动开 issue。首次运行即发现 CC Switch 4.0.18 落后于上游 4.0.19
+- 为 9 个 CLI 条目补齐 `github` 字段（Claude Code / Gemini CLI / Qwen Code / Kimi CLI / Pi / Goose / OpenHands / Cline / Grox），启动器可优先解析 latest Release，版本检测覆盖到全部 GitHub 条目
+
+### 变更
+- 项目 38 → 43，分组 6 → 8，版本号 4.0 → 4.1
+- 离线清单页、图形界面、本机检测脚本同步新数据
+
 ## [4.0.0] - 2026-10-24
 
 分组重构、项目从 20 扩到 38。

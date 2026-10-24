@@ -1,6 +1,8 @@
 # 维护说明（给你自己看，不要随包发给使用者）
 
-> 当前版本 **v4.0**（2026-10-24）。相对 v3.0 的主要变化：
+> 当前版本 **v4.1**（2026-10-24）。v4.0 → v4.1：新增「本地运行」（Ollama / LM Studio）与「实用工具」（Motrix）两个分组，新增 ZCode 桌面版与 Qoder，新增版本过期检测 CI（`scripts/check-versions.ps1`，落后自动开 issue）。
+>
+> v4.0（相对 v3.0）的主要变化：
 > 1. **项目 20 → 38** —— 新增 IDE、CLI Code 两个分组（Cursor / Trae / VS Code、Claude Code / Qwen Code / Kimi CLI 等）。
 > 2. **分组 4 → 6** —— 桌面端 / Agents / IDE / CLI Code / 运行环境 / 开发环境。
 > 3. **新增 `install` 字段** —— `web` / `npm` / `pip` 标记官方无直链包的应用，校验与界面不再误报为「缺文件」。
