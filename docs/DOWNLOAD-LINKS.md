@@ -152,10 +152,10 @@
 | Claude Desktop | https://claude.ai/download | https://claude.ai |
 | Codex / ChatGPT | https://chatgpt.com/download | https://openai.com/codex |
 | OpenCode | https://opencode.ai/download | https://opencode.ai |
-| DeepSeek Harness | https://github.com/anywhere-labs/deepseek-harness-desktop/releases | https://github.com/deepseek-ai/deepseek-harness |
+| DeepSeek Harness | https://github.com/anywhere-labs/dsh-desktop/releases | https://github.com/deepseek-ai/deepseek-harness |
 | **Hermes** | **https://hermes-agent.nousresearch.com/ （首页就有 Desktop App 的 Windows / macOS 按钮）** | https://github.com/NousResearch/hermes-agent |
 | Cherry Studio | https://www.cherry-ai.com | https://github.com/CherryHQ/cherry-studio |
-| LobeHub | https://github.com/lobehub/lobe-chat/releases | 同左 |
+| LobeHub | https://github.com/lobehub/lobehub/releases | 同左 |
 | CC Switch | https://ccswitch.io | https://github.com/farion1231/cc-switch/releases |
 | Open Cowork | https://github.com/OpenCoworkAI/open-cowork/releases | 同左 |
 | RunJam | https://www.runjam.app | https://github.com/peintune/runjam/releases |
@@ -193,7 +193,7 @@
 
 ### 3. DeepSeek Harness 官方仓库没有桌面安装包
 
-`deepseek-ai/deepseek-harness` **只发源码，没有 releases**。桌面版在社区仓库 `anywhere-labs/deepseek-harness-desktop`，最新 v2.0.18（2026-10-17）。跟使用者讲清楚：装的是社区打包版。
+`deepseek-ai/deepseek-harness` **只发源码，没有 releases**。桌面版在社区仓库 `anywhere-labs/dsh-desktop`，最新 v2.0.18（2026-10-17）。跟使用者讲清楚：装的是社区打包版。
 
 ### 4. Claude 的直链路径叫 `claude-science`
 
@@ -347,7 +347,7 @@ shasum -a 256 Claude-Setup-x64.exe
 
 DSH 官方提供校验清单（下载后对照）：
 ```
-https://github.com/anywhere-labs/deepseek-harness-desktop/releases/download/v2.0.18/SHA256SUMS.txt
+https://github.com/anywhere-labs/dsh-desktop/releases/download/v2.0.18/SHA256SUMS.txt
 ```
 
 其它几家不提供校验文件，用「文件大小是否与第一节一致」做粗校验即可（差 1 MB 以上就说明没下完）。

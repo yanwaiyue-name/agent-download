@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-38%20apps-2ea44f" alt="20 apps">
+  <img src="https://img.shields.io/badge/software-38%20apps-2ea44f" alt="38 apps">
 </p>
 
 <p align="center">
@@ -64,9 +64,9 @@
 | **Claude Desktop** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://claude.ai/download) |
 | **ChatGPT 桌面端（含 Codex）** ⭐ | ✅ 商店 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://chatgpt.com/download) |
 | **OpenCode Desktop** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://opencode.ai/download) |
-| **DeepSeek Harness 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/anywhere-labs/deepseek-harness-desktop/releases) |
+| **DeepSeek Harness 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/anywhere-labs/dsh-desktop/releases) |
 | **Cherry Studio** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://www.cherry-ai.com) |
-| **LobeHub 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/lobehub/lobe-chat/releases) |
+| **LobeHub 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/lobehub/lobehub/releases) |
 | **Hermes Agent 桌面版** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple | [官方页](https://hermes-agent.nousresearch.com/) |
 | **Watt Toolkit（瓦特工具箱）** | ✅ 安装版/免安装 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://steampp.net/) |
 
@@ -197,7 +197,7 @@ agent-download/
 ├── check-pc.ps1                 系统检测逻辑
 ├── 资源中心服务.ps1             本地 HTTP 服务（127.0.0.1）
 ├── 资源中心.html                目录页界面
-├── sources.json                 ★ 唯一数据源：20 个应用的地址和版本
+├── sources.json                 ★ 唯一数据源：38 个应用的地址和版本
 ├── 使用说明.txt                 给使用者的操作说明
 ├── 软件推荐与官方下载地址.txt    推荐表和官网直链
 ├── docs/
@@ -205,6 +205,9 @@ agent-download/
 │   ├── DOWNLOAD-LINKS.md        全部官方直链与校验方法
 │   └── images/                  界面截图
 └── scripts/
+    ├── 更新.ps1                 一键 校验+提交+推送
+    ├── verify.ps1               校验 sources.json 与所有脚本
+    ├── check-links.ps1          直链健康检查（需 pwsh 7）
     ├── 打包.ps1                 生成发布包
     ├── gen-dirs.ps1             按 JSON 重建安装包目录
     ├── 补全安装包.ps1           批量下载全部格式
@@ -253,7 +256,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\更新.ps1 -Message "更新 C
 | 1 | 校验 `sources.json` 与所有脚本（`verify.ps1`），出错立即中止 |
 | 2 | `git add -A` |
 | 3 | `git commit`（用你给的 -Message） |
-| 4 | `git push`（自动走代理与 `:443` 地址，绕开镜像改写） |
+| 4 | `git push` 当前分支（需要代理时加 `-Proxy` 参数；`:443` 地址可绕开镜像改写） |
 
 改了 `sources.json` 想顺便重建目录结构，加 `-Regen`：
 
