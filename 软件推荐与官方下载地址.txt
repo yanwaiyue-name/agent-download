@@ -2,7 +2,7 @@
   AI 桌面下载中心 · 推荐软件与官方下载地址
 ========================================
 
-更新时间：2026-10-24    清单版本 v4.1    共 43 项 / 8 个分组
+更新时间：2026-10-25    清单版本 v4.2    共 46 项 / 8 个分组
 本文件由 scripts/gen-docs.ps1 从 sources.json 自动生成，请勿手工编辑。
 
 这个包自带离线安装包（在「安装包」文件夹里），也支持联网补下。
@@ -148,6 +148,21 @@ Agents
     适合：要解压 .7z 文件的人（Watt Toolkit 免安装版就是 .7z）
     用途：Windows 自带解压不认 .7z，装它才能解
     格式：Windows——x64：安装版、arm64：安装版。
+
+  uv（Astral） ⭐推荐
+    适合：要给 Claude Code / Codex / Cherry Studio 等配 MCP 服务器（Python 类）的用户
+    用途：MCP 生态的标准运行器：官方 Python MCP 服务器都用 uvx 启动；顺带是极快的 Python 包管理器
+    格式：Windows——x64：压缩包、arm64：压缩包。
+
+  PowerShell 7.6.8 ⭐推荐
+    适合：要跑面向 pwsh 的脚本与安装器的用户
+    用途：Windows 自带的是 5.1（2026 年仍随系统分发）；大量 Agent 安装脚本和现代工具链只认 pwsh 7，本仓库的链接检查脚本也需要它
+    格式：Windows——x64：MSI、arm64：MSI。
+
+  Windows Terminal 1.25 ⭐推荐
+    适合：经常在命令行跑 AI CLI（Claude Code / Gemini CLI / Pi 等全屏 TUI）的用户
+    用途：微软官方现代终端；全屏 TUI 类 Agent 在老 conhost 里渲染和交互都有问题，多标签、真彩色、字体都靠它
+    格式：Windows——x64：压缩包、arm64：压缩包。
 
 IDE
 
@@ -474,37 +489,64 @@ CLI Code
    https://github.com/ip7z/7zip/releases/download/25.01/7z2501-arm64.exe
  注意：装完右键菜单会多出「7-Zip」，也可以直接双击 .7z 打开。本包里的 Watt Toolkit 免安装版就需要它
 
-22. Cursor
+22. uv（Astral）
+ 官网：https://docs.astral.sh/uv/
+ 官方 Release：https://github.com/astral-sh/uv/releases
+ Windows x64 压缩包（14.5 MB）：
+   https://github.com/astral-sh/uv/releases/download/0.13.5/uv-x86_64-pc-windows-msvc.zip
+ Windows arm64 压缩包（14.7 MB）：
+   https://github.com/astral-sh/uv/releases/download/0.13.5/uv-aarch64-pc-windows-msvc.zip
+ 注意：解压后把目录加进 PATH。装好就能用 uvx 跑 MCP 服务器——Agent 的 MCP 配置里 command 填 uvx 是 Python 类服务器的标准写法，没它装不上
+
+23. PowerShell 7.6.8
+ 官网：https://aka.ms/powershell
+ 官方 Release：https://github.com/PowerShell/PowerShell/releases
+ Windows x64 MSI（112 MB）：
+   https://github.com/PowerShell/PowerShell/releases/download/v7.6.8/PowerShell-7.6.8-win-x64.msi
+ Windows arm64 MSI（105.7 MB）：
+   https://github.com/PowerShell/PowerShell/releases/download/v7.6.8/PowerShell-7.6.8-win-arm64.msi
+ 注意：装完命令叫 pwsh，与系统自带 PowerShell 5.1 共存互不影响。开发者推荐再装 Windows Terminal（本分组）配合使用
+
+24. Windows Terminal 1.25
+ 官网：https://aka.ms/terminal
+ 官方 Release：https://github.com/microsoft/terminal/releases
+ Windows x64 压缩包（11.5 MB）：
+   https://github.com/microsoft/terminal/releases/download/v1.25.2733.0/Microsoft.WindowsTerminal_1.25.2733.0_x64.zip
+ Windows arm64 压缩包（11.6 MB）：
+   https://github.com/microsoft/terminal/releases/download/v1.25.2733.0/Microsoft.WindowsTerminal_1.25.2733.0_arm64.zip
+ 注意：解压后直接运行 WindowsTerminal.exe（免安装便携版）。想装进系统用官方安装包：https://github.com/microsoft/terminal/releases/download/v1.25.2733.0/Microsoft.WindowsTerminal_1.25.2733.0_8wekyb3d8bbwe.msixbundle（双击安装，Win10 需先有 App Installer）
+
+25. Cursor
  官网：https://cursor.com/downloads
  无直链安装包，安装方式：官网下载（见官网指引）。
  注意：官网自动识别系统给对应安装包；Windows ARM 版需在下载页切换
 
-23. Trae（国际版）
+26. Trae（国际版）
  官网：https://www.trae.ai/download
  无直链安装包，安装方式：官网下载（见官网指引）。
  注意：国际版需外网，账号与国内版不互通
 
-24. Trae CN（国内版）
+27. Trae CN（国内版）
  官网：https://www.trae.cn/download
  无直链安装包，安装方式：官网下载（见官网指引）。
  注意：国内网络可直接下载和登录，推荐国内用户选这个而不是国际版
 
-25. Windsurf
+28. Windsurf
  官网：https://windsurf.com/download
  无直链安装包，安装方式：官网下载（见官网指引）。
  注意：需注册账号；免费额度有限
 
-26. Visual Studio Code
+29. Visual Studio Code
  官网：https://code.visualstudio.com/download
  无直链安装包，安装方式：官网下载（见官网指引）。
  注意：装完可在扩展市场搜 Cline、Roo Code、Continue 等 AI 扩展
 
-27. Qoder
+30. Qoder
  官网：https://qoder.com/en/download
  无直链安装包，安装方式：官网下载（见官网指引）。
  注意：官网自动识别系统给对应安装包（Windows 10+ / macOS 12+ / Linux）。桌面产品线在整合：QoderWork 已宣布 2027-09 停止运营并向 Qoder Desktop 迁移，下载页以最新指引为准
 
-28. Claude Code
+31. Claude Code
  官网：https://github.com/anthropics/claude-code/releases
  官方 Release：https://github.com/anthropics/claude-code/releases
  Windows x64 压缩包（127.6 MB）：
@@ -517,7 +559,7 @@ CLI Code
    https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-darwin-x64.tar.gz
  注意：解压后把可执行文件放进 PATH；需要 Anthropic 账号或 API Key
 
-29. Gemini CLI
+32. Gemini CLI
  官网：https://github.com/google-gemini/gemini-cli
  官方 Release：https://github.com/google-gemini/gemini-cli/releases
  macOS arm64 dmg（34.9 MB）：
@@ -526,7 +568,7 @@ CLI Code
    https://github.com/google-gemini/gemini-cli/releases/download/v0.65.0/gemini-darwin-x64-unsigned.zip
  注意：⚠️ 官方只发 macOS 二进制，Windows 必须用 npm 装：npm install -g @google/gemini-cli
 
-30. Qwen Code
+33. Qwen Code
  官网：https://github.com/QwenLM/qwen-code
  官方 Release：https://github.com/QwenLM/qwen-code/releases
  Windows x64 压缩包（69.3 MB）：
@@ -537,7 +579,7 @@ CLI Code
    https://github.com/QwenLM/qwen-code/releases/download/v0.26.0/qwen-code-darwin-x64.tar.gz
  注意：国内直连可下载。需要通义千问 API Key 或 DashScope 账号。该仓库 releases/latest 指向 sdk 子包 tag，不代表应用最新版，版本检测已跳过
 
-31. Kimi CLI
+34. Kimi CLI
  官网：https://github.com/MoonshotAI/kimi-cli/releases
  官方 Release：https://github.com/MoonshotAI/kimi-cli/releases
  Windows x64 压缩包（68.7 MB）：
@@ -550,7 +592,7 @@ CLI Code
    https://github.com/MoonshotAI/kimi-cli/releases/download/1.52.0/kimi-1.52.0-x86_64-apple-darwin.tar.gz
  注意：解压后加进 PATH。需要 Moonshot API Key
 
-32. Pi
+35. Pi
  官网：https://github.com/earendil-works/pi
  官方 Release：https://github.com/earendil-works/pi/releases
  Windows x64 压缩包（43 MB）：
@@ -563,27 +605,27 @@ CLI Code
    https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-darwin-x64.tar.gz
  注意：支持多家模型提供商，需配置对应 API Key
 
-33. Codex CLI
+36. Codex CLI
  官网：https://github.com/openai/codex
  无直链安装包，安装方式：npm 安装（见官网指引）。
  注意：⚠️ 官方 Release 里没有面向用户的安装包（318 个 assets 全是内部构建产物）。正确装法：npm install -g @openai/codex
 
-34. OpenClaw
+37. OpenClaw
  官网：https://github.com/openclaw/openclaw
  无直链安装包，安装方式：npm 安装（见官网指引）。
  注意：⚠️ Release 只有证据文件，没有安装包。装法：npm install -g openclaw（或 npx openclaw）
 
-35. Aider
+38. Aider
  官网：https://aider.chat/docs/install.html
  无直链安装包，安装方式：pip 安装（见官网指引）。
  注意：⚠️ 无二进制发布，走 Python：pip install aider-chat（需先装 Python）
 
-36. iFlow CLI
+39. iFlow CLI
  官网：https://github.com/iflow-ai/iflow-cli
  无直链安装包，安装方式：npm 安装（见官网指引）。
  注意：⚠️ 无二进制发布，走 npm：npm install -g @iflow-ai/iflow-cli
 
-37. Goose
+40. Goose
  官网：https://github.com/aaif-goose/goose/releases
  官方 Release：https://github.com/aaif-goose/goose/releases
  Windows x64 安装版（131.3 MB）：
@@ -594,28 +636,28 @@ CLI Code
    https://github.com/aaif-goose/goose/releases/download/v1.56.0/Goose-darwin-x64.zip
  注意：另有 CUDA 加速版（377 MB），需要 GPU 时再选
 
-38. OpenHands
+41. OpenHands
  官网：https://github.com/OpenHands/OpenHands/releases
  官方 Release：https://github.com/OpenHands/OpenHands/releases
  Windows x64 安装版（135.4 MB）：
    https://github.com/OpenHands/OpenHands/releases/download/v1.33.0/OpenHands-Agent-Canvas-Setup-1.33.0.exe
  注意：桌面版叫 Agent Canvas；也可用 Docker 部署服务端
 
-39. Cline（桌面版）
+42. Cline（桌面版）
  官网：https://github.com/cline/cline/releases
  官方 Release：https://github.com/cline/cline/releases
  Windows x64 安装版（115.8 MB）：
    https://github.com/cline/cline/releases/download/desktop-v0.0.48/Cline_0.0.48_x64-setup.exe
  注意：若已用 VS Code，直接在扩展市场搜 Cline 更轻
 
-40. Grox（Grok Build 社区桌面版）
+43. Grox（Grok Build 社区桌面版）
  官网：https://github.com/dandandujie/Grox
  官方 Release：https://github.com/dandandujie/Grox/releases
  Windows x64 安装版（6.3 MB）：
    https://github.com/dandandujie/Grox/releases/download/v0.3.5/Grox_0.3.5_x64-setup.exe
  注意：⚠️ 非 xAI 官方出品，是社区封装。官方 Grok Build 目前只有网页和手机 App
 
-41. Ollama
+44. Ollama
  官网：https://ollama.com/download
  官方 Release：https://github.com/ollama/ollama/releases
  Windows x64 安装版（1584.6 MB）：
@@ -626,12 +668,12 @@ CLI Code
    https://github.com/ollama/ollama/releases/latest/download/Ollama.dmg
  注意：安装包 1.5 GB 是因为内置了完整运行引擎，属正常大小。装完命令行 ollama run qwen3 即可拉模型。Release 里有官方 sha256sum.txt 可校验。Windows ARM64 没有安装器，用 zip 解压版
 
-42. LM Studio
+45. LM Studio
  官网：https://lmstudio.ai/download
  无直链安装包，安装方式：官网下载（见官网指引）。
  注意：官网按系统给安装包，Windows x64 / ARM64、macOS Apple / Intel 都有。对硬件有要求：8 GB 内存起步，跑大模型看显存
 
-43. Motrix
+46. Motrix
  官网：https://motrix.app
  官方 Release：https://github.com/agalwood/Motrix/releases
  Windows x64 安装版（127.5 MB）：

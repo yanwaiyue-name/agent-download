@@ -1,6 +1,6 @@
 {
-  "version": "4.1",
-  "updated": "2026-10-24",
+  "version": "4.2",
+  "updated": "2026-10-25",
   "mirrors": ["https://gh-proxy.com/", "https://ghfast.top/", "", "https://gh.llkk.cc/"],
   "note": "面向 Windows/macOS 的 AI 客户端与命令行工具下载中心。分 8 个分组：桌面端 / Agents / IDE / CLI Code / 本地运行 / 实用工具 / 运行环境 / 开发环境。启动器按本机 x64 / ARM64 / x86 自动选包；同一软件的多套格式写在 variants 里（format: msi/setup/store/portable/zip，按此优先级自动挑默认）。mac 数组是 macOS 包，放在 安装包/<dir>/mac/ 下，Windows 启动器不读它。GitHub 条目优先解析 latest Release，urls 是备用直链。注意：部分工具（Codex CLI / OpenClaw / Aider / iFlow CLI / Gemini CLI 的 Windows 版）只有 npm 或 pip 安装方式，没有二进制包，已在其 tip 字段注明。",
   "apps": [
@@ -956,6 +956,126 @@
       "page": "https://www.7-zip.org/",
       "needProxy": false,
       "tip": "装完右键菜单会多出「7-Zip」，也可以直接双击 .7z 打开。本包里的 Watt Toolkit 免安装版就需要它",
+      "kind": "env"
+    },
+    {
+      "id": "uv",
+      "name": "uv（Astral）",
+      "vendor": "Astral",
+      "group": "开发环境",
+      "audience": "要给 Claude Code / Codex / Cherry Studio 等配 MCP 服务器（Python 类）的用户",
+      "recommend": true,
+      "reason": "MCP 生态的标准运行器：官方 Python MCP 服务器都用 uvx 启动；顺带是极快的 Python 包管理器",
+      "desc": "Python / MCP 极速运行器（uvx）",
+      "dir": "uv",
+      "arch": "both",
+      "github": "astral-sh/uv",
+      "variants": [
+        {
+          "arch": "x64",
+          "format": "zip",
+          "file": "uv-x86_64-pc-windows-msvc.zip",
+          "size": "14.5 MB",
+          "assetPattern": "^uv-x86_64-pc-windows-msvc\\.zip$",
+          "urls": [
+            "https://github.com/astral-sh/uv/releases/download/0.13.5/uv-x86_64-pc-windows-msvc.zip"
+          ]
+        },
+        {
+          "arch": "arm64",
+          "format": "zip",
+          "file": "uv-aarch64-pc-windows-msvc.zip",
+          "size": "14.7 MB",
+          "assetPattern": "^uv-aarch64-pc-windows-msvc\\.zip$",
+          "urls": [
+            "https://github.com/astral-sh/uv/releases/download/0.13.5/uv-aarch64-pc-windows-msvc.zip"
+          ]
+        }
+      ],
+      "mac": [],
+      "page": "https://docs.astral.sh/uv/",
+      "needProxy": false,
+      "tip": "解压后把目录加进 PATH。装好就能用 uvx 跑 MCP 服务器——Agent 的 MCP 配置里 command 填 uvx 是 Python 类服务器的标准写法，没它装不上",
+      "kind": "env"
+    },
+    {
+      "id": "powershell7",
+      "name": "PowerShell 7.6.8",
+      "vendor": "微软",
+      "group": "开发环境",
+      "audience": "要跑面向 pwsh 的脚本与安装器的用户",
+      "recommend": true,
+      "reason": "Windows 自带的是 5.1（2026 年仍随系统分发）；大量 Agent 安装脚本和现代工具链只认 pwsh 7，本仓库的链接检查脚本也需要它",
+      "desc": "微软现代 shell（pwsh）",
+      "dir": "PowerShell 7",
+      "arch": "both",
+      "github": "PowerShell/PowerShell",
+      "variants": [
+        {
+          "arch": "x64",
+          "format": "msi",
+          "file": "PowerShell-7.6.8-win-x64.msi",
+          "size": "112 MB",
+          "assetPattern": "-win-x64\\.msi$",
+          "urls": [
+            "https://github.com/PowerShell/PowerShell/releases/download/v7.6.8/PowerShell-7.6.8-win-x64.msi"
+          ]
+        },
+        {
+          "arch": "arm64",
+          "format": "msi",
+          "file": "PowerShell-7.6.8-win-arm64.msi",
+          "size": "105.7 MB",
+          "assetPattern": "-win-arm64\\.msi$",
+          "urls": [
+            "https://github.com/PowerShell/PowerShell/releases/download/v7.6.8/PowerShell-7.6.8-win-arm64.msi"
+          ]
+        }
+      ],
+      "mac": [],
+      "page": "https://aka.ms/powershell",
+      "needProxy": false,
+      "tip": "装完命令叫 pwsh，与系统自带 PowerShell 5.1 共存互不影响。开发者推荐再装 Windows Terminal（本分组）配合使用",
+      "kind": "env"
+    },
+    {
+      "id": "windows-terminal",
+      "name": "Windows Terminal 1.25",
+      "vendor": "微软",
+      "group": "开发环境",
+      "audience": "经常在命令行跑 AI CLI（Claude Code / Gemini CLI / Pi 等全屏 TUI）的用户",
+      "recommend": true,
+      "reason": "微软官方现代终端；全屏 TUI 类 Agent 在老 conhost 里渲染和交互都有问题，多标签、真彩色、字体都靠它",
+      "desc": "微软官方现代终端（多标签）",
+      "dir": "Windows Terminal",
+      "arch": "both",
+      "github": "microsoft/terminal",
+      "variants": [
+        {
+          "arch": "x64",
+          "format": "zip",
+          "file": "Microsoft.WindowsTerminal_1.25.2733.0_x64.zip",
+          "size": "11.5 MB",
+          "assetPattern": "_x64\\.zip$",
+          "urls": [
+            "https://github.com/microsoft/terminal/releases/download/v1.25.2733.0/Microsoft.WindowsTerminal_1.25.2733.0_x64.zip"
+          ]
+        },
+        {
+          "arch": "arm64",
+          "format": "zip",
+          "file": "Microsoft.WindowsTerminal_1.25.2733.0_arm64.zip",
+          "size": "11.6 MB",
+          "assetPattern": "_arm64\\.zip$",
+          "urls": [
+            "https://github.com/microsoft/terminal/releases/download/v1.25.2733.0/Microsoft.WindowsTerminal_1.25.2733.0_arm64.zip"
+          ]
+        }
+      ],
+      "mac": [],
+      "page": "https://aka.ms/terminal",
+      "needProxy": false,
+      "tip": "解压后直接运行 WindowsTerminal.exe（免安装便携版）。想装进系统用官方安装包：https://github.com/microsoft/terminal/releases/download/v1.25.2733.0/Microsoft.WindowsTerminal_1.25.2733.0_8wekyb3d8bbwe.msixbundle（双击安装，Win10 需先有 App Installer）",
       "kind": "env"
     },
     {
