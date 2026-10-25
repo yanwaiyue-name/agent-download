@@ -4,7 +4,7 @@
 
 <h1 align="center">📦 AI 客户端下载中心</h1>
 
-<p align="center"><strong>Version 4.1</strong></p>
+<p align="center"><strong>Version 4.2</strong></p>
 
 <p align="center">
   <em>一站式整理主流 AI 桌面客户端的官方下载地址，按电脑架构告诉您该装哪个版本。<br>
@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-43%20apps-2ea44f" alt="43 apps">
+  <img src="https://img.shields.io/badge/software-46%20apps-2ea44f" alt="46 apps">
 </p>
 
 <p align="center">
@@ -52,7 +52,7 @@
 
 ## ⚡ 30 秒速查：您该装哪个
 
-共 **43** 项，分 **8** 个分组。⭐ = 推荐。
+共 **46** 项，分 **8** 个分组。⭐ = 推荐。
 
 > **重要**：标注 `npm` / `pip` 的工具**没有可双击的安装包**，必须用命令行安装。这是它们官方的发布方式，不是缺文件。
 
@@ -117,7 +117,9 @@
 | **WebView2 运行时（离线包）** | 完整离线安装包，装的时候不需要联网 | [官方页](https://developer.microsoft.com/microsoft-edge/webview2/) |
 | **VC++ 运行库 2015-2022（x64）** | 微软 Visual C++ 运行库，多数桌面软件的底层依赖 | [官方页](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist) |
 
-### 开发环境（4）
+### 开发环境（7）
+
+跑 Agent / 命令行工具前的地基。装哪些取决于你用什么：MCP 服务器（Python 类）→ uv；npm 类 CLI → Node.js；Claude Code 全屏界面 → Windows Terminal。
 
 | 名称 | 说明 | 官方地址 |
 |---|---|---|
@@ -125,6 +127,9 @@
 | **Node.js 24.22.1 LTS** | Node.js 长期支持版（含 npm） | [官方页](https://nodejs.org/zh-cn/download) |
 | **Git for Windows 2.56.0.3** | Git 版本控制（含 Git Bash） | [官方页](https://git-scm.com/download/win) |
 | **7-Zip 25.01** | 开源压缩工具，支持 .7z / .zip / .rar 等 | [官方页](https://www.7-zip.org/) |
+| **uv（Astral）** ⭐ | Python / MCP 极速运行器（uvx）——Python 类 MCP 服务器的标准启动方式 | [官方页](https://docs.astral.sh/uv/) |
+| **PowerShell 7.6.8** ⭐ | 微软现代 shell（pwsh），与系统自带 5.1 共存 | [官方页](https://aka.ms/powershell) |
+| **Windows Terminal 1.25** ⭐ | 微软官方现代终端，跑全屏 TUI 类 Agent CLI 的最佳载体 | [官方页](https://aka.ms/terminal) |
 
 ### 本地运行（2）
 
