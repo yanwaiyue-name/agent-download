@@ -2,6 +2,21 @@
 
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [4.2.0] - 2026-10-25
+
+补齐「跑 Agent 需要的环境」：开发环境分组 4 → 7，项目 43 → 46。
+
+### 新增项目（3 个，全部进「开发环境」）
+| 名称 | 解决什么 |
+|---|---|
+| **uv（Astral）** ⭐ | Python 类 MCP 服务器的标准启动方式（uvx）。配 MCP 报「找不到 uvx」装它 |
+| **PowerShell 7.6.8** ⭐ | Windows 自带的还是 5.1；大量 Agent 安装脚本与现代工具链只认 pwsh 7（本仓库 check-links.ps1 也需要） |
+| **Windows Terminal 1.25** ⭐ | Claude Code / Gemini CLI 等全屏 TUI 在老 conhost 里渲染和交互有问题；微软官方终端，含免安装便携版 |
+
+### 依据
+- Claude Code 官方文档：原生安装已不需要 Node.js；Git for Windows 可选推荐（已有）；ripgrep 随 Claude Code 内置，无需单收
+- ripgrep / bun / Docker Desktop 经评估不收：前者内置、后者与 Node.js 重复 / 体积与许可不适合本清单定位
+
 ## [4.1.0] - 2026-10-24
 
 新增 5 个应用、2 个分组，新增版本过期检测 CI。
