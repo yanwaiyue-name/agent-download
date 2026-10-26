@@ -264,6 +264,7 @@ $InstallKeywords = @{
     "ollama"           = @("Ollama")
     "lm-studio"        = @("LM Studio")
     "motrix"           = @("Motrix")
+    "tubatool"         = @("图吧工具箱")
     "uv"               = @("uv")
     "powershell7"      = @("PowerShell 7")
     "windows-terminal" = @("Windows Terminal")
@@ -329,6 +330,7 @@ if (-not $Apps) {
         @{ id="ollama"; group="本地运行"; name="Ollama"; desc="本地大模型运行器（一键跑开源模型）"; variants=@(@{arch="x64"; format="setup"; size="1584.6 MB"}, @{arch="arm64"; format="zip"; size="203.4 MB"}) }
         @{ id="lm-studio"; group="本地运行"; name="LM Studio"; desc="本地大模型 GUI 运行器"; variants=@() }
         @{ id="motrix"; group="实用工具"; name="Motrix"; desc="全能多线程下载器（aria2 内核）"; variants=@(@{arch="x64"; format="setup"; size="127.5 MB"}, @{arch="arm64"; format="setup"; size="121.8 MB"}) }
+        @{ id="tubatool"; group="实用工具"; name="图吧工具箱（TBTool）"; desc="硬件检测与压力测试工具合集"; variants=@(); install="web" }
         @{ id="uv"; group="开发环境"; name="uv（Astral）"; desc="Python / MCP 极速运行器（uvx）"; variants=@(@{arch="x64"; format="zip"; size="14.5 MB"}, @{arch="arm64"; format="zip"; size="14.7 MB"}); kind="env" }
         @{ id="powershell7"; group="开发环境"; name="PowerShell 7.6.8"; desc="微软现代 shell（pwsh）"; variants=@(@{arch="x64"; format="msi"; size="112 MB"}, @{arch="arm64"; format="msi"; size="105.7 MB"}); kind="env" }
         @{ id="windows-terminal"; group="开发环境"; name="Windows Terminal 1.25"; desc="微软官方现代终端（多标签）"; variants=@(@{arch="x64"; format="zip"; size="11.5 MB"}, @{arch="arm64"; format="zip"; size="11.6 MB"}); kind="env" }

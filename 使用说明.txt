@@ -48,13 +48,15 @@
 【下载和安装】
 
   1. 双击「双击启动.bat」
-  2. 列表分为六类：
+  2. 列表分为八类：
   桌面端：聊天、办公、多模型客户端（含 Hermes Agent、Watt Toolkit）
   Agents：Agent 工作台与管理器（CC Switch、Open Cowork、Goose、OpenHands、Cline、Grox 等）
   IDE：Cursor、Trae（国际版）、Trae CN（国内版）、Windsurf、VS Code
   CLI Code：Claude Code、Gemini CLI、Qwen Code、Kimi CLI、Pi、Codex CLI、OpenClaw、Aider、iFlow CLI
+  本地运行：Ollama、LM Studio（在自己电脑上跑开源模型）
+  实用工具：Motrix（多线程下载器）、图吧工具箱（硬件检测）
   运行环境：WebView2、VC++ 运行库（桌面软件缺库打不开时装）
-  开发环境：Python、Node.js、Git、7-Zip（要用命令行工具才装）
+  开发环境：Python、Node.js、Git、7-Zip、uv、PowerShell 7、Windows Terminal（要用命令行工具才装）
   3. 输入软件前面的序号，按回车
   4. 如果这个软件有多种格式，会列出来让你选：
        安装版    双击装到系统里，装完开始菜单有图标（推荐）

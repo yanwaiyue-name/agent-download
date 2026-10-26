@@ -1,6 +1,6 @@
 {
-  "version": "4.2",
-  "updated": "2026-10-25",
+  "version": "4.3",
+  "updated": "2026-10-26",
   "mirrors": ["https://gh-proxy.com/", "https://ghfast.top/", "", "https://gh.llkk.cc/"],
   "note": "面向 Windows/macOS 的 AI 客户端与命令行工具下载中心。分 8 个分组：桌面端 / Agents / IDE / CLI Code / 本地运行 / 实用工具 / 运行环境 / 开发环境。启动器按本机 x64 / ARM64 / x86 自动选包；同一软件的多套格式写在 variants 里（format: msi/setup/store/portable/zip，按此优先级自动挑默认）。mac 数组是 macOS 包，放在 安装包/<dir>/mac/ 下，Windows 启动器不读它。GitHub 条目优先解析 latest Release，urls 是备用直链。注意：部分工具（Codex CLI / OpenClaw / Aider / iFlow CLI / Gemini CLI 的 Windows 版）只有 npm 或 pip 安装方式，没有二进制包，已在其 tip 字段注明。",
   "apps": [
@@ -1744,6 +1744,23 @@
       "page": "https://motrix.app",
       "needProxy": false,
       "tip": "下载 GitHub 直链时，把链接里的 github.com 换成 gh-proxy.com/https://github.com 再添加任务，多线程能大幅提速。界面可切中文"
+    },
+    {
+      "id": "tubatool",
+      "name": "图吧工具箱（TBTool）",
+      "vendor": "图吧（Sunlight Studio）",
+      "group": "实用工具",
+      "audience": "要查 CPU / 显卡 / 内存 / 硬盘状况，或装机前想做压力测试的用户",
+      "recommend": false,
+      "reason": "图拉丁吧社区的硬件检测合集，集成 CPU-Z、GPU-Z、HWiNFO、FurMark 等 60+ 工具；装 AI 客户端前可先确认本机配置是否够用",
+      "desc": "硬件检测与压力测试工具合集",
+      "dir": "TBTool",
+      "arch": "x64",
+      "variants": [],
+      "mac": [],
+      "page": "https://www.tbtool.cn/",
+      "tip": "只给官网入口：官方下载走官网 /download/ 页面（网盘），本仓库不托管、不进离线包。整合包内含 AIDA64、UltraISO 等第三方闭源/试用工具，安装包未签名，Defender 可能误报；它不是 AI 客户端，放这里只为装机前自检",
+      "install": "web"
     }
   ]
 }

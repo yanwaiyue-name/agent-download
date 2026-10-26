@@ -171,6 +171,7 @@ function Build-AppData {
             recommend = [bool]$a.recommend
             page      = [string]$a.page
             tip       = [string]$a.tip
+            install   = [string]$a.install
             needProxy = [bool]$a.needProxy
             variants  = @($vs)
             mac       = @($macs)

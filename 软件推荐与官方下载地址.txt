@@ -2,7 +2,7 @@
   AI 桌面下载中心 · 推荐软件与官方下载地址
 ========================================
 
-更新时间：2026-10-25    清单版本 v4.2    共 46 项 / 8 个分组
+更新时间：2026-10-26    清单版本 v4.3    共 47 项 / 8 个分组
 本文件由 scripts/gen-docs.ps1 从 sources.json 自动生成，请勿手工编辑。
 
 这个包自带离线安装包（在「安装包」文件夹里），也支持联网补下。
@@ -261,6 +261,11 @@ CLI Code
     适合：GitHub / 直链下载慢，想要多线程加速下载的用户
     用途：开源多线程下载器（aria2 内核），支持 BT / 磁力，配合镜像前缀下载 GitHub 直链能跑满带宽
     格式：Windows——x64：安装版、arm64：安装版；macOS——dmg（arm64、x64）。
+
+  图吧工具箱（TBTool）
+    适合：要查 CPU / 显卡 / 内存 / 硬盘状况，或装机前想做压力测试的用户
+    用途：图拉丁吧社区的硬件检测合集，集成 CPU-Z、GPU-Z、HWiNFO、FurMark 等 60+ 工具；装 AI 客户端前可先确认本机配置是否够用
+    格式：无 Windows 直链安装包，官方发布方式为「官网下载」。
 
 【格式怎么选】
 
@@ -685,6 +690,11 @@ CLI Code
  macOS x64 dmg（137.6 MB）：
    https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-2.0.0-x64.dmg
  注意：下载 GitHub 直链时，把链接里的 github.com 换成 gh-proxy.com/https://github.com 再添加任务，多线程能大幅提速。界面可切中文
+
+47. 图吧工具箱（TBTool）
+ 官网：https://www.tbtool.cn/
+ 无直链安装包，安装方式：官网下载（见官网指引）。
+ 注意：只给官网入口：官方下载走官网 /download/ 页面（网盘），本仓库不托管、不进离线包。整合包内含 AIDA64、UltraISO 等第三方闭源/试用工具，安装包未签名，Defender 可能误报；它不是 AI 客户端，放这里只为装机前自检
 
 【按 Windows 架构选择】
 

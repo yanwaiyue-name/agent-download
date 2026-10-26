@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-46%20apps-2ea44f" alt="46 apps">
+  <img src="https://img.shields.io/badge/software-47%20apps-2ea44f" alt="47 apps">
 </p>
 
 <p align="center">
@@ -40,7 +40,7 @@ This repo does three things: **curates official links**, **tells you which build
 
 ## ⚡ 30-second lookup
 
-**46 entries in 8 groups.** ⭐ = recommended.
+**47 entries in 8 groups.** ⭐ = recommended.
 
 > Important: entries marked `npm` / `pip` have **no downloadable installer** — that is how the vendor ships them, not a missing file.
 
@@ -106,13 +106,14 @@ Run open models (Qwen / DeepSeek / Llama) on your own hardware, no cloud API.
 | **Ollama** ⭐ | installer (1.5 GB) | de-facto standard for local models; ARM64 Windows uses zip |
 | **LM Studio** ⭐ | official site | local-model GUI, OpenAI-compatible server |
 
-### Utilities (1)
+### Utilities (2)
 
-Not AI apps — they just make the downloads above faster.
+Not AI apps — they just make the downloads above faster, or check your hardware first.
 
 | Software | Intel/AMD | Snapdragon/Kirin | macOS | Official |
 |---|---|---|---|---|
 | **Motrix** ⭐ | ✅ installer | ✅ native | ✅ Apple/Intel | [link](https://motrix.app) |
+| **TBTool (图吧工具箱)** | official site | ⚠️ emulated | — | [link](https://www.tbtool.cn/) |
 
 ### Runtime (3) / Dev toolchain (7)
 

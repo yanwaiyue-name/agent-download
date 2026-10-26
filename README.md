@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-46%20apps-2ea44f" alt="46 apps">
+  <img src="https://img.shields.io/badge/software-47%20apps-2ea44f" alt="47 apps">
 </p>
 
 <p align="center">
@@ -52,7 +52,7 @@
 
 ## ⚡ 30 秒速查：您该装哪个
 
-共 **46** 项，分 **8** 个分组。⭐ = 推荐。
+共 **47** 项，分 **8** 个分组。⭐ = 推荐。
 
 > **重要**：标注 `npm` / `pip` 的工具**没有可双击的安装包**，必须用命令行安装。这是它们官方的发布方式，不是缺文件。
 
@@ -140,13 +140,14 @@
 | **Ollama** ⭐ | ✅ 安装版（1.5 GB） | ✅ zip | ✅ Apple/Intel | [官方页](https://ollama.com/download) |
 | **LM Studio** ⭐ | 官网下载 | 官网下载 | 官网 | [官方页](https://lmstudio.ai/download) |
 
-### 实用工具（1）
+### 实用工具（2）
 
-不是 AI 软件，但能让上面的东西下载得更快。
+不是 AI 软件，但能让上面的东西下载得更快，或先帮你确认本机配置。
 
 | 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
 |---|---|---|---|---|
 | **Motrix** ⭐ | ✅ 安装版 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://motrix.app) |
+| **图吧工具箱（TBTool）** | 官网下载 | ⚠️ 模拟 | — | [官方页](https://www.tbtool.cn/) |
 
 
 ---
@@ -221,7 +222,7 @@ agent-download/
 ├── check-pc.ps1                 系统检测逻辑
 ├── 资源中心服务.ps1             本地 HTTP 服务（127.0.0.1）
 ├── 资源中心.html                目录页界面
-├── sources.json                 ★ 唯一数据源：38 个应用的地址和版本
+├── sources.json                 ★ 唯一数据源：47 个应用的地址和版本
 ├── 使用说明.txt                 给使用者的操作说明
 ├── 软件推荐与官方下载地址.txt    推荐表和官网直链
 ├── docs/
