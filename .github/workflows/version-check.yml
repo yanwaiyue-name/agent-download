@@ -9,6 +9,12 @@ on:
     paths:
       - 'sources.json'
 
+# 默认 GITHUB_TOKEN 在本仓库是只读的：不显式声明 issues: write，
+# 下面的 github-script 开 Issue 会 403 "Resource not accessible by integration"
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   version-check:
     runs-on: ubuntu-latest

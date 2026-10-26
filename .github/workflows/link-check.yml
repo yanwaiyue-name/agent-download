@@ -9,6 +9,11 @@ on:
     paths:
       - 'sources.json'
 
+# 同上：死链告警要开 Issue，必须显式给 issues: write，否则 403 且告警静默丢失
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   verify:
     # 校验 + 链接检查都是纯文本/HTTP 操作，ubuntu 跑得更快
