@@ -69,13 +69,22 @@ foreach ($a in @($cfg.apps)) {
         continue
     }
     $repo = [string]$a.github
+    $tagPrefix = [string]$a.versionTagPrefix   # 见 MAINTAINER：如 cline 桌面版 = desktop-v
 
     # 上游 latest tag（一次/app，不按 variant 重复查）
     $latestRaw = $null
     try {
-        $rel = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases/latest" `
-            -Headers $Headers -TimeoutSec $TimeoutSec
-        $latestRaw = [string]$rel.tag_name
+        if ($tagPrefix) {
+            $rels = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases?per_page=100" `
+                -Headers $Headers -TimeoutSec $TimeoutSec
+            $tags = @(@($rels) | ForEach-Object { [string]$_.tag_name } | Where-Object { $_ -like "$tagPrefix*" })
+            if ($tags.Count -eq 0) { throw "仓库 $repo 下没有 $tagPrefix* 前缀的 release" }
+            $latestRaw = $tags[0]   # releases 接口按发布时间倒序，取第一个即最新
+        } else {
+            $rel = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases/latest" `
+                -Headers $Headers -TimeoutSec $TimeoutSec
+            $latestRaw = [string]$rel.tag_name
+        }
     } catch {
         $apiFailures++
         [void]$results.Add([pscustomobject]@{ app = $a.id; repo = $repo; status = 'API_FAIL'; pinned = ''; latest = '' })
@@ -137,6 +146,7 @@ foreach ($r in $results) {
             [void]$lines.Add('=== 落后于上游（需更新 sources.json）===')
             [void]$lines.Add('  ' + $r.app + '  repo: ' + $r.repo + '  钉住: ' + $r.pinned + '  上游最新: ' + $r.latest)
             [void]$lines.Add('  同时更新 variants/mac 的文件名、urls、size（用官方页或 API 确认资产名）')
+            [void]$lines.Add('  若仓库 latest 指向别的产品线（如 cline 的 v4.x 是 VS Code 扩展，桌面版是 desktop-v 前缀），在该条目加 "versionTagPrefix": "desktop-v"')
             [void]$lines.Add('')
         }
         'AUTO'       { Write-Host ('  AUTO  ' + $r.app + '  (latest 直链，自动跟随)') -ForegroundColor DarkGray }

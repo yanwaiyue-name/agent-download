@@ -35,10 +35,14 @@ _preview/
 dist/
 stale_*/
 
+# ===== 一次性的 Release 上传脚本（网络折腾用，跟仓库功能无关）=====
+_release_batch*.sh
+
 # ===== 编辑器与系统 =====
 .vscode/
 .idea/
 .claude/
+.mimosa/
 Thumbs.db
 desktop.ini
 .DS_Store

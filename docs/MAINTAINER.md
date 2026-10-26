@@ -1,6 +1,12 @@
 # 维护说明（给你自己看，不要随包发给使用者）
 
-> 当前版本 **v4.1**（2026-10-24）。v4.0 → v4.1：新增「本地运行」（Ollama / LM Studio）与「实用工具」（Motrix）两个分组，新增 ZCode 桌面版与 Qoder，新增版本过期检测 CI（`scripts/check-versions.ps1`，落后自动开 issue）。
+> 当前版本 **v4.3**（2026-10-26），47 个项目 / 8 个分组。
+>
+> v4.2 → v4.3：新增图吧工具箱（仅官网入口，托管不了）；离线清单页筛选栏补上「本地运行」「实用工具」（此前卡片能显示但筛选栏没入口）；CC Switch 4.0.19 → 4.0.21。
+>
+> v4.1 → v4.2：开发环境 4 → 7，补 uv、PowerShell 7、Windows Terminal —— 跑 Agent 的环境三件套。
+>
+> v4.0 → v4.1：新增「本地运行」（Ollama / LM Studio）与「实用工具」（Motrix）两个分组，新增 ZCode 桌面版与 Qoder，新增版本过期检测 CI（`scripts/check-versions.ps1`，落后自动开 issue）。
 >
 > **改完 sources.json 之后要同步的派生物**：`清单.html` 内嵌数据、`软件推荐与官方下载地址.txt`（跑 `scripts/gen-docs.ps1` 重新生成，不要手编）、`check-pc.ps1` 兜底表。GitHub 加速镜像改在 sources.json 顶层 `mirrors` 字段，launcher 和补全脚本都读它。
 >
@@ -177,6 +183,7 @@ sources.json
 | `dir` | app | **安装包子文件夹名**，如 `"OpenCode"`。纯 ASCII，不要带斜杠 |
 | `arch` | app | 该应用支持的架构概览：`x64` / `arm64` / `both` / `any` |
 | `github` | app | 形如 `owner/repo`，自动查最新 release |
+| `versionTagPrefix` | app | 可选。仓库 `releases/latest` 指向**别的产品线**时，指定要比对的 tag 前缀——Cline 的 latest 是 VS Code 扩展的 `v4.x`，桌面版在 `desktop-v0.0.x`，所以填 `desktop-v`。填了以后版本检测只在前缀命中的 release 里挑最新 |
 | `page` | app | 官方页面，失败时兜底打开 |
 | `tip` | app | 失败时显示的提示 |
 | `variants` | app | 数组，**每个元素是一种架构的一种格式** |

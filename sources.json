@@ -266,41 +266,41 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "Cherry-Studio-2.1.7-win-x64-setup.exe",
-          "size": "296.4 MB",
+          "file": "Cherry-Studio-2.1.8-win-x64-setup.exe",
+          "size": "297.1 MB",
           "assetPattern": "win-x64-setup\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-setup.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-x64-setup.exe"
           ]
         },
         {
           "arch": "x64",
           "format": "portable",
-          "file": "Cherry-Studio-2.1.7-win-x64-portable.exe",
-          "size": "296.1 MB",
+          "file": "Cherry-Studio-2.1.8-win-x64-portable.exe",
+          "size": "296.7 MB",
           "assetPattern": "win-x64-portable\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-portable.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-x64-portable.exe"
           ]
         },
         {
           "arch": "arm64",
           "format": "setup",
-          "file": "Cherry-Studio-2.1.7-win-arm64-setup.exe",
-          "size": "275.2 MB",
+          "file": "Cherry-Studio-2.1.8-win-arm64-setup.exe",
+          "size": "275.9 MB",
           "assetPattern": "win-arm64-setup\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-setup.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-arm64-setup.exe"
           ]
         },
         {
           "arch": "arm64",
           "format": "portable",
-          "file": "Cherry-Studio-2.1.7-win-arm64-portable.exe",
-          "size": "274.8 MB",
+          "file": "Cherry-Studio-2.1.8-win-arm64-portable.exe",
+          "size": "275.5 MB",
           "assetPattern": "win-arm64-portable\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-portable.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-arm64-portable.exe"
           ]
         }
       ],
@@ -308,19 +308,19 @@
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "Cherry-Studio-2.1.7-mac-arm64.dmg",
-          "size": "300.1 MB",
+          "file": "Cherry-Studio-2.1.8-mac-arm64.dmg",
+          "size": "301.5 MB",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-mac-arm64.dmg"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-mac-arm64.dmg"
           ]
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "Cherry-Studio-2.1.7-mac-x64.dmg",
-          "size": "322.6 MB",
+          "file": "Cherry-Studio-2.1.8-mac-x64.dmg",
+          "size": "324.2 MB",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-mac-x64.dmg"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-mac-x64.dmg"
           ]
         }
       ],
@@ -392,41 +392,41 @@
         {
           "arch": "x64",
           "format": "msi",
-          "file": "CC-Switch-v4.0.19-Windows.msi",
-          "size": "16.8 MB",
+          "file": "CC-Switch-v4.0.21-Windows.msi",
+          "size": "17.4 MB",
           "assetPattern": "-Windows\\.msi$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows.msi"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows.msi"
           ]
         },
         {
           "arch": "x64",
           "format": "zip",
-          "file": "CC-Switch-v4.0.19-Windows-Portable.zip",
-          "size": "16.8 MB",
+          "file": "CC-Switch-v4.0.21-Windows-Portable.zip",
+          "size": "17.3 MB",
           "assetPattern": "-Windows-Portable\\.zip$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-Portable.zip"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-Portable.zip"
           ]
         },
         {
           "arch": "arm64",
           "format": "msi",
-          "file": "CC-Switch-v4.0.19-Windows-arm64.msi",
-          "size": "16.2 MB",
+          "file": "CC-Switch-v4.0.21-Windows-arm64.msi",
+          "size": "16.7 MB",
           "assetPattern": "Windows-arm64\\.msi$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-arm64.msi"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-arm64.msi"
           ]
         },
         {
           "arch": "arm64",
           "format": "zip",
-          "file": "CC-Switch-v4.0.19-Windows-arm64-Portable.zip",
-          "size": "16.0 MB",
+          "file": "CC-Switch-v4.0.21-Windows-arm64-Portable.zip",
+          "size": "16.5 MB",
           "assetPattern": "Windows-arm64-Portable\\.zip$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-arm64-Portable.zip"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-arm64-Portable.zip"
           ]
         }
       ],
@@ -434,10 +434,10 @@
         {
           "arch": "any",
           "format": "dmg",
-          "file": "CC-Switch-v4.0.19-macOS.dmg",
-          "size": "34.2 MB",
+          "file": "CC-Switch-v4.0.21-macOS.dmg",
+          "size": "35.1 MB",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-macOS.dmg"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-macOS.dmg"
           ]
         }
       ],
@@ -548,11 +548,11 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "CC.GUI_1.1.6_x64-setup.exe",
-          "size": "15.0 MB",
+          "file": "CC.GUI_1.1.7_x64-setup.exe",
+          "size": "15.1 MB",
           "assetPattern": "_x64-setup\\.exe$",
           "urls": [
-            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/CC.GUI_1.1.6_x64-setup.exe"
+            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/CC.GUI_1.1.7_x64-setup.exe"
           ]
         }
       ],
@@ -560,19 +560,19 @@
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "ccgui_1.1.6_aarch64.dmg",
-          "size": "19.0 MB",
+          "file": "ccgui_1.1.7_aarch64.dmg",
+          "size": "19.1 MB",
           "urls": [
-            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/ccgui_1.1.6_aarch64.dmg"
+            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/ccgui_1.1.7_aarch64.dmg"
           ]
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "ccgui_1.1.6_x86_64.dmg",
-          "size": "19.1 MB",
+          "file": "ccgui_1.1.7_x86_64.dmg",
+          "size": "19.2 MB",
           "urls": [
-            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/ccgui_1.1.6_x86_64.dmg"
+            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/ccgui_1.1.7_x86_64.dmg"
           ]
         }
       ],
@@ -1014,21 +1014,21 @@
         {
           "arch": "x64",
           "format": "msi",
-          "file": "PowerShell-7.6.8-win-x64.msi",
-          "size": "112 MB",
+          "file": "PowerShell-7.6.9-win-x64.msi",
+          "size": "112.1 MB",
           "assetPattern": "-win-x64\\.msi$",
           "urls": [
-            "https://github.com/PowerShell/PowerShell/releases/download/v7.6.8/PowerShell-7.6.8-win-x64.msi"
+            "https://github.com/PowerShell/PowerShell/releases/download/v7.6.9/PowerShell-7.6.9-win-x64.msi"
           ]
         },
         {
           "arch": "arm64",
           "format": "msi",
-          "file": "PowerShell-7.6.8-win-arm64.msi",
-          "size": "105.7 MB",
+          "file": "PowerShell-7.6.9-win-arm64.msi",
+          "size": "105.8 MB",
           "assetPattern": "-win-arm64\\.msi$",
           "urls": [
-            "https://github.com/PowerShell/PowerShell/releases/download/v7.6.8/PowerShell-7.6.8-win-arm64.msi"
+            "https://github.com/PowerShell/PowerShell/releases/download/v7.6.9/PowerShell-7.6.9-win-arm64.msi"
           ]
         }
       ],
@@ -1581,14 +1581,15 @@
       "dir": "Cline",
       "arch": "x64",
       "github": "cline/cline",
+      "versionTagPrefix": "desktop-v",
       "variants": [
         {
           "arch": "x64",
           "format": "setup",
-          "file": "Cline_0.0.48_x64-setup.exe",
-          "size": "115.8 MB",
+          "file": "Cline_0.0.49_x64-setup.exe",
+          "size": "127.3 MB",
           "urls": [
-            "https://github.com/cline/cline/releases/download/desktop-v0.0.48/Cline_0.0.48_x64-setup.exe"
+            "https://github.com/cline/cline/releases/download/desktop-v0.0.49/Cline_0.0.49_x64-setup.exe"
           ]
         }
       ],
@@ -1703,21 +1704,21 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "Motrix-Setup-2.0.0.exe",
-          "size": "127.5 MB",
+          "file": "Motrix-Setup-2.0.1.exe",
+          "size": "127.6 MB",
           "assetPattern": "^Motrix-Setup-[\\d\\.]+\\.exe$",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-Setup-2.0.0.exe"
+            "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-Setup-2.0.1.exe"
           ]
         },
         {
           "arch": "arm64",
           "format": "setup",
-          "file": "Motrix-Setup-2.0.0-arm64.exe",
-          "size": "121.8 MB",
+          "file": "Motrix-Setup-2.0.1-arm64.exe",
+          "size": "121.9 MB",
           "assetPattern": "^Motrix-Setup-[\\d\\.]+-arm64\\.exe$",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-Setup-2.0.0-arm64.exe"
+            "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-Setup-2.0.1-arm64.exe"
           ]
         }
       ],
@@ -1725,19 +1726,19 @@
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "Motrix-2.0.0-arm64.dmg",
-          "size": "130.5 MB",
+          "file": "Motrix-2.0.1-arm64.dmg",
+          "size": "130.6 MB",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-2.0.0-arm64.dmg"
+            "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-2.0.1-arm64.dmg"
           ]
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "Motrix-2.0.0-x64.dmg",
-          "size": "137.6 MB",
+          "file": "Motrix-2.0.1-x64.dmg",
+          "size": "137.7 MB",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-2.0.0-x64.dmg"
+            "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-2.0.1-x64.dmg"
           ]
         }
       ],

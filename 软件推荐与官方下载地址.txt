@@ -337,18 +337,18 @@ CLI Code
 6. Cherry Studio
   官网：https://www.cherry-ai.com
   官方 Release：https://github.com/CherryHQ/cherry-studio/releases
-  Windows x64 安装版（296.4 MB）：
-    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-setup.exe
-  Windows x64 免安装（296.1 MB）：
-    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-portable.exe
-  Windows arm64 安装版（275.2 MB）：
-    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-setup.exe
-  Windows arm64 免安装（274.8 MB）：
-    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-portable.exe
-  macOS arm64 dmg（300.1 MB）：
-    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-mac-arm64.dmg
-  macOS x64 dmg（322.6 MB）：
-    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-mac-x64.dmg
+  Windows x64 安装版（297.1 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-x64-setup.exe
+  Windows x64 免安装（296.7 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-x64-portable.exe
+  Windows arm64 安装版（275.9 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-arm64-setup.exe
+  Windows arm64 免安装（275.5 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-arm64-portable.exe
+  macOS arm64 dmg（301.5 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-mac-arm64.dmg
+  macOS x64 dmg（324.2 MB）：
+    https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-mac-x64.dmg
   注意：x64 与 ARM64 都有原生包，安装版和免安装版各一份；GitHub 下载失败时可打开官网
 
 7. LobeHub 桌面版
@@ -365,16 +365,16 @@ CLI Code
 8. CC Switch
   官网：https://ccswitch.io
   官方 Release：https://github.com/farion1231/cc-switch/releases
-  Windows x64 MSI（16.8 MB）：
-    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows.msi
-  Windows x64 压缩包（16.8 MB）：
-    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-Portable.zip
-  Windows arm64 MSI（16.2 MB）：
-    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-arm64.msi
-  Windows arm64 压缩包（16.0 MB）：
-    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Windows-arm64-Portable.zip
-  macOS 通用 dmg（34.2 MB）：
-    https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-macOS.dmg
+  Windows x64 MSI（17.4 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows.msi
+  Windows x64 压缩包（17.3 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-Portable.zip
+  Windows arm64 MSI（16.7 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-arm64.msi
+  Windows arm64 压缩包（16.5 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-arm64-Portable.zip
+  macOS 通用 dmg（35.1 MB）：
+    https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-macOS.dmg
   注意：推荐给要统一管理多个 AI 编程 Agent 的用户；提供 x64 与 ARM64 的 MSI 和免安装 zip
 
 9. Open Cowork
@@ -400,12 +400,12 @@ CLI Code
 11. Desktop CC GUI
  官网：https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases
  官方 Release：https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases
- Windows x64 安装版（15.0 MB）：
-   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/CC.GUI_1.1.6_x64-setup.exe
- macOS arm64 dmg（19.0 MB）：
-   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/ccgui_1.1.6_aarch64.dmg
- macOS x64 dmg（19.1 MB）：
-   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.6/ccgui_1.1.6_x86_64.dmg
+ Windows x64 安装版（15.1 MB）：
+   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/CC.GUI_1.1.7_x64-setup.exe
+ macOS arm64 dmg（19.1 MB）：
+   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/ccgui_1.1.7_aarch64.dmg
+ macOS x64 dmg（19.2 MB）：
+   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/ccgui_1.1.7_x86_64.dmg
  注意：Windows 只有 x64 原生包；适合已有多个 Agent CLI、希望统一运行和查看会话的用户
 
 12. Hermes Agent 桌面版
@@ -506,10 +506,10 @@ CLI Code
 23. PowerShell 7.6.8
  官网：https://aka.ms/powershell
  官方 Release：https://github.com/PowerShell/PowerShell/releases
- Windows x64 MSI（112 MB）：
-   https://github.com/PowerShell/PowerShell/releases/download/v7.6.8/PowerShell-7.6.8-win-x64.msi
- Windows arm64 MSI（105.7 MB）：
-   https://github.com/PowerShell/PowerShell/releases/download/v7.6.8/PowerShell-7.6.8-win-arm64.msi
+ Windows x64 MSI（112.1 MB）：
+   https://github.com/PowerShell/PowerShell/releases/download/v7.6.9/PowerShell-7.6.9-win-x64.msi
+ Windows arm64 MSI（105.8 MB）：
+   https://github.com/PowerShell/PowerShell/releases/download/v7.6.9/PowerShell-7.6.9-win-arm64.msi
  注意：装完命令叫 pwsh，与系统自带 PowerShell 5.1 共存互不影响。开发者推荐再装 Windows Terminal（本分组）配合使用
 
 24. Windows Terminal 1.25
@@ -651,8 +651,8 @@ CLI Code
 42. Cline（桌面版）
  官网：https://github.com/cline/cline/releases
  官方 Release：https://github.com/cline/cline/releases
- Windows x64 安装版（115.8 MB）：
-   https://github.com/cline/cline/releases/download/desktop-v0.0.48/Cline_0.0.48_x64-setup.exe
+ Windows x64 安装版（127.3 MB）：
+   https://github.com/cline/cline/releases/download/desktop-v0.0.49/Cline_0.0.49_x64-setup.exe
  注意：若已用 VS Code，直接在扩展市场搜 Cline 更轻
 
 43. Grox（Grok Build 社区桌面版）
@@ -681,14 +681,14 @@ CLI Code
 46. Motrix
  官网：https://motrix.app
  官方 Release：https://github.com/agalwood/Motrix/releases
- Windows x64 安装版（127.5 MB）：
-   https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-Setup-2.0.0.exe
- Windows arm64 安装版（121.8 MB）：
-   https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-Setup-2.0.0-arm64.exe
- macOS arm64 dmg（130.5 MB）：
-   https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-2.0.0-arm64.dmg
- macOS x64 dmg（137.6 MB）：
-   https://github.com/agalwood/Motrix/releases/download/v2.0.0/Motrix-2.0.0-x64.dmg
+ Windows x64 安装版（127.6 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-Setup-2.0.1.exe
+ Windows arm64 安装版（121.9 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-Setup-2.0.1-arm64.exe
+ macOS arm64 dmg（130.6 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-2.0.1-arm64.dmg
+ macOS x64 dmg（137.7 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-2.0.1-x64.dmg
  注意：下载 GitHub 直链时，把链接里的 github.com 换成 gh-proxy.com/https://github.com 再添加任务，多线程能大幅提速。界面可切中文
 
 47. 图吧工具箱（TBTool）

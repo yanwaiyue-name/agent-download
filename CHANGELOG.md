@@ -17,7 +17,24 @@
 - 项目 46 → 47，`sources.json`、离线清单页、图形界面、检测脚本与推荐表同步
 
 ### 修复
+- **六个应用的版本保鲜**（`scripts/check-versions.ps1` 全量跑出来的落后项，资产名/体积逐个按上游 Release 核对）：
+
+  | 应用 | 原版本 | 新版本 | 核对到的资产 |
+  |---|---|---|---|
+  | CC Switch | 4.0.19 | **4.0.21** | x64/arm64 × MSI/portable、macOS dmg，共 5 个 |
+  | Cherry Studio | 2.1.7 | **2.1.8** | x64/arm64 × setup/portable、mac arm64/x64 dmg，共 6 个 |
+  | Cline 桌面版 | 0.0.48 | **0.0.49** | `Cline_0.0.49_x64-setup.exe`（tag 是 `desktop-v0.0.49`） |
+  | Desktop CC GUI | 1.1.6 | **1.1.7** | x64 setup、mac arm64/x64 dmg |
+  | PowerShell 7 | 7.6.8 | **7.6.9** | win-x64 / win-arm64 MSI |
+  | Motrix | 2.0.0 | **2.0.1** | Setup ×2、mac arm64/x64 dmg |
+
+  离线清单页与 `软件推荐与官方下载地址.txt` 一并重新生成（推荐表由 `gen-docs.ps1` 产出，不是手改）
+- **版本检测认错了 Cline 的上游**：`cline/cline` 的 `releases/latest` 指的是 VS Code 扩展线（`v4.x`），桌面版在 `desktop-v0.0.x` 这条 tag 流上，于是每周 CI 会把「已是最新」报成「落后 v4.1.26」。新增 `versionTagPrefix` 字段，Cline 填 `desktop-v`，脚本只在该前缀的 release 里取最新。现在 20 个 GitHub 条目全绿（0 落后 / 0 API 失败）
 - 离线清单页的分组筛选补上「本地运行」「实用工具」——此前这两组的卡片能显示，但筛选栏里没有入口
+- 文档版本号校正：`README.md` 头部写的是 4.2、`README.en.md` 还停在 4.0，现与 `sources.json` 的 4.3 统一；`docs/MAINTAINER.md` 头部同步补到 v4.3，并把 `versionTagPrefix` 写进字段表
+
+### 发布说明
+- 本次只改清单数据与文档，不产生新的安装包镜像，因此**只打 tag `v4.3.0`，不新建 Release**——避免把带 40 个开源安装包附件的 `v4.2.0` 从 Latest 位置挤下来。六个应用的官方包直接从上游 GitHub Release 取直链（脚本已内置加速前缀）
 
 ## [4.2.0] - 2026-10-25
 
