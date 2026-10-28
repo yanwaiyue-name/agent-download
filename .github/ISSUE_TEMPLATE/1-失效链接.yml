@@ -1,0 +1,33 @@
+name: 下载链接失效或版本过时
+description: 某个应用的下载地址打不开，或者有新版本了
+title: "[链接] "
+labels: ["链接失效"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: 哪个应用
+      placeholder: 例：Claude Desktop
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 什么情况
+      description: 链接 404 / 跳转到别的站 / 版本号比官网旧
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 你怎么确认的
+      description: 官网地址、访问时间、截图等
+    validations:
+      required: true
+  - type: checkboxes
+    id: check
+    attributes:
+      label: 确认
+      options:
+        - label: 我实际访问过官方渠道核对，不是凭印象
+          required: true
