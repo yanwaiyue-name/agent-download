@@ -2,7 +2,7 @@
   AI 桌面下载中心 · 推荐软件与官方下载地址
 ========================================
 
-更新时间：2026-10-26    清单版本 v4.3    共 47 项 / 8 个分组
+更新时间：2026-10-28    清单版本 v4.3.1    共 47 项 / 8 个分组
 本文件由 scripts/gen-docs.ps1 从 sources.json 自动生成，请勿手工编辑。
 
 这个包自带离线安装包（在「安装包」文件夹里），也支持联网补下。
@@ -30,7 +30,7 @@
   ChatGPT 桌面端（含 Codex） ⭐推荐
     适合：使用 ChatGPT，并希望在应用内使用 Codex 的用户
     用途：Windows 上的 Codex 入口在 ChatGPT 桌面应用中，适合已有 ChatGPT 账号的用户
-    格式：Windows——x64：商店版、arm64：商店版；macOS——通用 dmg。
+    格式：macOS——通用 dmg。
 
   OpenCode Desktop ⭐推荐
     适合：希望使用开源 AI 编程 Agent 的开发者
@@ -300,9 +300,7 @@ CLI Code
 
 3. ChatGPT 桌面端（含 Codex）
   官网：https://chatgpt.com/download
-  Windows x64 商店版（0.8 MB）：
-    https://get.microsoft.com/installer/download/9PLM9XGG6VKS
-  Windows arm64 商店版（0.8 MB）：
+  Windows both 商店版（0.8 MB）：
     https://get.microsoft.com/installer/download/9PLM9XGG6VKS
   macOS 通用 dmg（74.9 MB）：
     https://persistent.oaistatic.com/sidekick/public/ChatGPT.dmg
@@ -329,9 +327,9 @@ CLI Code
   官网：https://github.com/anywhere-labs/dsh-desktop/releases
   官方 Release：https://github.com/anywhere-labs/dsh-desktop/releases
   Windows x64 安装版（314.8 MB）：
-    https://github.com/anywhere-labs/dsh-desktop/releases/latest/download/DSH-Desktop-2.0.18-x64-Setup.exe
+    https://github.com/anywhere-labs/dsh-desktop/releases/download/v2.0.18/DSH-Desktop-2.0.18-x64-Setup.exe
   macOS 通用 dmg（679.6 MB）：
-    https://github.com/anywhere-labs/dsh-desktop/releases/latest/download/DSH.Desktop-2.0.18-universal.dmg
+    https://github.com/anywhere-labs/dsh-desktop/releases/download/v2.0.18/DSH.Desktop-2.0.18-universal.dmg
   注意：官方仓库只发源码；桌面版来自社区仓库，Windows 只有 x64。同目录的 SHA256SUMS.txt 是官方校验清单
 
 6. Cherry Studio
@@ -401,11 +399,11 @@ CLI Code
  官网：https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases
  官方 Release：https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases
  Windows x64 安装版（15.1 MB）：
-   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/CC.GUI_1.1.7_x64-setup.exe
+   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/CC.GUI_1.1.8_x64-setup.exe
  macOS arm64 dmg（19.1 MB）：
-   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/ccgui_1.1.7_aarch64.dmg
+   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/ccgui_1.1.8_aarch64.dmg
  macOS x64 dmg（19.2 MB）：
-   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/ccgui_1.1.7_x86_64.dmg
+   https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/ccgui_1.1.8_x86_64.dmg
  注意：Windows 只有 x64 原生包；适合已有多个 Agent CLI、希望统一运行和查看会话的用户
 
 12. Hermes Agent 桌面版
@@ -498,9 +496,9 @@ CLI Code
  官网：https://docs.astral.sh/uv/
  官方 Release：https://github.com/astral-sh/uv/releases
  Windows x64 压缩包（14.5 MB）：
-   https://github.com/astral-sh/uv/releases/download/0.13.5/uv-x86_64-pc-windows-msvc.zip
+   https://github.com/astral-sh/uv/releases/download/0.13.6/uv-x86_64-pc-windows-msvc.zip
  Windows arm64 压缩包（14.7 MB）：
-   https://github.com/astral-sh/uv/releases/download/0.13.5/uv-aarch64-pc-windows-msvc.zip
+   https://github.com/astral-sh/uv/releases/download/0.13.6/uv-aarch64-pc-windows-msvc.zip
  注意：解压后把目录加进 PATH。装好就能用 uvx 跑 MCP 服务器——Agent 的 MCP 配置里 command 填 uvx 是 Python 类服务器的标准写法，没它装不上
 
 23. PowerShell 7.6.8
@@ -554,23 +552,23 @@ CLI Code
 31. Claude Code
  官网：https://github.com/anthropics/claude-code/releases
  官方 Release：https://github.com/anthropics/claude-code/releases
- Windows x64 压缩包（127.6 MB）：
-   https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-win32-x64.zip
- Windows arm64 压缩包（122.2 MB）：
-   https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-win32-arm64.zip
- macOS arm64 dmg（114.3 MB）：
-   https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-darwin-arm64.tar.gz
- macOS x64 dmg（119.9 MB）：
-   https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-darwin-x64.tar.gz
+ Windows x64 压缩包（128.4 MB）：
+   https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-win32-x64.zip
+ Windows arm64 压缩包（123.1 MB）：
+   https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-win32-arm64.zip
+ macOS arm64 dmg（115.1 MB）：
+   https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-darwin-arm64.tar.gz
+ macOS x64 dmg（120.7 MB）：
+   https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-darwin-x64.tar.gz
  注意：解压后把可执行文件放进 PATH；需要 Anthropic 账号或 API Key
 
 32. Gemini CLI
  官网：https://github.com/google-gemini/gemini-cli
  官方 Release：https://github.com/google-gemini/gemini-cli/releases
  macOS arm64 dmg（34.9 MB）：
-   https://github.com/google-gemini/gemini-cli/releases/download/v0.65.0/gemini-darwin-arm64-unsigned.zip
+   https://github.com/google-gemini/gemini-cli/releases/download/v0.66.0/gemini-darwin-arm64-unsigned.zip
  macOS x64 dmg（36.3 MB）：
-   https://github.com/google-gemini/gemini-cli/releases/download/v0.65.0/gemini-darwin-x64-unsigned.zip
+   https://github.com/google-gemini/gemini-cli/releases/download/v0.66.0/gemini-darwin-x64-unsigned.zip
  注意：⚠️ 官方只发 macOS 二进制，Windows 必须用 npm 装：npm install -g @google/gemini-cli
 
 33. Qwen Code
@@ -645,7 +643,7 @@ CLI Code
  官网：https://github.com/OpenHands/OpenHands/releases
  官方 Release：https://github.com/OpenHands/OpenHands/releases
  Windows x64 安装版（135.4 MB）：
-   https://github.com/OpenHands/OpenHands/releases/download/v1.33.0/OpenHands-Agent-Canvas-Setup-1.33.0.exe
+   https://github.com/OpenHands/OpenHands/releases/download/v1.34.0/OpenHands-Agent-Canvas-Setup-1.34.0.exe
  注意：桌面版叫 Agent Canvas；也可用 Docker 部署服务端
 
 42. Cline（桌面版）
@@ -681,14 +679,14 @@ CLI Code
 46. Motrix
  官网：https://motrix.app
  官方 Release：https://github.com/agalwood/Motrix/releases
- Windows x64 安装版（127.6 MB）：
-   https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-Setup-2.0.1.exe
- Windows arm64 安装版（121.9 MB）：
-   https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-Setup-2.0.1-arm64.exe
- macOS arm64 dmg（130.6 MB）：
-   https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-2.0.1-arm64.dmg
- macOS x64 dmg（137.7 MB）：
-   https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-2.0.1-x64.dmg
+ Windows x64 安装版（127.4 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-Setup-2.1.0.exe
+ Windows arm64 安装版（121.6 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-Setup-2.1.0-arm64.exe
+ macOS arm64 dmg（130.8 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-2.1.0-arm64.dmg
+ macOS x64 dmg（137.8 MB）：
+   https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-2.1.0-x64.dmg
  注意：下载 GitHub 直链时，把链接里的 github.com 换成 gh-proxy.com/https://github.com 再添加任务，多线程能大幅提速。界面可切中文
 
 47. 图吧工具箱（TBTool）

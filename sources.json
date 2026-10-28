@@ -1,7 +1,12 @@
 {
-  "version": "4.3",
-  "updated": "2026-10-26",
-  "mirrors": ["https://gh-proxy.com/", "https://ghfast.top/", "", "https://gh.llkk.cc/"],
+  "version": "4.3.1",
+  "updated": "2026-10-28",
+  "mirrors": [
+    "https://gh-proxy.com/",
+    "https://ghfast.top/",
+    "",
+    "https://gh.llkk.cc/"
+  ],
   "note": "面向 Windows/macOS 的 AI 客户端与命令行工具下载中心。分 8 个分组：桌面端 / Agents / IDE / CLI Code / 本地运行 / 实用工具 / 运行环境 / 开发环境。启动器按本机 x64 / ARM64 / x86 自动选包；同一软件的多套格式写在 variants 里（format: msi/setup/store/portable/zip，按此优先级自动挑默认）。mac 数组是 macOS 包，放在 安装包/<dir>/mac/ 下，Windows 启动器不读它。GitHub 条目优先解析 latest Release，urls 是备用直链。注意：部分工具（Codex CLI / OpenClaw / Aider / iFlow CLI / Gemini CLI 的 Windows 版）只有 npm 或 pip 安装方式，没有二进制包，已在其 tip 字段注明。",
   "apps": [
     {
@@ -100,16 +105,7 @@
       "arch": "both",
       "variants": [
         {
-          "arch": "x64",
-          "format": "store",
-          "file": "ChatGPT Installer.exe",
-          "size": "0.8 MB",
-          "urls": [
-            "https://get.microsoft.com/installer/download/9PLM9XGG6VKS"
-          ]
-        },
-        {
-          "arch": "arm64",
+          "arch": "both",
           "format": "store",
           "file": "ChatGPT Installer.exe",
           "size": "0.8 MB",
@@ -231,7 +227,7 @@
           "size": "314.8 MB",
           "assetPattern": "x64-Setup\\.exe$",
           "urls": [
-            "https://github.com/anywhere-labs/dsh-desktop/releases/latest/download/DSH-Desktop-2.0.18-x64-Setup.exe"
+            "https://github.com/anywhere-labs/dsh-desktop/releases/download/v2.0.18/DSH-Desktop-2.0.18-x64-Setup.exe"
           ]
         }
       ],
@@ -242,7 +238,7 @@
           "file": "DSH.Desktop-2.0.18-universal.dmg",
           "size": "679.6 MB",
           "urls": [
-            "https://github.com/anywhere-labs/dsh-desktop/releases/latest/download/DSH.Desktop-2.0.18-universal.dmg"
+            "https://github.com/anywhere-labs/dsh-desktop/releases/download/v2.0.18/DSH.Desktop-2.0.18-universal.dmg"
           ]
         }
       ],
@@ -548,11 +544,11 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "CC.GUI_1.1.7_x64-setup.exe",
+          "file": "CC.GUI_1.1.8_x64-setup.exe",
           "size": "15.1 MB",
           "assetPattern": "_x64-setup\\.exe$",
           "urls": [
-            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/CC.GUI_1.1.7_x64-setup.exe"
+            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/CC.GUI_1.1.8_x64-setup.exe"
           ]
         }
       ],
@@ -560,19 +556,19 @@
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "ccgui_1.1.7_aarch64.dmg",
+          "file": "ccgui_1.1.8_aarch64.dmg",
           "size": "19.1 MB",
           "urls": [
-            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/ccgui_1.1.7_aarch64.dmg"
+            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/ccgui_1.1.8_aarch64.dmg"
           ]
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "ccgui_1.1.7_x86_64.dmg",
+          "file": "ccgui_1.1.8_x86_64.dmg",
           "size": "19.2 MB",
           "urls": [
-            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.7/ccgui_1.1.7_x86_64.dmg"
+            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/ccgui_1.1.8_x86_64.dmg"
           ]
         }
       ],
@@ -978,7 +974,7 @@
           "size": "14.5 MB",
           "assetPattern": "^uv-x86_64-pc-windows-msvc\\.zip$",
           "urls": [
-            "https://github.com/astral-sh/uv/releases/download/0.13.5/uv-x86_64-pc-windows-msvc.zip"
+            "https://github.com/astral-sh/uv/releases/download/0.13.6/uv-x86_64-pc-windows-msvc.zip"
           ]
         },
         {
@@ -988,7 +984,7 @@
           "size": "14.7 MB",
           "assetPattern": "^uv-aarch64-pc-windows-msvc\\.zip$",
           "urls": [
-            "https://github.com/astral-sh/uv/releases/download/0.13.5/uv-aarch64-pc-windows-msvc.zip"
+            "https://github.com/astral-sh/uv/releases/download/0.13.6/uv-aarch64-pc-windows-msvc.zip"
           ]
         }
       ],
@@ -1197,18 +1193,18 @@
           "arch": "x64",
           "format": "zip",
           "file": "claude-win32-x64.zip",
-          "size": "127.6 MB",
+          "size": "128.4 MB",
           "urls": [
-            "https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-win32-x64.zip"
+            "https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-win32-x64.zip"
           ]
         },
         {
           "arch": "arm64",
           "format": "zip",
           "file": "claude-win32-arm64.zip",
-          "size": "122.2 MB",
+          "size": "123.1 MB",
           "urls": [
-            "https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-win32-arm64.zip"
+            "https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-win32-arm64.zip"
           ]
         }
       ],
@@ -1217,18 +1213,18 @@
           "arch": "arm64",
           "format": "zip",
           "file": "claude-darwin-arm64.tar.gz",
-          "size": "114.3 MB",
+          "size": "115.1 MB",
           "urls": [
-            "https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-darwin-arm64.tar.gz"
+            "https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-darwin-arm64.tar.gz"
           ]
         },
         {
           "arch": "x64",
           "format": "zip",
           "file": "claude-darwin-x64.tar.gz",
-          "size": "119.9 MB",
+          "size": "120.7 MB",
           "urls": [
-            "https://github.com/anthropics/claude-code/releases/download/v2.1.310/claude-darwin-x64.tar.gz"
+            "https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-darwin-x64.tar.gz"
           ]
         }
       ],
@@ -1255,7 +1251,7 @@
           "file": "gemini-darwin-arm64-unsigned.zip",
           "size": "34.9 MB",
           "urls": [
-            "https://github.com/google-gemini/gemini-cli/releases/download/v0.65.0/gemini-darwin-arm64-unsigned.zip"
+            "https://github.com/google-gemini/gemini-cli/releases/download/v0.66.0/gemini-darwin-arm64-unsigned.zip"
           ]
         },
         {
@@ -1264,7 +1260,7 @@
           "file": "gemini-darwin-x64-unsigned.zip",
           "size": "36.3 MB",
           "urls": [
-            "https://github.com/google-gemini/gemini-cli/releases/download/v0.65.0/gemini-darwin-x64-unsigned.zip"
+            "https://github.com/google-gemini/gemini-cli/releases/download/v0.66.0/gemini-darwin-x64-unsigned.zip"
           ]
         }
       ],
@@ -1558,10 +1554,10 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "OpenHands-Agent-Canvas-Setup-1.33.0.exe",
+          "file": "OpenHands-Agent-Canvas-Setup-1.34.0.exe",
           "size": "135.4 MB",
           "urls": [
-            "https://github.com/OpenHands/OpenHands/releases/download/v1.33.0/OpenHands-Agent-Canvas-Setup-1.33.0.exe"
+            "https://github.com/OpenHands/OpenHands/releases/download/v1.34.0/OpenHands-Agent-Canvas-Setup-1.34.0.exe"
           ]
         }
       ],
@@ -1704,21 +1700,21 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "Motrix-Setup-2.0.1.exe",
-          "size": "127.6 MB",
+          "file": "Motrix-Setup-2.1.0.exe",
+          "size": "127.4 MB",
           "assetPattern": "^Motrix-Setup-[\\d\\.]+\\.exe$",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-Setup-2.0.1.exe"
+            "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-Setup-2.1.0.exe"
           ]
         },
         {
           "arch": "arm64",
           "format": "setup",
-          "file": "Motrix-Setup-2.0.1-arm64.exe",
-          "size": "121.9 MB",
+          "file": "Motrix-Setup-2.1.0-arm64.exe",
+          "size": "121.6 MB",
           "assetPattern": "^Motrix-Setup-[\\d\\.]+-arm64\\.exe$",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-Setup-2.0.1-arm64.exe"
+            "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-Setup-2.1.0-arm64.exe"
           ]
         }
       ],
@@ -1726,19 +1722,19 @@
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "Motrix-2.0.1-arm64.dmg",
-          "size": "130.6 MB",
+          "file": "Motrix-2.1.0-arm64.dmg",
+          "size": "130.8 MB",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-2.0.1-arm64.dmg"
+            "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-2.1.0-arm64.dmg"
           ]
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "Motrix-2.0.1-x64.dmg",
-          "size": "137.7 MB",
+          "file": "Motrix-2.1.0-x64.dmg",
+          "size": "137.8 MB",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.0.1/Motrix-2.0.1-x64.dmg"
+            "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-2.1.0-x64.dmg"
           ]
         }
       ],

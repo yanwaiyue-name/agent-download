@@ -4,7 +4,7 @@
 
 <h1 align="center">📦 AI Client Download Center</h1>
 
-<p align="center"><strong>Version 4.3</strong></p>
+<p align="center"><strong>Version 4.3.1</strong></p>
 
 <p align="center">
   <em>Curated official download links for mainstream AI desktop clients,<br>

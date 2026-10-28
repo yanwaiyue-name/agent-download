@@ -2,6 +2,33 @@
 
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [4.3.1] - 2026-10-28
+
+例行同步上游版本，并修掉三处会长期累积噪音的地方。
+
+### 版本同步（7 个应用）
+| 应用 | 旧版本 | 新版本 |
+|---|---|---|
+| Desktop CC GUI | 1.1.7 | 1.1.8 |
+| uv | 0.13.5 | 0.13.6 |
+| Claude Code | 2.1.310 | 2.1.312 |
+| Gemini CLI | 0.65.0 | 0.66.0 |
+| OpenHands | 1.33.0 | 1.34.0 |
+| Motrix | 2.0.1 | 2.1.0 |
+
+DeepSeek Harness 桌面版保持 2.0.18：上游把 `releases/latest` 换成了 `DSH-NEXT-2.0.20-next-*` 命名，
+原来的 `DSH-Desktop-2.0.18-*` 直链在 latest 下会 404，改为钉 `v2.0.18` 这个正式版标签。
+
+### 修复
+- **死链**：dsh 的两条 `releases/latest/download/DSH-Desktop-2.0.18-*` 已确认 404，改为钉 tag。
+- **Issue 刷屏**：`link-check` 与 `version-check` 的告警标题里带日期，每次检查都新开一条 issue。
+  改为固定标题 + 先搜索后追加评论，同一类问题只保留一条。
+- **重复告警**：`codex` 的 x64 与 arm64 两个 variant 指向同一个商店引导器，合并为一个 `arch: both`。
+
+### 清理
+- 删除 `docs/images/` 下 5 张未被任何文档引用的截图（约 1.9 MB）。
+- 删除 `.github/ISSUE_TEMPLATE/` 里与 yml 重复的 `broken-link.md`、`new-app.md`。
+
 ## [4.3.0] - 2026-10-26
 
 「实用工具」新增一个硬件自检入口：图吧工具箱。

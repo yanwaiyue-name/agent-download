@@ -50,9 +50,32 @@ jobs:
             let body = 'The scheduled link check found dead download links.\n\n';
             try { body += '\`\`\`\n' + fs.readFileSync('link-report.txt', 'utf8').slice(0, 60000) + '\n\`\`\`'; } catch (e) {}
             body += '\n\nUpdate the affected entries in \`sources.json\` and close this issue.';
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: 'Dead download links detected (' + new Date().toISOString().slice(0, 10) + ')',
-              body
-            });
+
+            // 标题里不再带日期：带日期的标题每周都会生成一条新 issue，一年就是 52 条。
+            // 固定标题 + 先查后建，同一类问题只在一条 issue 里追加评论。
+            const title = 'Dead download links detected';
+            const LABEL = 'link-check';
+            // 标签不存在时 create 会 422，先尽力创建（已存在会 422，忽略即可）
+            try {
+              await github.rest.issues.createLabel({ owner: context.repo.owner, repo: context.repo.repo, name: LABEL, color: 'd73a4a' });
+            } catch (e) {}
+            const q = 'repo:' + context.repo.owner + '/' + context.repo.repo + ' is:issue is:open in:title "' + title + '"';
+            const found = await github.rest.search.issuesAndPullRequests({ q });
+            if (found.data.total_count > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: found.data.items[0].number,
+                body
+              });
+              core.info('已追加评论到 #' + found.data.items[0].number);
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: [LABEL]
+              });
+              core.info('已新建 issue');
+            }
