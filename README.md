@@ -295,6 +295,30 @@ powershell -ExecutionPolicy Bypass -File .\scripts\更新.ps1 -Message "更新 C
 
 ---
 
+## 🔐 下载校验是怎么做的
+
+`sources.json` 里每个安装包可以带 `sha256`。`launcher.ps1` 下载完成后会立刻比对：
+
+- **一致** → 继续安装
+- **不一致** → 删掉这个文件，换下一个源重试；全都不符就报错退出。**不会**把可疑文件交给你
+- **没记录** → 只把算出来的 SHA256 打在屏幕上，不拦截
+
+哈希优先取上游自己发布的校验清单（`SHA256SUMS.txt` / `SHASUMS256.txt` / `sha256.sum`），拿不到才由维护者下载后自算——**这两种来源的可信度不一样**，维护脚本会把来源标出来。
+
+想只用官方链路、不走第三方加速站：
+
+```powershell
+pwsh -File .\launcher.ps1 -NoMirror
+```
+
+维护者刷新哈希（版本一升就必须重跑，否则会误拦）：
+
+```powershell
+pwsh -File .\scripts\update-hashes.ps1 -Proxy http://127.0.0.1:7897
+```
+
+---
+
 ## ⚠️ 已知限制
 
 | 限制 | 说明 |
@@ -305,6 +329,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\更新.ps1 -Message "更新 C
 | Hermes 的 exe 只有 7.6 MB | 同样是引导器，首次启动联网拉运行时 |
 | 安装包无微软签名 | Windows 会显示 SmartScreen 警告，属正常现象 |
 | macOS 包不在 Windows 包里 | dmg 单独放，Windows 启动器不读 |
+| 部分条目还没有官方哈希 | 有 `sha256` 的会在下载后强制校验，不符直接删文件；没有的只显示不拦截，请自行核对官方页面 |
+| 加速站是额外信任面 | 默认仍会尝试第三方加速前缀（否则国内下不动），可用 `-NoMirror` 只用 GitHub 官方直链 |
 
 ---
 

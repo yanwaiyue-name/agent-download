@@ -155,6 +155,32 @@ foreach ($a in @($cfg.apps)) {
 }
 if ($idDup -eq 0) { Ok ($idSeen.Count.ToString() + ' app ids all unique') }
 
+# sha256 字段：格式必须合法，否则 launcher 的比对会永远失败，把所有下载都判成"哈希不符"。
+Head '[5.7/6] sha256 fields'
+$shaTotal = 0; $shaBad = 0; $shaMissing = 0
+foreach ($a in @($cfg.apps)) {
+    foreach ($key in @('variants', 'mac')) {
+        $list = @($a.$key)
+        if (-not $list) { continue }
+        foreach ($v in $list) {
+            if ($null -eq $v) { continue }
+            $shaTotal++
+            $s = [string]$v.sha256
+            if (-not $s) { $shaMissing++; continue }
+            if ($s -notmatch '^[0-9a-f]{64}$') {
+                Bad ('bad sha256 for ' + $a.id + ' / ' + $v.file + ': ' + $s)
+                $shaBad++
+            }
+        }
+    }
+}
+if ($shaBad -eq 0) {
+    Ok ('sha256 format OK; ' + ($shaTotal - $shaMissing).ToString() + '/' + $shaTotal.ToString() + ' entries pinned')
+    if ($shaMissing -gt 0) {
+        Warn ($shaMissing.ToString() + ' entries have no sha256 yet — run scripts/update-hashes.ps1 to pin them')
+    }
+}
+
 if (-not $SkipSyntax) {
     Head '[6/6] PowerShell syntax and BOM'
     $psFiles = @(Get-ChildItem -Path $Root -Recurse -Filter '*.ps1' -File -ErrorAction SilentlyContinue)

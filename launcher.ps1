@@ -10,7 +10,11 @@
 param(
     [switch]$Check,
     [switch]$All,
-    [switch]$Verify
+    [switch]$Verify,
+    # 只用 GitHub 官方直链，不走第三方加速站。
+    # 加速站能解决国内下不动的问题，但它站在你和官方之间，属于额外的信任面；
+    # 需要干净链路（公司电脑、审计环境）时加这个开关。
+    [switch]$NoMirror
 )
 
 $ErrorActionPreference = "Continue"
@@ -137,7 +141,7 @@ function Get-Variants($app, $arch) {
     # 兼容 v1 结构（没有 variants，只有 file/urls）
     if ($vs.Count -eq 0) {
         if ($app.file) {
-            return @(@{ file = $app.file; urls = $app.urls; assetPattern = $app.assetPattern; arch = "x64"; format = "setup"; mode = "native"; size = "" })
+            return @(@{ file = $app.file; urls = $app.urls; assetPattern = $app.assetPattern; arch = "x64"; format = "setup"; mode = "native"; size = ""; sha256 = $app.sha256 })
         }
         return @()
     }
@@ -148,14 +152,14 @@ function Get-Variants($app, $arch) {
     # 1) 精确匹配本机架构
     foreach ($v in $vs) {
         if ($v.arch -eq $selectionArch -and (Test-Installable $v)) {
-            [void]$matched.Add(@{ file = $v.file; urls = $v.urls; assetPattern = $v.assetPattern; arch = $v.arch; format = $v.format; mode = $mode; size = $v.size })
+            [void]$matched.Add(@{ file = $v.file; urls = $v.urls; assetPattern = $v.assetPattern; arch = $v.arch; format = $v.format; mode = $mode; size = $v.size; sha256 = $v.sha256 })
         }
     }
     # 2) ARM64 机器可以跑 x64（系统模拟层）
     if ($matched.Count -eq 0 -and $selectionArch -eq "arm64") {
         foreach ($v in $vs) {
             if ($v.arch -eq "x64" -and (Test-Installable $v)) {
-                [void]$matched.Add(@{ file = $v.file; urls = $v.urls; assetPattern = $v.assetPattern; arch = $v.arch; format = $v.format; mode = "emulated"; size = $v.size })
+                [void]$matched.Add(@{ file = $v.file; urls = $v.urls; assetPattern = $v.assetPattern; arch = $v.arch; format = $v.format; mode = "emulated"; size = $v.size; sha256 = $v.sha256 })
             }
         }
     }
@@ -448,17 +452,39 @@ function Get-Installer($app, $variant, [switch]$Batch) {
 
     Say-Note "开始下载，大文件（100MB 以上）可能要几分钟，请勿关闭窗口"
 
+    # 期望哈希：sources.json 里维护的官方 SHA256。
+    # 有它就必须对上，对不上直接删文件 —— 否则镜像站被投毒或上游文件被替换时，
+    # 我们只是把哈希打印到屏幕上，等于没有校验。
+    $expect = ""
+    if ($variant.sha256) { $expect = ([string]$variant.sha256).ToLowerInvariant() }
+
     foreach ($c in $cands) {
         $isGitHub = ($c -match "github\.com|githubusercontent\.com")
         foreach ($m in $mirrors) {
             if ($m -ne "" -and -not $isGitHub) { continue }
+            if ($m -ne "" -and $NoMirror) { continue }
             $url = if ($m) { $m + $c } else { $c }
             $host_ = ""
             try { $host_ = ([System.Uri]$url).Host } catch { $host_ = "?" }
-            Say-Note ("尝试 " + $host_ + " ...")
+            $viaMirror = ($m -ne "")
+            Say-Note ("尝试 " + $host_ + $(if ($viaMirror) { " （第三方加速站，下载后会校验官方哈希）" } else { "" }) + " ...")
             if (Save-FromUrl $url $dest) {
                 $mb = [math]::Round((Get-Item $dest).Length / 1MB, 1)
-                $hash = (Get-FileHash $dest -Algorithm SHA256).Hash
+                $hash = (Get-FileHash $dest -Algorithm SHA256).Hash.ToLowerInvariant()
+                if ($expect) {
+                    if ($hash -ne $expect) {
+                        Say-Bad ("哈希不符，已丢弃这个文件：" + $host_)
+                        Say-Note ("  期望 " + $expect)
+                        Say-Note ("  实得 " + $hash)
+                        Say-Note "  可能是加速站返回了错误内容，或上游文件已更新（那就该跑 scripts/update-hashes.ps1）。换下一个源重试。"
+                        Write-Log ("HASH MISMATCH  " + $app.id + "  " + $url + "  expect=" + $expect + "  got=" + $hash)
+                        try { Remove-Item -LiteralPath $dest -Force -ErrorAction SilentlyContinue } catch { }
+                        continue
+                    }
+                    Say-Ok ("哈希校验通过（与 sources.json 记录一致）")
+                } else {
+                    Say-Note "  该条目还没有记录官方哈希，本次只显示不校验（维护者跑 scripts/update-hashes.ps1 可补上）"
+                }
                 Say-Ok ("下载完成 " + $mb + " MB -> " + $dest)
                 Say-Note ("SHA256 " + $hash)
                 Write-Log ("DOWNLOAD OK  " + $app.id + "  " + $variant.arch + "  " + $variant.format + "  " + $url + "  " + $hash)
