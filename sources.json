@@ -1,5 +1,5 @@
 {
-  "version": "4.4.0",
+  "version": "4.3.1",
   "updated": "2026-10-29",
   "mirrors": [
     "https://gh-proxy.com/",
@@ -395,7 +395,8 @@
           "assetPattern": "-Windows\\.msi$",
           "urls": [
             "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows.msi"
-          ]
+          ],
+          "sha256": "16e9904023720abba117dd16aa11d020aa7e9546ac08bb7c6eab610e78e95ab3"
         },
         {
           "arch": "x64",
@@ -405,7 +406,8 @@
           "assetPattern": "-Windows-Portable\\.zip$",
           "urls": [
             "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-Portable.zip"
-          ]
+          ],
+          "sha256": "6291de97f030e965fabd361418c349f5c0b390e46d55b5fa806cf967f5201a38"
         },
         {
           "arch": "arm64",
@@ -415,7 +417,8 @@
           "assetPattern": "Windows-arm64\\.msi$",
           "urls": [
             "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-arm64.msi"
-          ]
+          ],
+          "sha256": "6e595c26c3189eaf4f9b1a4352e0ba49178061e57f89da2b14cf03ab20da81c8"
         },
         {
           "arch": "arm64",
@@ -425,7 +428,8 @@
           "assetPattern": "Windows-arm64-Portable\\.zip$",
           "urls": [
             "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-arm64-Portable.zip"
-          ]
+          ],
+          "sha256": "3ebde12cc321e27bcf4e0783a419ea46900bb99cb69990b0c9768549b17d83b7"
         }
       ],
       "mac": [
@@ -436,7 +440,8 @@
           "size": "35.1 MB",
           "urls": [
             "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-macOS.dmg"
-          ]
+          ],
+          "sha256": "504a64f9c858927c08e6d86301f0ecc638e8650202d39945694fcd64d8d1973b"
         }
       ],
       "page": "https://ccswitch.io",
@@ -563,7 +568,8 @@
           "size": "19.1 MB",
           "urls": [
             "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/ccgui_1.1.8_aarch64.dmg"
-          ]
+          ],
+          "sha256": "32b00a9295ad4f1ebf3c48d07f6354fedf73fee6e530712dc31d5fa4754b7bfc"
         },
         {
           "arch": "x64",
@@ -572,7 +578,8 @@
           "size": "19.2 MB",
           "urls": [
             "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/ccgui_1.1.8_x86_64.dmg"
-          ]
+          ],
+          "sha256": "372335cb1603b831c79c9707c590979fe287010ece5b57901a1044e6a41f64e4"
         }
       ],
       "page": "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases",
@@ -695,7 +702,8 @@
           "size": "24.4 MB",
           "urls": [
             "https://aka.ms/vs/17/release/vc_redist.x64.exe"
-          ]
+          ],
+          "sha256": "cc0ff0eb1dc3f5188ae6300faef32bf5beeba4bdd6e8e445a9184072096b713b"
         }
       ],
       "mac": [],
@@ -828,7 +836,8 @@
           "urls": [
             "https://mirrors.huaweicloud.com/python/3.13.10/python-3.13.10-amd64.exe",
             "https://www.python.org/ftp/python/3.13.10/python-3.13.10-amd64.exe"
-          ]
+          ],
+          "sha256": "ab30cd76655c6c91243b4f4d5a8499020f6503aa58e92b3e2e94ae4af7353257"
         },
         {
           "arch": "arm64",
@@ -838,7 +847,8 @@
           "urls": [
             "https://mirrors.huaweicloud.com/python/3.13.10/python-3.13.10-arm64.exe",
             "https://www.python.org/ftp/python/3.13.10/python-3.13.10-arm64.exe"
-          ]
+          ],
+          "sha256": "0bd671c0c1ce279eb7d6d6cb370583899723a0b1a2b5d55ef3464ba865cca8f7"
         }
       ],
       "mac": [],
@@ -867,7 +877,8 @@
           "urls": [
             "https://registry.npmmirror.com/-/binary/node/v24.22.1/node-v24.22.1-x64.msi",
             "https://nodejs.org/dist/v24.22.1/node-v24.22.1-x64.msi"
-          ]
+          ],
+          "sha256": "3bda4baf1ee709b33cf920dd633106ddb23951e322bff9c03ec9f64ab8981b01"
         },
         {
           "arch": "arm64",
@@ -877,7 +888,8 @@
           "urls": [
             "https://registry.npmmirror.com/-/binary/node/v24.22.1/node-v24.22.1-arm64.msi",
             "https://nodejs.org/dist/v24.22.1/node-v24.22.1-arm64.msi"
-          ]
+          ],
+          "sha256": "5faf40b7cba01eba47dfff7b5322979f27d0e8f042bab96cc567a3df01ec9796"
         }
       ],
       "mac": [],
@@ -905,7 +917,8 @@
           "size": "63.7 MB",
           "urls": [
             "https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.3/Git-2.56.0.3-64-bit.exe"
-          ]
+          ],
+          "sha256": "dc6d3db061999136e139f31376c5582a9ed6f36a4ea12f15e54ad7fa2bfc0bf2"
         },
         {
           "arch": "arm64",
@@ -914,7 +927,8 @@
           "size": "61.4 MB",
           "urls": [
             "https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.3/Git-2.56.0.3-arm64.exe"
-          ]
+          ],
+          "sha256": "53cfe6358a1f0573c8c777c9ad71151df8f29986759c689c7b8a5cbb84cca495"
         }
       ],
       "mac": [],
@@ -1268,7 +1282,8 @@
           "size": "34.9 MB",
           "urls": [
             "https://github.com/google-gemini/gemini-cli/releases/download/v0.66.0/gemini-darwin-arm64-unsigned.zip"
-          ]
+          ],
+          "sha256": "be630414c968ad623a01ec4241aa258d2502c93889fad26b9502800a067f748f"
         },
         {
           "arch": "x64",
@@ -1277,7 +1292,8 @@
           "size": "36.3 MB",
           "urls": [
             "https://github.com/google-gemini/gemini-cli/releases/download/v0.66.0/gemini-darwin-x64-unsigned.zip"
-          ]
+          ],
+          "sha256": "bb98f88ac36db6e798b2fcf68bb7ebed514ec5847beebf95f237ddbf17acdfc5"
         }
       ],
       "page": "https://github.com/google-gemini/gemini-cli",
@@ -1362,7 +1378,8 @@
           "size": "64.6 MB",
           "urls": [
             "https://github.com/MoonshotAI/kimi-cli/releases/download/1.52.0/kimi-1.52.0-aarch64-pc-windows-msvc.zip"
-          ]
+          ],
+          "sha256": "7c77cd413e7a3a59416c171a45ee4ff50534869b331469138aad84b9e3acb6c0"
         }
       ],
       "mac": [
@@ -1373,7 +1390,8 @@
           "size": "64.9 MB",
           "urls": [
             "https://github.com/MoonshotAI/kimi-cli/releases/download/1.52.0/kimi-1.52.0-aarch64-apple-darwin.tar.gz"
-          ]
+          ],
+          "sha256": "43fe091f70bbf8860974200f9021a05689a020857cc9926d56f1505f0d0d5cb8"
         },
         {
           "arch": "x64",
