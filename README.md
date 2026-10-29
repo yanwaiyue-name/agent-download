@@ -12,8 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
-  <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT">
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
   <img src="https://img.shields.io/badge/software-47%20apps-2ea44f" alt="47 apps">
 </p>
@@ -21,6 +20,10 @@
 <p align="center">
   <a href="README.md">中文</a> | <a href="README.en.md">English</a>
 </p>
+
+> **📍 本仓库是 GitHub 的镜像。** 链接体检、版本检测、PowerShell lint 都在 GitHub Actions 运行，
+> 因此这里的版本与链接状态可能滞后于 [GitHub 主仓库](https://github.com/yanwaiyue-name/agent-download)。
+> 离线清单页：<https://yanwaiyue-name.github.io/agent-download/>
 
 ---
 
