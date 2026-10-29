@@ -1,5 +1,0 @@
-workbuddy | downloaded | ecd404f16f9e
-workbuddy | downloaded | 824de10f3196
-claude | downloaded | 8ccfd257800a
-claude | downloaded | c7e3588b5ea7
-codex | downloaded | 72e633c28648

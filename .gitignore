@@ -53,3 +53,10 @@ desktop.ini
 *.bak
 *.orig
 ~$*
+# 一次性维护脚本与日志（哈希计算产物）
+_hash.py
+_chk.py
+_msg.txt
+hashlog*.txt
+_hash_report.json
+
