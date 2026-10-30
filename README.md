@@ -31,11 +31,23 @@
 
 | 你是 | 点这里 | 说明 |
 | --- | --- | --- |
-| **只想看看有哪些软件** | [🎯 在线清单](https://yanwaiyue-name.github.io/agent-download/%E6%B8%85%E5%8D%95.html) · [清单.html](清单.html) | 在线版开箱即看；单文件网页下载后双击即开，**不联网也能用** |
+| **只想看看有哪些软件** | [清单.html](清单.html)（仓库内） · [在线版](https://yanwaiyue-name.github.io/agent-download/%E6%B8%85%E5%8D%95.html) | 仓库内那份不依赖外部托管，**双击即开、不联网也能用** |
 | **想让它自动下载安装** | 下载仓库 → 双击 `打开资源中心.bat` | 本地图形界面，按你的架构自动选包 |
+| **想要现成的安装包** | [GitHub Release](https://github.com/yanwaiyue-name/agent-download/releases) | **本仓库不含安装包本体**，原因见下 |
 | **完全没网** | 见下面「方式三：纯离线」 | 提前备好安装包，过去直接装 |
 
 > 国内访问 GitHub 不稳定时，把仓库打包下载（Code → Download ZIP），解压后双击 `清单.html` 就能看完整清单。
+
+### 为什么本仓库不含安装包
+
+| 原因 | 说明 |
+|---|---|
+| **体积** | 47 个应用全套约 6.8 GB，塞进 git 会让 clone 变得不可用 |
+| **许可** | 部分软件不允许再分发，仓库只放**官方地址**，不托管文件 |
+| **时效** | 安装包每周都在更新，git 里存副本永远滞后 |
+
+**要现成文件，去 [GitHub Release](https://github.com/yanwaiyue-name/agent-download/releases)。**
+所有下载都建议核对 SHA256——`sources.json` 里已记录官方哈希，`launcher.ps1` 下载后会自动比对。
 
 ---
 
