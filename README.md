@@ -212,6 +212,7 @@
 ---
 
 ## 🇨🇳 国内网络现实
+n> 📋 **加速站透明度**：本项目使用的所有 GitHub 加速站列表、工作原理与安全校验说明，详见 [docs/accelerators.md](docs/accelerators.md)。
 
 | 情况 | 说明 |
 |---|---|
