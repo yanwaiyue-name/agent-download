@@ -221,7 +221,7 @@
       "desc": "DeepSeek 智能体桌面平台",
       "dir": "DeepSeek Harness",
       "arch": "x64",
-      "github": "anywhere-labs/deepseek-harness-desktop",
+      "github": "anywhere-labs/dsh-desktop",
       "variants": [
         {
           "arch": "x64",
@@ -230,7 +230,7 @@
           "size": "314.8 MB",
           "assetPattern": "x64-Setup\\.exe$",
           "urls": [
-            "https://github.com/anywhere-labs/deepseek-harness-desktop/releases/latest/download/DSH-Desktop-2.0.18-x64-Setup.exe"
+            "https://github.com/anywhere-labs/dsh-desktop/releases/download/v2.0.18/DSH-Desktop-2.0.18-x64-Setup.exe"
           ]
         }
       ],
@@ -241,11 +241,11 @@
           "file": "DSH.Desktop-2.0.18-universal.dmg",
           "size": "679.6 MB",
           "urls": [
-            "https://github.com/anywhere-labs/deepseek-harness-desktop/releases/latest/download/DSH.Desktop-2.0.18-universal.dmg"
+            "https://github.com/anywhere-labs/dsh-desktop/releases/download/v2.0.18/DSH.Desktop-2.0.18-universal.dmg"
           ]
         }
       ],
-      "page": "https://github.com/anywhere-labs/deepseek-harness-desktop/releases",
+      "page": "https://github.com/anywhere-labs/dsh-desktop/releases",
       "needProxy": false,
       "tip": "官方仓库只发源码；桌面版来自社区仓库，Windows 只有 x64。同目录的 SHA256SUMS.txt 是官方校验清单"
     },
@@ -265,41 +265,41 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "Cherry-Studio-2.1.7-win-x64-setup.exe",
+          "file": "Cherry-Studio-2.1.9-win-x64-setup.exe",
           "size": "296.4 MB",
           "assetPattern": "win-x64-setup\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-setup.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.9-win-x64-setup.exe"
           ]
         },
         {
           "arch": "x64",
           "format": "portable",
-          "file": "Cherry-Studio-2.1.7-win-x64-portable.exe",
+          "file": "Cherry-Studio-2.1.9-win-x64-portable.exe",
           "size": "296.1 MB",
           "assetPattern": "win-x64-portable\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-x64-portable.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.9-win-x64-portable.exe"
           ]
         },
         {
           "arch": "arm64",
           "format": "setup",
-          "file": "Cherry-Studio-2.1.7-win-arm64-setup.exe",
+          "file": "Cherry-Studio-2.1.9-win-arm64-setup.exe",
           "size": "275.2 MB",
           "assetPattern": "win-arm64-setup\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-setup.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.9-win-arm64-setup.exe"
           ]
         },
         {
           "arch": "arm64",
           "format": "portable",
-          "file": "Cherry-Studio-2.1.7-win-arm64-portable.exe",
+          "file": "Cherry-Studio-2.1.9-win-arm64-portable.exe",
           "size": "274.8 MB",
           "assetPattern": "win-arm64-portable\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-win-arm64-portable.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.9-win-arm64-portable.exe"
           ]
         }
       ],
@@ -307,19 +307,19 @@
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "Cherry-Studio-2.1.7-mac-arm64.dmg",
+          "file": "Cherry-Studio-2.1.9-mac-arm64.dmg",
           "size": "300.1 MB",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-mac-arm64.dmg"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.9-mac-arm64.dmg"
           ]
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "Cherry-Studio-2.1.7-mac-x64.dmg",
+          "file": "Cherry-Studio-2.1.9-mac-x64.dmg",
           "size": "322.6 MB",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.7-mac-x64.dmg"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.9-mac-x64.dmg"
           ]
         }
       ],
@@ -347,7 +347,7 @@
           "size": "145.5 MB",
           "assetPattern": "-setup\\.exe$",
           "urls": [
-            "https://github.com/lobehub/lobe-chat/releases/latest/download/LobeHub-2.2.20-setup.exe"
+            "https://github.com/lobehub/lobe-chat/releases/download/v2.2.20/LobeHub-2.2.20-setup.exe"
           ]
         }
       ],
@@ -358,7 +358,7 @@
           "file": "LobeHub-2.2.20-arm64.dmg",
           "size": "157.1 MB",
           "urls": [
-            "https://github.com/lobehub/lobe-chat/releases/latest/download/LobeHub-2.2.20-arm64.dmg"
+            "https://github.com/lobehub/lobe-chat/releases/download/v2.2.20/LobeHub-2.2.20-arm64.dmg"
           ]
         },
         {
@@ -367,7 +367,7 @@
           "file": "LobeHub-2.2.20-x64.dmg",
           "size": "161.7 MB",
           "urls": [
-            "https://github.com/lobehub/lobe-chat/releases/latest/download/LobeHub-2.2.20-x64.dmg"
+            "https://github.com/lobehub/lobe-chat/releases/download/v2.2.20/LobeHub-2.2.20-x64.dmg"
           ]
         }
       ],
