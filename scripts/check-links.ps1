@@ -241,10 +241,54 @@ $unreach = @($results | Where-Object { $_.status -eq 'UNREACHABLE' })
 foreach ($r in (@($alive) + @($dead) + @($unreach))) {
     switch ($r.status) {
         'ALIVE' { Write-Host ('  200  ' + $r.app + ' / ' + $r.kind + ' / ' + $r.arch) -ForegroundColor Green }
-        'DEAD'  { Write-Host ('  ' + $r.code + '  ' + $r.app + ' / ' + $r.kind + ' / ' + $r.arch) -ForegroundColor Red }
+        'DEAD'  { $upHint2 = ''; if ($r.upstream) { $upHint2 = '  [上游最新: ' + $r.upstream + ']' }; Write-Host (('  ' + $r.code + '  ' + $r.app + ' / ' + $r.kind + ' / ' + $r.arch + $upHint2)) -ForegroundColor Red }
         default { Write-Host ('  ???  ' + $r.app + ' / ' + $r.kind + ' / ' + $r.arch + '  （网络不可达）') -ForegroundColor Yellow }
     }
 }
+
+# ---- 版本漂移提示：对 GitHub 直链死链，提示上游最新稳定版（主脚本顺序执行，可靠） ----
+function Get-StableLatest { param([string]$Repo, [string]$ProxyUrl = '')
+    try {
+        Add-Type -AssemblyName System.Net.Http -ErrorAction SilentlyContinue
+        $hh = [System.Net.Http.HttpClientHandler]::new()
+        $hh.AllowAutoRedirect = $true
+        $hh.MaxAutomaticRedirections = 5
+        $hh.AutomaticDecompression = [System.Net.DecompressionMethods]::GZip -bor [System.Net.DecompressionMethods]::Deflate
+        if ($ProxyUrl) { try { $hh.Proxy = [System.Net.WebProxy]::new($ProxyUrl); $hh.UseProxy = $true } catch { $hh.UseProxy = $false } }
+        else { $hh.UseProxy = $false }
+        $hc = [System.Net.Http.HttpClient]::new($hh)
+        $hc.Timeout = [TimeSpan]::FromSeconds(30)
+        [void]$hc.DefaultRequestHeaders.TryAddWithoutValidation('User-Agent', $UA)
+        $txt = $hc.GetStringAsync('https://github.com/' + $Repo + '/releases.atom').GetAwaiter().GetResult()
+        $hc.Dispose()
+        $titles = [regex]::Matches($txt, '<title>([^<]+)</title>')
+        foreach ($mm in $titles) {
+            $tv = $mm.Groups[1].Value.Trim()
+            if ($tv -match 'Release notes from') { continue }
+            if ($tv -match 'canary|beta|next|nightly|pr ?build|rc|alpha|rc\.') { continue }
+            return $tv
+        }
+        return ''
+    } catch { return '' }
+}
+$tagCache = @{}
+$deadWithUpstream = New-Object System.Collections.ArrayList
+foreach ($r2 in $dead) {
+    $r2 | Add-Member -NotePropertyName upstream -NotePropertyValue '' -Force
+    try {
+        $du = [uri]$r2.url
+        if ($du.Host -eq 'github.com') {
+            $segs = @($du.Segments | Where-Object { $_ -ne '/' } | ForEach-Object { $_.TrimEnd('/') })
+            if ($segs.Count -ge 2) {
+                $rp = $segs[0] + '/' + $segs[1]
+                if ($tagCache.ContainsKey($rp)) { $r2.upstream = $tagCache[$rp] }
+                else { $r2.upstream = (Get-StableLatest -Repo $rp -ProxyUrl $Proxy); if ($r2.upstream) { $tagCache[$rp] = $r2.upstream } }
+            }
+        }
+    } catch { }
+    [void]$deadWithUpstream.Add($r2)
+}
+$dead = @($deadWithUpstream)
 
 $lines = New-Object System.Collections.ArrayList
 [void]$lines.Add('直链 + 落地页健康检查报告')
@@ -253,7 +297,7 @@ $lines = New-Object System.Collections.ArrayList
 [void]$lines.Add('')
 if ($dead.Count -gt 0) {
     [void]$lines.Add('=== 确认失效（需更新）===')
-    foreach ($r in $dead) { [void]$lines.Add(('  ' + $r.code + '  ' + $r.app + '  ' + $r.kind + '  ' + $r.arch + '  ' + $r.format + '  ' + $r.url)) }
+    foreach ($r in $dead) { $upHint = ''; if ($r.upstream) { $upHint = '   [上游最新: ' + $r.upstream + ']' }; [void]$lines.Add(('  ' + $r.code + '  ' + $r.app + '  ' + $r.kind + '  ' + $r.arch + '  ' + $r.format + '  ' + $r.url + $upHint)) }
     [void]$lines.Add('')
 }
 if ($unreach.Count -gt 0) {
