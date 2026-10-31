@@ -8,6 +8,7 @@ on:
   push:
     paths:
       - 'sources.json'
+      - 'scripts/*.ps1'
 
 jobs:
   verify:
