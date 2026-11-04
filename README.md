@@ -33,7 +33,7 @@
 | --- | --- | --- |
 | **只想看看有哪些软件** | [清单.html](清单.html)（仓库内） · [在线版](https://yanwaiyue-name.github.io/agent-download/%E6%B8%85%E5%8D%95.html) | 仓库内那份不依赖外部托管，**双击即开、不联网也能用** |
 | **想让它自动下载安装** | 下载仓库 → 双击 `打开资源中心.bat` | 本地图形界面，按你的架构自动选包 |
-| **想要现成的安装包** | [GitHub Release](https://github.com/yanwaiyue-name/agent-download/releases) | **本仓库不含安装包本体**，原因见下 |
+| **想要现成的安装包** | [GitHub Release](https://github.com/yanwaiyue-name/agent-download/releases) | 只含**部分开源项目**的安装包快照（当前版本 v4.2.0，43 款）；本仓库不含安装包本体，原因见下 |
 | **完全没网** | 见下面「方式三：纯离线」 | 提前备好安装包，过去直接装 |
 
 > 国内访问 GitHub 不稳定时，把仓库打包下载（Code → Download ZIP），解压后双击 `清单.html` 就能看完整清单。
