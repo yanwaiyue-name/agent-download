@@ -21,8 +21,8 @@
   <a href="README.md">中文</a> | <a href="README.en.md">English</a>
 </p>
 
-> **📍 本仓库是 GitHub 的镜像。** 链接体检、版本检测、PowerShell lint 都在 GitHub Actions 运行，
-> 因此这里的版本与链接状态可能滞后于 [GitHub 主仓库](https://github.com/yanwaiyue-name/agent-download)。
+> **📍 本仓库同步自上游主仓库。** 链接体检、版本检测、PowerShell lint 都在 GitHub Actions 运行，
+> 因此其他镜像上的版本与链接状态可能滞后。
 > 离线清单页：<https://yanwaiyue-name.github.io/agent-download/>
 
 ---
