@@ -47,7 +47,7 @@
 | **时效** | 安装包每周都在更新，git 里存副本永远滞后 |
 
 **要现成文件，去 [GitHub Release](https://github.com/yanwaiyue-name/agent-download/releases)。**
-所有下载都建议核对 SHA256——`sources.json` 里已记录官方哈希，`launcher.ps1` 下载后会自动比对。
+下载后核对 SHA256：`sources.json` 里已固定的条目会自动比对，不符直接删文件；未固定的条目会明确提示（见「已知限制」）。
 
 ---
 
