@@ -42,6 +42,40 @@ try {
     exit 1
 }
 
+# 版本号必须三处对齐：sources.json / CHANGELOG 最新条目 / 两个 README 的 Version 徽章。
+# 4.4.0 曾出现「功能已发、CHANGELOG 已写、版本号还停在 4.3.1」的漂移，这里直接挡住。
+Head '[1.5/6] version consistency'
+$changeLogPath = Join-Path $Root 'CHANGELOG.md'
+if (Test-Path $changeLogPath) {
+    $cl = [System.IO.File]::ReadAllText($changeLogPath, [System.Text.Encoding]::UTF8)
+    $verMatch = [regex]::Match($cl, '##\s*\[(\d+\.\d+\.\d+)\]')
+    if (-not $verMatch.Success) {
+        Warn 'CHANGELOG.md has no x.y.z version heading'
+    } else {
+        $latest = $verMatch.Groups[1].Value
+        if ([string]$cfg.version -ne $latest) {
+            Bad ('sources.json version ' + $cfg.version + ' != CHANGELOG latest ' + $latest)
+        } else {
+            Ok ('sources.json version = CHANGELOG = ' + $latest)
+        }
+        foreach ($name in @('README.md', 'README.en.md')) {
+            $readmePath = Join-Path $Root $name
+            if (-not (Test-Path $readmePath)) { continue }
+            $text = [System.IO.File]::ReadAllText($readmePath, [System.Text.Encoding]::UTF8)
+            $vm = [regex]::Match($text, 'Version\s+(\d+\.\d+\.\d+)')
+            if (-not $vm.Success) {
+                Warn ($name + ' has no "Version x.y.z" line')
+            } elseif ($vm.Groups[1].Value -ne $latest) {
+                Bad ($name + ' version ' + $vm.Groups[1].Value + ' != CHANGELOG ' + $latest)
+            } else {
+                Ok ($name + ' version = ' + $latest)
+            }
+        }
+    }
+} else {
+    Warn 'CHANGELOG.md not found; skip version consistency check'
+}
+
 Head '[2/6] required fields'
 $required = @('id', 'name', 'group', 'desc', 'dir', 'arch')
 foreach ($a in @($cfg.apps)) {
