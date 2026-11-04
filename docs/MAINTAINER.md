@@ -1,28 +1,42 @@
 # 维护说明（给你自己看，不要随包发给使用者）
 
-> 当前版本 **v3.0**（2026-10-23）。相对 v2.2 的三处大改：
-> 1. **Hermes 有桌面版了** —— 官方现在提供 Windows `.exe` 和 macOS `.dmg`，不再只有 CLI。
-> 2. **同一软件支持多种格式** —— 安装版 / MSI / 免安装 / 压缩包 / 商店版，启动器让使用者自己选。
-> 3. **安装包已全部下好** —— 12 个软件的 Windows 全格式包都在 `安装包/` 里，macOS 包在 `安装包/<应用>/mac/`。
+> 当前版本 **v4.4**（2026-10-29），48 个项目 / 8 个分组。
+>
+> v4.3.1 → v4.4：**加了 SHA256 校验**（`sources.json` 每项可带 `sha256`；launcher 下载后强制比对，不符删文件换源），新增 `scripts/update-hashes.ps1`，`verify.ps1` 增加 sha256 格式检查，`launcher.ps1 -NoMirror` 可只走官方直链。
+> **改版本号后必须重跑 `update-hashes.ps1`**，否则新文件会被旧哈希拦住。
+>
+> v4.2 → v4.3：新增图吧工具箱（仅官网入口，托管不了）；离线清单页筛选栏补上「本地运行」「实用工具」（此前卡片能显示但筛选栏没入口）；CC Switch 4.0.19 → 4.0.21。
+>
+> v4.1 → v4.2：开发环境 4 → 7，补 uv、PowerShell 7、Windows Terminal —— 跑 Agent 的环境三件套。
+>
+> v4.0 → v4.1：新增「本地运行」（Ollama / LM Studio）与「实用工具」（Motrix）两个分组，新增 ZCode 桌面版与 Qoder，新增版本过期检测 CI（`scripts/check-versions.ps1`，落后自动开 issue）。
+>
+> **改完 sources.json 之后要同步的派生物**：`清单.html` 内嵌数据、`软件推荐与官方下载地址.txt`（跑 `scripts/gen-docs.ps1` 重新生成，不要手编）、`check-pc.ps1` 兜底表。GitHub 加速镜像改在 sources.json 顶层 `mirrors` 字段，launcher 和补全脚本都读它。
+>
+> v4.0（相对 v3.0）的主要变化：
+> 1. **项目 20 → 38** —— 新增 IDE、CLI Code 两个分组（Cursor / Trae / VS Code、Claude Code / Qwen Code / Kimi CLI 等）。
+> 2. **分组 4 → 6** —— 桌面端 / Agents / IDE / CLI Code / 运行环境 / 开发环境。
+> 3. **新增 `install` 字段** —— `web` / `npm` / `pip` 标记官方无直链包的应用，校验与界面不再误报为「缺文件」。
 
 ## 一、目录结构
 
 ```
-desktop-agent-installer/
+agent-download/
 ├── 双击启动.bat        ← 使用者点这个下载/安装（内容纯 ASCII，不要加中文进去）
 ├── 双击检测.bat        ← 使用者点这个查本机架构和可装版本
+├── 打开资源中心.bat    ← 使用者点这个开图形界面（UTF-8 无 BOM，chcp 65001 必须在中文出现之前）
 ├── launcher.ps1        ← 安装主逻辑（UTF-8 带 BOM，改完必须保持 BOM）
+│                         下载后按 sources.json 的 sha256 强制校验，不符即删文件换源
 ├── check-pc.ps1        ← 系统检测逻辑（同上，文件名保持 ASCII）
+├── 资源中心服务.ps1    ← 本地 HTTP 服务（仅 127.0.0.1）
+├── 资源中心.html       ← 图形界面目录页
+├── 清单.html           ← 离线单文件清单页（内嵌数据快照，改 sources.json 后要同步）
 ├── sources.json        ← 应用清单、格式、官方下载源（唯一数据源）
 ├── 使用说明.txt        ← 给使用者看的操作说明
 ├── 软件推荐与官方下载地址.txt ← 给使用者看的推荐表和官网直链
-├── 打包.ps1            ← 【给你用】生成 买家版/ 并压成 ZIP，不删任何现有文件
-├── gen-dirs.ps1        ← 【给你用】按 sources.json 重建安装包子目录 + 放这里.txt
-├── 补全安装包.ps1      ← 【给你用】按 sources.json 把每种格式都下全（含 -Mac）
-├── 维护说明.md         ← 本文件
-├── 下载地址总表.md     ← 【核心】官方直链 + 镜像 + 校验方法（不发货）
+├── docs/               ← MAINTAINER.md（本文件）/ DOWNLOAD-LINKS.md（直链总表）/ SECURITY.md / CONTRIBUTING.md
+├── scripts/            ← 更新.ps1 / verify.ps1 / check-links.ps1 / 打包.ps1 / gen-dirs.ps1 / 补全安装包.ps1 / 清理.ps1
 ├── 买家版/             ← 交付产物（自动生成，可直接发给使用者）
-├── AI桌面下载中心_买家版_v*.zip ← 交付产物（自动生成）
 ├── 安装包/             ← 离线安装包（真实文件）
 │   ├── <应用>/*.exe|*.msi|*.zip        ← Windows 全格式
 │   └── <应用>/mac/*.dmg                ← macOS 包（默认不进发布包）
@@ -173,6 +187,7 @@ sources.json
 | `dir` | app | **安装包子文件夹名**，如 `"OpenCode"`。纯 ASCII，不要带斜杠 |
 | `arch` | app | 该应用支持的架构概览：`x64` / `arm64` / `both` / `any` |
 | `github` | app | 形如 `owner/repo`，自动查最新 release |
+| `versionTagPrefix` | app | 可选。仓库 `releases/latest` 指向**别的产品线**时，指定要比对的 tag 前缀——Cline 的 latest 是 VS Code 扩展的 `v4.x`，桌面版在 `desktop-v0.0.x`，所以填 `desktop-v`。填了以后版本检测只在前缀命中的 release 里挑最新 |
 | `page` | app | 官方页面，失败时兜底打开 |
 | `tip` | app | 失败时显示的提示 |
 | `variants` | app | 数组，**每个元素是一种架构的一种格式** |

@@ -9,6 +9,7 @@
       -Message   commit message (required)
       -Regen     run gen-dirs.ps1 -Force first (after editing sources.json)
       -Push      push after commit (default true)
+      -Proxy     HTTPS proxy for push, e.g. http://127.0.0.1:7897 (off by default)
       -SkipVerify skip verify.ps1 (not recommended)
 #>
 param(
@@ -16,7 +17,8 @@ param(
     [string]$Message,
     [switch]$Regen,
     [switch]$SkipVerify,
-    [bool]$Push = $true
+    [bool]$Push = $true,
+    [string]$Proxy = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -31,10 +33,14 @@ Say '==============================================================' Magenta
 Say '  update pipeline' Magenta
 Say '==============================================================' Magenta
 
-# ---------- 0. proxy for github ----------
-$proxy = 'http://127.0.0.1:7897'
-$env:HTTPS_PROXY = $proxy
-$env:HTTP_PROXY  = $proxy
+# ---------- 0. proxy (optional) ----------
+# 不再默认设代理：写死 127.0.0.1:7897 只在作者本机可用，别人的机器 push 必挂。
+# 需要代理时显式传 -Proxy http://127.0.0.1:7897
+if ($Proxy) {
+    $env:HTTPS_PROXY = $Proxy
+    $env:HTTP_PROXY  = $Proxy
+    Say ('  proxy: ' + $Proxy) DarkGray
+}
 
 # ---------- 1. regenerate dirs (optional) ----------
 if ($Regen) {
@@ -103,12 +109,14 @@ if ($remoteUrl -notmatch ':443/') {
     Say '  Fix with: git remote set-url origin https://github.com:443/yanwaiyue-name/agent-download.git' Yellow
 }
 
-git push origin master
+# 推当前分支，不写死 master
+$branch = git rev-parse --abbrev-ref HEAD
+git push origin $branch
 if ($LASTEXITCODE -ne 0) {
     Say ''
     Say '  PUSH FAILED' Red
     Say '  Common causes:' Red
-    Say '    1. proxy not running (expected at 127.0.0.1:7897)' Red
+    Say '    1. network blocked: retry with  -Proxy http://127.0.0.1:7897  (or your own proxy)' Red
     Say '    2. credential expired: run  gh auth status' Red
     Say '    3. remote rewritten to a mirror: check  git remote -v' Red
     Say ''

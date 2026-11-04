@@ -10,9 +10,15 @@ on:
       - 'sources.json'
       - 'scripts/*.ps1'
 
+# 同上：死链告警要开 Issue，必须显式给 issues: write，否则 403 且告警静默丢失
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   verify:
-    runs-on: windows-latest
+    # 校验 + 链接检查都是纯文本/HTTP 操作，ubuntu 跑得更快
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -22,6 +28,8 @@ jobs:
 
       - name: Check download links
         shell: pwsh
+        id: links
+        # 链接失效不应让整个 job 变红（报告照常上传），但要用 steps.links.outcome 记录失败
         continue-on-error: true
         run: ./scripts/check-links.ps1 -Concurrency 6
 
@@ -34,7 +42,8 @@ jobs:
           if-no-files-found: ignore
 
       - name: Open issue when links are dead
-        if: failure()
+        # continue-on-error 会吞掉退出码 1：失败只能从 outcome 拿到，不能用 if: failure()
+        if: steps.links.outcome == 'failure'
         uses: actions/github-script@v7
         with:
           script: |
@@ -42,9 +51,32 @@ jobs:
             let body = 'The scheduled link check found dead download links.\n\n';
             try { body += '\`\`\`\n' + fs.readFileSync('link-report.txt', 'utf8').slice(0, 60000) + '\n\`\`\`'; } catch (e) {}
             body += '\n\nUpdate the affected entries in \`sources.json\` and close this issue.';
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: 'Dead download links detected (' + new Date().toISOString().slice(0, 10) + ')',
-              body
-            });
+
+            // 标题里不再带日期：带日期的标题每周都会生成一条新 issue，一年就是 52 条。
+            // 固定标题 + 先查后建，同一类问题只在一条 issue 里追加评论。
+            const title = 'Dead download links detected';
+            const LABEL = 'link-check';
+            // 标签不存在时 create 会 422，先尽力创建（已存在会 422，忽略即可）
+            try {
+              await github.rest.issues.createLabel({ owner: context.repo.owner, repo: context.repo.repo, name: LABEL, color: 'd73a4a' });
+            } catch (e) {}
+            const q = 'repo:' + context.repo.owner + '/' + context.repo.repo + ' is:issue is:open in:title "' + title + '"';
+            const found = await github.rest.search.issuesAndPullRequests({ q });
+            if (found.data.total_count > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: found.data.items[0].number,
+                body
+              });
+              core.info('已追加评论到 #' + found.data.items[0].number);
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: [LABEL]
+              });
+              core.info('已新建 issue');
+            }

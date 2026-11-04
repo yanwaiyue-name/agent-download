@@ -4,7 +4,7 @@
 
 <h1 align="center">📦 AI 客户端下载中心</h1>
 
-<p align="center"><strong>Version 4.0</strong></p>
+<p align="center"><strong>Version 4.4.0</strong></p>
 
 <p align="center">
   <em>一站式整理主流 AI 桌面客户端的官方下载地址，按电脑架构告诉您该装哪个版本。<br>
@@ -12,15 +12,18 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
-  <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT">
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-38%20apps-2ea44f" alt="20 apps">
+  <img src="https://img.shields.io/badge/software-48%20apps-2ea44f" alt="48 apps">
 </p>
 
 <p align="center">
   <a href="README.md">中文</a> | <a href="README.en.md">English</a>
 </p>
+
+> **📍 本仓库同步自上游主仓库。** 链接体检、版本检测、PowerShell lint 都在 GitHub Actions 运行，
+> 因此其他镜像上的版本与链接状态可能滞后。
+> 离线清单页：<https://yanwaiyue-name.github.io/agent-download/>
 
 ---
 
@@ -28,11 +31,23 @@
 
 | 你是 | 点这里 | 说明 |
 | --- | --- | --- |
-| **只想看看有哪些软件** | [清单.html](清单.html) · [在线查看](https://github.com/yanwaiyue-name/agent-download/blob/master/清单.html) | 单文件网页，下载后双击即开，**不联网也能用** |
+| **只想看看有哪些软件** | [清单.html](清单.html)（仓库内） · [在线版](https://yanwaiyue-name.github.io/agent-download/%E6%B8%85%E5%8D%95.html) | 仓库内那份不依赖外部托管，**双击即开、不联网也能用** |
 | **想让它自动下载安装** | 下载仓库 → 双击 `打开资源中心.bat` | 本地图形界面，按你的架构自动选包 |
+| **想要现成的安装包** | [GitHub Release](https://github.com/yanwaiyue-name/agent-download/releases) | 只含**部分开源项目**的安装包快照（当前版本 v4.2.0，43 款）；本仓库不含安装包本体，原因见下 |
 | **完全没网** | 见下面「方式三：纯离线」 | 提前备好安装包，过去直接装 |
 
 > 国内访问 GitHub 不稳定时，把仓库打包下载（Code → Download ZIP），解压后双击 `清单.html` 就能看完整清单。
+
+### 为什么本仓库不含安装包
+
+| 原因 | 说明 |
+|---|---|
+| **体积** | 48 个应用全套约 7.0 GB，塞进 git 会让 clone 变得不可用 |
+| **许可** | 部分软件不允许再分发，仓库只放**官方地址**，不托管文件 |
+| **时效** | 安装包每周都在更新，git 里存副本永远滞后 |
+
+**要现成文件，去 [GitHub Release](https://github.com/yanwaiyue-name/agent-download/releases)。**
+下载后核对 SHA256：`sources.json` 里已固定的条目会自动比对，不符直接删文件；未固定的条目会明确提示（见「已知限制」）。
 
 ---
 
@@ -46,17 +61,17 @@
 
 这个仓库做三件事：**整理官方地址**、**标注该装哪个版本**、**提供一个能自动检测本机并离线安装的工具**。
 
-> 本仓库只包含**脚本和清单**，不含任何安装包本体。所有安装包请从下表官方地址获取。
+> 仓库代码只包含**脚本和清单**。**Release** 额外附带部分开源项目官方安装包的未修改副本（仅限许可允许再分发者），闭源软件与微软运行库不托管，请从下表官方地址获取。
 
 ---
 
 ## ⚡ 30 秒速查：您该装哪个
 
-共 **38** 项，分 **6** 个分组。⭐ = 推荐。
+共 **48** 项，分 **8** 个分组。⭐ = 推荐。
 
 > **重要**：标注 `npm` / `pip` 的工具**没有可双击的安装包**，必须用命令行安装。这是它们官方的发布方式，不是缺文件。
 
-### 桌面端（9）
+### 桌面端（10）
 
 | 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
 |---|---|---|---|---|
@@ -64,11 +79,12 @@
 | **Claude Desktop** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://claude.ai/download) |
 | **ChatGPT 桌面端（含 Codex）** ⭐ | ✅ 商店 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://chatgpt.com/download) |
 | **OpenCode Desktop** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://opencode.ai/download) |
-| **DeepSeek Harness 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/anywhere-labs/deepseek-harness-desktop/releases) |
+| **DeepSeek Harness 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/anywhere-labs/dsh-desktop/releases) |
 | **Cherry Studio** ⭐ | ✅ 安装版/免安装 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://www.cherry-ai.com) |
-| **LobeHub 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/lobehub/lobe-chat/releases) |
+| **LobeHub 桌面版** | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://github.com/lobehub/lobehub/releases) |
 | **Hermes Agent 桌面版** ⭐ | ✅ 安装版 | ⚠️ 模拟 | ✅ Apple | [官方页](https://hermes-agent.nousresearch.com/) |
 | **Watt Toolkit（瓦特工具箱）** | ✅ 安装版/免安装 | ⚠️ 模拟 | ✅ Apple/Intel | [官方页](https://steampp.net/) |
+| **ZCode 桌面版** ⭐ | ✅ 安装版 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://zcode.z.ai/cn) |
 
 ### Agents（8）
 
@@ -83,7 +99,7 @@
 | **Cline（桌面版）** ⭐ | ✅ 安装版 | ⚠️ 模拟 | — | [官方页](https://github.com/cline/cline/releases) |
 | **Grox（Grok Build 社区桌面版）** | ✅ 安装版 | ⚠️ 模拟 | — | [官方页](https://github.com/dandandujie/Grox) |
 
-### IDE（5）
+### IDE（6）
 
 | 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
 |---|---|---|---|---|
@@ -92,6 +108,7 @@
 | **Trae CN（国内版）** ⭐ | 官网下载 | 官网下载 | 官网 | [官方页](https://www.trae.cn/download) |
 | **Windsurf** | 官网下载 | 官网下载 | 官网 | [官方页](https://windsurf.com/download) |
 | **Visual Studio Code** | 官网下载 | 官网下载 | 官网 | [官方页](https://code.visualstudio.com/download) |
+| **Qoder** ⭐ | 官网下载 | 官网下载 | 官网 | [官方页](https://qoder.com/en/download) |
 
 ### CLI Code（9）
 
@@ -115,7 +132,9 @@
 | **WebView2 运行时（离线包）** | 完整离线安装包，装的时候不需要联网 | [官方页](https://developer.microsoft.com/microsoft-edge/webview2/) |
 | **VC++ 运行库 2015-2022（x64）** | 微软 Visual C++ 运行库，多数桌面软件的底层依赖 | [官方页](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist) |
 
-### 开发环境（4）
+### 开发环境（7）
+
+跑 Agent / 命令行工具前的地基。装哪些取决于你用什么：MCP 服务器（Python 类）→ uv；npm 类 CLI → Node.js；Claude Code 全屏界面 → Windows Terminal。
 
 | 名称 | 说明 | 官方地址 |
 |---|---|---|
@@ -123,6 +142,27 @@
 | **Node.js 24.22.1 LTS** | Node.js 长期支持版（含 npm） | [官方页](https://nodejs.org/zh-cn/download) |
 | **Git for Windows 2.56.0.3** | Git 版本控制（含 Git Bash） | [官方页](https://git-scm.com/download/win) |
 | **7-Zip 25.01** | 开源压缩工具，支持 .7z / .zip / .rar 等 | [官方页](https://www.7-zip.org/) |
+| **uv（Astral）** ⭐ | Python / MCP 极速运行器（uvx）——Python 类 MCP 服务器的标准启动方式 | [官方页](https://docs.astral.sh/uv/) |
+| **PowerShell 7.6.8** ⭐ | 微软现代 shell（pwsh），与系统自带 5.1 共存 | [官方页](https://aka.ms/powershell) |
+| **Windows Terminal 1.25** ⭐ | 微软官方现代终端，跑全屏 TUI 类 Agent CLI 的最佳载体 | [官方页](https://aka.ms/terminal) |
+
+### 本地运行（2）
+
+在自己电脑上跑开源模型（Qwen / DeepSeek / Llama 等），不走云端 API。
+
+| 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
+|---|---|---|---|---|
+| **Ollama** ⭐ | ✅ 安装版（1.5 GB） | ✅ zip | ✅ Apple/Intel | [官方页](https://ollama.com/download) |
+| **LM Studio** ⭐ | 官网下载 | 官网下载 | 官网 | [官方页](https://lmstudio.ai/download) |
+
+### 实用工具（2）
+
+不是 AI 软件，但能让上面的东西下载得更快，或先帮你确认本机配置。
+
+| 软件 | Intel/AMD | 骁龙/麒麟 | macOS | 官方地址 |
+|---|---|---|---|---|
+| **Motrix** ⭐ | ✅ 安装版 | ✅ 原生 | ✅ Apple/Intel | [官方页](https://motrix.app) |
+| **图吧工具箱（TBTool）** | 官网下载 | ⚠️ 模拟 | — | [官方页](https://www.tbtool.cn/) |
 
 
 ---
@@ -173,6 +213,8 @@
 
 ## 🇨🇳 国内网络现实
 
+> 📋 **加速站透明度**：本项目实际使用的 GitHub 加速站列表、工作原理与安全校验说明，详见 [docs/accelerators.md](docs/accelerators.md)。
+
 | 情况 | 说明 |
 |---|---|
 | 腾讯系（WorkBuddy）、微软、GitHub 加速站 | 国内直连可用 |
@@ -197,7 +239,7 @@ agent-download/
 ├── check-pc.ps1                 系统检测逻辑
 ├── 资源中心服务.ps1             本地 HTTP 服务（127.0.0.1）
 ├── 资源中心.html                目录页界面
-├── sources.json                 ★ 唯一数据源：20 个应用的地址和版本
+├── sources.json                 ★ 唯一数据源：48 个应用的地址和版本
 ├── 使用说明.txt                 给使用者的操作说明
 ├── 软件推荐与官方下载地址.txt    推荐表和官网直链
 ├── docs/
@@ -205,6 +247,9 @@ agent-download/
 │   ├── DOWNLOAD-LINKS.md        全部官方直链与校验方法
 │   └── images/                  界面截图
 └── scripts/
+    ├── 更新.ps1                 一键 校验+提交+推送
+    ├── verify.ps1               校验 sources.json 与所有脚本
+    ├── check-links.ps1          直链健康检查（需 pwsh 7）
     ├── 打包.ps1                 生成发布包
     ├── gen-dirs.ps1             按 JSON 重建安装包目录
     ├── 补全安装包.ps1           批量下载全部格式
@@ -253,7 +298,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\更新.ps1 -Message "更新 C
 | 1 | 校验 `sources.json` 与所有脚本（`verify.ps1`），出错立即中止 |
 | 2 | `git add -A` |
 | 3 | `git commit`（用你给的 -Message） |
-| 4 | `git push`（自动走代理与 `:443` 地址，绕开镜像改写） |
+| 4 | `git push` 当前分支（需要代理时加 `-Proxy` 参数；`:443` 地址可绕开镜像改写） |
 
 改了 `sources.json` 想顺便重建目录结构，加 `-Regen`：
 
@@ -267,6 +312,30 @@ powershell -ExecutionPolicy Bypass -File .\scripts\更新.ps1 -Message "更新 C
 
 ---
 
+## 🔐 下载校验是怎么做的
+
+`sources.json` 里每个安装包可以带 `sha256`。`launcher.ps1` 下载完成后会立刻比对：
+
+- **一致** → 继续安装
+- **不一致** → 删掉这个文件，换下一个源重试；全都不符就报错退出。**不会**把可疑文件交给你
+- **没记录** → 只把算出来的 SHA256 打在屏幕上，不拦截
+
+哈希优先取上游自己发布的校验清单（`SHA256SUMS.txt` / `SHASUMS256.txt` / `sha256.sum`），拿不到才由维护者下载后自算——**这两种来源的可信度不一样**，维护脚本会把来源标出来。
+
+想只用官方链路、不走第三方加速站：
+
+```powershell
+pwsh -File .\launcher.ps1 -NoMirror
+```
+
+维护者刷新哈希（版本一升就必须重跑，否则会误拦）：
+
+```powershell
+pwsh -File .\scripts\update-hashes.ps1 -Proxy http://127.0.0.1:7897
+```
+
+---
+
 ## ⚠️ 已知限制
 
 | 限制 | 说明 |
@@ -277,12 +346,14 @@ powershell -ExecutionPolicy Bypass -File .\scripts\更新.ps1 -Message "更新 C
 | Hermes 的 exe 只有 7.6 MB | 同样是引导器，首次启动联网拉运行时 |
 | 安装包无微软签名 | Windows 会显示 SmartScreen 警告，属正常现象 |
 | macOS 包不在 Windows 包里 | dmg 单独放，Windows 启动器不读 |
+| 部分条目还没有官方哈希 | 目前 93 个资产里固定了 42 个（上游官方清单 + 自行计算，来源逐条标注）。**有哈希的下载后强制校验，不符直接删文件**；没有的只显示不拦截，补齐方法见下面的维护命令 |
+| 加速站是额外信任面 | 默认仍会尝试第三方加速前缀（否则国内下不动），可用 `-NoMirror` 只用 GitHub 官方直链 |
 
 ---
 
 ## 📄 说明
 
-- 本仓库**不含任何安装包本体**，仅整理官方下载地址并提供下载/安装便利
+- 仓库代码**不含安装包本体**；Release 附带部分**开源项目**官方安装包的未修改副本（AGPL/GPL 项目的源码见其官方仓库），闭源软件与微软运行库（许可不允许再分发）不在其列
 - 所有安装包版权归各厂商所有，请从官方渠道获取并遵守其许可协议
 - 建议安装前核对文件名与发布者，确认来自官方页面
 - 部分软件在中国大陆需网络代理才能访问官方源
@@ -290,6 +361,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\更新.ps1 -Message "更新 C
 ## License
 
 [MIT](LICENSE) —— 脚本和清单部分可自由使用、修改、分发。
+
+---
+
+<p align="center"><em>如果这个清单帮你少踩了坑，点个 ⭐ Star，让后来的人也能找到它。</em></p>
 
 ## 相关项目
 

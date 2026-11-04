@@ -1,4 +1,9 @@
-# AI Agent 桌面版 下载地址总表（v3.0）
+# AI Agent 桌面版 下载地址总表（v3.0 时代快照）
+
+> ⚠️ **此表已停更**：v4.1 起全部 43 项的权威数据源是 `sources.json`，面向用户的完整清单见
+> `软件推荐与官方下载地址.txt`（由 `scripts/gen-docs.ps1` 自动生成）和
+> [在线清单页](https://yanwaiyue-name.github.io/agent-download/)。
+> 本文件保留 v3.0 时点的实测快照与校验方法说明，仅供追溯；表中未收录 v4 之后新增的 25 个应用。
 
 > 全部链接于 **2026-10-22 ~ 10-23** 逐个实测（GET/HEAD，返回 200 且字节数与官方 release 一致）。链接会随版本更新失效，文末有「怎么自己刷新」的方法。
 > 用途：给你做**离线安装包分发**用——照这张表把安装包放进 `安装包/` 对应目录，用于离线分发。
@@ -152,10 +157,10 @@
 | Claude Desktop | https://claude.ai/download | https://claude.ai |
 | Codex / ChatGPT | https://chatgpt.com/download | https://openai.com/codex |
 | OpenCode | https://opencode.ai/download | https://opencode.ai |
-| DeepSeek Harness | https://github.com/anywhere-labs/deepseek-harness-desktop/releases | https://github.com/deepseek-ai/deepseek-harness |
+| DeepSeek Harness | https://github.com/anywhere-labs/dsh-desktop/releases | https://github.com/deepseek-ai/deepseek-harness |
 | **Hermes** | **https://hermes-agent.nousresearch.com/ （首页就有 Desktop App 的 Windows / macOS 按钮）** | https://github.com/NousResearch/hermes-agent |
 | Cherry Studio | https://www.cherry-ai.com | https://github.com/CherryHQ/cherry-studio |
-| LobeHub | https://github.com/lobehub/lobe-chat/releases | 同左 |
+| LobeHub | https://github.com/lobehub/lobehub/releases | 同左 |
 | CC Switch | https://ccswitch.io | https://github.com/farion1231/cc-switch/releases |
 | Open Cowork | https://github.com/OpenCoworkAI/open-cowork/releases | 同左 |
 | RunJam | https://www.runjam.app | https://github.com/peintune/runjam/releases |
@@ -193,7 +198,7 @@
 
 ### 3. DeepSeek Harness 官方仓库没有桌面安装包
 
-`deepseek-ai/deepseek-harness` **只发源码，没有 releases**。桌面版在社区仓库 `anywhere-labs/deepseek-harness-desktop`，最新 v2.0.18（2026-10-17）。跟使用者讲清楚：装的是社区打包版。
+`deepseek-ai/deepseek-harness` **只发源码，没有 releases**。桌面版在社区仓库 `anywhere-labs/dsh-desktop`，最新 v2.0.18（2026-10-17）。跟使用者讲清楚：装的是社区打包版。
 
 ### 4. Claude 的直链路径叫 `claude-science`
 
@@ -347,7 +352,7 @@ shasum -a 256 Claude-Setup-x64.exe
 
 DSH 官方提供校验清单（下载后对照）：
 ```
-https://github.com/anywhere-labs/deepseek-harness-desktop/releases/download/v2.0.18/SHA256SUMS.txt
+https://github.com/anywhere-labs/dsh-desktop/releases/download/v2.0.18/SHA256SUMS.txt
 ```
 
 其它几家不提供校验文件，用「文件大小是否与第一节一致」做粗校验即可（差 1 MB 以上就说明没下完）。

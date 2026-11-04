@@ -1,0 +1,76 @@
+name: Version freshness check
+
+on:
+  schedule:
+    # 每周一 04:00 UTC（北京时间 12:00），排在 link-check（03:00）之后
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sources.json'
+
+# 默认 GITHUB_TOKEN 在本仓库是只读的：不显式声明 issues: write，
+# 下面的 github-script 开 Issue 会 403 "Resource not accessible by integration"
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  version-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check pinned versions against upstream
+        shell: pwsh
+        id: versions
+        # 有落后版本不应让 job 变红（报告照常上传），用 outcome 触发下面的 issue
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./scripts/check-versions.ps1
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: version-report
+          path: version-report.txt
+          if-no-files-found: ignore
+
+      - name: Open issue when versions drifted
+        if: steps.versions.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = 'The version freshness check found pinned versions behind upstream releases.\n\n';
+            try { body += '\`\`\`\n' + fs.readFileSync('version-report.txt', 'utf8').slice(0, 60000) + '\n\`\`\`'; } catch (e) {}
+            body += '\n\nUpdate the affected entries in \`sources.json\` (file names, urls, sizes) and close this issue.';
+
+            // 固定标题 + 先查后建：以前标题带日期，每次检查都会开一条新 issue。
+            const title = 'New upstream versions available';
+            const LABEL = 'version-check';
+            try {
+              await github.rest.issues.createLabel({ owner: context.repo.owner, repo: context.repo.repo, name: LABEL, color: 'fbca04' });
+            } catch (e) {}
+            const q = 'repo:' + context.repo.owner + '/' + context.repo.repo + ' is:issue is:open in:title "' + title + '"';
+            const found = await github.rest.search.issuesAndPullRequests({ q });
+            if (found.data.total_count > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: found.data.items[0].number,
+                body
+              });
+              core.info('已追加评论到 #' + found.data.items[0].number);
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: [LABEL]
+              });
+              core.info('已新建 issue');
+            }

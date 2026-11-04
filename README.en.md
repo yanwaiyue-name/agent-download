@@ -4,7 +4,7 @@
 
 <h1 align="center">📦 AI Client Download Center</h1>
 
-<p align="center"><strong>Version 4.0</strong></p>
+<p align="center"><strong>Version 4.4.0</strong></p>
 
 <p align="center">
   <em>Curated official download links for mainstream AI desktop clients,<br>
@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-38%20apps-2ea44f" alt="20 apps">
+  <img src="https://img.shields.io/badge/software-48%20apps-2ea44f" alt="48 apps">
 </p>
 
 <p align="center">
@@ -40,11 +40,11 @@ This repo does three things: **curates official links**, **tells you which build
 
 ## ⚡ 30-second lookup
 
-**38 entries in 6 groups.** ⭐ = recommended.
+**48 entries in 8 groups.** ⭐ = recommended.
 
 > Important: entries marked `npm` / `pip` have **no downloadable installer** — that is how the vendor ships them, not a missing file.
 
-### Desktop clients (9)
+### Desktop clients (10)
 
 | Software | Intel/AMD | Snapdragon/Kirin | macOS | Official |
 |---|---|---|---|---|
@@ -52,11 +52,12 @@ This repo does three things: **curates official links**, **tells you which build
 | Claude Desktop ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://claude.ai/download) |
 | ChatGPT Desktop (incl. Codex) ⭐ | ✅ Store stub | ✅ native | ✅ Apple/Intel | [link](https://chatgpt.com/download) |
 | OpenCode Desktop ⭐ | ✅ installer/portable | ✅ native | ✅ Apple/Intel | [link](https://opencode.ai/download) |
-| DeepSeek Harness Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/anywhere-labs/deepseek-harness-desktop/releases) |
+| DeepSeek Harness Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/anywhere-labs/dsh-desktop/releases) |
 | Cherry Studio ⭐ | ✅ installer/portable | ✅ native | ✅ Apple/Intel | [link](https://www.cherry-ai.com) |
-| LobeHub Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/lobehub/lobe-chat/releases) |
+| LobeHub Desktop | ✅ installer | ⚠️ emulated | ✅ Apple/Intel | [link](https://github.com/lobehub/lobehub/releases) |
 | Hermes Agent Desktop ⭐ | ✅ installer | ⚠️ emulated | ✅ Apple Silicon | [link](https://hermes-agent.nousresearch.com/) |
 | Watt Toolkit | ✅ installer/portable | ⚠️ emulated | ✅ Apple/Intel | [link](https://steampp.net/) |
+| ZCode Desktop ⭐ | ✅ installer | ✅ native | ✅ Apple/Intel | [link](https://zcode.z.ai/cn) |
 
 ### Agents (8)
 
@@ -71,7 +72,7 @@ This repo does three things: **curates official links**, **tells you which build
 | Cline (desktop) ⭐ | ✅ installer | ⚠️ emulated | — | [link](https://github.com/cline/cline/releases) |
 | Grox (community) | ✅ installer | ⚠️ emulated | — | [link](https://github.com/dandandujie/Grox) |
 
-### IDE (5)
+### IDE (6)
 
 | Software | Install | Notes |
 |---|---|---|
@@ -80,6 +81,7 @@ This repo does three things: **curates official links**, **tells you which build
 | **Trae CN** ⭐ | official site | **ByteDance China build — direct access in CN** |
 | Windsurf | official site | Codeium, Cascade agent |
 | VS Code | official site | base for Cline / Roo Code / Continue extensions |
+| **Qoder** ⭐ | official site | Alibaba agentic coding platform, Quest mode |
 
 ### CLI Code (9)
 
@@ -95,9 +97,27 @@ This repo does three things: **curates official links**, **tells you which build
 | Aider | pip | ❌ Python package |
 | iFlow CLI | npm | ❌ no binary |
 
-### Runtime (3) / Dev toolchain (4)
+### Local inference (2)
 
-WebView2 online + offline, VC++ redist; Python 3.13.10, Node.js 24.22.1 LTS, Git 2.56.0.3, 7-Zip 25.01.
+Run open models (Qwen / DeepSeek / Llama) on your own hardware, no cloud API.
+
+| Software | Install | Notes |
+|---|---|---|
+| **Ollama** ⭐ | installer (1.5 GB) | de-facto standard for local models; ARM64 Windows uses zip |
+| **LM Studio** ⭐ | official site | local-model GUI, OpenAI-compatible server |
+
+### Utilities (2)
+
+Not AI apps — they just make the downloads above faster, or check your hardware first.
+
+| Software | Intel/AMD | Snapdragon/Kirin | macOS | Official |
+|---|---|---|---|---|
+| **Motrix** ⭐ | ✅ installer | ✅ native | ✅ Apple/Intel | [link](https://motrix.app) |
+| **TBTool (图吧工具箱)** | official site | ⚠️ emulated | — | [link](https://www.tbtool.cn/) |
+
+### Runtime (3) / Dev toolchain (7)
+
+WebView2 online + offline, VC++ redist; Python 3.13.10, Node.js 24.22.1 LTS, Git 2.56.0.3, 7-Zip 25.01, plus the agent-environment trio: **uv** (uvx — the standard launcher for Python MCP servers), **PowerShell 7** (pwsh), and **Windows Terminal** (best host for full-screen TUI agent CLIs).
 
 ---
 
@@ -161,6 +181,7 @@ Do not invent variants the vendor never published — it only produces 404s.
 | Hermes stub is 7.6 MB | Same — a bootstrapper that fetches the runtime |
 | No code signing | Windows SmartScreen will warn. Expected |
 | macOS dmgs ship separately | The Windows launcher does not read them |
+| Some assets have no official hash | 42 of 93 assets are pinned in `sources.json`. Pinned ones are verified after download and mismatches deleted; unpinned ones are only reported. Run `scripts/update-hashes.ps1` to pin more. |
 
 ---
 

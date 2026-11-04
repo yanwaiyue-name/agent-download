@@ -42,6 +42,40 @@ try {
     exit 1
 }
 
+# 版本号必须三处对齐：sources.json / CHANGELOG 最新条目 / 两个 README 的 Version 徽章。
+# 4.4.0 曾出现「功能已发、CHANGELOG 已写、版本号还停在 4.3.1」的漂移，这里直接挡住。
+Head '[1.5/6] version consistency'
+$changeLogPath = Join-Path $Root 'CHANGELOG.md'
+if (Test-Path $changeLogPath) {
+    $cl = [System.IO.File]::ReadAllText($changeLogPath, [System.Text.Encoding]::UTF8)
+    $verMatch = [regex]::Match($cl, '##\s*\[(\d+\.\d+\.\d+)\]')
+    if (-not $verMatch.Success) {
+        Warn 'CHANGELOG.md has no x.y.z version heading'
+    } else {
+        $latest = $verMatch.Groups[1].Value
+        if ([string]$cfg.version -ne $latest) {
+            Bad ('sources.json version ' + $cfg.version + ' != CHANGELOG latest ' + $latest)
+        } else {
+            Ok ('sources.json version = CHANGELOG = ' + $latest)
+        }
+        foreach ($name in @('README.md', 'README.en.md')) {
+            $readmePath = Join-Path $Root $name
+            if (-not (Test-Path $readmePath)) { continue }
+            $text = [System.IO.File]::ReadAllText($readmePath, [System.Text.Encoding]::UTF8)
+            $vm = [regex]::Match($text, 'Version\s+(\d+\.\d+\.\d+)')
+            if (-not $vm.Success) {
+                Warn ($name + ' has no "Version x.y.z" line')
+            } elseif ($vm.Groups[1].Value -ne $latest) {
+                Bad ($name + ' version ' + $vm.Groups[1].Value + ' != CHANGELOG ' + $latest)
+            } else {
+                Ok ($name + ' version = ' + $latest)
+            }
+        }
+    }
+} else {
+    Warn 'CHANGELOG.md not found; skip version consistency check'
+}
+
 Head '[2/6] required fields'
 $required = @('id', 'name', 'group', 'desc', 'dir', 'arch')
 foreach ($a in @($cfg.apps)) {
@@ -138,6 +172,48 @@ foreach ($a in @($cfg.apps)) {
     }
 }
 Ok ('file entries = ' + $seen.Count)
+
+# app id 唯一性：Web 服务的 /dl 路由和启动器缓存都按 id 索引，重复 id 会静默错乱
+Head '[5.5/6] app id uniqueness'
+$idSeen = @{}
+$idDup = 0
+foreach ($a in @($cfg.apps)) {
+    $id = [string]$a.id
+    if (-not $id) { continue }
+    if ($idSeen.ContainsKey($id)) {
+        Bad ('duplicate app id: ' + $id)
+        $idDup++
+    } else {
+        $idSeen[$id] = $true
+    }
+}
+if ($idDup -eq 0) { Ok ($idSeen.Count.ToString() + ' app ids all unique') }
+
+# sha256 字段：格式必须合法，否则 launcher 的比对会永远失败，把所有下载都判成"哈希不符"。
+Head '[5.7/6] sha256 fields'
+$shaTotal = 0; $shaBad = 0; $shaMissing = 0
+foreach ($a in @($cfg.apps)) {
+    foreach ($key in @('variants', 'mac')) {
+        $list = @($a.$key)
+        if (-not $list) { continue }
+        foreach ($v in $list) {
+            if ($null -eq $v) { continue }
+            $shaTotal++
+            $s = [string]$v.sha256
+            if (-not $s) { $shaMissing++; continue }
+            if ($s -notmatch '^[0-9a-f]{64}$') {
+                Bad ('bad sha256 for ' + $a.id + ' / ' + $v.file + ': ' + $s)
+                $shaBad++
+            }
+        }
+    }
+}
+if ($shaBad -eq 0) {
+    Ok ('sha256 format OK; ' + ($shaTotal - $shaMissing).ToString() + '/' + $shaTotal.ToString() + ' entries pinned')
+    if ($shaMissing -gt 0) {
+        Warn ($shaMissing.ToString() + ' entries have no sha256 yet — run scripts/update-hashes.ps1 to pin them')
+    }
+}
 
 if (-not $SkipSyntax) {
     Head '[6/6] PowerShell syntax and BOM'
