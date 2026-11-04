@@ -15,7 +15,7 @@
   <a href="https://github.com/yanwaiyue-name/agent-download/stargazers"><img src="https://img.shields.io/github/stars/yanwaiyue-name/agent-download?logo=github&label=Stars" alt="Stars"></a>
   <a href="https://github.com/yanwaiyue-name/agent-download/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT"></a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-47%20apps-2ea44f" alt="47 apps">
+  <img src="https://img.shields.io/badge/software-48%20apps-2ea44f" alt="48 apps">
 </p>
 
 <p align="center">
@@ -40,7 +40,7 @@ This repo does three things: **curates official links**, **tells you which build
 
 ## ⚡ 30-second lookup
 
-**47 entries in 8 groups.** ⭐ = recommended.
+**48 entries in 8 groups.** ⭐ = recommended.
 
 > Important: entries marked `npm` / `pip` have **no downloadable installer** — that is how the vendor ships them, not a missing file.
 

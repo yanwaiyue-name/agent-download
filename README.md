@@ -14,7 +14,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="MIT">
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-0078d4" alt="Platform">
-  <img src="https://img.shields.io/badge/software-47%20apps-2ea44f" alt="47 apps">
+  <img src="https://img.shields.io/badge/software-48%20apps-2ea44f" alt="48 apps">
 </p>
 
 <p align="center">
@@ -42,7 +42,7 @@
 
 | 原因 | 说明 |
 |---|---|
-| **体积** | 47 个应用全套约 6.8 GB，塞进 git 会让 clone 变得不可用 |
+| **体积** | 48 个应用全套约 7.0 GB，塞进 git 会让 clone 变得不可用 |
 | **许可** | 部分软件不允许再分发，仓库只放**官方地址**，不托管文件 |
 | **时效** | 安装包每周都在更新，git 里存副本永远滞后 |
 
@@ -67,7 +67,7 @@
 
 ## ⚡ 30 秒速查：您该装哪个
 
-共 **47** 项，分 **8** 个分组。⭐ = 推荐。
+共 **48** 项，分 **8** 个分组。⭐ = 推荐。
 
 > **重要**：标注 `npm` / `pip` 的工具**没有可双击的安装包**，必须用命令行安装。这是它们官方的发布方式，不是缺文件。
 
@@ -239,7 +239,7 @@ agent-download/
 ├── check-pc.ps1                 系统检测逻辑
 ├── 资源中心服务.ps1             本地 HTTP 服务（127.0.0.1）
 ├── 资源中心.html                目录页界面
-├── sources.json                 ★ 唯一数据源：47 个应用的地址和版本
+├── sources.json                 ★ 唯一数据源：48 个应用的地址和版本
 ├── 使用说明.txt                 给使用者的操作说明
 ├── 软件推荐与官方下载地址.txt    推荐表和官网直链
 ├── docs/
