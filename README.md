@@ -4,7 +4,7 @@
 
 <h1 align="center">📦 AI 客户端下载中心</h1>
 
-<p align="center"><strong>Version 4.4.0</strong></p>
+<p align="center"><strong>Version 4.4.1</strong></p>
 
 <p align="center">
   <em>一站式整理主流 AI 桌面客户端的官方下载地址，按电脑架构告诉您该装哪个版本。<br>
@@ -346,7 +346,7 @@ pwsh -File .\scripts\update-hashes.ps1 -Proxy http://127.0.0.1:7897
 | Hermes 的 exe 只有 7.6 MB | 同样是引导器，首次启动联网拉运行时 |
 | 安装包无微软签名 | Windows 会显示 SmartScreen 警告，属正常现象 |
 | macOS 包不在 Windows 包里 | dmg 单独放，Windows 启动器不读 |
-| 部分条目还没有官方哈希 | 目前 93 个资产里固定了 42 个（上游官方清单 + 自行计算，来源逐条标注）。**有哈希的下载后强制校验，不符直接删文件**；没有的只显示不拦截，补齐方法见下面的维护命令 |
+| 部分条目还没有官方哈希 | 目前 97 个资产里固定了 46 个（上游官方清单 + 自行计算，来源逐条标注）。**有哈希的下载后强制校验，不符直接删文件**；没有的只显示不拦截，补齐方法见下面的维护命令 |
 | 加速站是额外信任面 | 默认仍会尝试第三方加速前缀（否则国内下不动），可用 `-NoMirror` 只用 GitHub 官方直链 |
 
 ---

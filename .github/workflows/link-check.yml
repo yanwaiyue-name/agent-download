@@ -20,7 +20,7 @@ jobs:
     # 校验 + 链接检查都是纯文本/HTTP 操作，ubuntu 跑得更快
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Validate sources.json and scripts
         shell: pwsh
@@ -80,3 +80,29 @@ jobs:
               });
               core.info('已新建 issue');
             }
+
+      - name: Close issue when links are healthy again
+        # 只关「本次确认没有死链」的情况；被拦截/不可达不算问题，不影响退出码
+        if: steps.links.outcome == 'success'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = 'Dead download links detected';
+            const q = 'repo:' + context.repo.owner + '/' + context.repo.repo + ' is:issue is:open in:title "' + title + '"';
+            const found = await github.rest.search.issuesAndPullRequests({ q });
+            for (const item of found.data.items) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: item.number,
+                body: '本次链接体检没有发现 404/410 死链（403/429/5xx 归为被拦截，不算失效），自动关闭。'
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: item.number,
+                state: 'closed',
+                state_reason: 'completed'
+              });
+            }
+            core.info('已关闭 ' + found.data.items.length + ' 条恢复正常的链接 issue');

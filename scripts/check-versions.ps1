@@ -42,6 +42,20 @@ function Get-NormalizedVersion([string]$s) {
     return ([string]$s -replace '^[^\d]+', '').Trim()
 }
 
+# 判断一个 tag 是不是「稳定版」。
+# 为什么要按版本号后缀判断而不是只看 GitHub 的 prerelease 标记：
+# 有些项目（如 dsh-desktop）把 2.0.22-next 这类预发布按正式版发布，
+# prerelease=false，/releases/latest 也会返回它。拿稳定版去和它比，
+# 每周都会误报「落后」。
+function Test-StableTag([string]$tag) {
+    if (-not $tag) { return $false }
+    $v = Get-NormalizedVersion $tag
+    if (-not $v) { return $false }
+    # 2.0.22-next / 1.0.0-rc.1 / 3.1.0-beta.2 都是预发布。
+    # 要求版本号里至少有一个点，避免把 2024-01-01 这种日期 tag 误判成预发布。
+    return -not ($v -match '^\d+(?:\.\d+)+-[0-9A-Za-z]')
+}
+
 # 从单个 URL 里提取"钉住的版本"：返回 @{ kind='tag'|'file'; raw=... } 或 $null
 function Get-PinnedVersion([string]$url) {
     if (-not $url) { return $null }
@@ -72,18 +86,32 @@ foreach ($a in @($cfg.apps)) {
     $tagPrefix = [string]$a.versionTagPrefix   # 见 MAINTAINER：如 cline 桌面版 = desktop-v
 
     # 上游 latest tag（一次/app，不按 variant 重复查）
+    # 只和稳定版比；如果上游只发预发布，标记 PRE 而不是 DRIFT。
     $latestRaw = $null
+    $onlyPre = $false
     try {
         if ($tagPrefix) {
             $rels = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases?per_page=100" `
                 -Headers $Headers -TimeoutSec $TimeoutSec
-            $tags = @(@($rels) | ForEach-Object { [string]$_.tag_name } | Where-Object { $_ -like "$tagPrefix*" })
-            if ($tags.Count -eq 0) { throw "仓库 $repo 下没有 $tagPrefix* 前缀的 release" }
-            $latestRaw = $tags[0]   # releases 接口按发布时间倒序，取第一个即最新
+            $cand = @(@($rels) | Where-Object { -not $_.draft } | ForEach-Object { [string]$_.tag_name } | Where-Object { $_ -like "$tagPrefix*" })
+            if ($cand.Count -eq 0) { throw "仓库 $repo 下没有 $tagPrefix* 前缀的 release" }
+            # releases 接口按发布时间倒序，取第一个匹配的稳定版
+            $stable = @($cand | Where-Object { Test-StableTag $_ })
+            if ($stable.Count -gt 0) { $latestRaw = $stable[0] }
+            else { $latestRaw = $cand[0]; $onlyPre = $true }
         } else {
             $rel = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases/latest" `
                 -Headers $Headers -TimeoutSec $TimeoutSec
             $latestRaw = [string]$rel.tag_name
+            if (-not (Test-StableTag $latestRaw)) {
+                # latest 本身是预发布：回退到 release 列表里找最新的稳定版
+                $rels = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases?per_page=30" `
+                    -Headers $Headers -TimeoutSec $TimeoutSec
+                $stable = @(@($rels) | Where-Object { -not $_.draft -and -not $_.prerelease } |
+                    ForEach-Object { [string]$_.tag_name } | Where-Object { Test-StableTag $_ })
+                if ($stable.Count -gt 0) { $latestRaw = $stable[0] }
+                else { $onlyPre = $true }
+            }
         }
     } catch {
         $apiFailures++
@@ -112,6 +140,12 @@ foreach ($a in @($cfg.apps)) {
         continue
     }
 
+    # 上游只有预发布（如 v2.0.22-next），不能拿稳定版去比，按「不适用」处理
+    if ($onlyPre) {
+        [void]$results.Add([pscustomobject]@{ app = $a.id; repo = $repo; status = 'PRE'; pinned = ($pinned.Keys -join ', '); latest = $latestRaw })
+        continue
+    }
+
     $drift = @($pinned.Keys | Where-Object { $_ -ne $latest })
     if ($drift.Count -gt 0) {
         [void]$results.Add([pscustomobject]@{ app = $a.id; repo = $repo; status = 'DRIFT'; pinned = ($drift -join ', '); latest = $latestRaw })
@@ -124,6 +158,7 @@ foreach ($a in @($cfg.apps)) {
 $ok      = @($results | Where-Object status -eq 'OK')
 $drifts  = @($results | Where-Object status -eq 'DRIFT')
 $autos   = @($results | Where-Object status -in 'AUTO','NO_VERSION')
+$pres    = @($results | Where-Object status -eq 'PRE')
 $fails   = @($results | Where-Object status -eq 'API_FAIL')
 
 Write-Host ''
@@ -135,7 +170,7 @@ Write-Host ''
 $lines = New-Object System.Collections.ArrayList
 [void]$lines.Add('版本新鲜度检查报告')
 [void]$lines.Add('生成时间：' + (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'))
-[void]$lines.Add('GitHub 应用：' + $results.Count + '   最新：' + $ok.Count + '   落后：' + $drifts.Count + '   自动跟随：' + $autos.Count + '   API 失败：' + $fails.Count)
+[void]$lines.Add('GitHub 应用：' + $results.Count + '   最新：' + $ok.Count + '   落后：' + $drifts.Count + '   仅预发布：' + $pres.Count + '   自动跟随：' + $autos.Count + '   API 失败：' + $fails.Count)
 [void]$lines.Add('')
 
 foreach ($r in $results) {
@@ -149,6 +184,7 @@ foreach ($r in $results) {
             [void]$lines.Add('  若仓库 latest 指向别的产品线（如 cline 的 v4.x 是 VS Code 扩展，桌面版是 desktop-v 前缀），在该条目加 "versionTagPrefix": "desktop-v"')
             [void]$lines.Add('')
         }
+        'PRE'        { Write-Host ('  PRE   ' + $r.app + '  (上游只有预发布 ' + $r.latest + '，不按落后处理)') -ForegroundColor DarkGray }
         'AUTO'       { Write-Host ('  AUTO  ' + $r.app + '  (latest 直链，自动跟随)') -ForegroundColor DarkGray }
         'NO_VERSION' { Write-Host ('  ?     ' + $r.app + '  (URL 里提不出版本号，无法比对)') -ForegroundColor Yellow }
         'API_FAIL'   { Write-Host ('  ???   ' + $r.app + '  (' + $r.repo + ' 查询失败，网络问题)') -ForegroundColor Yellow }
@@ -157,7 +193,7 @@ foreach ($r in $results) {
 
 [System.IO.File]::WriteAllLines($ReportPath, $lines, (New-Object System.Text.UTF8Encoding($false)))
 Write-Host ''
-Write-Host ('  最新 ' + $ok.Count + '  /  落后 ' + $drifts.Count + '  /  自动跟随 ' + $autos.Count + '  /  API 失败 ' + $fails.Count) -ForegroundColor Cyan
+Write-Host ('  最新 ' + $ok.Count + '  /  落后 ' + $drifts.Count + '  /  仅预发布 ' + $pres.Count + '  /  自动跟随 ' + $autos.Count + '  /  API 失败 ' + $fails.Count) -ForegroundColor Cyan
 Write-Host ('  报告已写入 ' + $ReportPath) -ForegroundColor Gray
 Write-Host ''
 

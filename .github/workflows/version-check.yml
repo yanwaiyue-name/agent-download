@@ -19,16 +19,20 @@ jobs:
   version-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Check pinned versions against upstream
         shell: pwsh
         id: versions
-        # 有落后版本不应让 job 变红（报告照常上传），用 outcome 触发下面的 issue
+        # 有落后版本不应让 job 变红（报告照常上传），用退出码触发下面的 issue
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./scripts/check-versions.ps1
+        # 退出码：0 全部最新 / 1 有落后 / 2 上游 API 查询失败。
+        # 必须落到 outputs 里，才能区分「真落后」和「网络失败」。
+        run: |
+          ./scripts/check-versions.ps1
+          "code=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
 
       - name: Upload report
         if: always()
@@ -39,7 +43,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Open issue when versions drifted
-        if: steps.versions.outcome == 'failure'
+        if: steps.versions.outputs.code == '1'
         uses: actions/github-script@v7
         with:
           script: |
@@ -74,3 +78,28 @@ jobs:
               });
               core.info('已新建 issue');
             }
+
+      - name: Close issue when everything is fresh
+        if: steps.versions.outputs.code == '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = 'New upstream versions available';
+            const q = 'repo:' + context.repo.owner + '/' + context.repo.repo + ' is:issue is:open in:title "' + title + '"';
+            const found = await github.rest.search.issuesAndPullRequests({ q });
+            for (const item of found.data.items) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: item.number,
+                body: '本次检查所有钉住的版本都已是最新（或上游只剩预发布），自动关闭。'
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: item.number,
+                state: 'closed',
+                state_reason: 'completed'
+              });
+            }
+            core.info('已关闭 ' + found.data.items.length + ' 条恢复正常的版本 issue');

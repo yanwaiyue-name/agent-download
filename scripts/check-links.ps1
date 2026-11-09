@@ -9,12 +9,14 @@
       pwsh -File .\scripts\check-links.ps1 -Proxy http://127.0.0.1:7897 -ProxyFirst
 
     升级内容（吸收 airport-nav 引擎经验）：
-      1. HEAD 优先，不支持 HEAD（400/405/501）时退回 GET；200/206 存活，404/410 确认失效。
+      1. HEAD 优先，不支持 HEAD（400/405/501）时退回 GET。判定口径：
+         200–399 存活；404/410 确认失效；其余 4xx/5xx（401/403/429/5xx）
+         归入「被拦截 / 限流」——反爬和源站故障不能当成死链。
       2. 单轮失败自动重试（-Retry 次，默认 2）。
       3. -Proxy 指定代理；-ProxyFirst 时代理做主口径（境外链接多，更快），否则代理仅作复核。
       4. 确认失效（404/410）用 r.jina.ai 异地复核：异地能取回则降为不可达，避免误杀。
       5. 覆盖 web/npm/pip 类应用：无直链也检查其官方 page 落地页。
-    退出码：0 = 全部存活或仅不可达；1 = 存在确认失效。
+    退出码：0 = 无确认失效（存活 / 被拦截 / 不可达都算 0）；1 = 存在确认失效（404/410）。
 #>
 [CmdletBinding()]
 param(
@@ -103,7 +105,11 @@ function Test-UrlParallel {
 
         $code = $res.Code
         $status = 'UNREACHABLE'
-        if ($code -gt 0) { $status = if ($code -ge 200 -and $code -lt 400) { 'ALIVE' } else { 'DEAD' } }
+        if ($code -gt 0) {
+            if ($code -ge 200 -and $code -lt 400) { $status = 'ALIVE' }
+            elseif (@(404,410) -contains $code) { $status = 'DEAD' }
+            else { $status = 'BLOCKED' }
+        }
 
         # 异地复核（只对确认 404/410）
         if ($status -eq 'DEAD' -and @(404,410) -contains $code) {
@@ -216,7 +222,11 @@ if ($isPS7) {
             }
             if (-not $res) { $res = $last }
             if ($res) { $code = $res.Code }
-            if ($code -gt 0) { $status = if ($code -ge 200 -and $code -lt 400) { 'ALIVE' } else { 'DEAD' } }
+            if ($code -gt 0) {
+                if ($code -ge 200 -and $code -lt 400) { $status = 'ALIVE' }
+                elseif (@(404,410) -contains $code) { $status = 'DEAD' }
+                else { $status = 'BLOCKED' }
+            }
             if ($status -eq 'DEAD' -and @(404,410) -contains $code) {
                 if (Get-RV -Url $T.url) { $status = 'UNREACHABLE' }
             }
@@ -236,12 +246,14 @@ if ($isPS7) {
 
 $alive = @($results | Where-Object { $_.status -eq 'ALIVE' })
 $dead  = @($results | Where-Object { $_.status -eq 'DEAD' })
+$blocked = @($results | Where-Object { $_.status -eq 'BLOCKED' })
 $unreach = @($results | Where-Object { $_.status -eq 'UNREACHABLE' })
 
-foreach ($r in (@($alive) + @($dead) + @($unreach))) {
+foreach ($r in (@($alive) + @($dead) + @($blocked) + @($unreach))) {
     switch ($r.status) {
         'ALIVE' { Write-Host ('  200  ' + $r.app + ' / ' + $r.kind + ' / ' + $r.arch) -ForegroundColor Green }
         'DEAD'  { $upHint2 = ''; if ($r.upstream) { $upHint2 = '  [上游最新: ' + $r.upstream + ']' }; Write-Host (('  ' + $r.code + '  ' + $r.app + ' / ' + $r.kind + ' / ' + $r.arch + $upHint2)) -ForegroundColor Red }
+        'BLOCKED' { Write-Host ('  ' + $r.code + '  ' + $r.app + ' / ' + $r.kind + ' / ' + $r.arch + '  （被拦截 / 限流，不是死链）') -ForegroundColor DarkYellow }
         default { Write-Host ('  ???  ' + $r.app + ' / ' + $r.kind + ' / ' + $r.arch + '  （网络不可达）') -ForegroundColor Yellow }
     }
 }
@@ -293,11 +305,16 @@ $dead = @($deadWithUpstream)
 $lines = New-Object System.Collections.ArrayList
 [void]$lines.Add('直链 + 落地页健康检查报告')
 [void]$lines.Add('生成时间：' + (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'))
-[void]$lines.Add(('总计：' + $targets.Count + '   存活：' + $alive.Count + '   失效：' + $dead.Count + '   不可达：' + $unreach.Count))
+[void]$lines.Add(('总计：' + $targets.Count + '   存活：' + $alive.Count + '   失效：' + $dead.Count + '   被拦截：' + $blocked.Count + '   不可达：' + $unreach.Count))
 [void]$lines.Add('')
 if ($dead.Count -gt 0) {
     [void]$lines.Add('=== 确认失效（需更新）===')
     foreach ($r in $dead) { $upHint = ''; if ($r.upstream) { $upHint = '   [上游最新: ' + $r.upstream + ']' }; [void]$lines.Add(('  ' + $r.code + '  ' + $r.app + '  ' + $r.kind + '  ' + $r.arch + '  ' + $r.format + '  ' + $r.url + $upHint)) }
+    [void]$lines.Add('')
+}
+if ($blocked.Count -gt 0) {
+    [void]$lines.Add('=== 被拦截 / 限流（401/403/429/5xx，不是死链，通常无需处理）===')
+    foreach ($r in $blocked) { [void]$lines.Add(('  ' + $r.code + '  ' + $r.app + '  ' + $r.kind + '  ' + $r.arch + '  ' + $r.format + '  ' + $r.url)) }
     [void]$lines.Add('')
 }
 if ($unreach.Count -gt 0) {
@@ -308,7 +325,7 @@ if ($unreach.Count -gt 0) {
 [System.IO.File]::WriteAllLines($ReportPath, $lines, (New-Object System.Text.UTF8Encoding($false)))
 
 Write-Host ''
-Write-Host ('  存活 ' + $alive.Count + '  /  失效 ' + $dead.Count + '  /  不可达 ' + $unreach.Count) -ForegroundColor Cyan
+Write-Host ('  存活 ' + $alive.Count + '  /  失效 ' + $dead.Count + '  /  被拦截 ' + $blocked.Count + '  /  不可达 ' + $unreach.Count) -ForegroundColor Cyan
 Write-Host ('  报告已写入 ' + $ReportPath) -ForegroundColor Gray
 Write-Host ''
 
