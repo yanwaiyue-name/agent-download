@@ -1,6 +1,6 @@
 {
-  "version": "4.4.1",
-  "updated": "2026-11-04",
+  "version": "4.4.2",
+  "updated": "2026-11-10",
   "mirrors": [
     "https://gh-proxy.com/",
     "https://ghfast.top/",
@@ -264,41 +264,41 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "Cherry-Studio-2.1.8-win-x64-setup.exe",
-          "size": "297.1 MB",
+          "file": "Cherry-Studio-2.1.10-win-x64-setup.exe",
+          "size": "288.8 MB",
           "assetPattern": "win-x64-setup\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-x64-setup.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.10-win-x64-setup.exe"
           ]
         },
         {
           "arch": "x64",
           "format": "portable",
-          "file": "Cherry-Studio-2.1.8-win-x64-portable.exe",
-          "size": "296.7 MB",
+          "file": "Cherry-Studio-2.1.10-win-x64-portable.exe",
+          "size": "288.4 MB",
           "assetPattern": "win-x64-portable\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-x64-portable.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.10-win-x64-portable.exe"
           ]
         },
         {
           "arch": "arm64",
           "format": "setup",
-          "file": "Cherry-Studio-2.1.8-win-arm64-setup.exe",
-          "size": "275.9 MB",
+          "file": "Cherry-Studio-2.1.10-win-arm64-setup.exe",
+          "size": "268.9 MB",
           "assetPattern": "win-arm64-setup\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-arm64-setup.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.10-win-arm64-setup.exe"
           ]
         },
         {
           "arch": "arm64",
           "format": "portable",
-          "file": "Cherry-Studio-2.1.8-win-arm64-portable.exe",
-          "size": "275.5 MB",
+          "file": "Cherry-Studio-2.1.10-win-arm64-portable.exe",
+          "size": "268.5 MB",
           "assetPattern": "win-arm64-portable\\.exe$",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-win-arm64-portable.exe"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.10-win-arm64-portable.exe"
           ]
         }
       ],
@@ -306,19 +306,19 @@
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "Cherry-Studio-2.1.8-mac-arm64.dmg",
-          "size": "301.5 MB",
+          "file": "Cherry-Studio-2.1.10-mac-arm64.dmg",
+          "size": "288.6 MB",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-mac-arm64.dmg"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.10-mac-arm64.dmg"
           ]
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "Cherry-Studio-2.1.8-mac-x64.dmg",
-          "size": "324.2 MB",
+          "file": "Cherry-Studio-2.1.10-mac-x64.dmg",
+          "size": "311.6 MB",
           "urls": [
-            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.8-mac-x64.dmg"
+            "https://github.com/CherryHQ/cherry-studio/releases/latest/download/Cherry-Studio-2.1.10-mac-x64.dmg"
           ]
         }
       ],
@@ -342,11 +342,11 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "LobeHub-2.2.20-setup.exe",
-          "size": "145.5 MB",
+          "file": "LobeHub-2.3.2-setup.exe",
+          "size": "148.0 MB",
           "assetPattern": "-setup\\.exe$",
           "urls": [
-            "https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.2.20-setup.exe"
+            "https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.3.2-setup.exe"
           ]
         }
       ],
@@ -354,19 +354,19 @@
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "LobeHub-2.2.20-arm64.dmg",
-          "size": "157.1 MB",
+          "file": "LobeHub-2.3.2-arm64.dmg",
+          "size": "159.5 MB",
           "urls": [
-            "https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.2.20-arm64.dmg"
+            "https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.3.2-arm64.dmg"
           ]
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "LobeHub-2.2.20-x64.dmg",
-          "size": "161.7 MB",
+          "file": "LobeHub-2.3.2-x64.dmg",
+          "size": "164.2 MB",
           "urls": [
-            "https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.2.20-x64.dmg"
+            "https://github.com/lobehub/lobehub/releases/latest/download/LobeHub-2.3.2-x64.dmg"
           ]
         }
       ],
@@ -390,58 +390,58 @@
         {
           "arch": "x64",
           "format": "msi",
-          "file": "CC-Switch-v4.0.21-Windows.msi",
-          "size": "17.4 MB",
+          "file": "CC-Switch-v4.0.28-Windows.msi",
+          "size": "18.8 MB",
           "assetPattern": "-Windows\\.msi$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows.msi"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-Windows.msi"
           ],
-          "sha256": "16e9904023720abba117dd16aa11d020aa7e9546ac08bb7c6eab610e78e95ab3"
+          "sha256": "21d1fa306ce7fcccf67661fc6f654644f772d0d2e0408b4bbf7b2b35efca454a"
         },
         {
           "arch": "x64",
           "format": "zip",
-          "file": "CC-Switch-v4.0.21-Windows-Portable.zip",
-          "size": "17.3 MB",
+          "file": "CC-Switch-v4.0.28-Windows-Portable.zip",
+          "size": "18.9 MB",
           "assetPattern": "-Windows-Portable\\.zip$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-Portable.zip"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-Windows-Portable.zip"
           ],
-          "sha256": "6291de97f030e965fabd361418c349f5c0b390e46d55b5fa806cf967f5201a38"
+          "sha256": "c690bc6ef1bc0bce62db50d8d089abf50eaa0c98f18765016b920f3c14b0c770"
         },
         {
           "arch": "arm64",
           "format": "msi",
-          "file": "CC-Switch-v4.0.21-Windows-arm64.msi",
-          "size": "16.7 MB",
+          "file": "CC-Switch-v4.0.28-Windows-arm64.msi",
+          "size": "18.1 MB",
           "assetPattern": "Windows-arm64\\.msi$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-arm64.msi"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-Windows-arm64.msi"
           ],
-          "sha256": "6e595c26c3189eaf4f9b1a4352e0ba49178061e57f89da2b14cf03ab20da81c8"
+          "sha256": "4d95a4636ac07ca4f6f16e1a2ca43730df82211da44c9ff79311d9c54e8cc3bd"
         },
         {
           "arch": "arm64",
           "format": "zip",
-          "file": "CC-Switch-v4.0.21-Windows-arm64-Portable.zip",
-          "size": "16.5 MB",
+          "file": "CC-Switch-v4.0.28-Windows-arm64-Portable.zip",
+          "size": "17.9 MB",
           "assetPattern": "Windows-arm64-Portable\\.zip$",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Windows-arm64-Portable.zip"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-Windows-arm64-Portable.zip"
           ],
-          "sha256": "3ebde12cc321e27bcf4e0783a419ea46900bb99cb69990b0c9768549b17d83b7"
+          "sha256": "cce4ea4e311acb3cebce31c84c188f3b85b9c5413e2dee1c9d011db3487615f8"
         }
       ],
       "mac": [
         {
           "arch": "any",
           "format": "dmg",
-          "file": "CC-Switch-v4.0.21-macOS.dmg",
-          "size": "35.1 MB",
+          "file": "CC-Switch-v4.0.28-macOS.dmg",
+          "size": "38.3 MB",
           "urls": [
-            "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-macOS.dmg"
+            "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-macOS.dmg"
           ],
-          "sha256": "504a64f9c858927c08e6d86301f0ecc638e8650202d39945694fcd64d8d1973b"
+          "sha256": "311b956704a6b8482844d4290a636d5f24731281a201d0960966292df49df879"
         }
       ],
       "page": "https://ccswitch.io",
@@ -465,23 +465,23 @@
           "arch": "x64",
           "format": "portable",
           "file": "magpie-windows-amd64.exe",
-          "size": "77.3 MB",
+          "size": "82.1 MB",
           "assetPattern": "windows-amd64\\.exe$",
           "urls": [
-            "https://github.com/yetone/magpie-releases/releases/download/v0.1.2953/magpie-windows-amd64.exe"
+            "https://github.com/yetone/magpie-releases/releases/download/v0.1.3438/magpie-windows-amd64.exe"
           ],
-          "sha256": "78350066e358df6cd8accb7c950fb1d0c49db68745b2470277d729fc80567cd1"
+          "sha256": "9c65ed0a1a33a34e37015f7684e1c08aa8517ae19a6b018695fb4ac5f07472d6"
         },
         {
           "arch": "arm64",
           "format": "portable",
           "file": "magpie-windows-arm64.exe",
-          "size": "70.7 MB",
+          "size": "75.3 MB",
           "assetPattern": "windows-arm64\\.exe$",
           "urls": [
-            "https://github.com/yetone/magpie-releases/releases/download/v0.1.2953/magpie-windows-arm64.exe"
+            "https://github.com/yetone/magpie-releases/releases/download/v0.1.3438/magpie-windows-arm64.exe"
           ],
-          "sha256": "5d9f57a77e6494bc5bc7e378cd536e3ccbbf077468ca28be75fed6e24d4910eb"
+          "sha256": "ee2ae4085a7999d2e3b57b28ab0e380084afb68d617c0d31d0f9b56069c99b6e"
         }
       ],
       "mac": [
@@ -489,23 +489,23 @@
           "arch": "x64",
           "format": "dmg",
           "file": "magpie-darwin-amd64.dmg",
-          "size": "36.4 MB",
+          "size": "38.3 MB",
           "assetPattern": "darwin-amd64\\.dmg$",
           "urls": [
-            "https://github.com/yetone/magpie-releases/releases/download/v0.1.2953/magpie-darwin-amd64.dmg"
+            "https://github.com/yetone/magpie-releases/releases/download/v0.1.3438/magpie-darwin-amd64.dmg"
           ],
-          "sha256": "9d6557e2fd2b0e67ca0f9c6cf4ea1d528c7218dfc34f7aebdeb15307b17b4647"
+          "sha256": "bdee9096c8a2cede8401e5d471ce6484c6d39a24123e23fc9de21ac083cb46d7"
         },
         {
           "arch": "arm64",
           "format": "dmg",
           "file": "magpie-darwin-arm64.dmg",
-          "size": "33.2 MB",
+          "size": "35.0 MB",
           "assetPattern": "darwin-arm64\\.dmg$",
           "urls": [
-            "https://github.com/yetone/magpie-releases/releases/download/v0.1.2953/magpie-darwin-arm64.dmg"
+            "https://github.com/yetone/magpie-releases/releases/download/v0.1.3438/magpie-darwin-arm64.dmg"
           ],
-          "sha256": "1b5e99c001fdc3c65681cc96f7c52f2a9653204deba80881e303a982e31a10cc"
+          "sha256": "060ddee319c509ef897f0376579b3def17227bd6dcce929ad1b56e4d2977784e"
         }
       ],
       "page": "https://usemagpie.ai",
@@ -615,35 +615,35 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "CC.GUI_1.1.8_x64-setup.exe",
-          "size": "15.1 MB",
+          "file": "CC.GUI_1.2.2_x64-setup.exe",
+          "size": "17.5 MB",
           "assetPattern": "_x64-setup\\.exe$",
           "urls": [
-            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/CC.GUI_1.1.8_x64-setup.exe"
+            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.2.2/CC.GUI_1.2.2_x64-setup.exe"
           ],
-          "sha256": "6f8d23adbf97226a39bc9ccbcdb30171ef54b8bd4b8f3ca9d2d56f1fd301ef9d"
+          "sha256": "87d0fcb603995be4b257b390d22af4cc6f8124bdf6987313776be93bbec8b768"
         }
       ],
       "mac": [
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "ccgui_1.1.8_aarch64.dmg",
-          "size": "19.1 MB",
+          "file": "ccgui_1.2.2_aarch64.dmg",
+          "size": "21.7 MB",
           "urls": [
-            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/ccgui_1.1.8_aarch64.dmg"
+            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.2.2/ccgui_1.2.2_aarch64.dmg"
           ],
-          "sha256": "32b00a9295ad4f1ebf3c48d07f6354fedf73fee6e530712dc31d5fa4754b7bfc"
+          "sha256": "d2d1ee69c7d815772ec79f9cff9e00f8f40bc790e2802281810287e775ddac37"
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "ccgui_1.1.8_x86_64.dmg",
-          "size": "19.2 MB",
+          "file": "ccgui_1.2.2_x86_64.dmg",
+          "size": "21.9 MB",
           "urls": [
-            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.1.8/ccgui_1.1.8_x86_64.dmg"
+            "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases/download/v1.2.2/ccgui_1.2.2_x86_64.dmg"
           ],
-          "sha256": "372335cb1603b831c79c9707c590979fe287010ece5b57901a1044e6a41f64e4"
+          "sha256": "10bcd2252a25f3d7d269298bbbfb70bd6ad0611a774ebb80b88786cb10448b56"
         }
       ],
       "page": "https://github.com/zhukunpenglinyutong/desktop-cc-gui/releases",
@@ -1060,20 +1060,20 @@
           "size": "14.5 MB",
           "assetPattern": "^uv-x86_64-pc-windows-msvc\\.zip$",
           "urls": [
-            "https://github.com/astral-sh/uv/releases/download/0.13.6/uv-x86_64-pc-windows-msvc.zip"
+            "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip"
           ],
-          "sha256": "a2a8820d5eea32f08ef467ef3b7f66883a9b076d5737a2fc2fbb5f458d1bb50f"
+          "sha256": "0cdc5b38fe5a8168ed6a25814f5ba43c21d313dd3187314fccb37b7cec46e021"
         },
         {
           "arch": "arm64",
           "format": "zip",
           "file": "uv-aarch64-pc-windows-msvc.zip",
-          "size": "14.7 MB",
+          "size": "14.8 MB",
           "assetPattern": "^uv-aarch64-pc-windows-msvc\\.zip$",
           "urls": [
-            "https://github.com/astral-sh/uv/releases/download/0.13.6/uv-aarch64-pc-windows-msvc.zip"
+            "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-aarch64-pc-windows-msvc.zip"
           ],
-          "sha256": "c2426c0c8e28b53d8c440e47a18d96ad4db51e159866c0e81435b196d7f0081c"
+          "sha256": "505d9e65e7692bac3ddf98c66754aa26c5050c409c184af30a881a0a72cc85e3"
         }
       ],
       "mac": [],
@@ -1283,21 +1283,21 @@
           "arch": "x64",
           "format": "zip",
           "file": "claude-win32-x64.zip",
-          "size": "128.4 MB",
+          "size": "151.0 MB",
           "urls": [
-            "https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-win32-x64.zip"
+            "https://github.com/anthropics/claude-code/releases/download/v2.1.319/claude-win32-x64.zip"
           ],
-          "sha256": "91da0973a98d82485359895d43c22f924002ff9247d7204b137b7d4a0ab7a623"
+          "sha256": "a95b3b296c1cc871894290a21dcca17ce50ea1d13915bccd3faeac534c0b1f4e"
         },
         {
           "arch": "arm64",
           "format": "zip",
           "file": "claude-win32-arm64.zip",
-          "size": "123.1 MB",
+          "size": "144.7 MB",
           "urls": [
-            "https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-win32-arm64.zip"
+            "https://github.com/anthropics/claude-code/releases/download/v2.1.319/claude-win32-arm64.zip"
           ],
-          "sha256": "89e59fbfb0e27566c9ac1b5228b59a7153fdca8e06326019cf5edc103e8633dd"
+          "sha256": "ba68c22df90bc7d7d21a41130c29592d8319fe1efc71238529367650843ea625"
         }
       ],
       "mac": [
@@ -1305,21 +1305,21 @@
           "arch": "arm64",
           "format": "zip",
           "file": "claude-darwin-arm64.tar.gz",
-          "size": "115.1 MB",
+          "size": "137.5 MB",
           "urls": [
-            "https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-darwin-arm64.tar.gz"
+            "https://github.com/anthropics/claude-code/releases/download/v2.1.319/claude-darwin-arm64.tar.gz"
           ],
-          "sha256": "b5ff41139e79b6ffdabe4df93c09ee628b1306a78be6459139fd7c7f175c85ac"
+          "sha256": "7ae10919ce40346befabe3c18da4d5ccc860201b6785b3ae726d8961472d0e5d"
         },
         {
           "arch": "x64",
           "format": "zip",
           "file": "claude-darwin-x64.tar.gz",
-          "size": "120.7 MB",
+          "size": "144.6 MB",
           "urls": [
-            "https://github.com/anthropics/claude-code/releases/download/v2.1.312/claude-darwin-x64.tar.gz"
+            "https://github.com/anthropics/claude-code/releases/download/v2.1.319/claude-darwin-x64.tar.gz"
           ],
-          "sha256": "f4378cda8b6c256e36da75b8571971bbfc54f02901855d5c15fae16255e17188"
+          "sha256": "e8c5ff7094a30964808485dd31eddfe954ee4f6dc5ac9aed4a35caed3598a4ef"
         }
       ],
       "page": "https://github.com/anthropics/claude-code/releases",
@@ -1345,9 +1345,9 @@
           "file": "gemini-darwin-arm64-unsigned.zip",
           "size": "34.9 MB",
           "urls": [
-            "https://github.com/google-gemini/gemini-cli/releases/download/v0.66.0/gemini-darwin-arm64-unsigned.zip"
+            "https://github.com/google-gemini/gemini-cli/releases/download/v0.67.0/gemini-darwin-arm64-unsigned.zip"
           ],
-          "sha256": "be630414c968ad623a01ec4241aa258d2502c93889fad26b9502800a067f748f"
+          "sha256": "2c27238fab3ba28dfe0639a77c0f9dd74aa72e1adfe2e1fbf4d50ec033367bb8"
         },
         {
           "arch": "x64",
@@ -1355,9 +1355,9 @@
           "file": "gemini-darwin-x64-unsigned.zip",
           "size": "36.3 MB",
           "urls": [
-            "https://github.com/google-gemini/gemini-cli/releases/download/v0.66.0/gemini-darwin-x64-unsigned.zip"
+            "https://github.com/google-gemini/gemini-cli/releases/download/v0.67.0/gemini-darwin-x64-unsigned.zip"
           ],
-          "sha256": "bb98f88ac36db6e798b2fcf68bb7ebed514ec5847beebf95f237ddbf17acdfc5"
+          "sha256": "02238a01863a041d666134bbf042400cedba97bea017e2cd371ea3beaee483f6"
         }
       ],
       "page": "https://github.com/google-gemini/gemini-cli",
@@ -1487,21 +1487,21 @@
           "arch": "x64",
           "format": "zip",
           "file": "pi-windows-x64.zip",
-          "size": "43 MB",
+          "size": "59.0 MB",
           "urls": [
-            "https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-windows-x64.zip"
+            "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-windows-x64.zip"
           ],
-          "sha256": "0f7256ea8bdac3af20012b94fdc1252a31cc6dc0d2f9b9eb539555d22e3e321b"
+          "sha256": "12d58a70e80b16ba9f764950b7a42bdeb07959495c0db68396cf2988c0b71af3"
         },
         {
           "arch": "arm64",
           "format": "zip",
           "file": "pi-windows-arm64.zip",
-          "size": "41.7 MB",
+          "size": "53.9 MB",
           "urls": [
-            "https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-windows-arm64.zip"
+            "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-windows-arm64.zip"
           ],
-          "sha256": "17ab17ee0e9088545c7dfa56d29490c45bd915425610b0db0cd937632f2df714"
+          "sha256": "9843e4241b6935a85d49b704562cdcb6fdc78a8ec643410f32b3876a87414283"
         }
       ],
       "mac": [
@@ -1509,21 +1509,21 @@
           "arch": "arm64",
           "format": "zip",
           "file": "pi-darwin-arm64.tar.gz",
-          "size": "29.7 MB",
+          "size": "45.8 MB",
           "urls": [
-            "https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-darwin-arm64.tar.gz"
+            "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-darwin-arm64.tar.gz"
           ],
-          "sha256": "79d9979d76a2a5adb7c28e27e9b44629928ccd0dc9fbb6ae7217860bd5e8be5d"
+          "sha256": "a9bf0d82d58d2a7d337f4ae4171b5fc9ebffe42509527a831364c4b65adf2cdf"
         },
         {
           "arch": "x64",
           "format": "zip",
           "file": "pi-darwin-x64.tar.gz",
-          "size": "32 MB",
+          "size": "48.2 MB",
           "urls": [
-            "https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-darwin-x64.tar.gz"
+            "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-darwin-x64.tar.gz"
           ],
-          "sha256": "1bdefc9e1074c1de458ea9f2e43e6013ce49cd05326009b3de144037036585e2"
+          "sha256": "f41b26cd9a1754abe259e05a421fb33b00936779cb0783c893a6389d1bd2ee0d"
         }
       ],
       "page": "https://github.com/earendil-works/pi",
@@ -1614,9 +1614,9 @@
           "arch": "x64",
           "format": "setup",
           "file": "Goose-win32-x64-setup.exe",
-          "size": "131.3 MB",
+          "size": "131.2 MB",
           "urls": [
-            "https://github.com/aaif-goose/goose/releases/download/v1.56.0/Goose-win32-x64-setup.exe"
+            "https://github.com/aaif-goose/goose/releases/download/v1.57.0/Goose-win32-x64-setup.exe"
           ]
         }
       ],
@@ -1625,18 +1625,18 @@
           "arch": "arm64",
           "format": "zip",
           "file": "Goose-darwin-arm64.zip",
-          "size": "174.3 MB",
+          "size": "174.0 MB",
           "urls": [
-            "https://github.com/aaif-goose/goose/releases/download/v1.56.0/Goose-darwin-arm64.zip"
+            "https://github.com/aaif-goose/goose/releases/download/v1.57.0/Goose-darwin-arm64.zip"
           ]
         },
         {
           "arch": "x64",
           "format": "zip",
           "file": "Goose-darwin-x64.zip",
-          "size": "183.7 MB",
+          "size": "183.4 MB",
           "urls": [
-            "https://github.com/aaif-goose/goose/releases/download/v1.56.0/Goose-darwin-x64.zip"
+            "https://github.com/aaif-goose/goose/releases/download/v1.57.0/Goose-darwin-x64.zip"
           ]
         }
       ],
@@ -1659,10 +1659,10 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "OpenHands-Agent-Canvas-Setup-1.34.0.exe",
-          "size": "135.4 MB",
+          "file": "OpenHands-Agent-Canvas-Setup-1.37.0.exe",
+          "size": "138.1 MB",
           "urls": [
-            "https://github.com/OpenHands/OpenHands/releases/download/v1.34.0/OpenHands-Agent-Canvas-Setup-1.34.0.exe"
+            "https://github.com/OpenHands/OpenHands/releases/download/v1.37.0/OpenHands-Agent-Canvas-Setup-1.37.0.exe"
           ]
         }
       ],
@@ -1806,21 +1806,21 @@
         {
           "arch": "x64",
           "format": "setup",
-          "file": "Motrix-Setup-2.1.0.exe",
-          "size": "127.4 MB",
+          "file": "Motrix-Setup-2.4.1.exe",
+          "size": "127.1 MB",
           "assetPattern": "^Motrix-Setup-[\\d\\.]+\\.exe$",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-Setup-2.1.0.exe"
+            "https://github.com/agalwood/Motrix/releases/download/v2.4.1/Motrix-Setup-2.4.1.exe"
           ]
         },
         {
           "arch": "arm64",
           "format": "setup",
-          "file": "Motrix-Setup-2.1.0-arm64.exe",
-          "size": "121.6 MB",
+          "file": "Motrix-Setup-2.4.1-arm64.exe",
+          "size": "121.5 MB",
           "assetPattern": "^Motrix-Setup-[\\d\\.]+-arm64\\.exe$",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-Setup-2.1.0-arm64.exe"
+            "https://github.com/agalwood/Motrix/releases/download/v2.4.1/Motrix-Setup-2.4.1-arm64.exe"
           ]
         }
       ],
@@ -1828,19 +1828,19 @@
         {
           "arch": "arm64",
           "format": "dmg",
-          "file": "Motrix-2.1.0-arm64.dmg",
-          "size": "130.8 MB",
+          "file": "Motrix-2.4.1-arm64.dmg",
+          "size": "132.4 MB",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-2.1.0-arm64.dmg"
+            "https://github.com/agalwood/Motrix/releases/download/v2.4.1/Motrix-2.4.1-arm64.dmg"
           ]
         },
         {
           "arch": "x64",
           "format": "dmg",
-          "file": "Motrix-2.1.0-x64.dmg",
-          "size": "137.8 MB",
+          "file": "Motrix-2.4.1-x64.dmg",
+          "size": "139.2 MB",
           "urls": [
-            "https://github.com/agalwood/Motrix/releases/download/v2.1.0/Motrix-2.1.0-x64.dmg"
+            "https://github.com/agalwood/Motrix/releases/download/v2.4.1/Motrix-2.4.1-x64.dmg"
           ]
         }
       ],
