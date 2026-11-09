@@ -468,9 +468,8 @@
           "size": "82.1 MB",
           "assetPattern": "windows-amd64\\.exe$",
           "urls": [
-            "https://github.com/yetone/magpie-releases/releases/download/v0.1.3438/magpie-windows-amd64.exe"
-          ],
-          "sha256": "9c65ed0a1a33a34e37015f7684e1c08aa8517ae19a6b018695fb4ac5f07472d6"
+            "https://github.com/yetone/magpie-releases/releases/latest/download/magpie-windows-amd64.exe"
+          ]
         },
         {
           "arch": "arm64",
@@ -479,9 +478,8 @@
           "size": "75.3 MB",
           "assetPattern": "windows-arm64\\.exe$",
           "urls": [
-            "https://github.com/yetone/magpie-releases/releases/download/v0.1.3438/magpie-windows-arm64.exe"
-          ],
-          "sha256": "ee2ae4085a7999d2e3b57b28ab0e380084afb68d617c0d31d0f9b56069c99b6e"
+            "https://github.com/yetone/magpie-releases/releases/latest/download/magpie-windows-arm64.exe"
+          ]
         }
       ],
       "mac": [
@@ -492,9 +490,8 @@
           "size": "38.3 MB",
           "assetPattern": "darwin-amd64\\.dmg$",
           "urls": [
-            "https://github.com/yetone/magpie-releases/releases/download/v0.1.3438/magpie-darwin-amd64.dmg"
-          ],
-          "sha256": "bdee9096c8a2cede8401e5d471ce6484c6d39a24123e23fc9de21ac083cb46d7"
+            "https://github.com/yetone/magpie-releases/releases/latest/download/magpie-darwin-amd64.dmg"
+          ]
         },
         {
           "arch": "arm64",
@@ -503,9 +500,8 @@
           "size": "35.0 MB",
           "assetPattern": "darwin-arm64\\.dmg$",
           "urls": [
-            "https://github.com/yetone/magpie-releases/releases/download/v0.1.3438/magpie-darwin-arm64.dmg"
-          ],
-          "sha256": "060ddee319c509ef897f0376579b3def17227bd6dcce929ad1b56e4d2977784e"
+            "https://github.com/yetone/magpie-releases/releases/latest/download/magpie-darwin-arm64.dmg"
+          ]
         }
       ],
       "page": "https://usemagpie.ai",

@@ -421,7 +421,10 @@ function Get-Installer($app, $variant, [switch]$Batch) {
 
     # 2) 组装候选地址
     $cands = New-Object System.Collections.ArrayList
-    if ($app.github) {
+    # 有固定哈希时不能用「最新 release」：像 claude-win32-x64.zip 这种文件名不带版本的资产，
+    # 上游一发新版就会解析到新文件，和旧哈希对不上，安装器会当成投毒把文件删掉。
+    # 这种情况下只走 sources.json 里钉死的直链，保证文件和哈希是同一版。
+    if ($app.github -and -not $variant.sha256) {
         $gh = Resolve-GitHubAsset $app.github $variant.assetPattern
         # API 解析出的资产名和本地目标名不一致时不用它：否则新版内容会被存成
         # 旧版文件名（如 v4.0.19 存成 v4.0.18），日志和校验清单里的名字会骗人。

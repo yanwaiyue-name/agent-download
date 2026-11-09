@@ -181,7 +181,7 @@ Do not invent variants the vendor never published — it only produces 404s.
 | Hermes stub is 7.6 MB | Same — a bootstrapper that fetches the runtime |
 | No code signing | Windows SmartScreen will warn. Expected |
 | macOS dmgs ship separately | The Windows launcher does not read them |
-| Some assets have no official hash | 46 of 97 assets are pinned in `sources.json`. Pinned ones are verified after download and mismatches deleted; unpinned ones are only reported. Run `scripts/update-hashes.ps1` to pin more. |
+| Some assets have no official hash | 42 of 97 assets are pinned in `sources.json`. Pinned ones are verified after download and mismatches deleted; unpinned ones are only reported. Run `scripts/update-hashes.ps1` to pin more. |
 
 ---
 

@@ -23,9 +23,16 @@
 | OpenHands | 1.34.0 | 1.37.0 |
 | Motrix | 2.1.0 | 2.4.1 |
 
+### 修复
+- **有哈希时不再解析「最新 release」**：像 `claude-win32-x64.zip` 这种文件名不带版本的资产，
+  上游一发新版就会解析到新文件，和 `sources.json` 里的旧哈希对不上，安装器会把它当成投毒删掉。
+  现在只要该条目有 `sha256`，就只走钉死的直链。
+- **magpie 改为自动跟随**：它一天发好几个版本，钉版本+哈希不现实。条目改走
+  `releases/latest/download/`，不再记录哈希，版本体检按 AUTO 处理。
+
 ### 说明
 - 41 条新直链逐条 HEAD 验证，全部返回 200。
-- 哈希优先取上游官方清单（magpie / uv / Claude Code / Pi 的 `SHA256SUMS`）；
+- 哈希优先取上游官方清单（uv / Claude Code / Pi 的 `SHA256SUMS`）；
   CC Switch / Desktop CC GUI / Gemini CLI 上游没有校验清单，下载后本地计算。
 - 由于 `check-versions.ps1` 现在只和稳定版比较，本次同步后版本体检应归零，
   对应的 GitHub Issue 会在下一次检查通过时自动关闭。
